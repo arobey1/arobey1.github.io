@@ -46,11 +46,46 @@
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Alex Robey</li><li><a class="u-email" href="mailto:arobey1@seas.upenn.edu">arobey1@seas.upenn.edu</a></li></ul>
+          <li class="p-name">Alex Robey</li>
+          <li>
+            <a class="u-email" href="mailto:arobey1@seas.upenn.edu">arobey1@seas.upenn.edu</a>
+          </li>
+          <li>3401 Walnut Street, Room 467C</li>
+          <li>Philadelphia, PA 19104</li>
+        </ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
-</div>
+      <!-- Link of social media -->
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          <li> <!-- GitHub links -->
+            <a href="https://github.com/{{ site.github_username }}">
+              <span class="icon icon--github">{% include icon-github.svg %}</span>
+              <span style="padding: 0 0.05em"></span>
+              <span class="username">&nbsp;{{ site.github_username }}</span>
+            </a>
+          </li>
+          <li> <!-- Twitter links -->
+            <a href="https://twitter.com/{{ site.twitter_username }}">
+              <span class="icon icon--twitter">{% include icon-twitter.svg %}</span>
+              <span>&#8202;</span>
+              <span class="username">{{ site.twitter_username }}</span>
+            </a>
+          </li>
+          <li> <!-- LinkedIn links -->
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+              <span class="svg-icon icon--linkedin">{% include icon-linkedin.svg %}</span>
+              <span class="username">{{ site.linkedin_username }}</span>
+            </a>
+          </li>
+          <li> <!-- Google Scholar links -->
+            <a href="https://scholar.google.com/{{ site.google_scholar_link }}">
+              <span class="svg-icon icon--google-scholar">{% include icon-googlescholar.svg %}</span>
+              {% comment %} <span class="username">{{ site.linkedin_username }}</span> {% endcomment %}
+            </a>
+          </li>
+        </ul>
+      </div>
 
       <div class="footer-col footer-col-3">
         <p>{{site.description}}</p>
