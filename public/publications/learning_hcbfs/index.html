@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Alex Robey ">
+<meta name="description" content="Abstract. Motivated by the lack of systematic tools to obtain safe control laws for hybrid systems, we propose an optimization-based framework for learning certifiably safe control laws from data. In particular, we assume a setting in which the system dynamics are known and in which data exhibiting safe system behavior is available. We propose hybrid control barrier functions for hybrid systems as a means to synthesize safe control inputs. Based on this notion, we present an optimization-based framework to learn such hybrid control barrier functions from data." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://example.com/publications/learning_hcbfs/" />
+
+
+    <title>
+        
+            Learning Robust Hybrid Control Barrier Functions from Data :: Alex Robey 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://example.com/main.17863a81d979b637a02cd7632a4d86e9d80563ef460fd6af1a56962efcaa066b.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://example.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://example.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://example.com/favicon-16x16.png">
+    <link rel="manifest" href="https://example.com/site.webmanifest">
+    <link rel="mask-icon" href="https://example.com/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://example.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+    <meta name="theme-color" content="">
+
+
+
+<meta itemprop="name" content="Learning Robust Hybrid Control Barrier Functions from Data">
+<meta itemprop="description" content="Abstract. Motivated by the lack of systematic tools to obtain safe control laws for hybrid systems, we propose an optimization-based framework for learning certifiably safe control laws from data. In particular, we assume a setting in which the system dynamics are known and in which data exhibiting safe system behavior is available. We propose hybrid control barrier functions for hybrid systems as a means to synthesize safe control inputs. Based on this notion, we present an optimization-based framework to learn such hybrid control barrier functions from data."><meta itemprop="datePublished" content="2020-10-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-11-28T09:56:24-05:00" />
+<meta itemprop="wordCount" content="131"><meta itemprop="image" content="https://example.com"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com"/>
+
+<meta name="twitter:title" content="Learning Robust Hybrid Control Barrier Functions from Data"/>
+<meta name="twitter:description" content="Abstract. Motivated by the lack of systematic tools to obtain safe control laws for hybrid systems, we propose an optimization-based framework for learning certifiably safe control laws from data. In particular, we assume a setting in which the system dynamics are known and in which data exhibiting safe system behavior is available. We propose hybrid control barrier functions for hybrid systems as a means to synthesize safe control inputs. Based on this notion, we present an optimization-based framework to learn such hybrid control barrier functions from data."/>
+
+
+
+
+    <meta property="og:title" content="Learning Robust Hybrid Control Barrier Functions from Data" />
+<meta property="og:description" content="Abstract. Motivated by the lack of systematic tools to obtain safe control laws for hybrid systems, we propose an optimization-based framework for learning certifiably safe control laws from data. In particular, we assume a setting in which the system dynamics are known and in which data exhibiting safe system behavior is available. We propose hybrid control barrier functions for hybrid systems as a means to synthesize safe control inputs. Based on this notion, we present an optimization-based framework to learn such hybrid control barrier functions from data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/publications/learning_hcbfs/" /><meta property="og:image" content="https://example.com"/><meta property="article:section" content="publications" />
+<meta property="article:published_time" content="2020-10-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-11-28T09:56:24-05:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-10-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://example.com/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Alex Robey</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://example.com/about/">About</a></li><li><a href="https://example.com/cv/">CV</a></li><li><a href="https://example.com/posts/">Posts</a></li><li><a href="https://example.com/publications/">Publications</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://example.com/publications/learning_hcbfs/">Learning Robust Hybrid Control Barrier Functions from Data</a></h2>
+
+            
+            
+            
+
+            <div class="post-content">
+                <p><strong>Abstract.</strong> Motivated by the lack of systematic tools to obtain safe control laws for hybrid systems, we propose an optimization-based framework for learning certifiably safe control laws from data. In particular, we assume a setting in which the system dynamics are known and in which data exhibiting safe system behavior is available. We propose hybrid control barrier functions for hybrid systems as a means to synthesize safe control inputs. Based on this notion, we present an optimization-based framework to learn such hybrid control barrier functions from data. Importantly, we identify sufficient conditions on the data such that feasibility of the optimization problem ensures correctness of the learned hybrid control barrier functions, and hence the safety of the system. We illustrate our findings in two simulations studies, including a compass gait walker.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+			    <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg><a href="https://github.com/arobey12b7c6fcffbc0ca8fe04233eff2ba06e804f44969" target="_blank" rel="noopener">2b7c6fc</a> @ 2021-11-28</p>
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            <span><a href="https://example.com">Alex Robey</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://example.com/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>
