@@ -1,4 +1,4 @@
-baseURL = "https://arobey1.github.io/docs"
+baseURL = "https://arobey1.github.io/"
 title   = "Alex Robey"
 languageCode = "en-us"
 theme = "hugo-theme-hello-friend-ng"
@@ -17,7 +17,7 @@ archetypeDir = "archetypes"
 contentDir   = "content"
 dataDir      = "data"
 layoutDir    = "layouts"
-publishDir   = "public"
+publishDir   = "docs"
 
 buildDrafts  = false
 buildFuture  = false
