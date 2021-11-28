@@ -1,4 +1,4 @@
-baseURL = "http://arobey1.github.io"
+baseURL = "https://arobey1.github.io/"
 title   = "Alex Robey"
 languageCode = "en-us"
 theme = "hugo-theme-hello-friend-ng"
