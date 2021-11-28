@@ -1,7 +1,7 @@
 baseURL = "https://example.com"
-title   = "Alex Robey"
+title   = "Hello Friend NG"
 languageCode = "en-us"
-theme = "hugo-theme-hello-friend-ng"
+theme = "hello-friend-ng"
 
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
@@ -25,7 +25,7 @@ buildExpired = false
 canonifyURLs = true
 
 enableRobotsTXT = true
-enableGitInfo   = true
+enableGitInfo   = false
 enableEmoji     = true
 enableMissingTranslationPlaceholders = false
 disableRSS     = false
@@ -37,7 +37,7 @@ disableHugoGeneratorInject = false
   posts = "/posts/:year/:month/:title/"
 
 [author]
-  name = "Alex Robey"
+  name = "Jane Doe"
 
 [blackfriday]
   hrefTargetBlank = true
@@ -61,15 +61,14 @@ disableHugoGeneratorInject = false
 
   # Home subtitle of the index page.
   #
-  homeSubtitle = "PhD Student @ Penn"
-  homeEmail = "arobey1(at)seas(dot)upenn(dot)edu"
+  homeSubtitle = "Hello Friend NG"
 
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   #
-  gitUrl = "https://github.com/arobey1"
+  # gitUrl = ""
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   #
@@ -81,7 +80,7 @@ disableHugoGeneratorInject = false
   # Per default, this option is off. 
   # The theme is respecting the prefers-color-scheme of the operating systeme. 
   # With this option on, the page user is able to set the scheme he wants. 
-  enableThemeToggle = true
+  enableThemeToggle = false
 
   # Sharing buttons
   #
@@ -95,7 +94,7 @@ disableHugoGeneratorInject = false
   #
   # Enables the global language menu.
   #
-  enableGlobalLanguageMenu = false
+  enableGlobalLanguageMenu = true
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
   # linking local files with their path relative to the static folder, e.g. "css/styles.css"
@@ -109,6 +108,7 @@ disableHugoGeneratorInject = false
 
   # Custom footer 
   # If you want, you can easily override the default footer with your own content. 
+  #
   [params.footer]
     trademark = true
     rss = true
@@ -117,11 +117,12 @@ disableHugoGeneratorInject = false
 
     topText = []
     bottomText = [
-      # "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
-      # "Made with &#10084; by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+      "Made with &#10084; by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
     ]
 
   # Colors for favicons
+  #
   [params.favicon.color]
     mask = "#1b1c1d"
     msapplication = "#1b1c1d"
@@ -129,10 +130,10 @@ disableHugoGeneratorInject = false
 
   [params.logo]
     logoMark     = ">"
-    logoText     = "Alex Robey"
+    logoText     = "$ cd /home/"
     logoHomeLink = "/"
     # Set true to remove the logo cursor entirely.
-    logoCursorDisabled = true
+    # logoCursorDisabled = false
     # Set to a valid CSS color to change the cursor in the logo.
     # logoCursorColor    = "#67a2c9"
     # Set to a valid CSS time value to change the animation duration, "0s" to disable.
@@ -149,36 +150,43 @@ disableHugoGeneratorInject = false
   # [params.commento]
   #   url = ""
 
-  [params.portrait]
-    path     = "headshot.PNG"
-    alt      = "Portrait"
-    maxWidth = "150px"
+  # Uncomment this if you want a portrait on your start page
+  #
+  # [params.portrait]
+  #   path     = "/img/image.jpg"
+  #   alt      = "Portrait"
+  #   maxWidth = "50px"
 
   # Social icons
   [[params.social]]
     name = "twitter"
-    url  = "https://twitter.com/alexrobey23"
+    url  = "https://twitter.com/"
 
   [[params.social]]
     name = "email"
-    url  = "mailto:arobey1@seas.upenn.edu"
+    url  = "mailto:nobody@example.com"
 
   [[params.social]]
     name = "github"
-    url  = "https://github.com/arobey1"
+    url  = "https://github.com/"
 
   [[params.social]]
     name = "linkedin"
-    url  = "https://www.linkedin.com/in/alexrobey/"
+    url  = "https://www.linkedin.com/"
 
   [[params.social]]
-    name = "googlescholar"
-    url  = "https://scholar.google.com/citations?user=V5NWZc8AAAAJ&hl=en"
+    name = "stackoverflow"
+    url  = "https://www.stackoverflow.com/"
 
 [languages]
   [languages.en]
-    subtitle  = "" # Appears in tab
+    subtitle  = "Hello Friend NG Theme"
     weight    = 1
+    copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+
+  [languages.fr]
+    subtitle  = "Hello Friend NG Theme"
+    weight    = 2
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
 [menu]
@@ -190,11 +198,3 @@ disableHugoGeneratorInject = false
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
-  [[menu.main]]
-    identifier = "cv.md"
-    name       = "CV"
-    url        = "cv/"
-  [[menu.main]]
-    identifier = "publications"
-    name       = "Publications"
-    url        = "publications/"
