@@ -150,7 +150,7 @@ disableHugoGeneratorInject = false
   #   url = ""
 
   [params.portrait]
-    path     = "headshot.PNG"
+    path     = "headshot.png"
     alt      = "Portrait"
     maxWidth = "150px"
 
