@@ -13,7 +13,7 @@ mathjax: true
 
 ---
 
-## Summary
+<!-- ## Summary
 
 In this paper, we revisit the classicial problem of training a classifier to be robust against imperceptible perturbations of data.  In a litany of past work, researchers have shown that such perturbations can cause state-of-the-art classifiers to misclassify data with high confidence.  Indeed, this problem has received a somewhat staggering amount of attention over the last few years, in part because it reveals a fundamental discrepancy between how deep neural networks and humans learn.
 
@@ -54,4 +54,4 @@ This particualr choice of perturbation set is appealing because it allows an adv
 
 Just as in the non-adversarial setting, we can again formulate the problem of 
 
-$$\min_\theta \mathbb{E}_{(x,y)} \left[ \max_{\delta\in\Delta} \ell(f_\theta(x+\delta),y) \right]$$
+$$\min_\theta \mathbb{E}_{(x,y)} \left[ \max_{\delta\in\Delta} \ell(f_\theta(x+\delta),y) \right]$$ -->
