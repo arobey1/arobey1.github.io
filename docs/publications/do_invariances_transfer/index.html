@@ -7,7 +7,7 @@
 <meta name="author"
     content="Alex Robey ">
 <meta name="description"
-    content="" />
+    content="Abstract. To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&amp;rsquo;s class. Many problems have ``class-agnostic&#39;&#39; nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones?" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://arobey1.github.io/publications/do_invariances_transfer/" />
@@ -47,14 +47,14 @@
     <meta name="theme-color" content="">
 
 <meta itemprop="name" content="Do deep networks transfer invariances across classes?">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-01-20T00:00:00+00:00" />
+<meta itemprop="description" content="Abstract. To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&rsquo;s class. Many problems have ``class-agnostic&#39;&#39; nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones?"><meta itemprop="datePublished" content="2022-01-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-01-20T22:07:28-05:00" />
-<meta itemprop="wordCount" content="0"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="wordCount" content="182"><meta itemprop="image" content="https://arobey1.github.io/"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arobey1.github.io/"/>
 
 <meta name="twitter:title" content="Do deep networks transfer invariances across classes?"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Abstract. To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&rsquo;s class. Many problems have ``class-agnostic&#39;&#39; nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones?"/>
 
 
 
@@ -137,7 +137,7 @@ MathJax.Hub.Config({
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>0 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
 
             
 
@@ -151,7 +151,8 @@ MathJax.Hub.Config({
             
 
             <div class="post-content">
-                
+                <p><strong>Abstract.</strong> To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&rsquo;s class.  Many problems have ``class-agnostic'' nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones? Through careful experimentation, we observe that invariance to class-agnostic transformations is still heavily dependent on class size, with the networks being much less invariant on smaller classes. This result holds even when using data balancing techniques, and suggests poor invariance transfer across classes. Our results provide one explanation for why classifiers generalize poorly on unbalanced and long-tailed distributions. Based on this analysis, we show how a generative model approach for learning the nuisance transformations can help transfer invariances across classes and improve performance on a set of imbalanced image classification benchmarks.</p>
+
                 
             </div>
         </article>
@@ -160,7 +161,7 @@ MathJax.Hub.Config({
 
         <div class="post-info">
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>0 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>182 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2022-01-19 19:00</p>
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg><a href="https://github.com/arobey1b45f396f5b744e9d17bf2fafccb3ec7519e7444e" target="_blank" rel="noopener">b45f396</a> @ 2022-01-20</p>
@@ -174,6 +175,13 @@ MathJax.Hub.Config({
                 </div>
 
                 <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://arobey1.github.io/publications/prob_robust_learning/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Probabilistically Robust Learning: Balancing Average- and Worst-case Performance</span>
+                            </a>
+                        </span>
                     
 
                     

@@ -7,14 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 20 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probabilistically Robust Learning: Balancing Average- and Worst-case Performance</title>
+      <link>https://arobey1.github.io/publications/prob_robust_learning/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/prob_robust_learning/</guid>
+      <description>Abstract. Many of the successes of machine learning are based on minimizing an averaged loss function. However, it is well-known that this paradigm suffers from robustness issues that hinder its applicability in safety-critical domains. These issues are often addressed by training against worst-case perturbations of data, a technique known as adversarial training. Although empirically effective, adversarial training can be overly conservative, leading to unfavorable trade-offs between nominal performance and robustness. To this end, in this paper we propose a framework called \emph{probabilistic robustness} that bridges the gap between the accurate, yet brittle average case and the robust, yet conservative worst case by enforcing robustness to most rather than to all perturbations.</description>
+    </item>
+    
     <item>
       <title>Do deep networks transfer invariances across classes?</title>
       <link>https://arobey1.github.io/publications/do_invariances_transfer/</link>
       <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/publications/do_invariances_transfer/</guid>
-      <description></description>
+      <description>Abstract. To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&amp;rsquo;s class. Many problems have ``class-agnostic&#39;&#39; nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones?</description>
     </item>
     
     <item>
@@ -88,15 +97,6 @@ In particular, my recent work has focused on making modern tools from deep learn
       
       <guid>https://arobey1.github.io/publications/learning_rhcbfs/</guid>
       <description>Abstract. The need for robust control laws is especially important in safety-critical applications. We propose robust hybrid control barrier functions as a means to synthesize control laws that ensure robust safety. Based on this notion, we formulate an optimization problem for learning robust hybrid control barrier functions from data. We identify sufficient conditions on the data such that feasibility of the optimization problem ensures correctness of the learned robust hybrid control barrier functions.</description>
-    </item>
-    
-    <item>
-      <title>Optimal Algorithms for Submodular Maximization with Distributed Constraints</title>
-      <link>https://arobey1.github.io/publications/submodular/</link>
-      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/submodular/</guid>
-      <description>Abstract. We consider a class of discrete optimization problems that aim to maximize a submodular objective function subject to a distributed partition matroid constraint. More precisely, we consider a networked scenario in which multiple agents choose actions from local strategy sets with the goal of maximizing a submodular objective function defined over the set of all possible actions. Given this distributed setting, we develop Constraint-Distributed Continuous Greedy (CDCG), a message passing algorithm that converges to the tight $(1 − \frac{1}{e})$ approximation factor of the optimum global solution using only local computation and communication.</description>
     </item>
     
   </channel>
