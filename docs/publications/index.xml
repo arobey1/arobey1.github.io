@@ -6,8 +6,19 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks</title>
+            <link>https://arobey1.github.io/publications/chordal_lip_sdp/</link>
+            <pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/publications/chordal_lip_sdp/</guid>
+            <description>Abstract. Lipschitz constants of neural networks allow for guarantees of robustness in image classification, safety in controller design, and generalizability beyond the training data. As calculating Lipschitz constants is NP-hard, techniques for estimating Lipschitz constants must navigate the trade-off between scalability and accuracy. In this work, we significantly push the scalability frontier of a semidefinite programming technique known as LipSDP while achieving zero accuracy loss. We first show that LipSDP has chordal sparsity, which allows us to derive a chordally sparse formulation that we call Chordal-LipSDP.</description>
+            <content type="html"><![CDATA[<p><strong>Abstract.</strong> Lipschitz constants of neural networks allow for guarantees of robustness in image classification, safety in controller design, and generalizability beyond the training data.  As calculating Lipschitz constants is NP-hard, techniques for estimating Lipschitz constants must navigate the trade-off between scalability and accuracy.  In this work, we significantly push the scalability frontier of a semidefinite programming technique known as LipSDP while achieving zero accuracy loss.  We first show that LipSDP has chordal sparsity, which allows us to derive a chordally sparse formulation that we call Chordal-LipSDP.  The key benefit is that the main computational bottleneck of LipSDP, a large semidefinite constraint, is now decomposed into an equivalent collection of smaller ones &mdash; allowing Chordal-LipSDP to outperform LipSDP particularly as the network depth grows.  Moreover, our formulation uses a tunable sparsity parameter that enables one to gain tighter estimates without incurring a significant computational cost.  We illustrate the scalability of our approach through extensive numerical experiments.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Probabilistically Robust Learning: Balancing Average- and Worst-case Performance</title>
