@@ -1,7 +1,7 @@
 ---
 title: "Probabilistically Robust Learning: Balancing Average- and Worst-case Performance"
 authors: "Alexander Robey, Luiz F. O. Chamon, George J. Pappas, Hamed Hassani"
-venue: "Preprint"
+venue: "ICML 2022"
 date: 2022-02-15
 pdf: "https://arxiv.org/pdf/2202.01136.pdf"
 draft: false
