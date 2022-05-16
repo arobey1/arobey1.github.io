@@ -1,6 +1,6 @@
 ---
 title: "Adversarial Robustness with Semi-Infinite Constrained Learning"
-authors: "Alexander Robey, Luiz F. O. Chamon, George J. Pappas, Hamed Hassani, Alejandro Ribeiro"
+authors: "Alexander Robey*, Luiz F. O. Chamon*, George J. Pappas, Hamed Hassani, Alejandro Ribeiro"
 venue: "NeurIPS 2021"
 date: 2021-11-26
 pdf: "https://proceedings.neurips.cc/paper/2021/file/312ecfdfa8b239e076b114498ce21905-Paper.pdf"

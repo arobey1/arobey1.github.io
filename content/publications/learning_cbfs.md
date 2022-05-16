@@ -1,6 +1,6 @@
 ---
 title: "Learning control barrier functions from expert demonstrations"
-authors: "Alexander Robey, Haimin Hu, Lars Lindemann, Hanwen Zhang, Dimos V. Dimarogonas, Stephen Tu, Nikolai Matni"
+authors: "Alexander Robey*, Haimin Hu*, Lars Lindemann, Hanwen Zhang, Dimos V. Dimarogonas, Stephen Tu, Nikolai Matni"
 venue: "CDC 2020"
 date: 2020-12-14
 pdf: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9303785&casa_token=dXOexrPhjFAAAAAA:iP8CcJAudz54yoBQVNmC6BiCjTrLISbeCihP_lgvJASH9tdGlRkyhJEwMBHDb9ylRVzkQPD3HQ&tag"
