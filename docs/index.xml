@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
+      <link>https://arobey1.github.io/publications/model_based_verification/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
+      <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
+    </item>
+    
     <item>
       <title>Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks</title>
       <link>https://arobey1.github.io/publications/chordal_lip_sdp/</link>
@@ -88,15 +97,6 @@ In particular, my recent work has focused on making modern tools from deep learn
       
       <guid>https://arobey1.github.io/publications/stab_imitation_learning/</guid>
       <description>Abstract. We study the following question in the context of imitation learning for continuous control: how are the underlying stability properties of an expert policy reflected in the sample-complexity of an imitation learning task? We provide the first results showing that a surprisingly granular connection can be made between the underlying expert system’s incremental gain stability, a novel measure of robust convergence between pairs of system trajectories, and the dependency on the task horizon $T$ of the resulting generalization bounds.</description>
-    </item>
-    
-    <item>
-      <title>Provable tradeoffs in adversarially robust classification</title>
-      <link>https://arobey1.github.io/publications/adv_provable_tradeoffs/</link>
-      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/adv_provable_tradeoffs/</guid>
-      <description>Abstract. It is well known that machine learning methods can be vulnerable to adversarially-chosen perturbations of their inputs. Despite significant progress in the area, foundational open problems remain. In this paper, we address several key questions. We derive exact and approximate Bayes-optimal robust classifiers for the important setting of two- and three-class Gaussian classification problems with arbitrary imbalance, for $\ell_2$ and $\ell_\infty$ adversaries. In contrast to classical Bayes-optimal classifiers, determining the optimal decisions here cannot be made pointwise and new theoretical approaches are needed.</description>
     </item>
     
   </channel>

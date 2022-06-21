@@ -6,8 +6,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 02 Apr 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
+            <link>https://arobey1.github.io/publications/model_based_verification/</link>
+            <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
+            <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
+            <content type="html"><![CDATA[<p><strong>Abstract.</strong> We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts.  To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model.  A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.
+To address this challenge, we propose a general meta-algorithm for handling sigmoid activations which leverages classical notions of counter-example-guided abstraction refinement. The key idea is to ``lazily'' refine the abstraction of sigmoid functions to exclude spurious counter-examples found in the previous abstraction, thus guaranteeing progress in the verification process while keeping the state-space small. Experiments on the MNIST and CIFAR-10 datasets show that our framework significantly outperforms existing methods on a range of challenging distribution shifts.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks</title>
