@@ -64,6 +64,10 @@ disableHugoGeneratorInject = false
   homeSubtitle = "PhD Student @ Penn"
   homeEmail = "arobey1(at)seas(dot)upenn(dot)edu"
 
+  # Google email
+  googleSubtitle = "Research Intern @ Google"
+  googleEmail = "arobey(at)google(dot)com"
+
   # Set a background for the homepage
   # backgroundImage = "assets/images/background.jpg"
 
