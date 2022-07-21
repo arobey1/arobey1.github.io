@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probable Domain Generalization via Quantile Risk Minimization</title>
+      <link>https://arobey1.github.io/publications/probable_dg/</link>
+      <pubDate>Thu, 21 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/probable_dg/</guid>
+      <description>Abstract. Domain generalization (DG) seeks predictors which perform well on unseen test distributions by leveraging labeled training data from multiple related distributions or domains. To achieve this, the standard formulation optimizes for worst-case performance over the set of all possible domains. However, with worst-case shifts very unlikely in practice, this generally leads to overly-conservative solutions. In fact, a recent study found that no DG algorithm outperformed empirical risk minimization in terms of average performance.</description>
+    </item>
+    
     <item>
       <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
       <link>https://arobey1.github.io/publications/model_based_verification/</link>
@@ -88,15 +97,6 @@ In particular, my recent work has focused on making modern tools from deep learn
       
       <guid>https://arobey1.github.io/publications/learning_rocbfs/</guid>
       <description>Abstract. This paper addresses learning safe control laws from expert demonstrations. We assume that appropriate models of the system dynamics and the output measurement map are available, along with corresponding error bounds. We first propose robust output control barrier functions (ROCBFs) as a means to guarantee safety, as defined through controlled forward invariance of a safe set. We then present an optimization problem to learn ROCBFs from expert demonstrations that exhibit safe system behavior, e.</description>
-    </item>
-    
-    <item>
-      <title>On the Sample Complexity of Stability Constrained Imitation Learning</title>
-      <link>https://arobey1.github.io/publications/stab_imitation_learning/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/stab_imitation_learning/</guid>
-      <description>Abstract. We study the following question in the context of imitation learning for continuous control: how are the underlying stability properties of an expert policy reflected in the sample-complexity of an imitation learning task? We provide the first results showing that a surprisingly granular connection can be made between the underlying expert system’s incremental gain stability, a novel measure of robust convergence between pairs of system trajectories, and the dependency on the task horizon $T$ of the resulting generalization bounds.</description>
     </item>
     
   </channel>

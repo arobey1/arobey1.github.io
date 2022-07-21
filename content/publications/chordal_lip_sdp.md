@@ -1,7 +1,7 @@
 ---
 title: "Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks"
 authors: "Anton Xue, Lars Lindemann, Alexander Robey, Hamed Hassani, George J. Pappas, Rajeev Alur"
-venue: "Preprint"
+venue: "CDC 2022"
 date: 2022-04-02
 pdf: "https://arxiv.org/pdf/2204.00846.pdf"
 draft: false
