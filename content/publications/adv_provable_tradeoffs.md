@@ -1,7 +1,7 @@
 ---
 title: "Provable tradeoffs in adversarially robust classification"
 authors: "Edgar Dobriban, Hamed Hassani, David Hong, Alexander Robey"
-venue: "Transactions on Information Theory"
+venue: "IEEE Transactions on Information Theory"
 date: 2021-07-22
 pdf: "https://arxiv.org/pdf/2006.05161.pdf"
 draft: false
