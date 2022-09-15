@@ -1,7 +1,7 @@
 ---
 title: "Efficient and Accurate Estimation of Lipschitz Constants for Deep Neural Networks"
 authors: "Mahyar Fazlyab, Alexander Robey, Hamed Hassani, Manfred Morari, George J. Pappas"
-venue: "Neurips 2019"
+venue: "NeurIPS 2019"
 date: 2019-12-08
 pdf: "https://proceedings.neurips.cc/paper/2019/file/95e1533eb1b20a97777749fb94fdb944-Paper.pdf"
 draft: false

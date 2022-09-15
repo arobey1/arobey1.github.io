@@ -1,8 +1,8 @@
 ---
 title: "Probable Domain Generalization via Quantile Risk Minimization"
 authors: "Cian Eastwood*, Alexander Robey*, Shashank Singh, Julius von Kügelgen, Hamed Hassani, George J. Pappas, Bernhard Schölkopf"
-venue: "Preprint"
-date: 2022-07-21
+venue: "NeurIPS 2022"
+date: 2022-09-15
 pdf: "https://arxiv.org/pdf/2207.09944.pdf"
 draft: false
 github: "#"

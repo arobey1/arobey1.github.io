@@ -2,7 +2,7 @@
 title: "On the Sample Complexity of Stability Constrained Imitation Learning"
 authors: "Stephen Tu, Alexander Robey, Tingnan Zhang, and Nikolai Matni"
 venue: "L4DC 2022"
-date: 2021-08-06
+date: 2022-06-23
 pdf: "https://proceedings.mlr.press/v168/tu22a/tu22a.pdf"
 draft: false
 github: "#"
