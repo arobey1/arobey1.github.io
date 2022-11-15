@@ -1,8 +1,8 @@
 ---
 title: "Toward Certified Robustness Against Real-World Distribution Shifts"
 authors: "Haoze Wu*, Teruhiro Tagomori*, Alexander Robey*, Fengjun Yang*, Nikolai Matni, George J. Pappas, Hamed Hassani, Corina Pasareanu, Clark Barrett"
-venue: "Preprint"
-date: 2022-06-20
+venue: "IEEE Conference on Secure and Trustworthy Machine Learning"
+date: 2022-10-14
 pdf: "https://arxiv.org/pdf/2206.03669.pdf"
 draft: false
 github: "https://github.com/anwu1219/MUNIT-VNN"

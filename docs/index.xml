@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
+      <link>https://arobey1.github.io/publications/model_based_verification/</link>
+      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
+      <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
+    </item>
+    
     <item>
       <title>Probable Domain Generalization via Quantile Risk Minimization</title>
       <link>https://arobey1.github.io/publications/probable_dg/</link>
@@ -33,15 +42,6 @@
       
       <guid>https://arobey1.github.io/publications/stab_imitation_learning/</guid>
       <description>Abstract. We study the following question in the context of imitation learning for continuous control: how are the underlying stability properties of an expert policy reflected in the sample-complexity of an imitation learning task? We provide the first results showing that a surprisingly granular connection can be made between the underlying expert system’s incremental gain stability, a novel measure of robust convergence between pairs of system trajectories, and the dependency on the task horizon $T$ of the resulting generalization bounds.</description>
-    </item>
-    
-    <item>
-      <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
-      <link>https://arobey1.github.io/publications/model_based_verification/</link>
-      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
-      <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
     </item>
     
     <item>
