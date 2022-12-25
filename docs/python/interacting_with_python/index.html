@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Robey ">
+<meta name="description"
+    content="Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
+Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+ A shell is an interpreter that can execute Python programs and simple Python commands." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://arobey1.github.io/python/interacting_with_python/" />
+
+
+<title>
+    
+    Interacting with Python :: Alex Robey 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<link rel="stylesheet" href="https://arobey1.github.io/main.min.f4c2daf2832ae65007bcc18dc621f49f9f67ef0ef34d55eabd4fd45f6eed4c00.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://arobey1.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://arobey1.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://arobey1.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://arobey1.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://arobey1.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://arobey1.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+    <meta name="theme-color" content="">
+
+<meta itemprop="name" content="Interacting with Python">
+<meta itemprop="description" content="Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.
+Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
+ A shell is an interpreter that can execute Python programs and simple Python commands."><meta itemprop="datePublished" content="2022-12-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-12-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1748"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://arobey1.github.io/"/>
+
+<meta name="twitter:title" content="Interacting with Python"/>
+<meta name="twitter:description" content="Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.
+Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
+ A shell is an interpreter that can execute Python programs and simple Python commands."/>
+
+
+
+
+<meta property="article:published_time" content="2022-12-19 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://arobey1.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Alex Robey</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://arobey1.github.io/about/">About</a></li><li><a href="https://arobey1.github.io/cv/">CV</a></li><li><a href="https://arobey1.github.io/posts/">Posts</a></li><li><a href="https://arobey1.github.io/publications/">Publications</a></li><li><a href="https://arobey1.github.io/python/">Python</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+            
+
+        </span>
+    </span>
+</header>
+
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        9 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://arobey1.github.io/python/interacting_with_python/">Interacting with Python</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h3 id="interacting-with-python">Interacting with Python</h3>
+<p>There are two main ways of interacting with a Python: with a shell and with a script.  Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.</p>
+<h4 id="python-shell">Python shell</h4>
+<p>Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a <strong>shell</strong>.  Never heard of a shell before?  No worries!  Here&rsquo;s a quick definition:</p>
+<blockquote>
+<p>A shell is an interpreter that can execute Python programs and simple Python commands.</p>
+</blockquote>
+<p>To open a shell, open a terminal (not sure what this is? see <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal">this link</a>) and type the word &ldquo;python.&rdquo;  You should see something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python
+Python 3.9.6 <span style="color:#f92672">(</span>default, Jun <span style="color:#ae81ff">29</span> 2021, 06:20:32<span style="color:#f92672">)</span> 
+<span style="color:#f92672">[</span>Clang 12.0.0 <span style="color:#f92672">(</span>clang-1200.0.32.29<span style="color:#f92672">)]</span> on darwin
+Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db74">&#34;copyright&#34;</span>, <span style="color:#e6db74">&#34;credits&#34;</span> or <span style="color:#e6db74">&#34;license&#34;</span> <span style="color:#66d9ef">for</span> more information.
+&gt;&gt;&gt;
+</code></pre></div><p>The three sideways carrots that you see at the bottom of the output are where you can execute Python commands.  Let&rsquo;s try it out!  It&rsquo;s <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">traditional</a> to print the words &ldquo;Hello world!&rdquo; in your console when you first start learning a programming language.  And who are we to break with tradition?  In your console, type the following statement:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</code></pre></div><p>Now hit enter (or return, depending on your keyboard)!  You should see the worlds &ldquo;Hello world!&rdquo; printed out in the console, i.e.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+Hello world<span style="color:#960050;background-color:#1e0010">!</span>
+</code></pre></div><p>Congratulations!  You just executed your first Python expression.  Here&rsquo;s to many more.</p>
+<h4 id="python-scripts">Python scripts</h4>
+<p>The second way to interact with a Python program is through what&rsquo;s known as a <strong>script</strong>.</p>
+<blockquote>
+<p>A Python script is a file containing Python code.</p>
+</blockquote>
+<p>The difference between a shell and a script is as follows.  In the shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.</p>
+<p>For example, try creating a file called my_first_program.py.  How will your computer know that this is a Python file?</p>
+<blockquote>
+<p>All Python programs end with &ldquo;.py&rdquo;.  This tells your operating system that the code your running is written in Python.</p>
+</blockquote>
+<p>So now whenever you see a file ending in .py, you can impress your friends, colleagues, or partner by telling them that you&rsquo;re sure this is a Python script without needing to open the file!</p>
+<p>Next, add the following contents to my_first_program.py:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</code></pre></div><p>Now to run your program, open your terminal, and from the same directory as my_first_program.py, run the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
+</code></pre></div><p>And as before, you should see the following output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
+Hello world!
+</code></pre></div><p>Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I&rsquo;m glad you asked!</p>
+<hr>
+<h3 id="when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</h3>
+<p>All of the code in this set of notes can be executed in the shell and in scripts.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There&rsquo;s a few reasons:</p>
+<ul>
+<li>
+<p><strong>Organization.</strong>  Scripts allow you to easily execute multiple expressions at once, whereas in the shell, expressions need to be executed one by one.  When you have a long program, it becomes much easier to organize your code into interpretable blocks when your statements are broken into one or several scripts.</p>
+</li>
+<li>
+<p><strong>Program state.</strong>  Every time you exit and restart the shell, you lose all of the code that you&rsquo;ve written.  In scripts, you can save your code by saving the file, and then rerun it whenever you want.</p>
+</li>
+</ul>
+<hr>
+<h3 id="print-statements">Print statements</h3>
+<p>Let&rsquo;s talk a little bit more about the commands you executed above.  In both the shell and script programs that we wrote, we ran the command <code>print(&quot;Hello world!)</code>.  This command consists of two parts: a function called <code>print</code> and an argument that we passed to that print statement; namely, &ldquo;Hello world!&rdquo;.</p>
+<blockquote>
+<p>The <code>print</code> function allows a user to print statements to the console.</p>
+</blockquote>
+<p>You&rsquo;ll be using the print statement <em>a lot</em> when writing Python code, so to get you more familiar with it, let&rsquo;s look at a few examples in the Python shell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;I am using the print function&#34;</span>)
+I am using the print function
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#ae81ff">3.1415926</span>)
+<span style="color:#ae81ff">3.1415926</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;23 is a prime number&#34;</span>)
+<span style="color:#ae81ff">23</span> <span style="color:#f92672">is</span> a prime number
+</code></pre></div><hr>
+<h4 id="exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</h4>
+<p>The examples we just went through about using the <code>print</code> function were all executed in the shell.  My question for you: Can you write this program as a script and produce the same output?  I bet you can.  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ print_examples.py
+I am using the print <span style="color:#66d9ef">function</span>
+3.1415926
+<span style="color:#ae81ff">23</span> is a prime number
+</code></pre></div><hr>
+<h4 id="exercise-2-your-first-python-program">Exercise 2 (Your first Python program)</h4>
+<p>These are early days.  You&rsquo;re just getting started on your Python journey.  But guess what!  You&rsquo;re ready to write your first original Python program.  Yes, really!  What will you be doing?  Well, I&rsquo;m glad you asked.  I want you to write a program called print_my_cow.py that prints the following output to the terminal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
+^__^
+<span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+<span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">||</span>----w |
+    <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</code></pre></div><p>If that&rsquo;s too easy for you, why not spruce things up a little bit?  Maybe your cow is a thoughtful cow, and you&rsquo;d like to show her thinking up a funny (albeit heartfelt) witticism.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
+ _________________________
+<span style="color:#f92672">(</span>   I udderly love you!   <span style="color:#f92672">)</span>
+ -------------------------
+        o   ^__^
+         o  <span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+            <span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span><span style="color:#ae81ff"></span>                <span style="color:#f92672">||</span>----w |
+                <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</code></pre></div><p>Feel free to go crazy with this one.  (If you&rsquo;re wondering where I got this idea, have a look at the Linux package <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a>).</p>
+<hr>
+<h3 id="user-supplied-input">User-supplied input</h3>
+<p>Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produces the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?</p>
+<p>For example, let&rsquo;s say I wanted to write a program that takes a number as input and prints out that number incremented by one.  Easy enough!  I could just write the following in the shell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#ae81ff">6</span>
+</code></pre></div><p>But what happens when your favorite number changes from 5 to 941?  Well, you&rsquo;d have to write the whole thing over again.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#ae81ff">942</span>
+</code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number based on your input.</p>
+<p>How should we do this?  Well, hopefully you remember the tips in <a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>; specifically, one of the recommendations was to use scripts whenever you need to run a program multiple times.  So let&rsquo;s try writing a script called increment.py that solves our problem.  Here&rsquo;s the script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>And here&rsquo;s the output it produces</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py
+<span style="color:#ae81ff">942</span>
+</code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And here&rsquo;s where the magic of the <code>input</code> function comes in.</p>
+<blockquote>
+<p>The <strong>input</strong> function allows a user to input data into a program.</p>
+</blockquote>
+<p>Let&rsquo;s see it in action.  Try out the following script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
+print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>Relative to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
+Enter your favorite number: <span style="color:#ae81ff">1995</span>
+<span style="color:#ae81ff">1996</span>
+</code></pre></div><p>And there you have it!  We&rsquo;ve solved our problem.</p>
+<hr>
+<h4 id="exercise-3-using-the-input-function">Exercise 3 (Using the input function)</h4>
+<p>The input function is a powerful friend.  It accepts all kinds of things.  In this exercise, we&rsquo;re going to stretch the limits of what the input function can do.</p>
+<p>For starters, write a program called my_sum.py which accepts not one, but two inputs!  It should prompt the user for two different numbers, and then return their sum.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_sum.py
+Enter your first number: <span style="color:#ae81ff">14</span>
+Enter your second number: <span style="color:#ae81ff">7</span>
+<span style="color:#ae81ff">21</span>
+</code></pre></div><p>Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
+Type a question:
+</code></pre></div><p>I want to self-evaluate a little, so I&rsquo;ll ask myself how I&rsquo;m doing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
+Type a question: How are you doing? 
+</code></pre></div><p>Your program should then ask you the question you typed in.  Here&rsquo;s what it should look like end-to-end:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
+Type a question: How are you doing? 
+How are you doing? I am finding my own happiness.
+</code></pre></div><p>For a bonus point, can you write this script in one line of Python?</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#interacting-with-python">Interacting with Python</a>.  There are two main ways of interacting with Python: shells and scripts.</p>
+<ul>
+<li>
+<p><a href="#python-shell">Python shell</a>.  The Python <strong>shell</strong> is an interpreter that allows you to execute Python commands one by one.</p>
+</li>
+<li>
+<p><a href="#python-scripts">Python scripts</a>.  A Python <strong>script</strong> is a file containing Python code that can be executed from the command line.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>.  The shell is best for executing simple Python commands.  For long and/or more complicated programs, it&rsquo;s often easier to use a script (or multiple scripts) instead of a shell.</p>
+</li>
+<li>
+<p><a href="#print-statements">Print statements</a>.  The <strong>print</strong> function allows you to print output to the console.  This is one of the most used commands in Python.</p>
+</li>
+<li>
+<p><a href="#exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-2-your-first-python-program">Exercise 2: Your first Python program</a></p>
+</li>
+<li>
+<p><a href="#user-supplied-input">User-supplied input</a>.  The <strong>input</strong> function allows a user to input data into a Python program.</p>
+</li>
+<li>
+<p><a href="#exercise-3-using-the-input-function">Exercise 3 (Using the input function)</a></p>
+</li>
+</ul>
+<hr>
+<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.  Looking forward to seeing you there!</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1748 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-12-18 19:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Interacting%20with%20Python&amp;caption=Interacting%20with%20Python&amp;canonicalUrl=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Interacting%20with%20Python&amp;body=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f&amp;media=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f;description=Interacting%20with%20Python" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f&amp;title=Interacting%20with%20Python&amp;summary=Interacting%20with%20Python&amp;source=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f&amp;resubmit=true&amp;title=Interacting%20with%20Python" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f;title=Interacting%20with%20Python" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Interacting%20with%20Python%20https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f&amp;t=Interacting%20with%20Python" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Interacting%20with%20Python&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2finteracting_with_python%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://arobey1.github.io/python/variables_data_types/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Variables, data types, and comparison</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://arobey1.github.io/python/intro/">
+                    <span class="button__text">Introduction to Python</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://arobey1.github.io/">Alex Robey</a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>

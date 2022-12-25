@@ -7,7 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 14 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Math operations</title>
+      <link>https://arobey1.github.io/python/math_operations/</link>
+      <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/math_operations/</guid>
+      <description>Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+ The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
+    </item>
+    
+    <item>
+      <title>Variables, data types, and comparison</title>
+      <link>https://arobey1.github.io/python/variables_data_types/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/variables_data_types/</guid>
+      <description>Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
+ A variable is a container for saving data.
+ A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</description>
+    </item>
+    
+    <item>
+      <title>Interacting with Python</title>
+      <link>https://arobey1.github.io/python/interacting_with_python/</link>
+      <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/interacting_with_python/</guid>
+      <description>Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
+Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+ A shell is an interpreter that can execute Python programs and simple Python commands.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Python</title>
+      <link>https://arobey1.github.io/python/intro/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/intro/</guid>
+      <description>Psst! Hey you. Yes you! You look like you&amp;rsquo;re ready to learn Python. And yes, you&amp;rsquo;re right, I can&amp;rsquo;t see you. But I know you wouldn&amp;rsquo;t be here if you weren&amp;rsquo;t ready to go. So let&amp;rsquo;s do this!
+ What is Python? Python is a programming language that has become ubiquitous in fields such as data science and machine learning. The syntax is relatively simple, and with the right guidance, it&amp;rsquo;s easy to get started!</description>
+    </item>
+    
     <item>
       <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
       <link>https://arobey1.github.io/publications/model_based_verification/</link>
@@ -60,43 +102,6 @@
       
       <guid>https://arobey1.github.io/publications/prob_robust_learning/</guid>
       <description>Abstract. Many of the successes of machine learning are based on minimizing an averaged loss function. However, it is well-known that this paradigm suffers from robustness issues that hinder its applicability in safety-critical domains. These issues are often addressed by training against worst-case perturbations of data, a technique known as adversarial training. Although empirically effective, adversarial training can be overly conservative, leading to unfavorable trade-offs between nominal performance and robustness. To this end, in this paper we propose a framework called \emph{probabilistic robustness} that bridges the gap between the accurate, yet brittle average case and the robust, yet conservative worst case by enforcing robustness to most rather than to all perturbations.</description>
-    </item>
-    
-    <item>
-      <title>Do deep networks transfer invariances across classes?</title>
-      <link>https://arobey1.github.io/publications/do_invariances_transfer/</link>
-      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/do_invariances_transfer/</guid>
-      <description>Abstract. To generalize well, classifiers must learn to be invariant to nuisance transformations that do not alter an input&amp;rsquo;s class. Many problems have ``class-agnostic&#39;&#39; nuisance transformations that apply similarly to all classes, such as lighting and background changes for image classification. Neural networks can learn these invariances given sufficient data, but many real-world datasets are heavily class imbalanced and contain only a few examples for most of the classes. We therefore pose the question: how well do neural networks transfer class-agnostic invariances learned from the large classes to the small ones?</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://arobey1.github.io/about/</link>
-      <pubDate>Sat, 27 Nov 2021 11:47:44 -0500</pubDate>
-      
-      <guid>https://arobey1.github.io/about/</guid>
-      <description>I&amp;rsquo;m interested in the mathematical and algorithmic foundations of robust learning.
-In particular, my recent work has focused on making modern tools from deep learning robust to semantic changes and distributional shifts in data. Over the course of my Ph.D., this topic has allowed me to study ideas from a variety of different fields, including convex optimization, control theory, generative modeling, and high-dimensional statistics.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://arobey1.github.io/cv/</link>
-      <pubDate>Sat, 27 Nov 2021 11:47:44 -0500</pubDate>
-      
-      <guid>https://arobey1.github.io/cv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Adversarial Robustness with Semi-Infinite Constrained Learning</title>
-      <link>https://arobey1.github.io/publications/semi_inf_robust/</link>
-      <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/semi_inf_robust/</guid>
-      <description>Abstract. Despite strong performance in numerous applications, the fragility of deep learning to input perturbations has raised serious questions about its use in safety-critical domains. While adversarial training can mitigate this issue in practice, state-of- the-art methods are increasingly application-dependent, heuristic in nature, and suffer from fundamental trade-offs between nominal performance and robustness. Moreover, the problem of finding worst-case perturbations is non-convex and underparameterized, both of which engender a non-favorable optimization landscape.</description>
     </item>
     
   </channel>

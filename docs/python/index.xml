@@ -1,0 +1,730 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pythons on Alex Robey</title>
+        <link>https://arobey1.github.io/python/</link>
+        <description>Recent content in Pythons on Alex Robey</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 24 Dec 2022 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://arobey1.github.io/python/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Math operations</title>
+            <link>https://arobey1.github.io/python/math_operations/</link>
+            <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/math_operations/</guid>
+            <description>Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+ The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
+            <content type="html"><![CDATA[<p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
+<hr>
+<h3 id="the-basic-operations">The basic operations</h3>
+<p>Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats.  In the previous lesson, we learned all about how to create and compare these data types.  But as you&rsquo;ll see, there is so much more that we can do with Python variables.  In particular, in this lesson, we&rsquo;ll focus on answering the following question: What if we want to do <em>operations</em> on two or more values or variables?  For example, how do we add two variables in Python?</p>
+<p>As we foreshadowed in the first lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="Interacting with Python">interacting with Python</a>, adding two numbers works exactly as you&rsquo;d expect in Python.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+</code></pre></div><p>Similarly, we can subtract, multiply, and divide numbers in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">5.0</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">3.1</span>   <span style="color:#75715e"># subtraction</span>
+<span style="color:#ae81ff">1.9</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>       <span style="color:#75715e"># multiplication</span>
+<span style="color:#ae81ff">21</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>      <span style="color:#75715e"># division</span>
+<span style="color:#ae81ff">2.5</span>
+</code></pre></div><p>Note that this works for both floats and ints.  Hopefully these operations seem relatively intuitive.  One more operation that you should know is exponentiation, i.e. raising one number ot the power of another number.  Exponentiation is performed by writing two asterisks.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># 2 to the power of 2, i.e. 2 squared</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">25</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>       <span style="color:#75715e"># 25 to the power of 0.5, i.e. the square root of 25</span>
+<span style="color:#ae81ff">5.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>         <span style="color:#75715e"># 3 to the power ot -1, i.e. 1/3</span>
+<span style="color:#ae81ff">0.3333333333333333</span>  
+</code></pre></div><p>And that&rsquo;s basically it.  These five operations (and their symbols) &ndash; addition (+), subtraction (-), multiplication (*), division (\), and exponentiation (**) &ndash; will cover a large portion of the math you&rsquo;ll need to do in Python.  There&rsquo;s a lot more to say about these operations, but before we move on, I think a few exercises are in order.</p>
+<hr>
+<h4 id="exercise-1-using-the-basic-operations">Exercise 1 (Using the basic operations)</h4>
+<p>Your first challenge for today is to write a script called moon_weight.py that calculates what you&rsquo;d weigh on the (capital M) Moon.  Objects on the Moon weight about 16.6% of what they&rsquo;d weigh on Earth, so if you weight 200 lbs on Earth, you&rsquo;d weight 33.2 lbs on the Moon.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ moon_weight.py
+This program calculates what you would weigh on the Moon.
+Please enter your weight on the Earth.
+
+Earth weight: <span style="color:#ae81ff">200</span>
+Enter units: lbs
+On the Moon, you would weigh 33.2 lbs
+</code></pre></div><p>If you&rsquo;re feeling ambitious, why not add a few more planets (well, the Moon isn&rsquo;t really a planet I guess, so let&rsquo;s humor the inner poet in each of us and say &ldquo;celestial bodies&rdquo; instead)?  For example, if you were standing on the surface of the Sun (not that I necessarily recommend doing so), you&rsquo;d weigh 2707.2% of what you weight on Earth.  This <a href="http://www.seasky.org/solar-system/planet-weight-calculator.html">website</a> will give you the conversion rates for various other celestial bodies so that you can create output in a new script called celestial_bodies.py that work like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ celestial_bodies.py
+This program calculates what you would weigh on the moon.
+Please enter your weight on the Earth.
+
+Earth weight: <span style="color:#ae81ff">200</span>
+Enter units: lbs
+On the Moon, you would weigh 33.2 lbs
+On the Sun, you would weigh 5414.4 lbs
+On Jupiter, you would weigh 472.8 lbs
+</code></pre></div><p>Hint: In this exercise, you&rsquo;ll want to use Python&rsquo;s <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input">input function</a> as well as <a href="https://arobey1.github.io/python/variables_data_types/#printing-variables-with-f-strings">f-strings</a>.</p>
+<hr>
+<h3 id="interlude-a-break-from-math">Interlude: A break from math</h3>
+<p>This interlude is just for fun.  It doesn&rsquo;t use any math, but it does loosely fit within the confines of the lesson plan today.  Over the course of this lesson, you may have been wondering: What happens when I use the mathematical operations on other kinds of data types, e.g., strings and bools?</p>
+<p>In general, mathematical operations cannot always be applied to strings and bools.  For example, the following lines of code will throw errors:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;What is your favorite number&#34;</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">False</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;I&#39;ll see your bid, and I&#39;ll&#34;</span> <span style="color:#f92672">**</span> <span style="color:#e6db74">&#34;you 5 dollars&#34;</span>
+</code></pre></div><p>However, there are a few cases where mathematical operations can be combined with strings and bools.  Here&rsquo;s an exhaustive list with examples:</p>
+<p>Two (or more) strings can be added together:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;Can &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;I &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;be &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;your &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;neighbor?&#34;</span>
+Can I be your neighbor<span style="color:#960050;background-color:#1e0010">?</span>
+</code></pre></div><p>Strings can be multiplied by integers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;¯\_(ツ)_/¯&#39;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>
+<span style="color:#960050;background-color:#1e0010">¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯</span> 
+</code></pre></div><p>When any of the mathematical operations we&rsquo;ve seen are applied to bools, True is interpreted as 1 and False is interpreted as 0.  Thus:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">False</span>        <span style="color:#75715e"># interpreted as 1 + 0</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">True</span>        <span style="color:#75715e"># interpreted as 0 / 1</span>
+<span style="color:#ae81ff">0.0</span>
+</code></pre></div><p>And that&rsquo;s it!  Now you know all there is to know about combining mathematical operations with strings and bools.</p>
+<hr>
+<h3 id="combining-multiple-operations">Combining multiple operations</h3>
+<p>Almost all of the examples that we&rsquo;ve seen thus far have involved only a single operation.  However, as as you&rsquo;d expect, you can combine as many operations together as you&rsquo;d like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> num_strawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_oranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_tomatoes <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_strawberries <span style="color:#f92672">+</span> num_oranges <span style="color:#f92672">+</span> num_tomatoes
+<span style="color:#ae81ff">15</span>
+</code></pre></div><p>To break up compound mathematical expressions like the one shown above, it&rsquo;s often helpful to insert parenthesis like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (num_strawberries <span style="color:#f92672">+</span> num_oranges) <span style="color:#f92672">+</span> num_tomatoes
+<span style="color:#ae81ff">15</span>
+</code></pre></div><p>One reason we break up expressions like this with parenthesis is to make them more readible.  Above, the parenthesis are used to separate the addition of the number of fruits from the number of vegetables.</p>
+<hr>
+<h4 id="exercise-2-preview-of-the-order-of-operations">Exercise 2 (Preview of the order of operations)</h4>
+<p>This being said, it&rsquo;s important to be careful when combining multiple mathematical operations using parentheses.  Let&rsquo;s illustrate some of the trouble that can arise when we&rsquo;re not careful with how we write compound mathematical expressions.</p>
+<p>Below I&rsquo;ve written two expressions in the Python shell.  What do you think the output will be for each of these expressions?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>)
+</code></pre></div><p>After you&rsquo;ve thought a bit about it, try executing these commands.  Did your expectation align with the output you see?</p>
+<hr>
+<h3 id="the-order-of-operations">The order of operations</h3>
+<p>As the above exercise illustrated, the order in which you write your mathematical operations matters in Python.  To govern which expressions should evaluated first, the order of operations in Python follows a specific set of guidelines known in technical jargon as the <a href="https://docs.python.org/3/reference/expressions.html#operator-precedence">operation precedence rule</a>.  In essence, this precedence rule creates a hierarchy amongst the operations that we met earlier in this lesson.  And without further adieu, here&rsquo;s that hierarchy:</p>
+<ol>
+<li><strong>P</strong>arentheses</li>
+<li><strong>E</strong>xponentiation</li>
+<li><strong>M</strong>ultiplication</li>
+<li><strong>D</strong>ivision</li>
+<li><strong>A</strong>ddition</li>
+<li><strong>S</strong>ubtraction</li>
+</ol>
+<p>Some people like to remember this via the abbreviation PEMDAS,  which I&rsquo;ve indicated by highlighting the first letter of each word in the hierarchy.</p>
+<p>Here&rsquo;s how the hierarchy works.  Let&rsquo;s say I have a long, complicated mathematical expression, e.g.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>How will Python execute this?  Well, according to the hierarchy, it will start the operation highest up on the list; in this case, that means the parentheses.  And importantly, Python will always start with the inner-most set of parentheses, meaning that <code>(3 + 2)</code> will be evaluated first.  Thus, we can imagine that <code>(3 + 2)</code> will be replaced by 5 in the above expression, leaving Python to consider the following simplified formula:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Following this, Python will proceed to look at the remaining set of parenthesis around <code>5 * 10 / 2</code>.  As multiplication comes earlier in the hierarchy than division, Python will first calculate <code>5 * 10</code>, leaving us with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">50</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Next, Python will perform the divion in the parentheses, yielding</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">25</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>As there is only one operation left, Python can now easily return the correct answer: 5.0.  Thus, the expected output of our original command is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+<span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>And at a high level, that&rsquo;s all you need to know about the hierachy of operations in Python.  To get some more practice with this idea, try out the following exercise.</p>
+<hr>
+<h4 id="exercise-3-more-practice-with-the-basic-operations">Exercise 3 (More practice with the basic operations)</h4>
+<p>It&rsquo;s cold today (December 24, 2022).  Like really cold.  In fact, <a href="https://www.poetryfoundation.org/poems/53219/mayakovsky">it may be the coldest day of the year</a>.  And the way I see it, this cold weather gives us the perfect opportunity for a fun little exercise.  Let&rsquo;s use Python to calculate the <em>windchill</em> given the temperature ($T$) in degrees Fahrenheit and wind speed ($W$) in miles per hour.  Windchill is calculated using the following formula:</p>
+<p>$$ \text{windchill} = 35.74 + (0.6215 \cdot T) - 35.75 \cdot W^{0.16} + 0.4275 \cdot T \cdot W^{0.16}$$</p>
+<p>(Please don&rsquo;t ask me where this comes from; I have simply no idea. . .  Ok fine, I looked it up.  Dear reader, if you&rsquo;re interested, feel free to <a href="https://en.wikipedia.org/wiki/Wind_chill#North_American_and_United_Kingdom_wind_chill_index">peruse</a> at your leisure.)</p>
+<p>Your job is to write a script called calc_windchill.py that takes the temperature and wind speed as input, and then prints out the windchill.  Here&rsquo;s what I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python calc_windchill.py
+Enter the temperature <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">20</span>
+Enter the wind speed <span style="color:#f92672">(</span>in miles per hour<span style="color:#f92672">)</span>: <span style="color:#ae81ff">10</span>
+The windchill is: 6.21888526608 degrees Fahrenheit.
+</code></pre></div><p>If you insist on doing this like the rest of the world, fell free to rewrite this script so that it calculates the windchill in degrees Celsius rather than Fahrenheit.</p>
+<hr>
+<h3 id="exercise-4-pretest-data-types-and-mathematical-operations">Exercise 4 (Pretest: data types and mathematical operations)</h3>
+<p>Here&rsquo;s a question for you: What determines the data type that is returned from a mathematical operation in Python?  For instance, in the code snippet from the earlier section on <a href="#the-order-of-operations">the order of operations</a>, why did</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>return 5.0 &ndash; a float &ndash; instead of 5 &ndash; and int?  Before I fill you in, I want you to play around with this idea a little bit.  Try out the following commands, but before you hit enter, try to predict what the data type of the output will be.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">3.1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">6</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Big props to you if you got all of these right!  If not, the next section will explain what&rsquo;s going on.</p>
+<hr>
+<h3 id="a-word-about-data-types">A word about data types</h3>
+<p>When it comes to data types and mathematical expressions, here&rsquo;s a basic rule of thumb to keep in mind: For addition, subtraction, multiplication, and exponentiation, if you put two integers in, you&rsquo;ll get an integer out; if either or both of your inputs are floats, then you&rsquo;ll get a float as output.  Thus, for example, from the previous exercise, we get the following behavior</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2.0</span>
+<span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>I.e., a float is returned because one of the inputs (namely, 2.0) to the addition operation is a float.</p>
+<p>The odd man out here is division.  As opposed to the other operations, when you perform division in Python, you will always get a float as output.  Thus, even though the inputs to</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">25.0</span>
+</code></pre></div><p>are both integers, Python returns the float 25.0.</p>
+<hr>
+<h3 id="converting-between-data-types">Converting between data types</h3>
+<p>In some cases, you may not be satisfied with the data type that is returned by a mathematical expression.  For instance, perhaps you&rsquo;d like the expression</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">25.0</span>
+</code></pre></div><p>to return an integer rather than a float.  Well, as you&rsquo;d imagine, Python has a solution for this.  As I mentioned very briefly in the lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="Interacting with Python">interacting with Python</a>, we can turn a float into an int with the <code>int</code> function.  That is, we can force Python to return an int in the above example in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>)
+<span style="color:#ae81ff">25</span>
+</code></pre></div><p>Note that if the argument to the int function has decimal places, the output will be rounded <em>down</em> to the nearest whole number.  Thus:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">2.3</span>)
+<span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">9.999</span>)
+<span style="color:#ae81ff">9</span>
+</code></pre></div><p>There are similar functions for converting a data type to a float, string, and bool.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> float(<span style="color:#ae81ff">5</span>)
+<span style="color:#ae81ff">5.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> str(<span style="color:#ae81ff">5.6</span>)
+<span style="color:#e6db74">&#39;5.6&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> bool(<span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">True</span>
+</code></pre></div><p>Note that the <code>bool</code> function will only return 0 if the argument passed to it is zero.  For any other input, be it a string, integer, or float, as long as it isn&rsquo;t 0 or 0.0, <code>bool</code> will return True.</p>
+<p>And that will just about do it for this lesson!  Stick around for a quick review and some additional exercises.</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#the-basic-operations">The basic operations</a>.  The following comprise the basic mathematical operations (and their symbols) in Python: addition (+),  subtraction (-), multiplication (*), division (\), and exponentiation (**).</p>
+</li>
+<li>
+<p><a href="#exercise-1-using-the-basic-operations">Exercise 1 (Using the basic operations)</a>.</p>
+</li>
+<li>
+<p><a href="#interlude-a-break-from-math">Interlude: A break from math</a>.  In some cases, mathematical operations can be applied to bools and strings.  In particular, strings can be added together, and strings can be multiplied by integers.  When using any of the operations we&rsquo;ve seen on bools, True is interpreted as 1 and False is interpreted as 0.</p>
+</li>
+<li>
+<p><a href="#combining-multiple-operations">Combining multiple operations</a>.  Parentheses can be used to simplify mathematical expressions and to improve the readibility of your code.</p>
+</li>
+<li>
+<p><a href="#exercise-2-preview-of-the-order-of-operations">Exercise 2 (Preview of the order of operations)</a>.  Care needs to be taken when using parentheses in mathematical operations, as they can change the outputs of these expressions.</p>
+</li>
+<li>
+<p><a href="#the-order-of-operations">The order of operations</a>.  The order in which Python executes different mathemtical operations follows a hierarchy called the operations precedence rule.  The hierarchy follows the abbreviation PEMDAS, which stands for <strong>p</strong>arentheses, <strong>e</strong>exponentiation, <strong>m</strong>ultiplication, <strong>d</strong>ivision, <strong>a</strong>ddition, and finally, <strong>s</strong>ubtraction.  Operations higher up in the hierarchy will be executed before operations lower in the hierarchy.</p>
+</li>
+<li>
+<p><a href="#exercise-3-more-practice-with-the-basic-operations">Exercise 3 (More practice with the basic operations)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-4-pretest-data-types-and-mathematical-operations">Exercise 4 (Pretest: data types and mathematical operations)</a></p>
+</li>
+<li>
+<p><a href="#a-word-about-data-types">A word about data types</a>.  When you perform addition, subtraction, multiplication, or division in Python, there are two possible cases: (a) if both of your inputs are integers, then an integer will be returned; (b) if either or both of your inputs are floats, then a float will be returned.  And as for division, regardless of the data types of your input, a float will always be returned.</p>
+</li>
+<li>
+<p><a href="#converting-between-data-types">Converting between data types</a>.  The functions <code>int</code>, <code>float</code>, <code>str</code>, and <code>bool</code> can be used to convert between data types.</p>
+</li>
+</ul>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-5-more-practice-with-operations">Exercise 5 (More practice with operations)</h4>
+<p>Remember those formulas that you learned in primary school about the volume and surface area of different objects?  I bet you didn&rsquo;t think that you&rsquo;d ever see those again.  Well, today&rsquo;s the day that they come back to haunt you.  Recall that the volume $V$ and surface area $A$ of a sphere (in three dimensions) is</p>
+<p>$$V = \frac{4}{3}\pi R^3 \quad\text{and}\quad A = 4 \pi R^2$$</p>
+<p>where $R$ is the radius of the sphere and $\pi=3.1415926\dots$ is everyone&rsquo;s favorite mathematical constant.  Your job is to write a script called sphere.py that will take the radius of a sphere as input and return the volume and surface area of that sphere.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python shell.py
+Enter a radius: <span style="color:#ae81ff">10</span>
+Enter your approximation of pi: 3.1415926
+
+Your sphere has a surface area of 1256.63704 units.
+Your sphere has a volume of 4188.790133333333 units.
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Variables, data types, and comparison</title>
+            <link>https://arobey1.github.io/python/variables_data_types/</link>
+            <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/variables_data_types/</guid>
+            <description>Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
+ A variable is a container for saving data.
+ A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</description>
+            <content type="html"><![CDATA[<h3 id="variables-and-data-types">Variables and data types</h3>
+<p>Perhaps the most fundamental of all Python fundamentals is the concept of a <strong>variable</strong>.  The first thing you need to know about variables is what they&rsquo;re used for:</p>
+<blockquote>
+<p>A variable is a container for saving data.</p>
+</blockquote>
+<p>A theme in this set of notes will be illustrating different concepts by way of examples.  And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</p>
+<p>If you&rsquo;re like me, you have a hard time remembering important dates like birthdays.  To rectify this, we can store birthdays as variables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> importantBirthday <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;July 31&#39;</span>
+</code></pre></div><p>Now, if I want to remember this important birthday, I can do the following</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(importantBirthday)
+July <span style="color:#ae81ff">31</span>
+</code></pre></div><p>and as you can see, Python remembers the birthday for me!  Note that when we define a variable, we assign its value by using the equals sign (=).</p>
+<p>Variables come in all shapes and sizes.  Each variable you assign in your future Python programs will have what&rsquo;s called a <strong>data type</strong>.</p>
+<blockquote>
+<p>A data type specifies what kind of data you&rsquo;re saving in your variable.</p>
+</blockquote>
+<p>The data type of the  <code>importantBirthday</code> variable is called a <strong>string</strong>, since it&rsquo;s a sequence of characters in quotes.  Note that strings can also be defined using double quotes, i.e., we could just as well have defined <code>importantBirthday = &quot;July 31&quot;</code>.</p>
+<p>Two other important data types are <strong>integers</strong> and <strong>floats</strong>, both of which are kinds of numbers.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># this is an integer</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> digitsOfPi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span>    <span style="color:#75715e"># this is a float</span>
+</code></pre></div><p>An integer is a number <em>without</em> decimal points; anything in the range . . ., -2, -1, 0, 1, 2, 3, . . . counts as an integer.  A float (short for &ldquo;floating-point&rdquo;) is a number <em>with</em> decimal points, e.g., 3.1415 or 2.71828.  In a future lesson on <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a>, we&rsquo;ll learn about how integer and float variables can be used to do mathematical calculations in Python.</p>
+<p>Strings, integers, and floats are three of the most common data types in Python.  In this set of notes, we&rsquo;ll meet plenty of other data types, but for now, let&rsquo;s review these three main characters.</p>
+<hr>
+<h4 id="exercise-1-review-of-data-types">Exercise 1 (Review of data types)</h4>
+<p>What are the data types of the following variables?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.242</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Claude Debussy&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2.30&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">600</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>Rather than giving you the answers to this exercise, I&rsquo;m going to give you the tool you need to check your own work.  In Python, if you want to check the data type of a variable, you can use the <strong>type</strong> keyword.  Returning to our earlier examples, the type keyword tells us the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(importantBirthday)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(numCats)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">int</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(digitsOfPi)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">float</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Don&rsquo;t worry about the word &ldquo;class&rdquo; in the output; we&rsquo;ll get to that in a future lesson.  The key thing here is that the type keyword tell us that <code>importantBirthday</code> is a string (&ldquo;str&rdquo; for short), <code>numCats</code> is an integer (or an &ldquo;int&rdquo;), and <code>digitsOfPi</code> is a float.</p>
+<p>Now you can check your work for Exercise 1 using the type keyword.</p>
+<hr>
+<h3 id="booleans">Booleans</h3>
+<p>One more data type worth mentioning at this early stage is the <strong>bool</strong> type.  Bool is short for Boolean, which eponymously refers to the nineteenth century mathematician <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>.  Unlike strings, integers, and floats, bool variables can take on only two values: True or False (the capitalization here is important; Python will not interpret &ldquo;true&rdquo; or &ldquo;false&rdquo; as a bool).  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">True</span>)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">False</span>)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Bool variables are quite useful when defining logical expressions, as we&rsquo;ll see very soon.</p>
+<hr>
+<h4 id="exercise-2-variable-reassignment">Exercise 2 (Variable reassignment)</h4>
+<p>When you assign a value to a variable, the data type of that variable takes on the data type of the value.  For example, if I were to write</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+</code></pre></div><p>then the data type of <code>mySentence</code> would be a string.  But what happens when I <em>reassign</em> the value of the <code>mySentence</code> variable?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+</code></pre></div><p>As you&rsquo;d expect, <code>type('The knights who say ni!')</code> evaluates to &lt;class &lsquo;str&rsquo;&gt; whereas <code>type(23)</code> evaluates to &lt;class &lsquo;int&rsquo;&gt;.  Take a second to check the type of <code>mySentence</code> in your Python interpreter.  Does it align with you expectation?</p>
+<p>The lesson here is that the data type of a Python variable can change when its value is reassigned.  This is one feature that makes Python especially easy to work with for beginners, because this ability to seamlessly change the data type of a variable doesn&rsquo;t exist in all programming languages (e.g., those that are <a href="https://en.wikipedia.org/wiki/Type_system#Static_type_checking">statically typed</a> like Java or C++).</p>
+<hr>
+<h3 id="printing-variables-with-f-strings">Printing variables with f-strings</h3>
+<p>In the previous lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Interacting with Python">interacting with Python</a>, we learned about Python&rsquo;s print function.  Based on that lesson, you should have a strong intuition about what the output of the following script &ndash; let&rsquo;s call it dessert.py &ndash; will be.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+print(myFavoriteDessert)
+</code></pre></div><p>This script just prints your favorite dessert to the console.  However, it&rsquo;s plausible that you would like to add more information here.  For example, you may want to print &ldquo;Your favorite desert is: &quot; before printing the value of <code>myFavoriteDessert</code>.</p>
+<p>How should we do this?  It turns out that there are many methods, but for now, I&rsquo;m just going to share my favorite method and leave the rest to a future lesson.  This method uses what&rsquo;s known as an <strong>f-string</strong> (or, in jargon, <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">formatted string literals</a>), for reasons that will become obvious shortly.  Here&rsquo;s what you should remember about f-strings:</p>
+<blockquote>
+<p>f-strings allow you to insert variables directly into strings.</p>
+</blockquote>
+<p>To see an f-string in action, consider the following new version dessert.py:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your favorite dessert is: </span><span style="color:#e6db74">{</span>myFavoriteDessert<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>)
+</code></pre></div><p>Let&rsquo;s compare the two versions of our script.  In the second line, we added an &ldquo;f&rdquo; before the quotation mark, we added text saying &ldquo;Your favorite dessert is: &ldquo;, and after that, we used curly braces to wrap our variable.  Here&rsquo;s the output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python dessert.py
+What is your favorite dessert? cupcakes
+Your favorite dessert is: cupcakes.
+</code></pre></div><p>Note that if you forget that leading &ldquo;f&rdquo; before the first quotation mark, the string will not print correctly.  You can use f-strings with all of the data types we&rsquo;ve met so far.  In the following exercise, you&rsquo;ll see a few more examples of how f-strings can be used.</p>
+<hr>
+<h4 id="exercise-3-f-strings-in-action">Exercise 3 (f-strings in action)</h4>
+<p>Let&rsquo;s have some more fun with f-strings.  Your job: Write a program that prompts the user for input to a <a href="https://www.madlibs.com/history/">madlib</a>.  Never heard of madlibs before?  Allow me to explain.  When doing a madlib, there are two players: a questioner and a responder.  The questioner either obtains or thinks up a story and removes several words from that story without showing the story or the removed words to the responder.  At each location where there is a missing words, the questioner asks the responder to supply a word.  Usually the questioner gives clarification about what part of speech the responder should supply.  And as the responder supplies words, the questioner fills in the blanks, resulting in an often wacky, off-color, or sweet story depending on the chosen words.</p>
+<p>In line with tradition, we&rsquo;re going to reproduce the classic 1982 madlib called &ldquo;The Magic Computers.&rdquo;  Your program should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python madlib.py
+Enter a noun: bird
+Enter a plural noun: trees
+Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: salt
+Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: sail
+Enter a part of the body <span style="color:#f92672">(</span>plural<span style="color:#f92672">)</span>: toes
+Enter an adjective: floral
+Enter a plural noun: wine glasses
+Enter an adjective: sparkley
+
+Today, every student has a computer small enough to fit into their 
+&lt;bird&gt;.  They can easily solve math problems by simply pushing the 
+computer<span style="color:#960050;background-color:#1e0010">&#39;</span>s little &lt;trees&gt;.  Computers can add, multiply, divide, 
+and salt.  They can also &lt;sail&gt; better than a human.  Some 
+computers are &lt;toes&gt;.  Others have a/an &lt;floral&gt; screen that shows 
+all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
+</code></pre></div><hr>
+<h3 id="naming-variables">Naming variables</h3>
+<p>Before moving on to more advanced topics, let&rsquo;s talk a little bit about how we&rsquo;re allowed to name variables.  In Python, variable names can be arbitrarily long, and they can contain numbers, letters, and the underscore (_) symbol.  For example, all of the following are valid variable names:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myFavoriteNumberIs23 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no, it&#39;s actually 24. . .&#34;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> look_at_all_these_underscores <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> HELLO_WORLD <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> hello_world <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> __ahhhhhhh <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.12345</span>
+</code></pre></div><p>There are a few caveats to naming variables.</p>
+<ul>
+<li><strong>Leading numbers.</strong>  A variable can&rsquo;t start with a number, so <code>8IsCool</code> would not be a valid variable name.</li>
+<li><strong>Spaces.</strong>  Variable names also cannot contain spaces, so <code>X AE A-Xii</code> (the name of Grimes and Elon Musk&rsquo;s first child together) is an invalid variable name.</li>
+<li><strong>Capitalization.</strong>  Capitalization also matters when defining variables.  In the above code snippet, we defined <code>HELLO_WORLD</code> and <code>hello_world</code> as two separate variables.  You can check in your console that they stored different values.</li>
+<li><strong>Other symbols.</strong>  Variable names cannot contain symbols other than the underscore, so something like <code>IWantAllThat$$$</code> wouldn&rsquo;t work.</li>
+</ul>
+<p>Don&rsquo;t worry about memorizing these rules.  As you write more Python, these rules will become second nature to you.  And when you forget these rules, Python has a helpful mechanism to get you back on track. . .</p>
+<hr>
+<h3 id="error-messages">Error messages</h3>
+<p>When you use an invalid variable name, Python will always let you know by raising what&rsquo;s known as a <strong>SyntaxError</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+    IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+                <span style="color:#f92672">^</span>
+<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</code></pre></div><p>Notice that the error message points toward the first dollar sign, meaning that this is the piece of the variable name that caused the error.  Why does it identify the first dollar sign as causing the error instead of the last?  In short, when Python interprets your code, it scans each line from left to right, so the leftmost incorrect character in your variable will always be the one identified by the error.</p>
+<p>In Python, there are many other kinds of errors.  Sometimes, when your code throws an error message, it&rsquo;s easy to get discouraged.  But getting an error message doesn&rsquo;t mean that you&rsquo;re a bad programmer!  In fact, messages can be extremely helpful when debugging your code.  So when it comes to error messages, here&rsquo;s the mantra:</p>
+<blockquote>
+<p>Error messages are designed to help you &ndash; the programmer &ndash; figure out what went wrong in your code.</p>
+</blockquote>
+<p>You should embrace error messages, especially those that give you specific feedback about what went wrong.</p>
+<hr>
+<h4 id="exercise-4-variable-names">Exercise 4 (Variable names)</h4>
+<p>Which of the following are valid variable names?  And if a variable name is invalid, what will the SyntaxError point to when the error is thrown?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> TheDigitsOfPiAre3<span style="color:#ae81ff">.14</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> M3rryChristma5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ho ho ho&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Eight<span style="color:#f92672">-</span>five <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Wh<span style="color:#a6e22e">@tIsMyN@me</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jane Eyre&#39;</span>
+</code></pre></div><p>Try it out in your terminal.</p>
+<hr>
+<h3 id="protected-keywords">Protected keywords</h3>
+<p>There&rsquo;s one more caveat worth mentioning here, and I&rsquo;ll illustrate it by way of an example.  Let&rsquo;s say you&rsquo;re a busy teacher, and you want to keep track of how many classes you&rsquo;re teaching.  You might do this by defining a variable called &ldquo;class.&rdquo;  Let&rsquo;s see what happens when we try to do that.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+          <span style="color:#f92672">^</span>
+<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</code></pre></div><p>Why doesn&rsquo;t this work?  According to the rules we listed above, &ldquo;class&rdquo; should be a valid variable name, shouldn&rsquo;t it?</p>
+<p>It turns out that Python has a set of so-called &ldquo;protected&rdquo; keywords which cannot be used as variable names.  As of latest version of Python (Python version 3.10), there are 35 keywords in Python.  Here&rsquo;s the full list:</p>
+<p><img src="../../assets/python-keywords.png" alt="Python-keywords"></p>
+<p>After scanning this list, you may have noticed that we&rsquo;ve already met three of these keywords!  In addition to &ldquo;class&rdquo; in the above example, we&rsquo;ve also seen &ldquo;True&rdquo; and &ldquo;False&rdquo; when <a href="#booleans">Boolean data types</a> were introduced.  If you continue reading these notes, you&rsquo;ll encounter many of these keywords.</p>
+<hr>
+<h3 id="readibility">Readibility</h3>
+<p>How you choose your variable names may seem like a small detail, but in my view, this is one of the most important parts of writing a program.  If you take one thing away from this lesson, let is be this:</p>
+<blockquote>
+<p>As a programmer, you will read ten times more code than you will write.</p>
+</blockquote>
+<p>And ten is likely an underestimate here.  It&rsquo;s crucial that your code is readible, and readibility is heavily tied to how you name your variables.  For example, if I wanted to create a variable that counted the number of cats I have, which variable do you think is more readible?  This:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>or this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>In other words, if someone else had to read your code, how quickly would they be able to figure out what&rsquo;s going on in your program?  As a programmer, you should always try to focus on writing code such that the next person who interacts with your code can get up to speed as fast as possible.</p>
+<hr>
+<h3 id="variable-comparison">Variable comparison</h3>
+<p>Now that we&rsquo;ve learned about Python variables, it&rsquo;s time to think about how we can compare two variables.  To illustrate this, let&rsquo;s start by defining a few variables that we can play around with.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numStrawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>(Yes, I did just finished cutting up a bowl of fruit.)  One important task in Python is to check whether two variables are equal.  To do so, we use two equals signs, e.g.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">==</span> numGrapes
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">==</span> numStrawberries
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>As you can see, checking whether two variables are equal returns a Boolean variable: True if the variables are equal, and False otherwise.  A common mistake in Python is to confuse variable assignment, which uses a single equal sign (=), with variable comparison, which uses two equal signs (==), so it&rsquo;s important to take care when bashing your little finger on that equals sign key!</p>
+<p>You can also check whether two variables are <em>not</em> equal to one another using an exclamation point followed by an equals sign.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numBananas
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numGrapes
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>Aside from checking whether two variables are equal or not, we can also check whether one variable is larger or small than another.  To do so, we use the &gt; key to denote &ldquo;is larger than&rdquo; and the &lt; key to denote &ldquo;is smaller than.&rdquo;  Take a look at the following examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">&gt;</span> numStrawberries
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">&lt;</span> numGrapes
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">&gt;</span> numStrawberries
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>Similarly, you can use &gt;= to check whether one variable is larger than equal to another variable; we can write &lt;= to check whether a variable is less than or equal to another variable.</p>
+<hr>
+<h4 id="exercise-5-comparing-variables">Exercise 5 (Comparing variables)</h4>
+<p>So far, we&rsquo;ve shown how you can compare two integer variables.  However, in Python, you can compare other kinds of data types.  What do you think the outcomes of these comparisons will be?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.15</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;Rachel&#39;</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;Ross&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4.2424</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4.2424</span>
+</code></pre></div><hr>
+<h3 id="comparing-variables-with-different-data-types">Comparing variables with different data types</h3>
+<p>Somewhat unintuitively, it is sometimes &ndash; but not always &ndash; possible to compare two variables that have different data types.  For example, in some cases, it can be useful to think of the number 1 as denoting &ldquo;true&rdquo; and the number 0 as denoting &ldquo;false.&rdquo;  This convention arises in various fields such as <a href="https://en.wikipedia.org/wiki/Logic_level">circuit design</a>.  To meet this convention, Python allows you to compare bools to integers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">True</span>
+</code></pre></div><p>Here are some more examples which compare variables of different data types.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1.0</span>
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;b&#39;</span>
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>In these notes, we won&rsquo;t provide an exhaustive list of what you can and cannot compare.  This is your time to explore!  What happens when you compare a string to an integer?  What if you compare a Boolean to a number other than 0 or 1?  Try it out!</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#variables-and-data-types">Variables and data types</a>. A <strong>variable</strong> is a container for storing data, and variables are defined with the equals sign.  Every Python variable has a <strong>data type</strong>.  In this section, we met three data types: <strong>strings</strong> are sequences of characters in quotes, <strong>integers</strong> are numbers <em>without</em> decimals, and <strong>floats</strong> are numbers <em>with</em> decimals.</p>
+</li>
+<li>
+<p><a href="#exercise-1-review-of-data-types">Exercise 1 (Review of data types)</a>.  The <strong>type</strong> keyword allows you check the data type of a variable.</p>
+</li>
+<li>
+<p><a href="#booleans">Boolean data types</a>.  Boolean or <strong>bool</strong> variables can take on one of two (logical) values: True or False.</p>
+</li>
+<li>
+<p><a href="#exercise-2-variable-reassignment">Exercise 2 (Variable reassignment)</a>.</p>
+</li>
+<li>
+<p><a href="#printing-variables-with-f-strings">Printing variables with f-strings</a>.  <strong>f-strings</strong> allow you to insert variables into strings.</p>
+</li>
+<li>
+<p><a href="#exercise-3-f-strings-in-action">Exercise 3 (f-strings in action)</a>.</p>
+</li>
+<li>
+<p><a href="#naming-variables">Naming variables</a>.  Python has strict conventions on how variables can be named.  Variable names can be artbirarily long, and can contain numbers, letters, and underscores.  Variable names cannot start with numbers and they cannot include spaces or symbols other than the underscore.</p>
+</li>
+<li>
+<p><a href="#error-messages">Error messages</a>.  Error messages let you know when your code fails.  <strong>SyntaxError</strong>s tell us when a variable has an invalid name.</p>
+</li>
+<li>
+<p><a href="#exercise-4-variable-names">Exercise 4 (Variable names)</a>.</p>
+</li>
+<li>
+<p><a href="#protected-keywords">Protected keywords</a>.  A small set of &ldquo;protected&rdquo; words cannot be used as variable names in Python, including &ldquo;True&rdquo;, &ldquo;False&rdquo;, and &ldquo;class.&rdquo;</p>
+</li>
+<li>
+<p><a href="#readibility">Readibility</a>.  As a programmer, you&rsquo;ll read <em>at least</em> ten times as much code as you&rsquo;ll write.  You should always strive to write code that is easy for others to read.</p>
+</li>
+<li>
+<p><a href="#variable-comparison">Variable comparison</a>.  You can compare two variables in Python in various ways: == and != are used to check whether two variables are equal or not equal respectively, &gt; and &lt; are used to check strict inequalities, and &gt;= and &lt;= are used to check non-strict inequalities (e.g., greater than or equal to).</p>
+</li>
+<li>
+<p><a href="#exercise-5-comparing-variables">Exercise 5 (Comparing variables)</a>.</p>
+</li>
+<li>
+<p><a href="#comparing-variables-with-different-data-types">Comparing variables with different data types</a>.  In some cases, you can compare variables with contrasting data types, e.g., <code>True == 1</code> evaluates to True.</p>
+</li>
+</ul>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-6-true-or-false">Exercise 6 (True or false)</h4>
+<ol>
+<li><code>_my_favorite_food_is_popcorn_</code> is a valid variable name.</li>
+<li><code>'abc' &lt; 'd'</code> evaluates to True.</li>
+<li>The data type of 3.000000 is int.</li>
+<li><code>False &gt;= True</code> evaluates to False.</li>
+<li>Defining strings with double quotes instead of single quotes will throw an error.</li>
+<li><code>type('5.555')</code> returns float.</li>
+<li>When I reassign the value of a variable, it&rsquo;s data type will always change.</li>
+</ol>
+<h4 id="exercise-7-caveats">Exercise 7 (Caveats)</h4>
+<ol>
+<li>How many values can a Boolean variable take on?</li>
+<li>Which symbols are you allowed to use when naming a variable in Python?</li>
+<li>Do &lt;= and &gt;= check for strict or non-strict inequalities?</li>
+<li>What is the maximum length for a variable name?</li>
+</ol>
+<hr>
+<p>Congratulations!  You made it through your first full lesson in Python.  Things will only get more exciting from here, so make sure to check out the next note in this series.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Interacting with Python</title>
+            <link>https://arobey1.github.io/python/interacting_with_python/</link>
+            <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/interacting_with_python/</guid>
+            <description>Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
+Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+ A shell is an interpreter that can execute Python programs and simple Python commands.</description>
+            <content type="html"><![CDATA[<h3 id="interacting-with-python">Interacting with Python</h3>
+<p>There are two main ways of interacting with a Python: with a shell and with a script.  Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.</p>
+<h4 id="python-shell">Python shell</h4>
+<p>Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a <strong>shell</strong>.  Never heard of a shell before?  No worries!  Here&rsquo;s a quick definition:</p>
+<blockquote>
+<p>A shell is an interpreter that can execute Python programs and simple Python commands.</p>
+</blockquote>
+<p>To open a shell, open a terminal (not sure what this is? see <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal">this link</a>) and type the word &ldquo;python.&rdquo;  You should see something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python
+Python 3.9.6 <span style="color:#f92672">(</span>default, Jun <span style="color:#ae81ff">29</span> 2021, 06:20:32<span style="color:#f92672">)</span> 
+<span style="color:#f92672">[</span>Clang 12.0.0 <span style="color:#f92672">(</span>clang-1200.0.32.29<span style="color:#f92672">)]</span> on darwin
+Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db74">&#34;copyright&#34;</span>, <span style="color:#e6db74">&#34;credits&#34;</span> or <span style="color:#e6db74">&#34;license&#34;</span> <span style="color:#66d9ef">for</span> more information.
+&gt;&gt;&gt;
+</code></pre></div><p>The three sideways carrots that you see at the bottom of the output are where you can execute Python commands.  Let&rsquo;s try it out!  It&rsquo;s <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">traditional</a> to print the words &ldquo;Hello world!&rdquo; in your console when you first start learning a programming language.  And who are we to break with tradition?  In your console, type the following statement:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</code></pre></div><p>Now hit enter (or return, depending on your keyboard)!  You should see the worlds &ldquo;Hello world!&rdquo; printed out in the console, i.e.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+Hello world<span style="color:#960050;background-color:#1e0010">!</span>
+</code></pre></div><p>Congratulations!  You just executed your first Python expression.  Here&rsquo;s to many more.</p>
+<h4 id="python-scripts">Python scripts</h4>
+<p>The second way to interact with a Python program is through what&rsquo;s known as a <strong>script</strong>.</p>
+<blockquote>
+<p>A Python script is a file containing Python code.</p>
+</blockquote>
+<p>The difference between a shell and a script is as follows.  In the shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.</p>
+<p>For example, try creating a file called my_first_program.py.  How will your computer know that this is a Python file?</p>
+<blockquote>
+<p>All Python programs end with &ldquo;.py&rdquo;.  This tells your operating system that the code your running is written in Python.</p>
+</blockquote>
+<p>So now whenever you see a file ending in .py, you can impress your friends, colleagues, or partner by telling them that you&rsquo;re sure this is a Python script without needing to open the file!</p>
+<p>Next, add the following contents to my_first_program.py:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</code></pre></div><p>Now to run your program, open your terminal, and from the same directory as my_first_program.py, run the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
+</code></pre></div><p>And as before, you should see the following output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
+Hello world!
+</code></pre></div><p>Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I&rsquo;m glad you asked!</p>
+<hr>
+<h3 id="when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</h3>
+<p>All of the code in this set of notes can be executed in the shell and in scripts.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There&rsquo;s a few reasons:</p>
+<ul>
+<li>
+<p><strong>Organization.</strong>  Scripts allow you to easily execute multiple expressions at once, whereas in the shell, expressions need to be executed one by one.  When you have a long program, it becomes much easier to organize your code into interpretable blocks when your statements are broken into one or several scripts.</p>
+</li>
+<li>
+<p><strong>Program state.</strong>  Every time you exit and restart the shell, you lose all of the code that you&rsquo;ve written.  In scripts, you can save your code by saving the file, and then rerun it whenever you want.</p>
+</li>
+</ul>
+<hr>
+<h3 id="print-statements">Print statements</h3>
+<p>Let&rsquo;s talk a little bit more about the commands you executed above.  In both the shell and script programs that we wrote, we ran the command <code>print(&quot;Hello world!)</code>.  This command consists of two parts: a function called <code>print</code> and an argument that we passed to that print statement; namely, &ldquo;Hello world!&rdquo;.</p>
+<blockquote>
+<p>The <code>print</code> function allows a user to print statements to the console.</p>
+</blockquote>
+<p>You&rsquo;ll be using the print statement <em>a lot</em> when writing Python code, so to get you more familiar with it, let&rsquo;s look at a few examples in the Python shell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;I am using the print function&#34;</span>)
+I am using the print function
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#ae81ff">3.1415926</span>)
+<span style="color:#ae81ff">3.1415926</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;23 is a prime number&#34;</span>)
+<span style="color:#ae81ff">23</span> <span style="color:#f92672">is</span> a prime number
+</code></pre></div><hr>
+<h4 id="exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</h4>
+<p>The examples we just went through about using the <code>print</code> function were all executed in the shell.  My question for you: Can you write this program as a script and produce the same output?  I bet you can.  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ print_examples.py
+I am using the print <span style="color:#66d9ef">function</span>
+3.1415926
+<span style="color:#ae81ff">23</span> is a prime number
+</code></pre></div><hr>
+<h4 id="exercise-2-your-first-python-program">Exercise 2 (Your first Python program)</h4>
+<p>These are early days.  You&rsquo;re just getting started on your Python journey.  But guess what!  You&rsquo;re ready to write your first original Python program.  Yes, really!  What will you be doing?  Well, I&rsquo;m glad you asked.  I want you to write a program called print_my_cow.py that prints the following output to the terminal.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
+^__^
+<span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+<span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">||</span>----w |
+    <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</code></pre></div><p>If that&rsquo;s too easy for you, why not spruce things up a little bit?  Maybe your cow is a thoughtful cow, and you&rsquo;d like to show her thinking up a funny (albeit heartfelt) witticism.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
+ _________________________
+<span style="color:#f92672">(</span>   I udderly love you!   <span style="color:#f92672">)</span>
+ -------------------------
+        o   ^__^
+         o  <span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+            <span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span><span style="color:#ae81ff"></span>                <span style="color:#f92672">||</span>----w |
+                <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</code></pre></div><p>Feel free to go crazy with this one.  (If you&rsquo;re wondering where I got this idea, have a look at the Linux package <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a>).</p>
+<hr>
+<h3 id="user-supplied-input">User-supplied input</h3>
+<p>Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produces the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?</p>
+<p>For example, let&rsquo;s say I wanted to write a program that takes a number as input and prints out that number incremented by one.  Easy enough!  I could just write the following in the shell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#ae81ff">6</span>
+</code></pre></div><p>But what happens when your favorite number changes from 5 to 941?  Well, you&rsquo;d have to write the whole thing over again.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+<span style="color:#ae81ff">942</span>
+</code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number based on your input.</p>
+<p>How should we do this?  Well, hopefully you remember the tips in <a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>; specifically, one of the recommendations was to use scripts whenever you need to run a program multiple times.  So let&rsquo;s try writing a script called increment.py that solves our problem.  Here&rsquo;s the script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>And here&rsquo;s the output it produces</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py
+<span style="color:#ae81ff">942</span>
+</code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And here&rsquo;s where the magic of the <code>input</code> function comes in.</p>
+<blockquote>
+<p>The <strong>input</strong> function allows a user to input data into a program.</p>
+</blockquote>
+<p>Let&rsquo;s see it in action.  Try out the following script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
+print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>Relative to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
+Enter your favorite number: <span style="color:#ae81ff">1995</span>
+<span style="color:#ae81ff">1996</span>
+</code></pre></div><p>And there you have it!  We&rsquo;ve solved our problem.</p>
+<hr>
+<h4 id="exercise-3-using-the-input-function">Exercise 3 (Using the input function)</h4>
+<p>The input function is a powerful friend.  It accepts all kinds of things.  In this exercise, we&rsquo;re going to stretch the limits of what the input function can do.</p>
+<p>For starters, write a program called my_sum.py which accepts not one, but two inputs!  It should prompt the user for two different numbers, and then return their sum.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_sum.py
+Enter your first number: <span style="color:#ae81ff">14</span>
+Enter your second number: <span style="color:#ae81ff">7</span>
+<span style="color:#ae81ff">21</span>
+</code></pre></div><p>Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
+Type a question:
+</code></pre></div><p>I want to self-evaluate a little, so I&rsquo;ll ask myself how I&rsquo;m doing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
+Type a question: How are you doing? 
+</code></pre></div><p>Your program should then ask you the question you typed in.  Here&rsquo;s what it should look like end-to-end:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
+Type a question: How are you doing? 
+How are you doing? I am finding my own happiness.
+</code></pre></div><p>For a bonus point, can you write this script in one line of Python?</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#interacting-with-python">Interacting with Python</a>.  There are two main ways of interacting with Python: shells and scripts.</p>
+<ul>
+<li>
+<p><a href="#python-shell">Python shell</a>.  The Python <strong>shell</strong> is an interpreter that allows you to execute Python commands one by one.</p>
+</li>
+<li>
+<p><a href="#python-scripts">Python scripts</a>.  A Python <strong>script</strong> is a file containing Python code that can be executed from the command line.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>.  The shell is best for executing simple Python commands.  For long and/or more complicated programs, it&rsquo;s often easier to use a script (or multiple scripts) instead of a shell.</p>
+</li>
+<li>
+<p><a href="#print-statements">Print statements</a>.  The <strong>print</strong> function allows you to print output to the console.  This is one of the most used commands in Python.</p>
+</li>
+<li>
+<p><a href="#exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-2-your-first-python-program">Exercise 2: Your first Python program</a></p>
+</li>
+<li>
+<p><a href="#user-supplied-input">User-supplied input</a>.  The <strong>input</strong> function allows a user to input data into a Python program.</p>
+</li>
+<li>
+<p><a href="#exercise-3-using-the-input-function">Exercise 3 (Using the input function)</a></p>
+</li>
+</ul>
+<hr>
+<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.  Looking forward to seeing you there!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Introduction to Python</title>
+            <link>https://arobey1.github.io/python/intro/</link>
+            <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/intro/</guid>
+            <description>Psst! Hey you. Yes you! You look like you&amp;rsquo;re ready to learn Python. And yes, you&amp;rsquo;re right, I can&amp;rsquo;t see you. But I know you wouldn&amp;rsquo;t be here if you weren&amp;rsquo;t ready to go. So let&amp;rsquo;s do this!
+ What is Python? Python is a programming language that has become ubiquitous in fields such as data science and machine learning. The syntax is relatively simple, and with the right guidance, it&amp;rsquo;s easy to get started!</description>
+            <content type="html"><![CDATA[<p>Psst!  Hey you.  Yes you!  You look like you&rsquo;re ready to learn Python.  And yes, you&rsquo;re right, I can&rsquo;t see you.  But I know you wouldn&rsquo;t be here if you weren&rsquo;t ready to go.  So let&rsquo;s do this!</p>
+<hr>
+<p><strong>What is Python?</strong> Python is a programming language that has become ubiquitous in fields such as data science and machine learning.  The syntax is relatively simple, and with the right guidance, it&rsquo;s easy to get started!</p>
+<!-- raw HTML omitted -->
+<hr>
+<p><strong>My philosophy.</strong>  I don&rsquo;t know about you, but I <em>despise</em> it when so-called &ldquo;introductory&rdquo; books are long, technical, and filled with jargon, minutiae, and unlikely edge cases.  You&rsquo;ll find that many of the Python books and resources out there are written to leave no one in any doubt that the author is an expert on the topic.  This is frustrating, because when it comes to Python, the basics are accessible to almost anyone who has worked with computers before.  And so in this set of notes, you&rsquo;re going to see no more or less than you need to know to get started.</p>
+<p>Without further adieu, let&rsquo;s get right into it.</p>
+<hr>
+<p><strong>Getting started.</strong>  In this set of notes, we&rsquo;re going to cover the following topics.</p>
+<ol>
+<li><a href="https://arobey1.github.io/python/interacting_with_python/" title="Interacting with Python">Interacting with Python</a></li>
+<li><a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a></li>
+<li><a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a></li>
+</ol>
+<p>(More lessons are on the way!)</p>
+<hr>
+<p>Once you&rsquo;ve studied these lessons, you&rsquo;ll be well on your way toward creating your own Python projects.  Along the way, there will be plenty of exercises &ndash; both easy and challenging &ndash; which will help to solidify your understanding.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

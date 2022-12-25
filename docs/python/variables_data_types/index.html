@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Robey ">
+<meta name="description"
+    content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
+ A variable is a container for saving data.
+ A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://arobey1.github.io/python/variables_data_types/" />
+
+
+<title>
+    
+    Variables, data types, and comparison :: Alex Robey 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<link rel="stylesheet" href="https://arobey1.github.io/main.min.f4c2daf2832ae65007bcc18dc621f49f9f67ef0ef34d55eabd4fd45f6eed4c00.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://arobey1.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://arobey1.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://arobey1.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://arobey1.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://arobey1.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://arobey1.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+    <meta name="theme-color" content="">
+
+<meta itemprop="name" content="Variables, data types, and comparison">
+<meta itemprop="description" content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&rsquo;re used for:
+ A variable is a container for saving data.
+ A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."><meta itemprop="datePublished" content="2022-12-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-12-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3119"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://arobey1.github.io/"/>
+
+<meta name="twitter:title" content="Variables, data types, and comparison"/>
+<meta name="twitter:description" content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&rsquo;re used for:
+ A variable is a container for saving data.
+ A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."/>
+
+
+
+
+<meta property="article:published_time" content="2022-12-21 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://arobey1.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Alex Robey</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://arobey1.github.io/about/">About</a></li><li><a href="https://arobey1.github.io/cv/">CV</a></li><li><a href="https://arobey1.github.io/posts/">Posts</a></li><li><a href="https://arobey1.github.io/publications/">Publications</a></li><li><a href="https://arobey1.github.io/python/">Python</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+            
+
+        </span>
+    </span>
+</header>
+
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        15 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://arobey1.github.io/python/variables_data_types/">Variables, data types, and comparison</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h3 id="variables-and-data-types">Variables and data types</h3>
+<p>Perhaps the most fundamental of all Python fundamentals is the concept of a <strong>variable</strong>.  The first thing you need to know about variables is what they&rsquo;re used for:</p>
+<blockquote>
+<p>A variable is a container for saving data.</p>
+</blockquote>
+<p>A theme in this set of notes will be illustrating different concepts by way of examples.  And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</p>
+<p>If you&rsquo;re like me, you have a hard time remembering important dates like birthdays.  To rectify this, we can store birthdays as variables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> importantBirthday <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;July 31&#39;</span>
+</code></pre></div><p>Now, if I want to remember this important birthday, I can do the following</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(importantBirthday)
+July <span style="color:#ae81ff">31</span>
+</code></pre></div><p>and as you can see, Python remembers the birthday for me!  Note that when we define a variable, we assign its value by using the equals sign (=).</p>
+<p>Variables come in all shapes and sizes.  Each variable you assign in your future Python programs will have what&rsquo;s called a <strong>data type</strong>.</p>
+<blockquote>
+<p>A data type specifies what kind of data you&rsquo;re saving in your variable.</p>
+</blockquote>
+<p>The data type of the  <code>importantBirthday</code> variable is called a <strong>string</strong>, since it&rsquo;s a sequence of characters in quotes.  Note that strings can also be defined using double quotes, i.e., we could just as well have defined <code>importantBirthday = &quot;July 31&quot;</code>.</p>
+<p>Two other important data types are <strong>integers</strong> and <strong>floats</strong>, both of which are kinds of numbers.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># this is an integer</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> digitsOfPi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span>    <span style="color:#75715e"># this is a float</span>
+</code></pre></div><p>An integer is a number <em>without</em> decimal points; anything in the range . . ., -2, -1, 0, 1, 2, 3, . . . counts as an integer.  A float (short for &ldquo;floating-point&rdquo;) is a number <em>with</em> decimal points, e.g., 3.1415 or 2.71828.  In a future lesson on <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a>, we&rsquo;ll learn about how integer and float variables can be used to do mathematical calculations in Python.</p>
+<p>Strings, integers, and floats are three of the most common data types in Python.  In this set of notes, we&rsquo;ll meet plenty of other data types, but for now, let&rsquo;s review these three main characters.</p>
+<hr>
+<h4 id="exercise-1-review-of-data-types">Exercise 1 (Review of data types)</h4>
+<p>What are the data types of the following variables?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.242</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Claude Debussy&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2.30&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">600</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>Rather than giving you the answers to this exercise, I&rsquo;m going to give you the tool you need to check your own work.  In Python, if you want to check the data type of a variable, you can use the <strong>type</strong> keyword.  Returning to our earlier examples, the type keyword tells us the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(importantBirthday)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(numCats)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">int</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(digitsOfPi)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">float</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Don&rsquo;t worry about the word &ldquo;class&rdquo; in the output; we&rsquo;ll get to that in a future lesson.  The key thing here is that the type keyword tell us that <code>importantBirthday</code> is a string (&ldquo;str&rdquo; for short), <code>numCats</code> is an integer (or an &ldquo;int&rdquo;), and <code>digitsOfPi</code> is a float.</p>
+<p>Now you can check your work for Exercise 1 using the type keyword.</p>
+<hr>
+<h3 id="booleans">Booleans</h3>
+<p>One more data type worth mentioning at this early stage is the <strong>bool</strong> type.  Bool is short for Boolean, which eponymously refers to the nineteenth century mathematician <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>.  Unlike strings, integers, and floats, bool variables can take on only two values: True or False (the capitalization here is important; Python will not interpret &ldquo;true&rdquo; or &ldquo;false&rdquo; as a bool).  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">True</span>)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">False</span>)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Bool variables are quite useful when defining logical expressions, as we&rsquo;ll see very soon.</p>
+<hr>
+<h4 id="exercise-2-variable-reassignment">Exercise 2 (Variable reassignment)</h4>
+<p>When you assign a value to a variable, the data type of that variable takes on the data type of the value.  For example, if I were to write</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+</code></pre></div><p>then the data type of <code>mySentence</code> would be a string.  But what happens when I <em>reassign</em> the value of the <code>mySentence</code> variable?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+</code></pre></div><p>As you&rsquo;d expect, <code>type('The knights who say ni!')</code> evaluates to &lt;class &lsquo;str&rsquo;&gt; whereas <code>type(23)</code> evaluates to &lt;class &lsquo;int&rsquo;&gt;.  Take a second to check the type of <code>mySentence</code> in your Python interpreter.  Does it align with you expectation?</p>
+<p>The lesson here is that the data type of a Python variable can change when its value is reassigned.  This is one feature that makes Python especially easy to work with for beginners, because this ability to seamlessly change the data type of a variable doesn&rsquo;t exist in all programming languages (e.g., those that are <a href="https://en.wikipedia.org/wiki/Type_system#Static_type_checking">statically typed</a> like Java or C++).</p>
+<hr>
+<h3 id="printing-variables-with-f-strings">Printing variables with f-strings</h3>
+<p>In the previous lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Interacting with Python">interacting with Python</a>, we learned about Python&rsquo;s print function.  Based on that lesson, you should have a strong intuition about what the output of the following script &ndash; let&rsquo;s call it dessert.py &ndash; will be.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+print(myFavoriteDessert)
+</code></pre></div><p>This script just prints your favorite dessert to the console.  However, it&rsquo;s plausible that you would like to add more information here.  For example, you may want to print &ldquo;Your favorite desert is: &quot; before printing the value of <code>myFavoriteDessert</code>.</p>
+<p>How should we do this?  It turns out that there are many methods, but for now, I&rsquo;m just going to share my favorite method and leave the rest to a future lesson.  This method uses what&rsquo;s known as an <strong>f-string</strong> (or, in jargon, <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">formatted string literals</a>), for reasons that will become obvious shortly.  Here&rsquo;s what you should remember about f-strings:</p>
+<blockquote>
+<p>f-strings allow you to insert variables directly into strings.</p>
+</blockquote>
+<p>To see an f-string in action, consider the following new version dessert.py:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your favorite dessert is: </span><span style="color:#e6db74">{</span>myFavoriteDessert<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>)
+</code></pre></div><p>Let&rsquo;s compare the two versions of our script.  In the second line, we added an &ldquo;f&rdquo; before the quotation mark, we added text saying &ldquo;Your favorite dessert is: &ldquo;, and after that, we used curly braces to wrap our variable.  Here&rsquo;s the output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python dessert.py
+What is your favorite dessert? cupcakes
+Your favorite dessert is: cupcakes.
+</code></pre></div><p>Note that if you forget that leading &ldquo;f&rdquo; before the first quotation mark, the string will not print correctly.  You can use f-strings with all of the data types we&rsquo;ve met so far.  In the following exercise, you&rsquo;ll see a few more examples of how f-strings can be used.</p>
+<hr>
+<h4 id="exercise-3-f-strings-in-action">Exercise 3 (f-strings in action)</h4>
+<p>Let&rsquo;s have some more fun with f-strings.  Your job: Write a program that prompts the user for input to a <a href="https://www.madlibs.com/history/">madlib</a>.  Never heard of madlibs before?  Allow me to explain.  When doing a madlib, there are two players: a questioner and a responder.  The questioner either obtains or thinks up a story and removes several words from that story without showing the story or the removed words to the responder.  At each location where there is a missing words, the questioner asks the responder to supply a word.  Usually the questioner gives clarification about what part of speech the responder should supply.  And as the responder supplies words, the questioner fills in the blanks, resulting in an often wacky, off-color, or sweet story depending on the chosen words.</p>
+<p>In line with tradition, we&rsquo;re going to reproduce the classic 1982 madlib called &ldquo;The Magic Computers.&rdquo;  Your program should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python madlib.py
+Enter a noun: bird
+Enter a plural noun: trees
+Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: salt
+Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: sail
+Enter a part of the body <span style="color:#f92672">(</span>plural<span style="color:#f92672">)</span>: toes
+Enter an adjective: floral
+Enter a plural noun: wine glasses
+Enter an adjective: sparkley
+
+Today, every student has a computer small enough to fit into their 
+&lt;bird&gt;.  They can easily solve math problems by simply pushing the 
+computer<span style="color:#960050;background-color:#1e0010">&#39;</span>s little &lt;trees&gt;.  Computers can add, multiply, divide, 
+and salt.  They can also &lt;sail&gt; better than a human.  Some 
+computers are &lt;toes&gt;.  Others have a/an &lt;floral&gt; screen that shows 
+all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
+</code></pre></div><hr>
+<h3 id="naming-variables">Naming variables</h3>
+<p>Before moving on to more advanced topics, let&rsquo;s talk a little bit about how we&rsquo;re allowed to name variables.  In Python, variable names can be arbitrarily long, and they can contain numbers, letters, and the underscore (_) symbol.  For example, all of the following are valid variable names:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myFavoriteNumberIs23 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no, it&#39;s actually 24. . .&#34;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> look_at_all_these_underscores <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> HELLO_WORLD <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> hello_world <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> __ahhhhhhh <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.12345</span>
+</code></pre></div><p>There are a few caveats to naming variables.</p>
+<ul>
+<li><strong>Leading numbers.</strong>  A variable can&rsquo;t start with a number, so <code>8IsCool</code> would not be a valid variable name.</li>
+<li><strong>Spaces.</strong>  Variable names also cannot contain spaces, so <code>X AE A-Xii</code> (the name of Grimes and Elon Musk&rsquo;s first child together) is an invalid variable name.</li>
+<li><strong>Capitalization.</strong>  Capitalization also matters when defining variables.  In the above code snippet, we defined <code>HELLO_WORLD</code> and <code>hello_world</code> as two separate variables.  You can check in your console that they stored different values.</li>
+<li><strong>Other symbols.</strong>  Variable names cannot contain symbols other than the underscore, so something like <code>IWantAllThat$$$</code> wouldn&rsquo;t work.</li>
+</ul>
+<p>Don&rsquo;t worry about memorizing these rules.  As you write more Python, these rules will become second nature to you.  And when you forget these rules, Python has a helpful mechanism to get you back on track. . .</p>
+<hr>
+<h3 id="error-messages">Error messages</h3>
+<p>When you use an invalid variable name, Python will always let you know by raising what&rsquo;s known as a <strong>SyntaxError</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+    IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+                <span style="color:#f92672">^</span>
+<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</code></pre></div><p>Notice that the error message points toward the first dollar sign, meaning that this is the piece of the variable name that caused the error.  Why does it identify the first dollar sign as causing the error instead of the last?  In short, when Python interprets your code, it scans each line from left to right, so the leftmost incorrect character in your variable will always be the one identified by the error.</p>
+<p>In Python, there are many other kinds of errors.  Sometimes, when your code throws an error message, it&rsquo;s easy to get discouraged.  But getting an error message doesn&rsquo;t mean that you&rsquo;re a bad programmer!  In fact, messages can be extremely helpful when debugging your code.  So when it comes to error messages, here&rsquo;s the mantra:</p>
+<blockquote>
+<p>Error messages are designed to help you &ndash; the programmer &ndash; figure out what went wrong in your code.</p>
+</blockquote>
+<p>You should embrace error messages, especially those that give you specific feedback about what went wrong.</p>
+<hr>
+<h4 id="exercise-4-variable-names">Exercise 4 (Variable names)</h4>
+<p>Which of the following are valid variable names?  And if a variable name is invalid, what will the SyntaxError point to when the error is thrown?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> TheDigitsOfPiAre3<span style="color:#ae81ff">.14</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> M3rryChristma5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ho ho ho&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Eight<span style="color:#f92672">-</span>five <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> Wh<span style="color:#a6e22e">@tIsMyN@me</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jane Eyre&#39;</span>
+</code></pre></div><p>Try it out in your terminal.</p>
+<hr>
+<h3 id="protected-keywords">Protected keywords</h3>
+<p>There&rsquo;s one more caveat worth mentioning here, and I&rsquo;ll illustrate it by way of an example.  Let&rsquo;s say you&rsquo;re a busy teacher, and you want to keep track of how many classes you&rsquo;re teaching.  You might do this by defining a variable called &ldquo;class.&rdquo;  Let&rsquo;s see what happens when we try to do that.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+          <span style="color:#f92672">^</span>
+<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</code></pre></div><p>Why doesn&rsquo;t this work?  According to the rules we listed above, &ldquo;class&rdquo; should be a valid variable name, shouldn&rsquo;t it?</p>
+<p>It turns out that Python has a set of so-called &ldquo;protected&rdquo; keywords which cannot be used as variable names.  As of latest version of Python (Python version 3.10), there are 35 keywords in Python.  Here&rsquo;s the full list:</p>
+<p><img src="../../assets/python-keywords.png" alt="Python-keywords"></p>
+<p>After scanning this list, you may have noticed that we&rsquo;ve already met three of these keywords!  In addition to &ldquo;class&rdquo; in the above example, we&rsquo;ve also seen &ldquo;True&rdquo; and &ldquo;False&rdquo; when <a href="#booleans">Boolean data types</a> were introduced.  If you continue reading these notes, you&rsquo;ll encounter many of these keywords.</p>
+<hr>
+<h3 id="readibility">Readibility</h3>
+<p>How you choose your variable names may seem like a small detail, but in my view, this is one of the most important parts of writing a program.  If you take one thing away from this lesson, let is be this:</p>
+<blockquote>
+<p>As a programmer, you will read ten times more code than you will write.</p>
+</blockquote>
+<p>And ten is likely an underestimate here.  It&rsquo;s crucial that your code is readible, and readibility is heavily tied to how you name your variables.  For example, if I wanted to create a variable that counted the number of cats I have, which variable do you think is more readible?  This:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>or this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>In other words, if someone else had to read your code, how quickly would they be able to figure out what&rsquo;s going on in your program?  As a programmer, you should always try to focus on writing code such that the next person who interacts with your code can get up to speed as fast as possible.</p>
+<hr>
+<h3 id="variable-comparison">Variable comparison</h3>
+<p>Now that we&rsquo;ve learned about Python variables, it&rsquo;s time to think about how we can compare two variables.  To illustrate this, let&rsquo;s start by defining a few variables that we can play around with.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numStrawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>(Yes, I did just finished cutting up a bowl of fruit.)  One important task in Python is to check whether two variables are equal.  To do so, we use two equals signs, e.g.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">==</span> numGrapes
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">==</span> numStrawberries
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>As you can see, checking whether two variables are equal returns a Boolean variable: True if the variables are equal, and False otherwise.  A common mistake in Python is to confuse variable assignment, which uses a single equal sign (=), with variable comparison, which uses two equal signs (==), so it&rsquo;s important to take care when bashing your little finger on that equals sign key!</p>
+<p>You can also check whether two variables are <em>not</em> equal to one another using an exclamation point followed by an equals sign.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numBananas
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numGrapes
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>Aside from checking whether two variables are equal or not, we can also check whether one variable is larger or small than another.  To do so, we use the &gt; key to denote &ldquo;is larger than&rdquo; and the &lt; key to denote &ldquo;is smaller than.&rdquo;  Take a look at the following examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">&gt;</span> numStrawberries
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">&lt;</span> numGrapes
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">&gt;</span> numStrawberries
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>Similarly, you can use &gt;= to check whether one variable is larger than equal to another variable; we can write &lt;= to check whether a variable is less than or equal to another variable.</p>
+<hr>
+<h4 id="exercise-5-comparing-variables">Exercise 5 (Comparing variables)</h4>
+<p>So far, we&rsquo;ve shown how you can compare two integer variables.  However, in Python, you can compare other kinds of data types.  What do you think the outcomes of these comparisons will be?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.15</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;Rachel&#39;</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;Ross&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4.2424</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4.2424</span>
+</code></pre></div><hr>
+<h3 id="comparing-variables-with-different-data-types">Comparing variables with different data types</h3>
+<p>Somewhat unintuitively, it is sometimes &ndash; but not always &ndash; possible to compare two variables that have different data types.  For example, in some cases, it can be useful to think of the number 1 as denoting &ldquo;true&rdquo; and the number 0 as denoting &ldquo;false.&rdquo;  This convention arises in various fields such as <a href="https://en.wikipedia.org/wiki/Logic_level">circuit design</a>.  To meet this convention, Python allows you to compare bools to integers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">True</span>
+</code></pre></div><p>Here are some more examples which compare variables of different data types.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1.0</span>
+<span style="color:#66d9ef">True</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;b&#39;</span>
+<span style="color:#66d9ef">False</span>
+</code></pre></div><p>In these notes, we won&rsquo;t provide an exhaustive list of what you can and cannot compare.  This is your time to explore!  What happens when you compare a string to an integer?  What if you compare a Boolean to a number other than 0 or 1?  Try it out!</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#variables-and-data-types">Variables and data types</a>. A <strong>variable</strong> is a container for storing data, and variables are defined with the equals sign.  Every Python variable has a <strong>data type</strong>.  In this section, we met three data types: <strong>strings</strong> are sequences of characters in quotes, <strong>integers</strong> are numbers <em>without</em> decimals, and <strong>floats</strong> are numbers <em>with</em> decimals.</p>
+</li>
+<li>
+<p><a href="#exercise-1-review-of-data-types">Exercise 1 (Review of data types)</a>.  The <strong>type</strong> keyword allows you check the data type of a variable.</p>
+</li>
+<li>
+<p><a href="#booleans">Boolean data types</a>.  Boolean or <strong>bool</strong> variables can take on one of two (logical) values: True or False.</p>
+</li>
+<li>
+<p><a href="#exercise-2-variable-reassignment">Exercise 2 (Variable reassignment)</a>.</p>
+</li>
+<li>
+<p><a href="#printing-variables-with-f-strings">Printing variables with f-strings</a>.  <strong>f-strings</strong> allow you to insert variables into strings.</p>
+</li>
+<li>
+<p><a href="#exercise-3-f-strings-in-action">Exercise 3 (f-strings in action)</a>.</p>
+</li>
+<li>
+<p><a href="#naming-variables">Naming variables</a>.  Python has strict conventions on how variables can be named.  Variable names can be artbirarily long, and can contain numbers, letters, and underscores.  Variable names cannot start with numbers and they cannot include spaces or symbols other than the underscore.</p>
+</li>
+<li>
+<p><a href="#error-messages">Error messages</a>.  Error messages let you know when your code fails.  <strong>SyntaxError</strong>s tell us when a variable has an invalid name.</p>
+</li>
+<li>
+<p><a href="#exercise-4-variable-names">Exercise 4 (Variable names)</a>.</p>
+</li>
+<li>
+<p><a href="#protected-keywords">Protected keywords</a>.  A small set of &ldquo;protected&rdquo; words cannot be used as variable names in Python, including &ldquo;True&rdquo;, &ldquo;False&rdquo;, and &ldquo;class.&rdquo;</p>
+</li>
+<li>
+<p><a href="#readibility">Readibility</a>.  As a programmer, you&rsquo;ll read <em>at least</em> ten times as much code as you&rsquo;ll write.  You should always strive to write code that is easy for others to read.</p>
+</li>
+<li>
+<p><a href="#variable-comparison">Variable comparison</a>.  You can compare two variables in Python in various ways: == and != are used to check whether two variables are equal or not equal respectively, &gt; and &lt; are used to check strict inequalities, and &gt;= and &lt;= are used to check non-strict inequalities (e.g., greater than or equal to).</p>
+</li>
+<li>
+<p><a href="#exercise-5-comparing-variables">Exercise 5 (Comparing variables)</a>.</p>
+</li>
+<li>
+<p><a href="#comparing-variables-with-different-data-types">Comparing variables with different data types</a>.  In some cases, you can compare variables with contrasting data types, e.g., <code>True == 1</code> evaluates to True.</p>
+</li>
+</ul>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-6-true-or-false">Exercise 6 (True or false)</h4>
+<ol>
+<li><code>_my_favorite_food_is_popcorn_</code> is a valid variable name.</li>
+<li><code>'abc' &lt; 'd'</code> evaluates to True.</li>
+<li>The data type of 3.000000 is int.</li>
+<li><code>False &gt;= True</code> evaluates to False.</li>
+<li>Defining strings with double quotes instead of single quotes will throw an error.</li>
+<li><code>type('5.555')</code> returns float.</li>
+<li>When I reassign the value of a variable, it&rsquo;s data type will always change.</li>
+</ol>
+<h4 id="exercise-7-caveats">Exercise 7 (Caveats)</h4>
+<ol>
+<li>How many values can a Boolean variable take on?</li>
+<li>Which symbols are you allowed to use when naming a variable in Python?</li>
+<li>Do &lt;= and &gt;= check for strict or non-strict inequalities?</li>
+<li>What is the maximum length for a variable name?</li>
+</ol>
+<hr>
+<p>Congratulations!  You made it through your first full lesson in Python.  Things will only get more exciting from here, so make sure to check out the next note in this series.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        3119 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-12-20 19:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Variables%2c%20data%20types%2c%20and%20comparison&amp;caption=Variables%2c%20data%20types%2c%20and%20comparison&amp;canonicalUrl=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Variables%2c%20data%20types%2c%20and%20comparison&amp;body=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f&amp;media=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f;description=Variables%2c%20data%20types%2c%20and%20comparison" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f&amp;title=Variables%2c%20data%20types%2c%20and%20comparison&amp;summary=Variables%2c%20data%20types%2c%20and%20comparison&amp;source=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f&amp;resubmit=true&amp;title=Variables%2c%20data%20types%2c%20and%20comparison" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f;title=Variables%2c%20data%20types%2c%20and%20comparison" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Variables%2c%20data%20types%2c%20and%20comparison%20https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f&amp;t=Variables%2c%20data%20types%2c%20and%20comparison" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Variables%2c%20data%20types%2c%20and%20comparison&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2fvariables_data_types%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://arobey1.github.io/python/math_operations/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Math operations</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://arobey1.github.io/python/interacting_with_python/">
+                    <span class="button__text">Interacting with Python</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://arobey1.github.io/">Alex Robey</a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>

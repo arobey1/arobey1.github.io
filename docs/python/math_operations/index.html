@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Robey ">
+<meta name="description"
+    content="Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+ The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://arobey1.github.io/python/math_operations/" />
+
+
+<title>
+    
+    Math operations :: Alex Robey 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<link rel="stylesheet" href="https://arobey1.github.io/main.min.f4c2daf2832ae65007bcc18dc621f49f9f67ef0ef34d55eabd4fd45f6eed4c00.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://arobey1.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://arobey1.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://arobey1.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://arobey1.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://arobey1.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://arobey1.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+    <meta name="theme-color" content="">
+
+<meta itemprop="name" content="Math operations">
+<meta itemprop="description" content="Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&rsquo;t worry! We won&rsquo;t be doing anything complicated today. You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+ The basic operations Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats."><meta itemprop="datePublished" content="2022-12-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-12-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2561"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://arobey1.github.io/"/>
+
+<meta name="twitter:title" content="Math operations"/>
+<meta name="twitter:description" content="Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&rsquo;t worry! We won&rsquo;t be doing anything complicated today. You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+ The basic operations Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats."/>
+
+
+
+
+<meta property="article:published_time" content="2022-12-24 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://arobey1.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Alex Robey</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://arobey1.github.io/about/">About</a></li><li><a href="https://arobey1.github.io/cv/">CV</a></li><li><a href="https://arobey1.github.io/posts/">Posts</a></li><li><a href="https://arobey1.github.io/publications/">Publications</a></li><li><a href="https://arobey1.github.io/python/">Python</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+            <script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+        </span>
+    </span>
+</header>
+
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        13 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://arobey1.github.io/python/math_operations/">Math operations</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
+<hr>
+<h3 id="the-basic-operations">The basic operations</h3>
+<p>Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats.  In the previous lesson, we learned all about how to create and compare these data types.  But as you&rsquo;ll see, there is so much more that we can do with Python variables.  In particular, in this lesson, we&rsquo;ll focus on answering the following question: What if we want to do <em>operations</em> on two or more values or variables?  For example, how do we add two variables in Python?</p>
+<p>As we foreshadowed in the first lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="Interacting with Python">interacting with Python</a>, adding two numbers works exactly as you&rsquo;d expect in Python.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+</code></pre></div><p>Similarly, we can subtract, multiply, and divide numbers in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">5.0</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">3.1</span>   <span style="color:#75715e"># subtraction</span>
+<span style="color:#ae81ff">1.9</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>       <span style="color:#75715e"># multiplication</span>
+<span style="color:#ae81ff">21</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>      <span style="color:#75715e"># division</span>
+<span style="color:#ae81ff">2.5</span>
+</code></pre></div><p>Note that this works for both floats and ints.  Hopefully these operations seem relatively intuitive.  One more operation that you should know is exponentiation, i.e. raising one number ot the power of another number.  Exponentiation is performed by writing two asterisks.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># 2 to the power of 2, i.e. 2 squared</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">25</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>       <span style="color:#75715e"># 25 to the power of 0.5, i.e. the square root of 25</span>
+<span style="color:#ae81ff">5.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>         <span style="color:#75715e"># 3 to the power ot -1, i.e. 1/3</span>
+<span style="color:#ae81ff">0.3333333333333333</span>  
+</code></pre></div><p>And that&rsquo;s basically it.  These five operations (and their symbols) &ndash; addition (+), subtraction (-), multiplication (*), division (\), and exponentiation (**) &ndash; will cover a large portion of the math you&rsquo;ll need to do in Python.  There&rsquo;s a lot more to say about these operations, but before we move on, I think a few exercises are in order.</p>
+<hr>
+<h4 id="exercise-1-using-the-basic-operations">Exercise 1 (Using the basic operations)</h4>
+<p>Your first challenge for today is to write a script called moon_weight.py that calculates what you&rsquo;d weigh on the (capital M) Moon.  Objects on the Moon weight about 16.6% of what they&rsquo;d weigh on Earth, so if you weight 200 lbs on Earth, you&rsquo;d weight 33.2 lbs on the Moon.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ moon_weight.py
+This program calculates what you would weigh on the Moon.
+Please enter your weight on the Earth.
+
+Earth weight: <span style="color:#ae81ff">200</span>
+Enter units: lbs
+On the Moon, you would weigh 33.2 lbs
+</code></pre></div><p>If you&rsquo;re feeling ambitious, why not add a few more planets (well, the Moon isn&rsquo;t really a planet I guess, so let&rsquo;s humor the inner poet in each of us and say &ldquo;celestial bodies&rdquo; instead)?  For example, if you were standing on the surface of the Sun (not that I necessarily recommend doing so), you&rsquo;d weigh 2707.2% of what you weight on Earth.  This <a href="http://www.seasky.org/solar-system/planet-weight-calculator.html">website</a> will give you the conversion rates for various other celestial bodies so that you can create output in a new script called celestial_bodies.py that work like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ celestial_bodies.py
+This program calculates what you would weigh on the moon.
+Please enter your weight on the Earth.
+
+Earth weight: <span style="color:#ae81ff">200</span>
+Enter units: lbs
+On the Moon, you would weigh 33.2 lbs
+On the Sun, you would weigh 5414.4 lbs
+On Jupiter, you would weigh 472.8 lbs
+</code></pre></div><p>Hint: In this exercise, you&rsquo;ll want to use Python&rsquo;s <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input">input function</a> as well as <a href="https://arobey1.github.io/python/variables_data_types/#printing-variables-with-f-strings">f-strings</a>.</p>
+<hr>
+<h3 id="interlude-a-break-from-math">Interlude: A break from math</h3>
+<p>This interlude is just for fun.  It doesn&rsquo;t use any math, but it does loosely fit within the confines of the lesson plan today.  Over the course of this lesson, you may have been wondering: What happens when I use the mathematical operations on other kinds of data types, e.g., strings and bools?</p>
+<p>In general, mathematical operations cannot always be applied to strings and bools.  For example, the following lines of code will throw errors:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;What is your favorite number&#34;</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">False</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;I&#39;ll see your bid, and I&#39;ll&#34;</span> <span style="color:#f92672">**</span> <span style="color:#e6db74">&#34;you 5 dollars&#34;</span>
+</code></pre></div><p>However, there are a few cases where mathematical operations can be combined with strings and bools.  Here&rsquo;s an exhaustive list with examples:</p>
+<p>Two (or more) strings can be added together:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;Can &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;I &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;be &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;your &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;neighbor?&#34;</span>
+Can I be your neighbor<span style="color:#960050;background-color:#1e0010">?</span>
+</code></pre></div><p>Strings can be multiplied by integers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;¯\_(ツ)_/¯&#39;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>
+<span style="color:#960050;background-color:#1e0010">¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯¯</span>\_(ツ)_<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">¯</span> 
+</code></pre></div><p>When any of the mathematical operations we&rsquo;ve seen are applied to bools, True is interpreted as 1 and False is interpreted as 0.  Thus:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">False</span>        <span style="color:#75715e"># interpreted as 1 + 0</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">/</span> <span style="color:#66d9ef">True</span>        <span style="color:#75715e"># interpreted as 0 / 1</span>
+<span style="color:#ae81ff">0.0</span>
+</code></pre></div><p>And that&rsquo;s it!  Now you know all there is to know about combining mathematical operations with strings and bools.</p>
+<hr>
+<h3 id="combining-multiple-operations">Combining multiple operations</h3>
+<p>Almost all of the examples that we&rsquo;ve seen thus far have involved only a single operation.  However, as as you&rsquo;d expect, you can combine as many operations together as you&rsquo;d like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> num_strawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_oranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_tomatoes <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> num_strawberries <span style="color:#f92672">+</span> num_oranges <span style="color:#f92672">+</span> num_tomatoes
+<span style="color:#ae81ff">15</span>
+</code></pre></div><p>To break up compound mathematical expressions like the one shown above, it&rsquo;s often helpful to insert parenthesis like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (num_strawberries <span style="color:#f92672">+</span> num_oranges) <span style="color:#f92672">+</span> num_tomatoes
+<span style="color:#ae81ff">15</span>
+</code></pre></div><p>One reason we break up expressions like this with parenthesis is to make them more readible.  Above, the parenthesis are used to separate the addition of the number of fruits from the number of vegetables.</p>
+<hr>
+<h4 id="exercise-2-preview-of-the-order-of-operations">Exercise 2 (Preview of the order of operations)</h4>
+<p>This being said, it&rsquo;s important to be careful when combining multiple mathematical operations using parentheses.  Let&rsquo;s illustrate some of the trouble that can arise when we&rsquo;re not careful with how we write compound mathematical expressions.</p>
+<p>Below I&rsquo;ve written two expressions in the Python shell.  What do you think the output will be for each of these expressions?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span>)
+</code></pre></div><p>After you&rsquo;ve thought a bit about it, try executing these commands.  Did your expectation align with the output you see?</p>
+<hr>
+<h3 id="the-order-of-operations">The order of operations</h3>
+<p>As the above exercise illustrated, the order in which you write your mathematical operations matters in Python.  To govern which expressions should evaluated first, the order of operations in Python follows a specific set of guidelines known in technical jargon as the <a href="https://docs.python.org/3/reference/expressions.html#operator-precedence">operation precedence rule</a>.  In essence, this precedence rule creates a hierarchy amongst the operations that we met earlier in this lesson.  And without further adieu, here&rsquo;s that hierarchy:</p>
+<ol>
+<li><strong>P</strong>arentheses</li>
+<li><strong>E</strong>xponentiation</li>
+<li><strong>M</strong>ultiplication</li>
+<li><strong>D</strong>ivision</li>
+<li><strong>A</strong>ddition</li>
+<li><strong>S</strong>ubtraction</li>
+</ol>
+<p>Some people like to remember this via the abbreviation PEMDAS,  which I&rsquo;ve indicated by highlighting the first letter of each word in the hierarchy.</p>
+<p>Here&rsquo;s how the hierarchy works.  Let&rsquo;s say I have a long, complicated mathematical expression, e.g.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>How will Python execute this?  Well, according to the hierarchy, it will start the operation highest up on the list; in this case, that means the parentheses.  And importantly, Python will always start with the inner-most set of parentheses, meaning that <code>(3 + 2)</code> will be evaluated first.  Thus, we can imagine that <code>(3 + 2)</code> will be replaced by 5 in the above expression, leaving Python to consider the following simplified formula:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Following this, Python will proceed to look at the remaining set of parenthesis around <code>5 * 10 / 2</code>.  As multiplication comes earlier in the hierarchy than division, Python will first calculate <code>5 * 10</code>, leaving us with</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> (<span style="color:#ae81ff">50</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Next, Python will perform the divion in the parentheses, yielding</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">25</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>As there is only one operation left, Python can now easily return the correct answer: 5.0.  Thus, the expected output of our original command is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+<span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>And at a high level, that&rsquo;s all you need to know about the hierachy of operations in Python.  To get some more practice with this idea, try out the following exercise.</p>
+<hr>
+<h4 id="exercise-3-more-practice-with-the-basic-operations">Exercise 3 (More practice with the basic operations)</h4>
+<p>It&rsquo;s cold today (December 24, 2022).  Like really cold.  In fact, <a href="https://www.poetryfoundation.org/poems/53219/mayakovsky">it may be the coldest day of the year</a>.  And the way I see it, this cold weather gives us the perfect opportunity for a fun little exercise.  Let&rsquo;s use Python to calculate the <em>windchill</em> given the temperature ($T$) in degrees Fahrenheit and wind speed ($W$) in miles per hour.  Windchill is calculated using the following formula:</p>
+<p>$$ \text{windchill} = 35.74 + (0.6215 \cdot T) - 35.75 \cdot W^{0.16} + 0.4275 \cdot T \cdot W^{0.16}$$</p>
+<p>(Please don&rsquo;t ask me where this comes from; I have simply no idea. . .  Ok fine, I looked it up.  Dear reader, if you&rsquo;re interested, feel free to <a href="https://en.wikipedia.org/wiki/Wind_chill#North_American_and_United_Kingdom_wind_chill_index">peruse</a> at your leisure.)</p>
+<p>Your job is to write a script called calc_windchill.py that takes the temperature and wind speed as input, and then prints out the windchill.  Here&rsquo;s what I&rsquo;m looking for:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python calc_windchill.py
+Enter the temperature <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">20</span>
+Enter the wind speed <span style="color:#f92672">(</span>in miles per hour<span style="color:#f92672">)</span>: <span style="color:#ae81ff">10</span>
+The windchill is: 6.21888526608 degrees Fahrenheit.
+</code></pre></div><p>If you insist on doing this like the rest of the world, fell free to rewrite this script so that it calculates the windchill in degrees Celsius rather than Fahrenheit.</p>
+<hr>
+<h3 id="exercise-4-pretest-data-types-and-mathematical-operations">Exercise 4 (Pretest: data types and mathematical operations)</h3>
+<p>Here&rsquo;s a question for you: What determines the data type that is returned from a mathematical operation in Python?  For instance, in the code snippet from the earlier section on <a href="#the-order-of-operations">the order of operations</a>, why did</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ((<span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>return 5.0 &ndash; a float &ndash; instead of 5 &ndash; and int?  Before I fill you in, I want you to play around with this idea a little bit.  Try out the following commands, but before you hit enter, try to predict what the data type of the output will be.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">3.1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">6</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">0.5</span>
+</code></pre></div><p>Big props to you if you got all of these right!  If not, the next section will explain what&rsquo;s going on.</p>
+<hr>
+<h3 id="a-word-about-data-types">A word about data types</h3>
+<p>When it comes to data types and mathematical expressions, here&rsquo;s a basic rule of thumb to keep in mind: For addition, subtraction, multiplication, and exponentiation, if you put two integers in, you&rsquo;ll get an integer out; if either or both of your inputs are floats, then you&rsquo;ll get a float as output.  Thus, for example, from the previous exercise, we get the following behavior</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2.0</span>
+<span style="color:#ae81ff">5.0</span>
+</code></pre></div><p>I.e., a float is returned because one of the inputs (namely, 2.0) to the addition operation is a float.</p>
+<p>The odd man out here is division.  As opposed to the other operations, when you perform division in Python, you will always get a float as output.  Thus, even though the inputs to</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">25.0</span>
+</code></pre></div><p>are both integers, Python returns the float 25.0.</p>
+<hr>
+<h3 id="converting-between-data-types">Converting between data types</h3>
+<p>In some cases, you may not be satisfied with the data type that is returned by a mathematical expression.  For instance, perhaps you&rsquo;d like the expression</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">25.0</span>
+</code></pre></div><p>to return an integer rather than a float.  Well, as you&rsquo;d imagine, Python has a solution for this.  As I mentioned very briefly in the lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="Interacting with Python">interacting with Python</a>, we can turn a float into an int with the <code>int</code> function.  That is, we can force Python to return an int in the above example in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">100</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>)
+<span style="color:#ae81ff">25</span>
+</code></pre></div><p>Note that if the argument to the int function has decimal places, the output will be rounded <em>down</em> to the nearest whole number.  Thus:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">2.3</span>)
+<span style="color:#ae81ff">2</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">9.999</span>)
+<span style="color:#ae81ff">9</span>
+</code></pre></div><p>There are similar functions for converting a data type to a float, string, and bool.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> float(<span style="color:#ae81ff">5</span>)
+<span style="color:#ae81ff">5.0</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> str(<span style="color:#ae81ff">5.6</span>)
+<span style="color:#e6db74">&#39;5.6&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> bool(<span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">True</span>
+</code></pre></div><p>Note that the <code>bool</code> function will only return 0 if the argument passed to it is zero.  For any other input, be it a string, integer, or float, as long as it isn&rsquo;t 0 or 0.0, <code>bool</code> will return True.</p>
+<p>And that will just about do it for this lesson!  Stick around for a quick review and some additional exercises.</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#the-basic-operations">The basic operations</a>.  The following comprise the basic mathematical operations (and their symbols) in Python: addition (+),  subtraction (-), multiplication (*), division (\), and exponentiation (**).</p>
+</li>
+<li>
+<p><a href="#exercise-1-using-the-basic-operations">Exercise 1 (Using the basic operations)</a>.</p>
+</li>
+<li>
+<p><a href="#interlude-a-break-from-math">Interlude: A break from math</a>.  In some cases, mathematical operations can be applied to bools and strings.  In particular, strings can be added together, and strings can be multiplied by integers.  When using any of the operations we&rsquo;ve seen on bools, True is interpreted as 1 and False is interpreted as 0.</p>
+</li>
+<li>
+<p><a href="#combining-multiple-operations">Combining multiple operations</a>.  Parentheses can be used to simplify mathematical expressions and to improve the readibility of your code.</p>
+</li>
+<li>
+<p><a href="#exercise-2-preview-of-the-order-of-operations">Exercise 2 (Preview of the order of operations)</a>.  Care needs to be taken when using parentheses in mathematical operations, as they can change the outputs of these expressions.</p>
+</li>
+<li>
+<p><a href="#the-order-of-operations">The order of operations</a>.  The order in which Python executes different mathemtical operations follows a hierarchy called the operations precedence rule.  The hierarchy follows the abbreviation PEMDAS, which stands for <strong>p</strong>arentheses, <strong>e</strong>exponentiation, <strong>m</strong>ultiplication, <strong>d</strong>ivision, <strong>a</strong>ddition, and finally, <strong>s</strong>ubtraction.  Operations higher up in the hierarchy will be executed before operations lower in the hierarchy.</p>
+</li>
+<li>
+<p><a href="#exercise-3-more-practice-with-the-basic-operations">Exercise 3 (More practice with the basic operations)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-4-pretest-data-types-and-mathematical-operations">Exercise 4 (Pretest: data types and mathematical operations)</a></p>
+</li>
+<li>
+<p><a href="#a-word-about-data-types">A word about data types</a>.  When you perform addition, subtraction, multiplication, or division in Python, there are two possible cases: (a) if both of your inputs are integers, then an integer will be returned; (b) if either or both of your inputs are floats, then a float will be returned.  And as for division, regardless of the data types of your input, a float will always be returned.</p>
+</li>
+<li>
+<p><a href="#converting-between-data-types">Converting between data types</a>.  The functions <code>int</code>, <code>float</code>, <code>str</code>, and <code>bool</code> can be used to convert between data types.</p>
+</li>
+</ul>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-5-more-practice-with-operations">Exercise 5 (More practice with operations)</h4>
+<p>Remember those formulas that you learned in primary school about the volume and surface area of different objects?  I bet you didn&rsquo;t think that you&rsquo;d ever see those again.  Well, today&rsquo;s the day that they come back to haunt you.  Recall that the volume $V$ and surface area $A$ of a sphere (in three dimensions) is</p>
+<p>$$V = \frac{4}{3}\pi R^3 \quad\text{and}\quad A = 4 \pi R^2$$</p>
+<p>where $R$ is the radius of the sphere and $\pi=3.1415926\dots$ is everyone&rsquo;s favorite mathematical constant.  Your job is to write a script called sphere.py that will take the radius of a sphere as input and return the volume and surface area of that sphere.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python shell.py
+Enter a radius: <span style="color:#ae81ff">10</span>
+Enter your approximation of pi: 3.1415926
+
+Your sphere has a surface area of 1256.63704 units.
+Your sphere has a volume of 4188.790133333333 units.
+</code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2561 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-12-23 19:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Math%20operations&amp;caption=Math%20operations&amp;canonicalUrl=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Math%20operations&amp;body=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f&amp;media=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f;description=Math%20operations" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f&amp;title=Math%20operations&amp;summary=Math%20operations&amp;source=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f&amp;resubmit=true&amp;title=Math%20operations" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f;title=Math%20operations" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Math%20operations%20https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f&amp;t=Math%20operations" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Math%20operations&amp;url=https%3a%2f%2farobey1.github.io%2fpython%2fmath_operations%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="https://arobey1.github.io/python/variables_data_types/">
+                    <span class="button__text">Variables, data types, and comparison</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://arobey1.github.io/">Alex Robey</a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>
