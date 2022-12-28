@@ -7,7 +7,7 @@ draft: true
 mathjax: true
 ---
 
-Welcome back!  I hope you learned something new in the previous lesson on [variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don't worry!  We won't be doing anything complicated today.  You'll just need the basics: addition, subtraction, exponents, and the like.
+Welcome back!  I hope you learned something new in the previous lesson on [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don't worry!  We won't be doing anything complicated today.  You'll just need the basics: addition, subtraction, exponents, and the like.
 
 ---
 

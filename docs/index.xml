@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 24 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lists</title>
+      <link>https://arobey1.github.io/python/lists/</link>
+      <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/lists/</guid>
+      <description>You&amp;rsquo;re back! We&amp;rsquo;ve got a lot to cover in this lesson, so let&amp;rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.
+ A motivating example: Why we need lists in Python Let&amp;rsquo;s say that you&amp;rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!</description>
+    </item>
+    
     <item>
       <title>Math operations</title>
       <link>https://arobey1.github.io/python/math_operations/</link>
       <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/python/math_operations/</guid>
-      <description>Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+      <description>Welcome back! I hope you learned something new in the previous lesson on Variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
  The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
     </item>
     
@@ -35,8 +45,8 @@
       <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/python/interacting_with_python/</guid>
-      <description>Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
-Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+      <description>Interacting with Python There are two main ways of interacting with Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
+ Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
  A shell is an interpreter that can execute Python programs and simple Python commands.</description>
     </item>
     
@@ -93,15 +103,6 @@ Python shell Perhaps the easiest way to start interacting with Python is through
       
       <guid>https://arobey1.github.io/publications/chordal_lip_sdp/</guid>
       <description>Abstract. Lipschitz constants of neural networks allow for guarantees of robustness in image classification, safety in controller design, and generalizability beyond the training data. As calculating Lipschitz constants is NP-hard, techniques for estimating Lipschitz constants must navigate the trade-off between scalability and accuracy. In this work, we significantly push the scalability frontier of a semidefinite programming technique known as LipSDP while achieving zero accuracy loss. We first show that LipSDP has chordal sparsity, which allows us to derive a chordally sparse formulation that we call Chordal-LipSDP.</description>
-    </item>
-    
-    <item>
-      <title>Probabilistically Robust Learning: Balancing Average- and Worst-case Performance</title>
-      <link>https://arobey1.github.io/publications/prob_robust_learning/</link>
-      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/prob_robust_learning/</guid>
-      <description>Abstract. Many of the successes of machine learning are based on minimizing an averaged loss function. However, it is well-known that this paradigm suffers from robustness issues that hinder its applicability in safety-critical domains. These issues are often addressed by training against worst-case perturbations of data, a technique known as adversarial training. Although empirically effective, adversarial training can be overly conservative, leading to unfavorable trade-offs between nominal performance and robustness. To this end, in this paper we propose a framework called \emph{probabilistic robustness} that bridges the gap between the accurate, yet brittle average case and the robust, yet conservative worst case by enforcing robustness to most rather than to all perturbations.</description>
     </item>
     
   </channel>

@@ -8,7 +8,9 @@ draft: true
 
 ### Interacting with Python
 
-There are two main ways of interacting with a Python: with a shell and with a script.  Here's a brief primer on how shells and scripts work and when you should use them.
+There are two main ways of interacting with Python: with a shell and with a script.  Here's a brief primer on how shells and scripts work and when you should use them.
+
+---
 
 #### Python shell
 
@@ -16,7 +18,7 @@ Perhaps the easiest way to start interacting with Python is through what's known
 
 > A shell is an interpreter that can execute Python programs and simple Python commands.
 
-To open a shell, open a terminal (not sure what this is? see [this link](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal)) and type the word "python."  You should see something like this:
+To open a shell, open a terminal (not sure what this is? see [this link](https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal)), type the word "python," and hit enter.  You should see something like this:
 
 ```shell
 $ python
@@ -36,10 +38,19 @@ Now hit enter (or return, depending on your keyboard)!  You should see the world
 
 ```python
 >>> print("Hello world!")
-Hello world!
+'Hello world!'
 ```
 
-Congratulations!  You just executed your first Python expression.  Here's to many more.
+To exit the Python shell, you can type `exit()` and hit enter, or use Ctrl-D.
+
+```python
+>>> exit()
+```
+
+Congratulations!  You just executed your first Python expressions.  Here's to many more.
+
+---
+
 
 #### Python scripts
 
@@ -47,7 +58,7 @@ The second way to interact with a Python program is through what's known as a **
 
 > A Python script is a file containing Python code.
 
-The difference between a shell and a script is as follows.  In the shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.  
+The difference between a shell and a script is as follows.  In a shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.  
 
 For example, try creating a file called my_first_program.py.  How will your computer know that this is a Python file?
 
@@ -71,7 +82,7 @@ And as before, you should see the following output.
 
 ```shell
 $ python my_first_program.py
-Hello world!
+'Hello world!'
 ```
 
 Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I'm glad you asked!  
@@ -80,7 +91,7 @@ Now that you know what shells and scripts are, you might be wondering when you s
 
 ### When to use the shell and when to use scripts
 
-All of the code in this set of notes can be executed in the shell and in scripts.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There's a few reasons:
+All of the code in this set of notes can be executed in a shell or in a script.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There's a few reasons:
 
 * **Organization.**  Scripts allow you to easily execute multiple expressions at once, whereas in the shell, expressions need to be executed one by one.  When you have a long program, it becomes much easier to organize your code into interpretable blocks when your statements are broken into one or several scripts.
 
@@ -98,31 +109,35 @@ You'll be using the print statement *a lot* when writing Python code, so to get 
 
 ```python
 >>> print("I am using the print function")
-I am using the print function
+'I am using the print function'
 >>> print(3.1415926)
 3.1415926
 >>> print("23 is a prime number")
-23 is a prime number
+'23 is a prime number'
 ```
+
+Let's take what you've learned about printing and apply it in the following exercise.
 
 ---
 
 #### Exercise 1 (From the shell to a script)
 
-The examples we just went through about using the `print` function were all executed in the shell.  My question for you: Can you write this program as a script and produce the same output?  I bet you can.  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:
+The examples we just went through were all executed in a Python shell.  My question for you: Can you write this program as a script and produce the same output?  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:
 
 ```shell
 $ print_examples.py
-I am using the print function
+'I am using the print function'
 3.1415926
-23 is a prime number
+'23 is a prime number'
 ```
+
+Think you've got the hang of printing?  Let's kick things up a notch in the next exercise.
 
 ---
 
 #### Exercise 2 (Your first Python program)
 
-These are early days.  You're just getting started on your Python journey.  But guess what!  You're ready to write your first original Python program.  Yes, really!  What will you be doing?  Well, I'm glad you asked.  I want you to write a program called print_my_cow.py that prints the following output to the terminal.
+These are early days.  You're just getting started on your Python journey.  But guess what!  You're ready to write your first original Python program.  Yes, really!  What will you be doing?  I want you to write a program called print_my_cow.py that prints the following output to the terminal.
 
 ```shell
 $ python print_my_cow.py
@@ -153,7 +168,7 @@ Feel free to go crazy with this one.  (If you're wondering where I got this idea
 
 ### User-supplied input
 
-Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produces the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?
+Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produced the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?
 
 For example, let's say I wanted to write a program that takes a number as input and prints out that number incremented by one.  Easy enough!  I could just write the following in the shell.
 
@@ -171,7 +186,7 @@ But what happens when your favorite number changes from 5 to 941?  Well, you'd h
 942
 ```
 
-This is a little bit cumbersome.  What we'd really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number based on your input.   
+This is a little bit cumbersome.  What we'd really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number.   
 
 How should we do this?  Well, hopefully you remember the tips in [When to use the shell and when to use scripts](#when-to-use-the-shell-and-when-to-use-scripts); specifically, one of the recommendations was to use scripts whenever you need to run a program multiple times.  So let's try writing a script called increment.py that solves our problem.  Here's the script:
 
@@ -187,7 +202,7 @@ $ python increment.py
 942
 ```
 
-This is easy to rerun, but we still haven't resolved this issue where we can't change your favorite number without rewriting the code.  And here's where the magic of the `input` function comes in.  
+This is easy to rerun, but we still haven't resolved this issue where we can't change your favorite number without rewriting the code.  And now is when the magic of the `input` function comes in handy.  
 
 > The **input** function allows a user to input data into a program.
 
@@ -198,7 +213,7 @@ my_favorite_number = input("Enter your favorite number: ")
 print(int(my_favorite_number) + 1)
 ```
 
-Relative to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the `int` function (I'll say more about this in the next lesson on [variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables")).  Now, when you run your program, you'll be able to enter your favorite number:
+Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the `int` function (I'll say more about this in the next lesson on [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables")).  Now, when you run your program, you'll be able to enter your favorite number:
 
 ```shell
 $ python increment.py 
@@ -214,7 +229,7 @@ And there you have it!  We've solved our problem.
 
 The input function is a powerful friend.  It accepts all kinds of things.  In this exercise, we're going to stretch the limits of what the input function can do.
 
-For starters, write a program called my_sum.py which accepts not one, but two inputs!  It should prompt the user for two different numbers, and then return their sum.  Here's the kind of output I'm looking for:
+For starters, write a program called my_sum.py which accepts not one, but two inputs.  It should prompt the user for two different numbers, and then return their sum.  Here's the kind of output I'm looking for:
 
 ```shell
 $ python my_sum.py
@@ -222,6 +237,10 @@ Enter your first number: 14
 Enter your second number: 7
 21
 ```
+
+---
+
+#### Exercise 4 (More practice with the input function)
 
 Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.
 
@@ -271,6 +290,8 @@ Let's summarize what we've learned in this lesson.
 
 * [Exercise 3 (Using the input function)](#exercise-3-using-the-input-function)
 
+* [Exercise 4 (More practice with the input function)](#exercise-4-more-practice-with-the-input-function)
+
 ---
 
-Great work!  you made it through the first lesson.  Next up is a lesson about Python [variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").  Looking forward to seeing you there!
+Great work!  you made it through the first lesson.  Next up is a lesson about Python [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").  Looking forward to seeing you there!

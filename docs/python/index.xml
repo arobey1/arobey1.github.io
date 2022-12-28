@@ -6,8 +6,291 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 24 Dec 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 26 Dec 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/python/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Lists</title>
+            <link>https://arobey1.github.io/python/lists/</link>
+            <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/lists/</guid>
+            <description>You&amp;rsquo;re back! We&amp;rsquo;ve got a lot to cover in this lesson, so let&amp;rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.
+ A motivating example: Why we need lists in Python Let&amp;rsquo;s say that you&amp;rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!</description>
+            <content type="html"><![CDATA[<p>You&rsquo;re back!  We&rsquo;ve got a lot to cover in this lesson, so let&rsquo;s get right into it.  The goal is introduce another fundamental data type: the list.  Lists are crucial to almost every programming language out there, and Python is no excetpion.</p>
+<hr>
+<h3 id="a-motivating-example-why-we-need-lists-in-python">A motivating example: Why we need lists in Python</h3>
+<p>Let&rsquo;s say that you&rsquo;re an avid reader.  You read all sorts of things.  Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!  But here&rsquo;s the problem.  You encouter so many books that you can&rsquo;t remember them all.  And so you&rsquo;d like some way of remembering the books you&rsquo;ve seen so that one day, you can head to your local bookstore and buy to your heart&rsquo;s content.</p>
+<p>Ideally, we&rsquo;d like to be able to save a list of books in a variable so that we can look back at it later.  Sadly, we haven&rsquo;t yet met a data type that can handle such a task.  One hacky solution would be to write a long Python string, for which Python has a special syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myBooks <span style="color:#f92672">=</span> (
+    <span style="color:#e6db74">&#34;How to Do Nothing: Resisting the Attention Economy&#34;</span> \
+    <span style="color:#e6db74">&#34;Norwegian Wood&#34;</span> \
+    <span style="color:#e6db74">&#34;Optimization for Data Analysis&#34;</span> \
+    <span style="color:#e6db74">&#34;A Tale for the Time Being&#34;</span>
+)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myBooks)
+<span style="color:#e6db74">&#39;How to Do Nothing: Resisting the Attention EconomyNorwegian WoodOptimization for Data AnalysisA Tale for the Time Being&#39;</span>
+</code></pre></div><p>Hopefully it&rsquo;s clear why this isn&rsquo;t a great solution. For starters, t&rsquo;s won&rsquo;t be easy to add or remove books from this reading list.  Furthermore, the books are also all smushed together, which will make things harder when I&rsquo;m trying to quickly look through the titles.  Ideally, I&rsquo;d like to be able to have each book saved as a separate value, and I&rsquo;d like to have a straightforward way to iterate through and update this list.</p>
+<p>These needs set the stage for our new data type: the list.</p>
+<hr>
+<h3 id="lists-in-python">Lists in Python</h3>
+<p>Lists are one of the most important data types in any programming language.</p>
+<blockquote>
+<p><strong>Lists</strong> allow you to store multiple values in a single variable.</p>
+</blockquote>
+<p>The sytax is quite straightforward.  Returning to our earlier example, we can create a list to store my reading list as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myBooks <span style="color:#f92672">=</span> [
+    <span style="color:#e6db74">&#34;How to Do Nothing: Resisting the Attention Economy&#34;</span>, 
+    <span style="color:#e6db74">&#34;Norwegian Wood&#34;</span>, 
+    <span style="color:#e6db74">&#34;Optimization for Data Analysis&#34;</span>, 
+    <span style="color:#e6db74">&#34;A Tale for the Time Being&#34;</span>
+]
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myBooks)
+[<span style="color:#e6db74">&#39;How to Do Nothing: Resisting the Attention Economy&#39;</span>, <span style="color:#e6db74">&#39;Norwegian Wood&#39;</span>, <span style="color:#e6db74">&#39;Optimization for Data Analysis&#39;</span>, <span style="color:#e6db74">&#39;A Tale for the Time Being&#39;</span>]
+</code></pre></div><p>The square brackets signify that this variable is a list, and each item in a list is separated by a trailing comma.  Lists can contain any of the other data types we&rsquo;ve met so far.  For example, all of the following are valid lists:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;apple&#39;</span>, <span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">33</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> miscellaneous <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">&#39;fantastisch&#39;</span>, <span style="color:#ae81ff">5.432</span>]
+</code></pre></div><p>Recalling what we learned about the <a href="https://arobey1.github.io/python/variables_data_types/#exercise-1-review-of-data-types" title="Type function">type function</a>, we can call the type function on any of the variables we created above to confirm that they have the &lsquo;list&rsquo; data type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(fruits)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">list</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Before talking more about lists, here&rsquo;s an exercise to get some more practice with lists.</p>
+<hr>
+<h4 id="exercise-1-creating-lists">Exercise 1 (Creating lists)</h4>
+<p>Let&rsquo;s start with something simple.  Write a script called my_favorites.py to make a list of all of your favorite things.  Your script should accept inputs from the user, and then put those inputs into a list.  Here&rsquo;s what mine would look like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_favorites.py
+Enter your favorite color: orange
+Enter your favorite number: <span style="color:#ae81ff">23</span>
+Enter your favorite sports team: Arsenal
+Enter your favorite activity: crossword puzzles
+
+Here<span style="color:#e6db74">&#39;s a list with all of your favorite things:
+</span><span style="color:#e6db74">[&#39;</span>orange<span style="color:#e6db74">&#39;, 23, &#39;</span>Arsenal<span style="color:#e6db74">&#39;, &#39;</span>crossword puzzles<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">]</span>
+</code></pre></div><hr>
+<h3 id="indexing-into-a-list">Indexing into a list</h3>
+<p>Lets return to our motivating example, wherein we created a list variable called <code>myBooks</code> containing four different titles.  Let&rsquo;s say that I&rsquo;ve read the first two books in my list &ndash; &ldquo;How to Do Nothing: Resisting the Attention Economy&rdquo; and &ldquo;Norwegian Wood&rdquo; &ndash; and now I&rsquo;m ready to start the third book.  How can I pull out the third book from my list?</p>
+<p>To answer this question, we need to talk about indexing.  When I create a list, each item in that list has what&rsquo;s known as an index.</p>
+<blockquote>
+<p>An index specifies the position of an item in a list.</p>
+</blockquote>
+<p>Indices in Python start from 0, and they are read from left to right.  So in the <code>myBooks</code> example, the index of &ldquo;How to Do Nothing: Resisting the Attention Economy&rdquo; would be 0, the index of &ldquo;Norwegian Wood&rdquo; would be 1, and so on.</p>
+<p>In Python, there is a simple syntax for retreiving an item at a particular index in a list.  For instance, to retreive each item in <code>myBooks</code>, I can write the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(myList[<span style="color:#ae81ff">0</span>])
+<span style="color:#e6db74">&#39;How to Do Nothing: Resisting the Attention Economy&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myList[<span style="color:#ae81ff">1</span>])
+<span style="color:#e6db74">&#39;Norwegian Wood&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myList[<span style="color:#ae81ff">2</span>])
+<span style="color:#e6db74">&#39;Optimization for Data Analysis&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myList[<span style="color:#ae81ff">3</span>])
+<span style="color:#e6db74">&#39;A Tale for the Time Being&#39;</span>
+</code></pre></div><p>It may be slightly unintuitive that Python&rsquo;s indexing scheme starts from zero (instead of one), but over time, this will become second nature to you.</p>
+<hr>
+<h4 id="exercise-2-indexing-into-lists">Exercise 2 (Indexing into lists)</h4>
+<p>In a script called retreive_items.py, create a list called <code>my_special_list</code> and save any list you want in this variable.  For example, in my version of retreive_items.py, <code>my_special_list = ['Hungry', 'hungry', 'hippos']</code>.  Start by printing that list out to the console, and then ask a user for an index for your list.  Then print out the item at that index in <code>my_special_list</code>.  Your output should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">$</span> python retreive_items<span style="color:#f92672">.</span>py
+Your list <span style="color:#f92672">is</span>: [<span style="color:#e6db74">&#39;Hungry&#39;</span>, <span style="color:#e6db74">&#39;hungry&#39;</span>, <span style="color:#e6db74">&#39;hippos&#39;</span>]
+Enter an index: <span style="color:#ae81ff">2</span>
+The item at index <span style="color:#ae81ff">2</span> <span style="color:#f92672">is</span>: hippos
+</code></pre></div><p>Hint: Recall that the input function saves whatever you input as a string, so you&rsquo;ll need to use the <code>int</code> function to turn your input into an integer.</p>
+<hr>
+<h3 id="methods-on-lists">Methods on lists</h3>
+<p>Now that we&rsquo;ve got the hang of creating lists and indexing into them, let&rsquo;s talk about some of the operations we can do on lists.  In this section, we&rsquo;ll discuss five of the most useful list operations.</p>
+<p><strong>Length.</strong> One of the most basic list operations is to determine how many items are in a list, a quantity that is commonly known as a list&rsquo;s length.</p>
+<blockquote>
+<p>The length of a list is the number of elements in that list.</p>
+</blockquote>
+<p>To calculate the length of a list, we can use the <code>len</code> function:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> musketeers <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Athos&#39;</span>, <span style="color:#e6db74">&#39;Porthos&#39;</span>, <span style="color:#e6db74">&#39;Aramis&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(len(musketeers))
+<span style="color:#ae81ff">3</span>
+</code></pre></div><p><strong>Append.</strong>  Also popular is the <code>append</code> method, which allows you to add a new element to the end of a list.  Here it is in action:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> title <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Harry&#39;</span>, <span style="color:#e6db74">&#39;Potter&#39;</span>, <span style="color:#e6db74">&#39;and&#39;</span>, <span style="color:#e6db74">&#39;the&#39;</span>, <span style="color:#e6db74">&#39;Deathly&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> title<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;Hallows&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(title)
+[<span style="color:#e6db74">&#39;Harry&#39;</span>, <span style="color:#e6db74">&#39;Potter&#39;</span>, <span style="color:#e6db74">&#39;and&#39;</span>, <span style="color:#e6db74">&#39;the&#39;</span>, <span style="color:#e6db74">&#39;Deathly&#39;</span>, <span style="color:#e6db74">&#39;Hallows&#39;</span>]
+</code></pre></div><p><strong>Insert.</strong>  Sometimes, rather than adding an item to the end of a list, we may want to insert a value into a list at a particular index.  This can be accomplished using the <code>insert</code> method, which takes two arguments: an index and a value.  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> lyrics <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Row&#39;</span>, <span style="color:#e6db74">&#39;row&#39;</span>, <span style="color:#e6db74">&#39;row&#39;</span>, <span style="color:#e6db74">&#39;boat&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> lyrics<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;your&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(lyrics)
+[<span style="color:#e6db74">&#39;Row&#39;</span>, <span style="color:#e6db74">&#39;row&#39;</span>, <span style="color:#e6db74">&#39;row&#39;</span>, <span style="color:#e6db74">&#39;your&#39;</span>, <span style="color:#e6db74">&#39;boat&#39;</span>]
+</code></pre></div><p>As you can see, this function inserts &lsquo;your&rsquo; so that <code>lyrics[3] = 'your'</code>.</p>
+<p><strong>Reverse.</strong>  Another fun way to manipulate a list is to reverse the order of its items.  A list can be reversed via the <code>reverse</code> method:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> greek <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;alpha&#39;</span>, <span style="color:#e6db74">&#39;beta&#39;</span>, <span style="color:#e6db74">&#39;gamma&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> greek<span style="color:#f92672">.</span>reverse()
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(greek)
+[<span style="color:#e6db74">&#39;gamma&#39;</span>, <span style="color:#e6db74">&#39;beta&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>]
+</code></pre></div><p><strong>Pop.</strong>  And finally, the <code>pop</code> method will allow you to remove elements from your list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> pets <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;bunny&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>, <span style="color:#e6db74">&#39;tiger&#39;</span>, <span style="color:#e6db74">&#39;hampster&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> pets<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">3</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(pets)
+[<span style="color:#e6db74">&#39;bunny&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>, <span style="color:#e6db74">&#39;hampster&#39;</span>]
+</code></pre></div><p>The argument to the pop method specifies the index of the item to remove.  In this case, since we passed the number 3 as an argument to <code>pop</code>, the item at index 3 was removed (in this case, &lsquo;tiger&rsquo;).</p>
+<hr>
+<h4 id="exercise-3-its-almost-like-wordle">Exercise 3 (It&rsquo;s almost like Wordle!)</h4>
+<p>Do you guys know <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>?  That game where you have like five guesses to figure out what a secret word is.  Yeah, it&rsquo;s not my favorite, but lots of people swear by it.</p>
+<p>In this exercise, we&rsquo;re going to do something that&rsquo;s a cross between Wordle and a <a href="https://en.wikipedia.org/wiki/Word_ladder">word ladder</a>.  Here&rsquo;s the game.  I am going to give you a list of characters that spells a word.  Your job is to use the methods we met above to transform the first word into the second word.  For example, let&rsquo;s say our starting word is <code>['g', 'r', 'e', 'e', 'n']</code> and our ending word is <code>['e', 'g', 'r', 'e', 't']</code>.  The following sequence of commands can transform the first word into the second.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> start_word <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;n&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> end_word <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;t&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> start_word<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;e&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(start_word)
+[<span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;n&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> start_word<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">5</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(start_word)
+[<span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> start_word<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">4</span>)
+[<span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> start_word<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;t&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(start_word)
+[<span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;t&#39;</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> start_word <span style="color:#f92672">==</span> end_word
+<span style="color:#66d9ef">True</span>
+</code></pre></div><p>Here&rsquo;s your task.  I&rsquo;ll give you a few pairs of words, and you need to determine how to get from one sequence to another.  Good luck!</p>
+<ol>
+<li><code>start_word = ['d', 'r', 'a', 'w']</code> and <code>end_word = ['w', 'a', 'r', 't']</code>.</li>
+<li><code>start_word = ['h', 'e', 'l', 'l', 'o']</code> and <code>end_word = ['w', 'o', 'r', 'l', 'd']</code>.</li>
+<li><code>start_word = ['k', 'l', 'e', 'i', 'n']</code> and <code>end_word = ['k', 'a', 't', 'z', 'e']</code>.</li>
+</ol>
+<hr>
+<h3 id="slicing-a-list">Slicing a list</h3>
+<p>Now that we&rsquo;ve learned what indexing is, it&rsquo;s about time that we talked about slicing.  Slicing is like indexing on steroids.</p>
+<blockquote>
+<p>Slicing allows you to select multiple elements from the same list.</p>
+</blockquote>
+<p>For instance, let&rsquo;s say that I wanted to update <code>myBooks</code> to make a new reading list that only contains the last two books.  With indexing, I would have to do something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> thirdBook <span style="color:#f92672">=</span> myBooks[<span style="color:#ae81ff">2</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> fourthBook <span style="color:#f92672">=</span> myBooks[<span style="color:#ae81ff">3</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> newBookList <span style="color:#f92672">=</span> [thirdBook, fourthBook]
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(newBookList)
+[<span style="color:#e6db74">&#39;Optimization for Data Analysis&#39;</span>, <span style="color:#e6db74">&#39;A Tale for the Time Being&#39;</span>]
+</code></pre></div><p>This works, but it isn&rsquo;t scalable.  If my reading list was much longer, this would take many more lines of code, since I need one line for each book I want to select.</p>
+<p>Luckily, slicing gives us a much faster way of solving this problem.  To slice the end of a list, I can do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> newBookList <span style="color:#f92672">=</span> bookList[<span style="color:#ae81ff">2</span>:]
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(newBookList)
+[<span style="color:#e6db74">&#39;Optimization for Data Analysis&#39;</span>, <span style="color:#e6db74">&#39;A Tale for the Time Being&#39;</span>]
+</code></pre></div><p>Slicing a list is always characterized by one (or multiple) colons in the square brackets.  The 2 right before the colon means that the slicing operation will start from index 2 and slice off everything until the end of the list.</p>
+<p>If, instead of slicing to the end of the list, we only wanted to slice off the middle two books, we can simply an index before and after the colon:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(bookList[<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">3</span>])
+[<span style="color:#e6db74">&#39;Norwegian Wood&#39;</span>, <span style="color:#e6db74">&#39;Optimization for Data Analysis&#39;</span>]
+</code></pre></div><p>As you may have realized, there&rsquo;s a general principle at play here.  Let&rsquo;s say we have a list called <code>a</code>.  The rules of slicing in Python are as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a[start:stop]  <span style="color:#75715e"># items from start through stop-1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> a[start:]      <span style="color:#75715e"># items from start through the end of the list</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> a[:stop]       <span style="color:#75715e"># items from the beginning through stop-1</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> a[:]           <span style="color:#75715e"># a copy of the whole array</span>
+</code></pre></div><p>The tricky part is that the <code>stop</code> argument will slice until index <code>stop-1</code>.  In time, this will become second nature to you.</p>
+<hr>
+<h4 id="exercise-4-slicing-and-dicing">Exercise 4 (Slicing and dicing)</h4>
+<p>If you thought that was neat, you&rsquo;re going to love this.  Slicing can get even more involved if you want to select items from a list according to a pattern, e.g., selecting all of the elements with an even or odd index.  Rather than illustrating how to use the syntax, I&rsquo;m going to tell you the general principle, and leave it to you to try it out.  If, as before, we have a list called <code>a</code>, the general syntax for slicing is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a[start:stop:step]
+</code></pre></div><p>This means that your slice will start at index <code>start</code>, end at index <code>stop-1</code>, and proceed with step size <code>step</code>.  Here&rsquo;s a sample output from the script &ndash; which we&rsquo;ll call fancy_slicing.py &ndash; that I want you to write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python fancy_slicing.py
+Your list is: <span style="color:#f92672">[</span>0, 1, 2, 3, 4, 5, 6, 7, 8, 9<span style="color:#f92672">]</span>
+Enter <span style="color:#e6db74">&#34;start&#34;</span> index: <span style="color:#ae81ff">1</span>
+Enter <span style="color:#e6db74">&#34;stop&#34;</span> index: <span style="color:#ae81ff">8</span>
+Enter <span style="color:#e6db74">&#34;step&#34;</span> index: <span style="color:#ae81ff">2</span>
+
+Your slice is: <span style="color:#f92672">[</span>1, 3, 5, 7<span style="color:#f92672">]</span>
+</code></pre></div><p>Start by defining any list in a variable called <code>my_list</code>, and print that list out to the user.  I recommend using a list with a bunch of numbers in order, because it&rsquo;ll make it easier to see what&rsquo;s going on.  Prompt the user for a <code>start</code> and <code>stop</code> index as well as a <code>step</code> size.  Then print out what you get by slicing into <code>my_list</code> via the slicing operation: <code>my_list[start:stop:step]</code>.</p>
+<p>Try this out with a bunch of combinations to get familiar with slicing in Python.  And make sure you keep fancy_slicing.py handy; we&rsquo;re going to need it in a couple of future exercises in this lesson.</p>
+<hr>
+<h3 id="meet-the-range-function">Meet the range function</h3>
+<p>When working on the previous exercise, did you think to yourself: Wouldn&rsquo;t it be nice if I didn&rsquo;t have to type out a list of numbers to create <code>my_list</code>?  Why doesn&rsquo;t Python have any functionality so that I can make a list like <code>[0,1,2,3,4,5,6,7,8,9]</code> really quickly?</p>
+<p>Well, if you happened to have that thought, then you&rsquo;re in luck!  Python does have such a function, and it&rsquo;s called <strong>range</strong>.</p>
+<blockquote>
+<p>The range function returns a sequence of numbers, which by default start from zero and come in increments of one, and stop at a user-specified number.</p>
+</blockquote>
+<p>The <code>range</code> function is another crucial piece of Python that you&rsquo;ll see in almost every program you&rsquo;ll encounter.  Interestingly, the <code>range</code> function has a similar syntax to the syntax for slicing.  In general, <code>range</code> takes three arguments: a number to start the range, a number to end the range, and a step size.  Here are some examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> list(range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span>))
+[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> list(range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">2</span>))
+[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>]
+</code></pre></div><p>Range is most often used to generate a sequence of numbers starting from zero.  To do this, one can simply call the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> list(range(<span style="color:#ae81ff">10</span>))
+[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>]
+</code></pre></div><p>Note that just as with slicing, range will include numbers up <code>stop-1</code>.  Furthermore, you might have already noticed that we are wrapping the range function with the <code>list</code> function.  Like the <code>int</code>, <code>float</code>, <code>bool</code>, and <code>str</code> functions that we&rsquo;ve met in the previous lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#converting-between-data-types" title="Interacting with Python">Math operations</a>, the <code>list</code> function transforms other data types into lists.  When you call range without converting it to a list, you&rsquo;ll get something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> ls <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(ls)
+range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> type(ls)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">range</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>Notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  We&rsquo;ll talk more about this in a future lesson.</p>
+<hr>
+<h4 id="exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</h4>
+<p>Let&rsquo;s go back to <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a>.  In this exercise, you created a variable called <code>my_list</code>.  Now that you&rsquo;ve learned how range works, go back and update your code so that <code>my_list</code> is created using the <code>range</code> function.</p>
+<hr>
+<h4 id="exercise-6-a-slicing-challenge">Exercise 6 (A slicing challenge)</h4>
+<p>Hopefully you completed the last exercise without too much trouble.  In this exercise, we&rsquo;re going to use the script you wrote in <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a> and then updated in <a href="#exercise-5-making-our-life-easier-with-range">Exercise 5</a> to test how well you&rsquo;ve understood slicing.</p>
+<p>So that we&rsquo;re on the same page, start by defining <code>my_list = list(range(10))</code>.  Next, I&rsquo;m going to give you a sequence of sliced lists, and your job is to come up with the <code>start</code>, <code>stop</code>, and <code>step</code> inputs to your program that will return these slices.  Are you ready?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">8</span>]
+</code></pre></div><hr>
+<h3 id="strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</h3>
+<p>This whole lesson has been about lists.  We&rsquo;ve learned about indexing lists, applying functions to lists, and slicing lists.  Now, what if I told you that much of what we learned today applied not only to lists, but also to strings?  Yes, it&rsquo;s true!</p>
+<p>A string can be indexed and sliced in exactly the same way as a list.  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Die Essen ist sehr lecker!&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myString[<span style="color:#ae81ff">10</span>])
+<span style="color:#e6db74">&#39;i&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(myString[<span style="color:#ae81ff">0</span>::<span style="color:#ae81ff">2</span>])
+<span style="color:#e6db74">&#39;DeEsnitsh ekr&#39;</span>
+</code></pre></div><p>You can even turn a string into a list of characters:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello world!&#39;</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> list_string <span style="color:#f92672">=</span> list(string)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(list_string)
+[<span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;!&#39;</span>]
+</code></pre></div><p>This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#a-motivating-example-why-we-need-lists-in-python">A motivating example: Why we need lists in Python</a>.</p>
+</li>
+<li>
+<p><a href="#lists-in-python">Lists in Python</a>.  The list data type in Python allows you to store multiple values in a single variable.</p>
+</li>
+<li>
+<p><a href="#exercise-1-creating-lists">Exercise 1 (Creating lists)</a></p>
+</li>
+<li>
+<p><a href="#indexing-into-a-list">Indexing into a list</a>.  The location of an item in a list is called it&rsquo;s index.  Indexing in Python starts from zero, and proceeds from left to right.</p>
+</li>
+<li>
+<p><a href="#exercise-2-indexing-into-lists">Exercise 2 (Indexing into lists)</a></p>
+</li>
+<li>
+<p><a href="#methods-on-lists">Methods on lists</a>.  We met five important operations that can be performed on lists: the <code>len</code> function calculates the length &ndash; or number of elements &ndash; in a list; the <code>append</code> method adds an item to the end of a list; the <code>insert</code> method inserts an item at a particular index; the <code>reverse</code> method reverses the order of the items in a list; and finally, the <code>pop</code> function removes the item at a particular index.</p>
+</li>
+<li>
+<p><a href="#exercise-3-its-almost-like-wordle">Exercise 3 (It&rsquo;s almost like Wordle!)</a>.</p>
+</li>
+<li>
+<p><a href="#slicing-a-list">Slicing a list</a>.  Slicing allows you to select multiple elements from the same list.  Given a list (say it&rsquo;s called <code>a</code>), slicing is performed by running <code>a[start:stop:step]</code>, where <code>start</code> is the starting index, <code>stop-1</code> is the ending index, and <code>step</code> is the step increment.</p>
+</li>
+<li>
+<p><a href="#exercise-4-slicing-and-dicing">Exercise 4 (Slicing and dicing)</a>.</p>
+</li>
+<li>
+<p><a href="#meet-the-range-function">Meet the range function</a>.  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The <code>list</code> function can transform variables of other data types into lists.</p>
+</li>
+<li>
+<p><a href="#exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-6-a-slicing-challenge">Exercise 6 (A slicing challenge)</a>.</p>
+</li>
+<li>
+<p><a href="#strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</a>  Many operations that work on lists, such as indexing and slicing, also work on strings.  The <code>list</code> function can be called on any string to turn that string into a list of characters.</p>
+</li>
+</ul>
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Hopefully you feel more comfortable working with lists now than you did at the start of this lesson.  I&rsquo;ll see you in the next lessons on lists!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Math operations</title>
@@ -15,9 +298,9 @@
             <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
             
             <guid>https://arobey1.github.io/python/math_operations/</guid>
-            <description>Welcome back! I hope you learned something new in the previous lesson on variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+            <description>Welcome back! I hope you learned something new in the previous lesson on Variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
  The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
-            <content type="html"><![CDATA[<p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
+            <content type="html"><![CDATA[<p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
 <hr>
 <h3 id="the-basic-operations">The basic operations</h3>
 <p>Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats.  In the previous lesson, we learned all about how to create and compare these data types.  But as you&rsquo;ll see, there is so much more that we can do with Python variables.  In particular, in this lesson, we&rsquo;ll focus on answering the following question: What if we want to do <em>operations</em> on two or more values or variables?  For example, how do we add two variables in Python?</p>
@@ -518,17 +801,18 @@ all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
             <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
             
             <guid>https://arobey1.github.io/python/interacting_with_python/</guid>
-            <description>Interacting with Python There are two main ways of interacting with a Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
-Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+            <description>Interacting with Python There are two main ways of interacting with Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
+ Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
  A shell is an interpreter that can execute Python programs and simple Python commands.</description>
             <content type="html"><![CDATA[<h3 id="interacting-with-python">Interacting with Python</h3>
-<p>There are two main ways of interacting with a Python: with a shell and with a script.  Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.</p>
+<p>There are two main ways of interacting with Python: with a shell and with a script.  Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.</p>
+<hr>
 <h4 id="python-shell">Python shell</h4>
 <p>Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a <strong>shell</strong>.  Never heard of a shell before?  No worries!  Here&rsquo;s a quick definition:</p>
 <blockquote>
 <p>A shell is an interpreter that can execute Python programs and simple Python commands.</p>
 </blockquote>
-<p>To open a shell, open a terminal (not sure what this is? see <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal">this link</a>) and type the word &ldquo;python.&rdquo;  You should see something like this:</p>
+<p>To open a shell, open a terminal (not sure what this is? see <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal">this link</a>), type the word &ldquo;python,&rdquo; and hit enter.  You should see something like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python
 Python 3.9.6 <span style="color:#f92672">(</span>default, Jun <span style="color:#ae81ff">29</span> 2021, 06:20:32<span style="color:#f92672">)</span> 
 <span style="color:#f92672">[</span>Clang 12.0.0 <span style="color:#f92672">(</span>clang-1200.0.32.29<span style="color:#f92672">)]</span> on darwin
@@ -538,14 +822,17 @@ Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
 </code></pre></div><p>Now hit enter (or return, depending on your keyboard)!  You should see the worlds &ldquo;Hello world!&rdquo; printed out in the console, i.e.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
-Hello world<span style="color:#960050;background-color:#1e0010">!</span>
-</code></pre></div><p>Congratulations!  You just executed your first Python expression.  Here&rsquo;s to many more.</p>
+<span style="color:#e6db74">&#39;Hello world!&#39;</span>
+</code></pre></div><p>To exit the Python shell, you can type <code>exit()</code> and hit enter, or use Ctrl-D.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> exit()
+</code></pre></div><p>Congratulations!  You just executed your first Python expressions.  Here&rsquo;s to many more.</p>
+<hr>
 <h4 id="python-scripts">Python scripts</h4>
 <p>The second way to interact with a Python program is through what&rsquo;s known as a <strong>script</strong>.</p>
 <blockquote>
 <p>A Python script is a file containing Python code.</p>
 </blockquote>
-<p>The difference between a shell and a script is as follows.  In the shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.</p>
+<p>The difference between a shell and a script is as follows.  In a shell, you can execute expressions one by one by typing typing them into the console and hitting enter.  In a script, you can write one or multiple expressions in the file, and then you can execute the code by running it in your console.</p>
 <p>For example, try creating a file called my_first_program.py.  How will your computer know that this is a Python file?</p>
 <blockquote>
 <p>All Python programs end with &ldquo;.py&rdquo;.  This tells your operating system that the code your running is written in Python.</p>
@@ -557,11 +844,11 @@ Hello world<span style="color:#960050;background-color:#1e0010">!</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
 </code></pre></div><p>And as before, you should see the following output.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
-Hello world!
+<span style="color:#e6db74">&#39;Hello world!&#39;</span>
 </code></pre></div><p>Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I&rsquo;m glad you asked!</p>
 <hr>
 <h3 id="when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</h3>
-<p>All of the code in this set of notes can be executed in the shell and in scripts.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There&rsquo;s a few reasons:</p>
+<p>All of the code in this set of notes can be executed in a shell or in a script.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There&rsquo;s a few reasons:</p>
 <ul>
 <li>
 <p><strong>Organization.</strong>  Scripts allow you to easily execute multiple expressions at once, whereas in the shell, expressions need to be executed one by one.  When you have a long program, it becomes much easier to organize your code into interpretable blocks when your statements are broken into one or several scripts.</p>
@@ -578,21 +865,23 @@ Hello world!
 </blockquote>
 <p>You&rsquo;ll be using the print statement <em>a lot</em> when writing Python code, so to get you more familiar with it, let&rsquo;s look at a few examples in the Python shell.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;I am using the print function&#34;</span>)
-I am using the print function
+<span style="color:#e6db74">&#39;I am using the print function&#39;</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#ae81ff">3.1415926</span>)
 <span style="color:#ae81ff">3.1415926</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;23 is a prime number&#34;</span>)
-<span style="color:#ae81ff">23</span> <span style="color:#f92672">is</span> a prime number
-</code></pre></div><hr>
+<span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
+</code></pre></div><p>Let&rsquo;s take what you&rsquo;ve learned about printing and apply it in the following exercise.</p>
+<hr>
 <h4 id="exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</h4>
-<p>The examples we just went through about using the <code>print</code> function were all executed in the shell.  My question for you: Can you write this program as a script and produce the same output?  I bet you can.  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:</p>
+<p>The examples we just went through were all executed in a Python shell.  My question for you: Can you write this program as a script and produce the same output?  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ print_examples.py
-I am using the print <span style="color:#66d9ef">function</span>
+<span style="color:#e6db74">&#39;I am using the print function&#39;</span>
 3.1415926
-<span style="color:#ae81ff">23</span> is a prime number
-</code></pre></div><hr>
+<span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
+</code></pre></div><p>Think you&rsquo;ve got the hang of printing?  Let&rsquo;s kick things up a notch in the next exercise.</p>
+<hr>
 <h4 id="exercise-2-your-first-python-program">Exercise 2 (Your first Python program)</h4>
-<p>These are early days.  You&rsquo;re just getting started on your Python journey.  But guess what!  You&rsquo;re ready to write your first original Python program.  Yes, really!  What will you be doing?  Well, I&rsquo;m glad you asked.  I want you to write a program called print_my_cow.py that prints the following output to the terminal.</p>
+<p>These are early days.  You&rsquo;re just getting started on your Python journey.  But guess what!  You&rsquo;re ready to write your first original Python program.  Yes, really!  What will you be doing?  I want you to write a program called print_my_cow.py that prints the following output to the terminal.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
 ^__^
 <span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
@@ -612,7 +901,7 @@ I am using the print <span style="color:#66d9ef">function</span>
 </code></pre></div><p>Feel free to go crazy with this one.  (If you&rsquo;re wondering where I got this idea, have a look at the Linux package <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a>).</p>
 <hr>
 <h3 id="user-supplied-input">User-supplied input</h3>
-<p>Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produces the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?</p>
+<p>Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produced the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?</p>
 <p>For example, let&rsquo;s say I wanted to write a program that takes a number as input and prints out that number incremented by one.  Easy enough!  I could just write the following in the shell.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
@@ -621,21 +910,21 @@ I am using the print <span style="color:#66d9ef">function</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
 <span style="color:#ae81ff">942</span>
-</code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number based on your input.</p>
+</code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number.</p>
 <p>How should we do this?  Well, hopefully you remember the tips in <a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>; specifically, one of the recommendations was to use scripts whenever you need to run a program multiple times.  So let&rsquo;s try writing a script called increment.py that solves our problem.  Here&rsquo;s the script:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
 print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><p>And here&rsquo;s the output it produces</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py
 <span style="color:#ae81ff">942</span>
-</code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And here&rsquo;s where the magic of the <code>input</code> function comes in.</p>
+</code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And now is when the magic of the <code>input</code> function comes in handy.</p>
 <blockquote>
 <p>The <strong>input</strong> function allows a user to input data into a program.</p>
 </blockquote>
 <p>Let&rsquo;s see it in action.  Try out the following script:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
 print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>Relative to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
+</code></pre></div><p>Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
 Enter your favorite number: <span style="color:#ae81ff">1995</span>
 <span style="color:#ae81ff">1996</span>
@@ -643,12 +932,14 @@ Enter your favorite number: <span style="color:#ae81ff">1995</span>
 <hr>
 <h4 id="exercise-3-using-the-input-function">Exercise 3 (Using the input function)</h4>
 <p>The input function is a powerful friend.  It accepts all kinds of things.  In this exercise, we&rsquo;re going to stretch the limits of what the input function can do.</p>
-<p>For starters, write a program called my_sum.py which accepts not one, but two inputs!  It should prompt the user for two different numbers, and then return their sum.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
+<p>For starters, write a program called my_sum.py which accepts not one, but two inputs.  It should prompt the user for two different numbers, and then return their sum.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_sum.py
 Enter your first number: <span style="color:#ae81ff">14</span>
 Enter your second number: <span style="color:#ae81ff">7</span>
 <span style="color:#ae81ff">21</span>
-</code></pre></div><p>Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.</p>
+</code></pre></div><hr>
+<h4 id="exercise-4-more-practice-with-the-input-function">Exercise 4 (More practice with the input function)</h4>
+<p>Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
 Type a question:
 </code></pre></div><p>I want to self-evaluate a little, so I&rsquo;ll ask myself how I&rsquo;m doing:</p>
@@ -692,9 +983,12 @@ How are you doing? I am finding my own happiness.
 <li>
 <p><a href="#exercise-3-using-the-input-function">Exercise 3 (Using the input function)</a></p>
 </li>
+<li>
+<p><a href="#exercise-4-more-practice-with-the-input-function">Exercise 4 (More practice with the input function)</a></p>
+</li>
 </ul>
 <hr>
-<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables, data types, and comparison</a>.  Looking forward to seeing you there!</p>
+<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>.  Looking forward to seeing you there!</p>
 ]]></content>
         </item>
         
