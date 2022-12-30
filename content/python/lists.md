@@ -330,7 +330,24 @@ range(3, 9, 4)
 <class 'range'>
 ```
 
-Notice that 'range' is actually it's own type in Python.  We'll talk more about this in a future lesson.
+You may have expected `range` to have the 'list' data type, but notice that 'range' is actually it's own type in Python.  Why is that?  If you're interested, read on; it not, there's a couple of exercises waiting for you down below. 
+
+---
+
+### Why range has its own type
+
+Let's talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, `range` returned a list, as one might expect.  However, problems started arise from `range` having this type.  To see why, consider the following code snippet:
+
+```python
+>>> big_number = 1000000000000000
+>>> big_range = range(big_number)
+```
+
+If `range` directly created a list, when we create `big_range`, we would be creating a list with 1000000000000000 entries.  This can potentially take up *a lot* of space in memory, causing our code to slow down significantly.  
+
+To avoid this, in Python 3, `range` now returns a what's known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We'll talk more about this in a future lesson.
+
+To close up this history lesson, I'll note that in 2020, Python 2 met what's known as it's "end of life" (sometimes abbreviated as EOL, meaning that it's not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.  
 
 ---
 
@@ -407,6 +424,8 @@ Let's summarize what we've learned in this lesson.
 * [Exercise 4 (Slicing and dicing)](#exercise-4-slicing-and-dicing).
 
 * [Meet the range function](#meet-the-range-function).  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The `list` function can transform variables of other data types into lists. 
+
+* [Why range has its own type](#why-range-has-its-own-type).  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory. 
 
 * [Exercise 5 (Making our life easier with range)](#exercise-5-making-our-life-easier-with-range).
 
