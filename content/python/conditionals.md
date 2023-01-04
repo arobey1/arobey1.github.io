@@ -1,6 +1,6 @@
 ---
 title: "Conditionals"
-date: 2022-12-27
+date: 2023-01-04
 module: fundamentals
 lesson: 6
 draft: true
