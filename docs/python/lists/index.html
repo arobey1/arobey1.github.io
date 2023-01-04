@@ -50,8 +50,8 @@
 <meta itemprop="name" content="Lists">
 <meta itemprop="description" content="You&rsquo;re back! We&rsquo;ve got a lot to cover in this lesson, so let&rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.
  A motivating example: Why we need lists in Python Let&rsquo;s say that you&rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!"><meta itemprop="datePublished" content="2022-12-26T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-12-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3100"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="dateModified" content="2022-12-30T11:31:24-05:00" />
+<meta itemprop="wordCount" content="3394"><meta itemprop="image" content="https://arobey1.github.io/"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arobey1.github.io/"/>
 
@@ -145,7 +145,7 @@ MathJax.Hub.Config({
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        15 minutes
+        16 minutes
 
         
       </p>
@@ -358,7 +358,15 @@ Your slice is: <span style="color:#f92672">[</span>1, 3, 5, 7<span style="color:
 range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
 <span style="color:#f92672">&gt;&gt;&gt;</span> type(ls)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">range</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>Notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  We&rsquo;ll talk more about this in a future lesson.</p>
+</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, read on; it not, there&rsquo;s a couple of exercises waiting for you down below.</p>
+<hr>
+<h3 id="why-range-has-its-own-type">Why range has its own type</h3>
+<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
+</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
+<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
+<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL, meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
 <hr>
 <h4 id="exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</h4>
 <p>Let&rsquo;s go back to <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a>.  In this exercise, you created a variable called <code>my_list</code>.  Now that you&rsquo;ve learned how range works, go back and update your code so that <code>my_list</code> is created using the <code>range</code> function.</p>
@@ -422,6 +430,9 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <p><a href="#meet-the-range-function">Meet the range function</a>.  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The <code>list</code> function can transform variables of other data types into lists.</p>
 </li>
 <li>
+<p><a href="#why-range-has-its-own-type">Why range has its own type</a>.  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory.</p>
+</li>
+<li>
 <p><a href="#exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</a>.</p>
 </li>
 <li>
@@ -453,7 +464,7 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        3100 Words
+        3394 Words
       </p>
 
       <p>
@@ -464,13 +475,27 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2022-12-25 19:00
+          2022-12-26 01:00
         
 
          
           
+            
+              (Last updated: 2022-12-30 17:31)
+            
+          
         
       </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/arobey15e064c4b3ee228e4a4279d94faabfbb20f668c41" target="_blank" rel="noopener">5e064c4</a>
+          @ 2022-12-30
+        </p>
     </div>
       <hr />
       <div class="sharing-buttons">
@@ -575,6 +600,13 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 
         <div class="pagination__buttons">
             
+            <span class="button previous">
+                <a href="https://arobey1.github.io/python/conditionals/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Conditionals</span>
+                </a>
+            </span>
+            
 
             
             <span class="button next">
@@ -601,7 +633,7 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
     
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2022</span>
+            <span>&copy; 2023</span>
             <span><a href="https://arobey1.github.io/">Alex Robey</a></span>
             
         </div>

@@ -6,8 +6,309 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 26 Dec 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 27 Dec 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/python/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Conditionals</title>
+            <link>https://arobey1.github.io/python/conditionals/</link>
+            <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/conditionals/</guid>
+            <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!
+ What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&amp;rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product.</description>
+            <content type="html"><![CDATA[<p>Today is a big day!  We&rsquo;re going to meet one of the most essential parts of the Python language: conditionals.  After you&rsquo;ve mastered conditionals, you&rsquo;ll be amazed at how much more you can do in Python.  Let&rsquo;s get to work!</p>
+<hr>
+<h3 id="what-is-programming-and-why-do-we-do-it">What is programming and why do we do it?</h3>
+<p>These are big questions.  There are many reasons why we write programs.  Perhaps you&rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product.  Or maybe you&rsquo;re a teacher who wants to write a program that automatically grades homework assignments.  Or perhaps you just bought an old, remote cabin out in the woods with a big lawn and a library full of books, and you want to write a program that will dim the lights so that you can enjoy a quiet dinner with your partner.</p>
+<p>Common to almost all of these reasons is a common mantra:</p>
+<blockquote>
+<p>Programs are sets of instructions which automate some aspect of decision-making.</p>
+</blockquote>
+<p>As of yet, we have talked about many of the essential parts of the Python language such as <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Print statements">printing</a>, <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="User-supplied input">user-supplied input</a>, <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables</a>, <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">mathematical operations</a>, and <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>.  But we haven&rsquo;t talked at all about how to perform basic decision-making in Python.  So let&rsquo;s get right to it!</p>
+<hr>
+<h3 id="what-are-conditionals">What are conditionals?</h3>
+<p>When it comes to decision-making in Python, nothing is as important as the concept of <strong>conditionals</strong>.</p>
+<blockquote>
+<p>Conditional statements perform one (or multiple) action(s) based on whether a particular Boolean expression is True or False.</p>
+</blockquote>
+<p>To illustrate this idea, let&rsquo;s step back in time to the mid-1800s.  Specifically, we&rsquo;re going to take a look at an argument in the English philosopher John Stuart Mill&rsquo;s 1843 treatise &ldquo;A System of Logic: Ratiocinative and Inductive.&rdquo;  In this treatise, Mill uses this example to illustrate a basic logical argument:</p>
+<pre><code>All men are mortal.
+Socrates is a man.
+Therefore, Socrates is mortal.
+</code></pre><p>This might not be immediately clear, but these three lines constitutes our first example of a conditional.  To see this, let&rsquo;s write the second two lines of the argument in another way:</p>
+<pre><code>if &lt;input&gt; is a man:
+    then &lt;input&gt; is mortal.
+</code></pre><p>In the first line, we test to see whether <code>&lt;input&gt;</code> is a man; this is the Boolean condition mentioned in the definition of conditional statements.  If this Boolean statement is True, we conclude that <code>&lt;input&gt;</code> is mortal, which is the action performed by the conditional statement.  Thus, as Socrates is a man, this pseudocode will determine that Socrates is in fact mortal when we pass Socrates as <code>&lt;input&gt;</code>.</p>
+<hr>
+<h3 id="conditionals-in-python-a-first-example">Conditionals in Python: A first example</h3>
+<p>Let&rsquo;s make this a little bit more concrete.  Say that you want to buy a dog.  But not just any dog.  You don&rsquo;t like small dogs, because. . . well, do I really need to explain?  And now that you&rsquo;re a programmer, you decide that it&rsquo;s a great idea to write a script that will tell you whether or not you should buy a dog.  Here&rsquo;s a program &ndash; let&rsquo;s call it buy_a_dog.py &ndash; that you might write to accomplish this task:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+dog_weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weigh (in lbs)? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> dog_weight <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">40</span>:
+    print(<span style="color:#e6db74">&#39;Yes!&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#39;No.&#39;</span>)
+</code></pre></div><p>This program will print &lsquo;Yes!&rsquo; if the weight you input is larger than 40 lbs; otherwise it will print &lsquo;No!&rsquo;.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
+Should you buy the dog?
+How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs<span style="color:#f92672">)</span>? <span style="color:#ae81ff">25</span>
+No.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
+Should you buy the dog?
+How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs<span style="color:#f92672">)</span>? <span style="color:#ae81ff">100</span>
+Yes!
+</code></pre></div><p>This is an important point of divergence from what we&rsquo;ve seen this far in this Python course.  Specifically, this is the first time we&rsquo;ve seen a program that can make a decision that depends on user-supplied input.  The example shown above will be the first of many times we see decision-making implemented in code.</p>
+<hr>
+<h3 id="exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</h3>
+<p>You&rsquo;ve just seen your first conditional!  In this exercise, I&rsquo;m going to ask you to implement your own conditional.  Here&rsquo;s the game plan.</p>
+<p>Let&rsquo;s say that you&rsquo;re planning on going on a quiet, evening-time walk along the river with your significant other.  However, if the temperature is less than a given threshold, you&rsquo;ll stay inside and watch a movie instead.  Your job is to write a program that will tell you whether or not you should go for a walk.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python go_for_a_walk.py
+Question: Should you go <span style="color:#66d9ef">for</span> a walk with your partner?
+
+Enter the current temperature <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">72</span>
+What is your temperature threshold <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">10</span>
+
+Answer: Absolutely, yes!
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python go_for_a_walk.py
+Question: Should you go <span style="color:#66d9ef">for</span> a walk with your partner?
+
+Enter the current temperature <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">2</span>
+What is your temperature threshold <span style="color:#f92672">(</span>in degrees Fahrenheit<span style="color:#f92672">)</span>: <span style="color:#ae81ff">10</span>
+
+Answer: Nah, stay inside and watch that movie!
+</code></pre></div><p>You&rsquo;ve got this!  And as always, if you&rsquo;re more of a Celsius person, feel free to edit your program to reflect this.  I certainly won&rsquo;t hold it against you.</p>
+<hr>
+<h3 id="writing-conditionals-in-python-the-if-elif-else-paradigm">Writing conditionals in Python: The <code>if-elif-else</code> paradigm</h3>
+<p>Let&rsquo;s take the opportunity to step back and look at the general syntax for writing conditionals in Python.  This syntax &ndash; you know what, let&rsquo;s call it a paradigm &ndash; goes by many names, but in these notes, I&rsquo;m going to refer to it as the <code>if-elif-else</code> paradigm.</p>
+<p>When it comes to conditionals, there are three new keywords that we need to talk about.  Having told you that we&rsquo;ll be learning about the <code>if-elif-else</code> paradigm, it should come as no surprise that these three words are <code>if</code>, <code>elif</code>, and <code>else</code>.</p>
+<p>You saw <code>if</code> and <code>else</code> in the previous section; these two keywords allow you to take different actions based on a single Boolean condition.  Our new friend in this section is <code>elif</code>, which is short for &ldquo;else if.&rdquo; <code>elif</code> allows us to add additional Boolean hypotheses to our conditional.  Here&rsquo;s an example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_number <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;Enter a number between 1 and 4: &#39;</span>))
+
+<span style="color:#66d9ef">if</span> my_number <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+    print(<span style="color:#e6db74">&#34;You entered the first (and second) Fibonacci number!&#34;</span>)
+<span style="color:#66d9ef">elif</span> my_number <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+    print(<span style="color:#e6db74">&#34;You entered the smallest prime number!&#34;</span>)
+<span style="color:#66d9ef">elif</span> my_number <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>:
+    print(<span style="color:#e6db74">&#34;According to Pythagoras, you entered the &#39;noblest&#39; of digits!&#34;</span>)
+<span style="color:#66d9ef">elif</span> my_number <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>:
+    print(<span style="color:#e6db74">&#34;You entered the only number that is spelled with the same number of characters as the number itself!&#34;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#34;Make sure you entere a number between 1 and 4!&#34;</span>)
+</code></pre></div><p>The general syntax of the <code>if-elif-else</code> paradigm allows you to include as many Boolean conditions as you want:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> <span style="color:#f92672">&lt;</span>Boolean expression<span style="color:#f92672">&gt;</span>:
+    <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">&lt;</span>a second Boolean expression<span style="color:#f92672">&gt;</span>:
+    <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">&lt;</span>a third Boolean expression<span style="color:#f92672">&gt;</span>:
+    <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">...</span>
+<span style="color:#66d9ef">else</span>:
+    <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>In the script we wrote above, you get a different output depending on whether you enter 1, 2, 3, 4.  As a bonus, in the <code>else</code> clause, we print out a message that tells the user that the entered an invalid input.  This is often the way <code>else</code> is used &ndash; as a catchall for cases not specifically defined by your <code>if</code> and <code>elif</code> statements.</p>
+<hr>
+<h3 id="exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</h3>
+<p>Let&rsquo;s revisit the <a href="#conditionals-in-python">earlier section</a> in which we made our dog-purchasing decision based on the weight of a candidate dog.  The setup is going to be exactly the same as before, with one small catch: You also don&rsquo;t want your dog to be too large, because you have but a small apartment and you don&rsquo;t want your future dog to feel cooped up.  And so you only want to buy a dog if it&rsquo;s heavier than 40 lbs but lighter than 90 lbs.  Your job is to write a script using the <code>if-elif-else</code> paradigm to determine whether or not you should buy a given dog.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
+Should you buy the dog?
+How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs<span style="color:#f92672">)</span>? <span style="color:#ae81ff">25</span>
+No, the dog is too light.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
+Should you buy the dog?
+How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs<span style="color:#f92672">)</span>? <span style="color:#ae81ff">100</span>
+No, the dog is too heavy.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
+Should you buy the dog?
+How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs<span style="color:#f92672">)</span>? <span style="color:#ae81ff">63</span>
+Yes, the dog is just right!
+</code></pre></div><hr>
+<h3 id="conditionals-of-all-shapes-and-sizes">Conditionals of all shapes and sizes</h3>
+<p>As you might imagine, conditionals can get considerably more complicated within the <code>if-elif-else</code> paradigm.  To illustrate one such situation, let&rsquo;s return once more to our dog-buying example.  Your script &ndash; buy_a_dog.py &ndash; in the <a href="#exercise-2-multiple-conditions">previous exercise</a> should have looked something like this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weight (in lbs)? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> weight <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">40</span>:
+    print(<span style="color:#e6db74">&#39;No, the dog is too light.&#39;</span>)
+<span style="color:#66d9ef">elif</span> weight <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90</span>:
+    print(<span style="color:#e6db74">&#39;No, the dog is too heavy.&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#39;Yes, the dog is just right!&#39;</span>)
+</code></pre></div><p>Let&rsquo;s say that we want to simplify this script by supplying a simple &ldquo;yes&rdquo; or &ldquo;no&rdquo; answer.  So if the candidate dog is heavier than 90lbs or lighter than 40lbs, we will simply print &ldquo;No.&rdquo;, and otherwise, we will print &ldquo;Yes!&rdquo;.  The updated script would look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weight (in lbs)? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> weight <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">40</span>:
+    print(<span style="color:#e6db74">&#39;No.&#39;</span>)
+<span style="color:#66d9ef">elif</span> weight <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90</span>:
+    print(<span style="color:#e6db74">&#39;No.&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#39;Yes!&#39;</span>)
+</code></pre></div><p>This will certainly work, but we should ask ourselves: Is this the most concise and readible way of writing this program?  There is a redundancy between the <code>if</code> and <code>elif</code> statement that isn&rsquo;t particularly pleasing.  That is, we have two logical cases that will cause the program will print &ldquo;No.&rdquo;  If we had many more cases to consider, this redundancy may become confusing to those who will be reading our code in the future.</p>
+<p>How should we think about removing this redundancy?  Well, since the <code>if</code> and <code>elif</code> clauses will yield the same output, it would be awfully nice if we could somehow <em>combine</em> them into a single clause.  And luckily, Python has just the tool for the job: the <code>or</code> keyword.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weight (in lbs)? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> weight <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">40</span> <span style="color:#f92672">or</span> weight <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90</span>:
+    print(<span style="color:#e6db74">&#39;No.&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#39;Yes!&#39;</span>)
+</code></pre></div><p>The neat thing here is that we have used Python&rsquo;s <code>or</code> keyword to combine the two cases that lead to the same output.  This program will print &ldquo;No.&rdquo; if the weight is less than 40 lbs <em>or</em> if the weight is greater than 90 lbs.  I hope you agree that this is a much clearer way of writing the program than our first version.</p>
+<hr>
+<h3 id="exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</h3>
+<p>You just met the <code>or</code> keyword, which is essential for chaining together logical expressions.  Now it&rsquo;s time to meet <code>or</code>&rsquo;s best friend: the <code>and</code> keyword.  <code>and</code> can be used in exactly the same way as <code>or</code>, except that you will enter the conditional if both of the Boolean conditions are True, rather than only one or the other needing to be True when using <code>or</code>.</p>
+<p>Let&rsquo;s try it out!  Rewrite the version of buy_a_dog.py that we wrote at the end of the previous section using the <code>and</code> keyword instead of the <code>or</code> keyword.  Note that it isn&rsquo;t just a one-for-one swap; replacing <code>or</code> with <code>and</code> will result in a program that will never print &ldquo;No.&rdquo;, because it&rsquo;s impossible for a number to be both less than 40 <em>and</em> greater than 90.  Give it a shot!</p>
+<hr>
+<h3 id="nesting-conditionals">Nesting conditionals</h3>
+<p>We started this lesson by talking about decision-making and the <code>if-elif-else</code> paradigm.  This paradigm is powerful and flexible, letting us make all kinds of decisions.  To give you an idea of how this paradigm can be used to make more interesting decisions, consider the following scenario.</p>
+<p>You&rsquo;re a zookeeper.  And it&rsquo;s your first day on the job.  And as part of your job, you need to be able to tell the animals in the zoo apart.  Not having had much experience with zoos, you aren&rsquo;t sure how to tell apart some of the animals.  Luckily, you recently mastered the Python programming language, and you have the bright idea to write a script that will help you tell the animals apart.  In particular, you need to be able to tell apart four different animals: giraffes, tigers, monkeys, and elephants.</p>
+<p>An informative poster inside the zoo office gives you a set of simple rules for determining how to tell these four animals apart.  And here is that poster:</p>
+<p><img src="../../assets/decision-tree.jpeg" alt="Decision-tree"></p>
+<p>Since you&rsquo;re a Python master, you know <em>all</em> about the <code>if-elif-else</code> paradigm and Python&rsquo;s <code>and</code> keyword.  And because of this, you are able to write the following script &ndash; which you call find_an_animal.py &ndash; to help you with your problem.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">color <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;What color is the animal? &#39;</span>)
+height <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;What is the height of the animal? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> color <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;yellow&#39;</span> <span style="color:#f92672">and</span> height <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>:
+    print(<span style="color:#e6db74">&#39;The animal is a giraffe!&#39;</span>)
+<span style="color:#66d9ef">elif</span> color <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;yellow&#39;</span> <span style="color:#f92672">and</span> height <span style="color:#f92672">!=</span> <span style="color:#ae81ff">10</span>:
+    print(<span style="color:#e6db74">&#39;The animal is a tiger!&#39;</span>)
+<span style="color:#66d9ef">elif</span> color <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;yellow&#39;</span> <span style="color:#f92672">and</span> height <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>:
+    print(<span style="color:#e6db74">&#39;The animal is a monkey!&#39;</span>)
+<span style="color:#66d9ef">elif</span> color <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;yellow&#39;</span> <span style="color:#f92672">and</span> height <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span>:
+    print(<span style="color:#e6db74">&#39;The animal is an elephant!&#39;</span>)
+</code></pre></div><p>Delighted with your day&rsquo;s work, you go around to each of the exhibits with your laptop in tow.  You can now tell all of the animals apart.  You go to sleep warm and satisfied.</p>
+<p>However, upon waking, something occurs to you.  You learned that Python should be readible and have as little redundancy as possible, and the find_an_animal.py script that you wrote yesterday could adhere to these standards slightly better.  In particular, it&rsquo;s somewhat frustrating that the decisions don&rsquo;t execute in the same manner as the poster you saw earlier (also known as a <a href="https://en.wikipedia.org/wiki/Decision_tree">decision tree</a>).  In that poster, you make one decision at a time, rather than having to consider all sets of possible outcomes.</p>
+<p>So, on your second day of work, you decide to break new ground by writing your program so that it more closely adheres to the poster.  And here&rsquo;s what you come up with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">color <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;What color is the animal? &#39;</span>)
+height <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;What is the height of the animal? &#39;</span>))
+
+<span style="color:#66d9ef">if</span> color <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;yellow&#39;</span>:
+    <span style="color:#66d9ef">if</span> height <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>:
+        print(<span style="color:#e6db74">&#39;The animal is a giraffe!&#39;</span>)
+    <span style="color:#66d9ef">else</span>:
+        print(<span style="color:#e6db74">&#39;The animal is a tiger!&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    <span style="color:#66d9ef">if</span> height <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>:
+        print(<span style="color:#e6db74">&#39;The animal is a monkey!&#39;</span>)
+    <span style="color:#66d9ef">else</span>:
+        print(<span style="color:#e6db74">&#39;The animal is an elephant!&#39;</span>)
+</code></pre></div><p>Woah!  Let&rsquo;s take a look at what you came up with.  Rather than combining every set of possible outcomes, you <em>nested</em> your conditionals, meaning that you have one conditional statement within another.  Although this takes more lines, I hope you&rsquo;ll agree that it is much easier to read and that it much more closely adheres to the poster you saw earlier.</p>
+<p>Nesting is useful feature of the <code>if-elif-else</code> paradigm.  It allows us to make multi-level decisions, as illustrated in the example above.  The next exercise will give you some more practice with nesting conditionals.</p>
+<hr>
+<h3 id="exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</h3>
+<p>I hope you&rsquo;re not tired of the buying-a-dog example yet, because in this exercise we&rsquo;ll be returning to it one more time.  I want you to rewrite the script from <a href="#exercise-3-the-and-keyword">Exercise 3</a> using a nested conditional statement.  Try it out, and if you get stuck, look back at the previous section on <a href="#nesting-conditionals">nested conditionals</a>.</p>
+<hr>
+<h3 id="the-final-piece-of-the-puzzle-negation">The final piece of the puzzle: Negation</h3>
+<p>In this lesson, we&rsquo;ve talked a lot obout conditionals.  So far, you&rsquo;ve learned about the <code>if-elif-else</code> paradigm, met two new keywords (<code>or</code> and <code>and</code>), and tried your hand at nesting conditionals.  In this section, I&rsquo;ll tell you about the final piece of the puzzle.</p>
+<p>When it comes to writing the Boolean hypothesis piece of conditional statements, you&rsquo;ve learned about how to write a <em>conjunction</em> of two clauses (e.g., <code>A and B</code>) and you&rsquo;ve learned how to write the <em>disjunction</em> of two clauses (e.g., <code>A or B</code>).  If you&rsquo;re already familiar with <a href="https://en.wikipedia.org/wiki/Boolean_algebra">Boolean logic</a>, you&rsquo;ll know that there&rsquo;s one piece of the puzzle missing, and that piece is how one can write a <em>negation</em> (e.g., <code>not A</code>).  These three operations &ndash; conjunction (<code>and</code>), disjunction (<code>or</code>), and negation (<code>not</code>) &ndash; form the basis of Boolean logic, and allow you to define a wide variety of logical statements.</p>
+<p><img src="../../assets/boolean-logic.png" alt="Boolean-logic"></p>
+<p>The negation operation allows you to enter a conditional when the Boolean hypothesis is False.  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">answer <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> answer:
+    print(<span style="color:#e6db74">&#39;Why not!? I really want a puppy!&#39;</span>)
+<span style="color:#66d9ef">else</span>:
+    print(<span style="color:#e6db74">&#39;Yay!&#39;</span>)
+</code></pre></div><p>Notice that in this snippet, we can enter the first conditional when <code>answer</code> is False by adding Python&rsquo;s <code>not</code> keyword.  In plain words, you should read this as</p>
+<pre><code>if answer is not True:
+    then print out the words 'Why not!? I really want a puppy!'
+otherwise:
+    then print out the words 'Yay!'
+</code></pre><p>With the Python keywords <code>and</code>, <code>or</code>, and <code>not</code> in hand, the wide world of Boolean logic is yours to explore!</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#what-is-programming">What is programming</a>.  Altough as programmers we may have different motivations or use-cases in mind for writing programs, there is one commonality: Programming is all about decision-making.  At the most abstract level, <strong>programs</strong> are sets of instructions which automate some aspect of decision-making.</p>
+</li>
+<li>
+<p><a href="#what-are-conditionals">What are conditionals</a>.  <strong>Conditional statements</strong> perform one (or multiple) action(s) based on whether a particular Boolean expression is True or False.  Conditionals form the basis of how programs make decisions in nearly all programming languages.</p>
+</li>
+<li>
+<p><a href="#conditionals-in-python-a-first-example">Conditionals in Python: A first example</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</a>.</p>
+</li>
+<li>
+<p><a href="#writing-conditionals-in-python-the-if-elif-else-paradigm">Writing conditionals in Python: The <code>if-elif-else</code> paradigm</a>.  When writing conditionals in Python, there are three keywords that you need to know: <code>if</code>, <code>elif</code>, and <code>else</code>.  These three keywords can be used to define conditional statements in Python using what I call the <code>if-elif-else</code> paradigm.</p>
+</li>
+<li>
+<p><a href="#exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</a>.</p>
+</li>
+<li>
+<p><a href="#conditionals-of-all-shapes-and-sizes">Conditionals of all shapes and sizes</a>.  It often improves readibility and conciseness to condence conditionals that lead to the same outcome.  One way to do this is by means of the <code>or</code> keyword, which allows you to enter a conditional statement if either or both of the conditions specified are True.</p>
+</li>
+<li>
+<p><a href="#exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</a>.  In a similar vein, the <code>and</code> keyword allows you to enter a conditional if both of the supplied conditions are True.</p>
+</li>
+<li>
+<p><a href="#nesting-conditionals">Nesting conditionals</a>.  Conditionals can be nested within one another.  This can improve readibility in some cases, and can be more consistent with human notions of logic.</p>
+</li>
+<li>
+<p><a href="#exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</a>.</p>
+</li>
+<li>
+<p><a href="#the-final-piece-of-the-puzzle-negation">The final piece of the puzzle: Negation</a>.  In addition to specifying conjuncations (e.g., <code>A and B</code>) and disjunctions (e.g., <code>A or B</code>) in conditionals, one can also specify the negation of a variable (e.g., <code>not A</code>) via Python&rsquo;s <code>not</code> keyword.</p>
+</li>
+</ul>
+<hr>
+<h3 id="bonus-content-i-the-ternary-operator">Bonus content I: The ternary operator</h3>
+<p>It&rsquo;s time for some bonus content!  Yes you heard that right - you got to the end of this lesson, and you deserve a reward.  And today, your first reward is going to be Python&rsquo;s <a href="https://en.wikipedia.org/wiki/Ternary_conditional_operator">ternary operator</a> syntax.  Before I tell you what that means, a word of caution: I don&rsquo;t like ternary operators, and I rarely use them in my code.  They aren&rsquo;t particularly readible, and while they&rsquo;re compact, this doesn&rsquo;t necessarily lead to a better program.  For these reasons, a discussion of ternary operators was relegated (by me) to the bonus content.</p>
+<p>And so to you, dear reader, I say: Caveat emptor.  But without further adieu, let&rsquo;s jump right into it.</p>
+<blockquote>
+<p>A ternary operator allows you to perform and <code>if-else</code> statement in a single line.</p>
+</blockquote>
+<p>In this way, if you wanted to write our recurring buy_a_dog.py script in fewer lines, you could do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+dog_weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weigh (in lbs)? &#39;</span>))
+
+outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Yes!&#34;</span> <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">40</span> <span style="color:#f92672">&lt;=</span> dog_weight <span style="color:#f92672">and</span> dog_weight <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">90</span>) <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;No.&#34;</span>
+print(outcome)
+</code></pre></div><p>Once you run this code, you&rsquo;ll see that this concise sytanx will get the job done: It will print &ldquo;Yes!&rdquo; if the weight of the dog is in the correct range, and &ldquo;No.&rdquo; otherwise.  But if you&rsquo;re asking me, there were better versions of this script in this lesson, which are easier to read for future maintainers of your code.</p>
+<hr>
+<h3 id="bonus-content-ii-concise-comparisons">Bonus content II: Concise comparisons</h3>
+<p>By the way, when considering the example from the previous <a href="#bonus-content-i-the-ternary-operator">bonus content section</a>, this would also work:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#39;Should you buy the dog?&#39;</span>)
+dog_weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;How much does the candidate dog weigh (in lbs)? &#39;</span>))
+
+outcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Yes!&#34;</span> <span style="color:#66d9ef">if</span> <span style="color:#ae81ff">40</span> <span style="color:#f92672">&lt;=</span> dog_weight <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">90</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;No.&#34;</span>
+print(outcome)
+</code></pre></div><p>That is, <code>40 &lt;= dog_weight and dog_weight &lt;= 90</code> is equivalent to <code>40 &lt;= dog_weight &lt;= 90</code> in Python.  This little trick makes the ternary operator a little bit more readible.  But still, my sentiments regarding the ternary operator remain.</p>
+<hr>
+<h3 id="bonus-content-iii-match-statements">Bonus content III: Match statements</h3>
+<p>You know that I always like to spill the hottest tea for you, and the release of Python 3.10 last year has provided just that.  In this lesson, you met conditionals, which follow the <code>if-elif-else</code> structure.  This is the traditional way of writing conditionals; most other langauges (e.g., Java, C++, MATLAB, etc.) have a similar syntax.</p>
+<p>However, there is a new sheriff in town, and he&rsquo;s here to stay.  And that sheriff is known as the <code>match</code> statement.  Here&rsquo;s how it works.  Let&rsquo;s return to the script we wrote in the section on <a href="#writing-conditionals-in-python-the-if-elif-else-paradigm">the <code>if-elif-else</code> paradigm</a> that tells us a cool fact about each of the numbers between 1 and 4.  In that section, we used <code>if</code>, <code>elif</code>, and <code>else</code> to define five different logical cases.  This was all good and well, but it was a little bit cumbersome.  We had to write the variable name <code>my_number</code> and the <code>==</code> sign four times.  And if our Boolean conditions had become more complicated, this program would easily have started to look like a mess.</p>
+<p>This is precisely the motivation for <code>match</code> statements.  Below, I&rsquo;ve written a program equivalent to the one you saw earlier using a <code>match</code> statement.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_number <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;Enter a number between 1 and 4: &#39;</span>))
+
+match my_number:
+    case <span style="color:#ae81ff">1</span>:
+        print(<span style="color:#e6db74">&#34;You entered the first (and second) Fibonacci number!&#34;</span>)
+    case <span style="color:#ae81ff">2</span>:
+        print(<span style="color:#e6db74">&#34;You entered the smallest prime number!&#34;</span>)
+    case <span style="color:#ae81ff">3</span>:
+        print(<span style="color:#e6db74">&#34;According to Pythagoras, you entered the &#39;noblest&#39; of digits!&#34;</span>)
+    case <span style="color:#ae81ff">4</span>:
+        print(<span style="color:#e6db74">&#34;You entered the only number that is spelled with the same number of characters as the number itself!&#34;</span>)
+    case other:
+        print(<span style="color:#e6db74">&#34;Make sure you enter a number between 1 and 4!&#34;</span>)
+</code></pre></div><p>This is much cleaner.  The <code>match my_number</code> line signals that the program should check whether or not <code>my_number</code> is equal to any of the ensuing cases.  So for instance, <code>case 1:</code> is equivalent to <code>if my_number == 1:</code>.  Similary, the keyword <code>other</code> here used in the <code>case other:</code> line is equivalent to <code>else:</code> in the <code>if-elif-else</code> paradigm.</p>
+<p>Of course, conditionals can be much more complicated than this.  And when the going gets tough, match statements tend to rise to the occasion.  I won&rsquo;t elaborate further in this set of notes, but if you&rsquo;re interested, there is a nice documentation page on match statements <a href="https://peps.python.org/pep-0636/">here</a>.</p>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-5-using-and-or-and-not">Exercise 5 (Using <code>and</code>, <code>or</code>, and <code>not</code>)</h4>
+<p>Let&rsquo;s say we have three Boolean variables: <code>a</code>, <code>b</code>, and <code>c</code>.  For the sake of the exercise, let&rsquo;s arbitarily set their values to <code>a = True</code>, <code>b = False</code>, and <code>c = True</code>.  Your job is to determine the whether the following statements are True or False:</p>
+<ol>
+<li><code>not b</code></li>
+<li><code>a and b</code></li>
+<li><code>a and c</code></li>
+<li><code>not a and not b</code></li>
+<li><code>a and b and c</code></li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>Lists</title>
@@ -212,7 +513,15 @@ Your slice is: <span style="color:#f92672">[</span>1, 3, 5, 7<span style="color:
 range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
 <span style="color:#f92672">&gt;&gt;&gt;</span> type(ls)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">range</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>Notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  We&rsquo;ll talk more about this in a future lesson.</p>
+</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, read on; it not, there&rsquo;s a couple of exercises waiting for you down below.</p>
+<hr>
+<h3 id="why-range-has-its-own-type">Why range has its own type</h3>
+<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
+</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
+<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
+<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL, meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
 <hr>
 <h4 id="exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</h4>
 <p>Let&rsquo;s go back to <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a>.  In this exercise, you created a variable called <code>my_list</code>.  Now that you&rsquo;ve learned how range works, go back and update your code so that <code>my_list</code> is created using the <code>range</code> function.</p>
@@ -274,6 +583,9 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 </li>
 <li>
 <p><a href="#meet-the-range-function">Meet the range function</a>.  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The <code>list</code> function can transform variables of other data types into lists.</p>
+</li>
+<li>
+<p><a href="#why-range-has-its-own-type">Why range has its own type</a>.  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory.</p>
 </li>
 <li>
 <p><a href="#exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</a>.</p>
