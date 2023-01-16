@@ -1,6 +1,6 @@
 ---
 title: "Loops"
-date: 2023-01-05
+date: 2023-01-16
 module: fundamentals
 lesson: 6
 draft: true
