@@ -7,11 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 27 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Loops</title>
+      <link>https://arobey1.github.io/python/loops/</link>
+      <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/python/loops/</guid>
+      <description>We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.
+ What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?</description>
+    </item>
+    
     <item>
       <title>Conditionals</title>
       <link>https://arobey1.github.io/python/conditionals/</link>
-      <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/python/conditionals/</guid>
       <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!
@@ -34,16 +44,16 @@
       <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/python/math_operations/</guid>
-      <description>Welcome back! I hope you learned something new in the previous lesson on Variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+      <description>Welcome back! I hope you learned something new in the previous lesson on variables. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
  The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
     </item>
     
     <item>
-      <title>Variables, data types, and comparison</title>
-      <link>https://arobey1.github.io/python/variables_data_types/</link>
+      <title>Variables</title>
+      <link>https://arobey1.github.io/python/variables/</link>
       <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://arobey1.github.io/python/variables_data_types/</guid>
+      <guid>https://arobey1.github.io/python/variables/</guid>
       <description>Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
  A variable is a container for saving data.
  A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</description>
@@ -95,15 +105,6 @@
       
       <guid>https://arobey1.github.io/publications/adv_provable_tradeoffs/</guid>
       <description>Abstract. It is well known that machine learning methods can be vulnerable to adversarially-chosen perturbations of their inputs. Despite significant progress in the area, foundational open problems remain. In this paper, we address several key questions. We derive exact and approximate Bayes-optimal robust classifiers for the important setting of two- and three-class Gaussian classification problems with arbitrary imbalance, for $\ell_2$ and $\ell_\infty$ adversaries. In contrast to classical Bayes-optimal classifiers, determining the optimal decisions here cannot be made pointwise and new theoretical approaches are needed.</description>
-    </item>
-    
-    <item>
-      <title>On the Sample Complexity of Stability Constrained Imitation Learning</title>
-      <link>https://arobey1.github.io/publications/stab_imitation_learning/</link>
-      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/stab_imitation_learning/</guid>
-      <description>Abstract. We study the following question in the context of imitation learning for continuous control: how are the underlying stability properties of an expert policy reflected in the sample-complexity of an imitation learning task? We provide the first results showing that a surprisingly granular connection can be made between the underlying expert system’s incremental gain stability, a novel measure of robust convergence between pairs of system trajectories, and the dependency on the task horizon $T$ of the resulting generalization bounds.</description>
     </item>
     
   </channel>

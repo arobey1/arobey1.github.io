@@ -25,8 +25,11 @@ Without further adieu, let's get right into it.
 **Getting started.**  In this set of notes, we're going to cover the following topics.  
 
 1. [Interacting with Python]({{< ref "/python/interacting_with_python.md" >}} "Interacting with Python")
-2. [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables")
+2. [Variables]({{< ref "/python/variables.md" >}} "Variables")
 3. [Mathematical operations]({{< ref "/python/math_operations.md" >}} "Math Operations")
+4. [Lists]({{< ref "/python/lists.md" >}} "Lists")
+5. [Conditionals]({{< ref "/python/conditionals.md" >}} "Conditionals")
+6. [Loops]({{< ref "/python/loops.md" >}} "Loops")
 
 (More lessons are on the way!)
 

@@ -61,7 +61,7 @@ The square brackets signify that this variable is a list, and each item in a lis
 >>> miscellaneous = ['a', True, 'fantastisch', 5.432]
 ```
 
-Recalling what we learned about the [type function]({{< ref "/python/variables_data_types.md#exercise-1-review-of-data-types" >}} "Type function"), we can call the type function on any of the variables we created above to confirm that they have the 'list' data type:
+Recalling what we learned about the [type function]({{< ref "/python/variables.md#exercise-1-review-of-data-types" >}} "Type function"), we can call the type function on any of the variables we created above to confirm that they have the 'list' data type:
 
 ```python
 >>> type(fruits)
@@ -330,24 +330,7 @@ range(3, 9, 4)
 <class 'range'>
 ```
 
-You may have expected `range` to have the 'list' data type, but notice that 'range' is actually it's own type in Python.  Why is that?  If you're interested, read on; it not, there's a couple of exercises waiting for you down below. 
-
----
-
-### Why range has its own type
-
-Let's talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, `range` returned a list, as one might expect.  However, problems started arise from `range` having this type.  To see why, consider the following code snippet:
-
-```python
->>> big_number = 1000000000000000
->>> big_range = range(big_number)
-```
-
-If `range` directly created a list, when we create `big_range`, we would be creating a list with 1000000000000000 entries.  This can potentially take up *a lot* of space in memory, causing our code to slow down significantly.  
-
-To avoid this, in Python 3, `range` now returns a what's known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We'll talk more about this in a future lesson.
-
-To close up this history lesson, I'll note that in 2020, Python 2 met what's known as it's "end of life" (sometimes abbreviated as EOL, meaning that it's not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.  
+You may have expected `range` to have the 'list' data type, but notice that 'range' is actually it's own type in Python.  Why is that?  If you're interested, there's a healthy section in the bonus content on [why range has its own type](#bonus-content-i-why-range-has-its-own-type); if not, there's a couple of exercises waiting for you down below. 
 
 ---
 
@@ -374,6 +357,42 @@ So that we're on the same page, start by defining `my_list = list(range(10))`.  
 
 ---
 
+### Checking for inclusion with `in`
+
+We've seen a litany of lists in this lesson (say that five times fast!).  But here's one basic thing that we haven't talked about: How can I check if a given item is present in a list?  For instance, returning to our book list example, one thing that I might want to do would be to check whether or not a new book is already present in my list.
+
+Python gives us a nice way to do this with the `in` keyword.  Here's how it works.  Let's say I wanted to check whether "Zorba the Greek" (by Nikos Kazantzakis) was in my book list.  To do this, I could write the following code:
+
+```python
+myBooks = [
+    "How to Do Nothing: Resisting the Attention Economy", 
+    "Norwegian Wood", 
+    "Optimization for Data Analysis", 
+    "A Tale for the Time Being"
+]
+new_book = input('Enter a book: ')
+result = new_book in myBooks
+print(f'Is {new_book} in my reading list? {result}.')
+```
+
+When I run this script -- let's call it check_books.py -- we see the following behavior:
+
+```shell
+$ python check_books.py
+Enter a book: Zorba the Greek
+Is Zorba the Greek in my reading list? False.
+```
+
+```shell
+$ python check_books.py
+Enter a book: Norwegian Wood
+Is Norwegian Wood in my reading list? True.
+```
+
+Thus, the variable `result` takes on a Boolean value.  If the user-supplied book (stored in `new_book`) is an element of `myBooks`, `result` is True; otherwise, `result` is False.
+
+---
+
 ### Strings? What does this have to do with strings?
 
 This whole lesson has been about lists.  We've learned about indexing lists, applying functions to lists, and slicing lists.  Now, what if I told you that much of what we learned today applied not only to lists, but also to strings?  Yes, it's true!  
@@ -397,7 +416,7 @@ You can even turn a string into a list of characters:
 ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!']
 ```
 
-This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.
+This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.  In a future lesson on [loops](), you'll see an exercise that will illuminate this connection.
 
 ---
 
@@ -425,13 +444,52 @@ Let's summarize what we've learned in this lesson.
 
 * [Meet the range function](#meet-the-range-function).  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The `list` function can transform variables of other data types into lists. 
 
-* [Why range has its own type](#why-range-has-its-own-type).  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory. 
-
 * [Exercise 5 (Making our life easier with range)](#exercise-5-making-our-life-easier-with-range).
 
 * [Exercise 6 (A slicing challenge)](#exercise-6-a-slicing-challenge).
 
+* [Checking for inclusion with `in`](#checking-for-inclusion-with-in).  The `in` keyword is used to check for inclusion in a list.
+
 * [Strings? What does this have to do with strings?](#strings-what-does-this-have-to-do-with-strings)  Many operations that work on lists, such as indexing and slicing, also work on strings.  The `list` function can be called on any string to turn that string into a list of characters.
+
+---
+
+### Bonus content I: Why range has its own type
+
+Let's talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, `range` returned a list, as one might expect.  However, problems started arise from `range` having this type.  To see why, consider the following code snippet:
+
+```python
+>>> big_number = 1000000000000000
+>>> big_range = range(big_number)
+```
+
+If `range` directly created a list, when we create `big_range`, we would be creating a list with 1000000000000000 entries.  This can potentially take up *a lot* of space in memory, causing our code to slow down significantly.  
+
+To avoid this, in Python 3, `range` now returns a what's known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We'll talk more about this in a future lesson.
+
+To close up this history lesson, I'll note that in 2020, Python 2 met what's known as it's "end of life" (sometimes abbreviated as EOL), meaning that it's not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.  
+
+---
+
+### Bonus content II: Meet the tuple, the list's lesser-known cousin
+
+In this bonus content, we're going to meet a new data type: the tuple.  In Python, you create a tuple like this:
+
+```python
+>>> myTuple = ('apples', 'bananas', 'oranges')
+>>> print(type(myTuple)
+<class 'tuple'>
+```
+
+The parentheses signal that we are creating a tuple.  Lists and tuples share several similarities, but they are used for fundamentally different purposes.  Here are some of the key points:
+
+* **Similarities**.  Like lists, tuples can hold as many items as you want, and the items in a tuple are separated by commas.  Tuples and lists can both also store duplicates, meaning that the same item can be contained multiple times in either of these data types.  And finally, you can use the `in` keyword to check for inclusion in a tuple, and you can check the length of a tuple using the `len` function.
+
+* **Differences**.  Unlike lists, tuples are unchangeable; this means that we cannot add, remove, or rearrange the items in a tuple.
+
+Since tuples cannot be updated, they are generally faster to iterate through than lists.  Thus, since tuples cannot be updated, this data type is generally used for storing constants which you might need to loop through.
+
+The reason for including a note about tuples in this lesson is more so that if you see tuples in a program, you'll know what you're dealing with.  I don't use tuples very often, but there are certainly use-cases where tuples are better suited for the job than lists.
 
 ---
 

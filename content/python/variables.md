@@ -1,5 +1,5 @@
 ---
-title: "Variables, data types, and comparison"
+title: "Variables"
 date: 2022-12-21
 module: fundamentals
 lesson: 1

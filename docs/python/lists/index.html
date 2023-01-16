@@ -51,7 +51,7 @@
 <meta itemprop="description" content="You&rsquo;re back! We&rsquo;ve got a lot to cover in this lesson, so let&rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.
  A motivating example: Why we need lists in Python Let&rsquo;s say that you&rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!"><meta itemprop="datePublished" content="2022-12-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-12-30T11:31:24-05:00" />
-<meta itemprop="wordCount" content="3394"><meta itemprop="image" content="https://arobey1.github.io/"/>
+<meta itemprop="wordCount" content="3872"><meta itemprop="image" content="https://arobey1.github.io/"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arobey1.github.io/"/>
 
@@ -145,7 +145,7 @@ MathJax.Hub.Config({
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        16 minutes
+        19 minutes
 
         
       </p>
@@ -197,7 +197,7 @@ MathJax.Hub.Config({
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;apple&#39;</span>, <span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">33</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> miscellaneous <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">&#39;fantastisch&#39;</span>, <span style="color:#ae81ff">5.432</span>]
-</code></pre></div><p>Recalling what we learned about the <a href="https://arobey1.github.io/python/variables_data_types/#exercise-1-review-of-data-types" title="Type function">type function</a>, we can call the type function on any of the variables we created above to confirm that they have the &lsquo;list&rsquo; data type:</p>
+</code></pre></div><p>Recalling what we learned about the <a href="https://arobey1.github.io/python/variables/#exercise-1-review-of-data-types" title="Type function">type function</a>, we can call the type function on any of the variables we created above to confirm that they have the &lsquo;list&rsquo; data type:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(fruits)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">list</span><span style="color:#e6db74">&#39;&gt;</span>
 </code></pre></div><p>Before talking more about lists, here&rsquo;s an exercise to get some more practice with lists.</p>
@@ -358,15 +358,7 @@ Your slice is: <span style="color:#f92672">[</span>1, 3, 5, 7<span style="color:
 range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
 <span style="color:#f92672">&gt;&gt;&gt;</span> type(ls)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">range</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, read on; it not, there&rsquo;s a couple of exercises waiting for you down below.</p>
-<hr>
-<h3 id="why-range-has-its-own-type">Why range has its own type</h3>
-<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
-</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
-<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
-<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL, meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
+</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, there&rsquo;s a healthy section in the bonus content on <a href="#bonus-content-i-why-range-has-its-own-type">why range has its own type</a>; if not, there&rsquo;s a couple of exercises waiting for you down below.</p>
 <hr>
 <h4 id="exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</h4>
 <p>Let&rsquo;s go back to <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a>.  In this exercise, you created a variable called <code>my_list</code>.  Now that you&rsquo;ve learned how range works, go back and update your code so that <code>my_list</code> is created using the <code>range</code> function.</p>
@@ -381,6 +373,27 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">8</span>]
 </code></pre></div><hr>
+<h3 id="checking-for-inclusion-with-in">Checking for inclusion with <code>in</code></h3>
+<p>We&rsquo;ve seen a litany of lists in this lesson (say that five times fast!).  But here&rsquo;s one basic thing that we haven&rsquo;t talked about: How can I check if a given item is present in a list?  For instance, returning to our book list example, one thing that I might want to do would be to check whether or not a new book is already present in my list.</p>
+<p>Python gives us a nice way to do this with the <code>in</code> keyword.  Here&rsquo;s how it works.  Let&rsquo;s say I wanted to check whether &ldquo;Zorba the Greek&rdquo; (by Nikos Kazantzakis) was in my book list.  To do this, I could write the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myBooks <span style="color:#f92672">=</span> [
+    <span style="color:#e6db74">&#34;How to Do Nothing: Resisting the Attention Economy&#34;</span>, 
+    <span style="color:#e6db74">&#34;Norwegian Wood&#34;</span>, 
+    <span style="color:#e6db74">&#34;Optimization for Data Analysis&#34;</span>, 
+    <span style="color:#e6db74">&#34;A Tale for the Time Being&#34;</span>
+]
+new_book <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Enter a book: &#39;</span>)
+result <span style="color:#f92672">=</span> new_book <span style="color:#f92672">in</span> myBooks
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Is </span><span style="color:#e6db74">{</span>new_book<span style="color:#e6db74">}</span><span style="color:#e6db74"> in my reading list? </span><span style="color:#e6db74">{</span>result<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#39;</span>)
+</code></pre></div><p>When I run this script &ndash; let&rsquo;s call it check_books.py &ndash; we see the following behavior:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python check_books.py
+Enter a book: Zorba the Greek
+Is Zorba the Greek in my reading list? False.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python check_books.py
+Enter a book: Norwegian Wood
+Is Norwegian Wood in my reading list? True.
+</code></pre></div><p>Thus, the variable <code>result</code> takes on a Boolean value.  If the user-supplied book (stored in <code>new_book</code>) is an element of <code>myBooks</code>, <code>result</code> is True; otherwise, <code>result</code> is False.</p>
+<hr>
 <h3 id="strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</h3>
 <p>This whole lesson has been about lists.  We&rsquo;ve learned about indexing lists, applying functions to lists, and slicing lists.  Now, what if I told you that much of what we learned today applied not only to lists, but also to strings?  Yes, it&rsquo;s true!</p>
 <p>A string can be indexed and sliced in exactly the same way as a list.  For example:</p>
@@ -394,7 +407,7 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> list_string <span style="color:#f92672">=</span> list(string)
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(list_string)
 [<span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;!&#39;</span>]
-</code></pre></div><p>This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.</p>
+</code></pre></div><p>This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.  In a future lesson on <a href="">loops</a>, you&rsquo;ll see an exercise that will illuminate this connection.</p>
 <hr>
 <h3 id="review">Review</h3>
 <p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
@@ -430,18 +443,43 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <p><a href="#meet-the-range-function">Meet the range function</a>.  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The <code>list</code> function can transform variables of other data types into lists.</p>
 </li>
 <li>
-<p><a href="#why-range-has-its-own-type">Why range has its own type</a>.  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory.</p>
-</li>
-<li>
 <p><a href="#exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</a>.</p>
 </li>
 <li>
 <p><a href="#exercise-6-a-slicing-challenge">Exercise 6 (A slicing challenge)</a>.</p>
 </li>
 <li>
+<p><a href="#checking-for-inclusion-with-in">Checking for inclusion with <code>in</code></a>.  The <code>in</code> keyword is used to check for inclusion in a list.</p>
+</li>
+<li>
 <p><a href="#strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</a>  Many operations that work on lists, such as indexing and slicing, also work on strings.  The <code>list</code> function can be called on any string to turn that string into a list of characters.</p>
 </li>
 </ul>
+<hr>
+<h3 id="bonus-content-i-why-range-has-its-own-type">Bonus content I: Why range has its own type</h3>
+<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
+</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
+<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
+<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL), meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
+<hr>
+<h3 id="bonus-content-ii-meet-the-tuple-the-lists-lesser-known-cousin">Bonus content II: Meet the tuple, the list&rsquo;s lesser-known cousin</h3>
+<p>In this bonus content, we&rsquo;re going to meet a new data type: the tuple.  In Python, you create a tuple like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myTuple <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;apples&#39;</span>, <span style="color:#e6db74">&#39;bananas&#39;</span>, <span style="color:#e6db74">&#39;oranges&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(type(myTuple)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">tuple</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>The parentheses signal that we are creating a tuple.  Lists and tuples share several similarities, but they are used for fundamentally different purposes.  Here are some of the key points:</p>
+<ul>
+<li>
+<p><strong>Similarities</strong>.  Like lists, tuples can hold as many items as you want, and the items in a tuple are separated by commas.  Tuples and lists can both also store duplicates, meaning that the same item can be contained multiple times in either of these data types.  And finally, you can use the <code>in</code> keyword to check for inclusion in a tuple, and you can check the length of a tuple using the <code>len</code> function.</p>
+</li>
+<li>
+<p><strong>Differences</strong>.  Unlike lists, tuples are unchangeable; this means that we cannot add, remove, or rearrange the items in a tuple.</p>
+</li>
+</ul>
+<p>Since tuples cannot be updated, they are generally faster to iterate through than lists.  Thus, since tuples cannot be updated, this data type is generally used for storing constants which you might need to loop through.</p>
+<p>The reason for including a note about tuples in this lesson is more so that if you see tuples in a program, you&rsquo;ll know what you&rsquo;re dealing with.  I don&rsquo;t use tuples very often, but there are certainly use-cases where tuples are better suited for the job than lists.</p>
 <hr>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -464,7 +502,7 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        3394 Words
+        3872 Words
       </p>
 
       <p>

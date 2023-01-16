@@ -2,7 +2,7 @@
 title: "Conditionals"
 date: 2023-01-04
 module: fundamentals
-lesson: 6
+lesson: 5
 draft: true
 mathjax: true
 ---
@@ -19,7 +19,7 @@ Common to almost all of these reasons is a common mantra:
 
 > Programs are sets of instructions which automate some aspect of decision-making.
 
-As of yet, we have talked about many of the essential parts of the Python language such as [printing]({{< ref "/python/interacting_with_python.md#print-statements" >}} "Print statements"), [user-supplied input]({{< ref "/python/interacting_with_python.md#user-supplied-input" >}} "User-supplied input"), [variables]({{< ref "/python/variables_data_types.md" >}} "Variables"), [mathematical operations]({{< ref "/python/math_operations.md" >}} "Math Operations"), and [lists]({{< ref "/python/lists.md" >}} "Lists").  But we haven't talked at all about how to perform basic decision-making in Python.  So let's get right to it!
+As of yet, we have talked about many of the essential parts of the Python language such as [printing]({{< ref "/python/interacting_with_python.md#print-statements" >}} "Print statements"), [user-supplied input]({{< ref "/python/interacting_with_python.md#user-supplied-input" >}} "User-supplied input"), [variables]({{< ref "/python/variables.md" >}} "Variables"), [mathematical operations]({{< ref "/python/math_operations.md" >}} "Math Operations"), and [lists]({{< ref "/python/lists.md" >}} "Lists").  But we haven't talked at all about how to perform basic decision-making in Python.  So let's get right to it!
 
 ---
 
@@ -82,7 +82,7 @@ This is an important point of divergence from what we've seen this far in this P
 
 ---
 
-### Exercise 1 (A first look at conditionals)
+#### Exercise 1 (A first look at conditionals)
 
 You've just seen your first conditional!  In this exercise, I'm going to ask you to implement your own conditional.  Here's the game plan.
 
@@ -153,7 +153,7 @@ In the script we wrote above, you get a different output depending on whether yo
 
 ---
 
-### Exercise 2 (Multiple conditions)
+#### Exercise 2 (Multiple conditions)
 
 Let's revisit the [earlier section](#conditionals-in-python) in which we made our dog-purchasing decision based on the weight of a candidate dog.  The setup is going to be exactly the same as before, with one small catch: You also don't want your dog to be too large, because you have but a small apartment and you don't want your future dog to feel cooped up.  And so you only want to buy a dog if it's heavier than 40 lbs but lighter than 90 lbs.  Your job is to write a script using the `if-elif-else` paradigm to determine whether or not you should buy a given dog.  Here's some sample output:
 
@@ -229,7 +229,7 @@ The neat thing here is that we have used Python's `or` keyword to combine the tw
 
 ---
 
-### Exercise 3 (The `and` keyword)
+#### Exercise 3 (The `and` keyword)
 
 You just met the `or` keyword, which is essential for chaining together logical expressions.  Now it's time to meet `or`'s best friend: the `and` keyword.  `and` can be used in exactly the same way as `or`, except that you will enter the conditional if both of the Boolean conditions are True, rather than only one or the other needing to be True when using `or`.
 
@@ -291,7 +291,7 @@ Nesting is useful feature of the `if-elif-else` paradigm.  It allows us to make 
 
 ---
 
-### Exercise 4 (Nest your own conditionals)
+#### Exercise 4 (Nest your own conditionals)
 
 I hope you're not tired of the buying-a-dog example yet, because in this exercise we'll be returning to it one more time.  I want you to rewrite the script from [Exercise 3](#exercise-3-the-and-keyword) using a nested conditional statement.  Try it out, and if you get stuck, look back at the previous section on [nested conditionals](#nesting-conditionals).
 

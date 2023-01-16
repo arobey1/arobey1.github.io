@@ -213,7 +213,7 @@ my_favorite_number = input("Enter your favorite number: ")
 print(int(my_favorite_number) + 1)
 ```
 
-Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the `int` function (I'll say more about this in the next lesson on [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables")).  Now, when you run your program, you'll be able to enter your favorite number:
+Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the `int` function (I'll say more about this in the next lesson on [variables]({{< ref "/python/variables.md" >}} "Variables")).  Now, when you run your program, you'll be able to enter your favorite number:
 
 ```shell
 $ python increment.py 
@@ -294,4 +294,4 @@ Let's summarize what we've learned in this lesson.
 
 ---
 
-Great work!  you made it through the first lesson.  Next up is a lesson about Python [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").  Looking forward to seeing you there!
+Great work!  you made it through the first lesson.  Next up is a lesson about Python [variables]({{< ref "/python/variables.md" >}} "Variables").  Looking forward to seeing you there!

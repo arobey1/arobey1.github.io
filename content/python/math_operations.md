@@ -7,7 +7,7 @@ draft: true
 mathjax: true
 ---
 
-Welcome back!  I hope you learned something new in the previous lesson on [Variables, data types, and comparison]({{< ref "/python/variables_data_types.md" >}} "Variables").   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don't worry!  We won't be doing anything complicated today.  You'll just need the basics: addition, subtraction, exponents, and the like.
+Welcome back!  I hope you learned something new in the previous lesson on [variables]({{< ref "/python/variables.md" >}} "Variables").   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don't worry!  We won't be doing anything complicated today.  You'll just need the basics: addition, subtraction, exponents, and the like.
 
 ---
 
@@ -76,7 +76,7 @@ On the Sun, you would weigh 5414.4 lbs
 On Jupiter, you would weigh 472.8 lbs
 ```
 
-Hint: In this exercise, you'll want to use Python's [input function]({{< ref "/python/interacting_with_python.md#user-supplied-input" >}}) as well as [f-strings]({{< ref "/python/variables_data_types.md#printing-variables-with-f-strings" >}}).
+Hint: In this exercise, you'll want to use Python's [input function]({{< ref "/python/interacting_with_python.md#user-supplied-input" >}}) as well as [f-strings]({{< ref "/python/variables.md#printing-variables-with-f-strings" >}}).
 
 ---
 

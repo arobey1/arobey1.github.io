@@ -6,13 +6,455 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 27 Dec 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 05 Jan 2023 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/python/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Loops</title>
+            <link>https://arobey1.github.io/python/loops/</link>
+            <pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/python/loops/</guid>
+            <description>We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.
+ What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?</description>
+            <content type="html"><![CDATA[<p>We&rsquo;ve been building to this day for quite some time.  Today is the day we learn about loops!  If you haven&rsquo;t heard about loops before, you&rsquo;re in for a real treat; loops are an essential part of almost every programming language.</p>
+<hr>
+<h3 id="what-is-a-loop">What is a loop?</h3>
+<p>Loops are ubiquitous in Python.  Once you master loops, you&rsquo;ll be amazed at how much more your programs can do.  But first things first: What is a loop?</p>
+<blockquote>
+<p>A <strong>loop</strong> is a sequence of one or multiple commands that are <em>iterately</em> executed until a particular condition is met.</p>
+</blockquote>
+<p>Executing expressions iteratively is a key component of a litany of tasks such as training machine learning models, evaluating mathematical expressions, and sorting data.  And by the time you&rsquo;re done with this lesson, you&rsquo;ll know just about everything you need to know to get started writing your own loops.  In this lesson, we&rsquo;ll see two flavors of loops: <strong>for loops</strong> and <strong>while loops</strong>.  Both kinds of loops are integral not only to Python, but to many other programming langauges such as C++, MATLAB, and Java.</p>
+<hr>
+<h3 id="why-do-we-need-loops-a-motivating-example">Why do we need loops? A motivating example</h3>
+<p>Before diving into the Python&rsquo;s syntax for writing for and while loops, allow me to spend a few paragraphs motivating why loops are so integral in Python.  Let&rsquo;s say you want to print out the natural numbers between 1 and 5.  Based on what we already know, we could use a list to store each of these numbers, and then print out that list, i.e.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt;&gt;&gt; numbers <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
+&gt;&gt;&gt; print<span style="color:#f92672">(</span>numbers<span style="color:#f92672">)</span>
+<span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
+</code></pre></div><p>But what if we wanted to print them out one by one?  Recalling what we learned about <a href="https://arobey1.github.io/python/lists/#indexing-into-a-list" title="Indexing into a list">indexing into a list</a> in a previous lesson, we could write a script &ndash; let&rsquo;s call it print_numbers.py &ndash; that would print out each number one by one.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+print(numbers[<span style="color:#ae81ff">0</span>])
+print(numbers[<span style="color:#ae81ff">1</span>])
+print(numbers[<span style="color:#ae81ff">2</span>])
+print(numbers[<span style="color:#ae81ff">3</span>])
+print(numbers[<span style="color:#ae81ff">4</span>])
+</code></pre></div><p>And here&rsquo;s the ouput:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_numbers.py
+<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">5</span>
+</code></pre></div><p>While this certainly worked, I think that we can both agree that this is a bad solution.  Here&rsquo;s why:</p>
+<ul>
+<li>
+<p><strong>Conciseness</strong>.  Using this idea, we would need to write as many lines of code as there are items in <code>numbers</code>.  Ideally, we would like a much more concise solution.</p>
+</li>
+<li>
+<p><strong>Flexibility</strong>.  This code snippet would throw an error if <code>numbers</code> contained fewer than five items, since there would not be an item at index 4.  And if <code>numbers</code> contained more than five items, it would not print out all of the numbers in the list.  Ideally, we&rsquo;d like a solution that would work for a list of any size.</p>
+</li>
+</ul>
+<p>Resolving these shortcomings is at the heart of why lists are an indispensable part of Python.  And now, we move on to the main event: for and while loops.</p>
+<hr>
+<h3 id="for-loops">For loops</h3>
+<p>The first kind of loop that we&rsquo;ll see in this lesson is the for loop.</p>
+<blockquote>
+<p>A <strong>for loop</strong> iterates over a fixed sequence of items.</p>
+</blockquote>
+<p>The word &ldquo;sequence&rdquo; mentioned in the definition is intentionally vague.  As we&rsquo;ll see in a <a href="#what-can-loops-loop-over">later section</a> in this lesson, for loops can iterate over all sorts of things, including some old favorites such as lists, strings, tuples, and a <code>range</code> of numbers.  But that&rsquo;s not all!  For loops can also iterate over objects we haven&rsquo;t yet seen, such as dictionaries, generators, and iterators.</p>
+<p>Returning to our example in the previous section, the following script will accomplish our goal of printing out the numbers in <code>numbers</code> one by one while satisfying both the <em>conciseness</em> and <em>flexibility</em> criteria listed above.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+    print(num)
+</code></pre></div><p>In the second line, the <code>for</code> keyword signals that we are writing a for loop.  This line tells Python to iterate over the items &ndash; in this case, integers &ndash; in the <code>numbers</code> list.  Then, in the indented block, we execute the command for each item in <code>numbers</code>.</p>
+<p>Note that this is a slightly different use-case for the <code>in</code> keyword in Python.  We previously saw the <code>in</code> keyword in our lesson on <a href="https://arobey1.github.io/python/lists/#checking-for-inclusion-with-in" title="Checking for inclusion with `in`">checking for inclusion in lists</a>.  The difference here is that rather than checking for inclusion, we are using <code>in</code> to look through each element of the list.</p>
+<p>And finally, it&rsquo;s worthing noting that there is nothing special about the variable name <code>num</code> here.  We could have used any variable name, e.g.,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> any_variable_name <span style="color:#f92672">in</span> numbers:
+    print(any_variable_name)
+</code></pre></div><p>And that&rsquo;s really all there is to for loops.  Next, let&rsquo;s take a look at the while loop.</p>
+<hr>
+<h3 id="while-loops">While loops</h3>
+<p>Next in our catalog of loops is the while loop.</p>
+<blockquote>
+<p>A <strong>while loop</strong> iterates until a Boolean condition is satisfied.</p>
+</blockquote>
+<p>In a previous lesson on <a href="https://arobey1.github.io/python/conditionals/" title="Conditionals">conditionals</a>, we learned that you only enter a conditional statement when the Boolean condition that defines it is satisfied.  The same principle is at play with while loops, in the sense that you will only execute the contents of the loop if the Boolean condition is True.</p>
+<p>As we did in the <a href="#for-loops">previous section</a>, let&rsquo;s illustrate the use of while loops with an example.  In fact, let&rsquo;s use the same number-printing example that we used for for loops.  Here&rsquo;s another solution which prints the numbers 1 through 5 to the console using a while loop.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">while</span> num <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
+    print(number)
+    num <span style="color:#f92672">=</span> num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>In the first line, we define a variable <code>num = 1</code>.  Next, in the second line, we use the <code>while</code> keyword to signal to Python that we are writing a while loop.  In this case, the Boolean condition in this line says that we should loop until <code>num &lt;= 5</code> is no longer True.  And finally, in the body of the loop, we first print out <code>num</code> and then increment it by one.</p>
+<p>Since the variable <code>num</code> is being incremented each time we pass through the loop, by the time we finish the fifth iteration, <code>num</code> will be equal to 6, and the Boolean condition <code>num &lt;= 5</code> will no longer be True.  At this point, the loop will end.</p>
+<p>And that&rsquo;s pretty much that!  Now you&rsquo;ve seen both of the kinds of loops that you can write in Python.  The time is ripe for a couple of exercises.</p>
+<hr>
+<h4 id="exercise-1-the-first-few-fibonacci-numbers">Exercise 1 (The first few Fibonacci numbers)</h4>
+<p>Let&rsquo;s start things out with an easy exercise.  Write a script called calc_fibonacci.py that will calculate the first $m$ Fibonacci numbers.  If you&rsquo;re not familiar with the Fibonacci numbers, here&rsquo;s a brief primer.</p>
+<p>The first two Fibonacci numbers are defined to be $F_0 = 0$ and $F_1 = 1$.  Then, for any $m \geq 2$, $F_m$ is defined by the following recurrence relation:</p>
+<p>$$F_m = F_{m-1} + F_{m-2}$$</p>
+<p>So for instance, to calculate the third Fibonacci number $F_2$, we use the recurrence relationship to write $F_2 = F_1 + F_0$.  And since $F_2 = 1 + 0 = 1$.  The sequence of Fibonacci numbers $F_0, F_1, F_2, \dots$ are famous because they appear unexpectedly in various fields, including <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Primes_and_divisibility">number theory</a>, <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Mathematics">cominatorics</a>, and <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Computer_science">algorithms</a>.</p>
+<p>Your program should take an integer $m$ as an input, and then use a loop (for or while?) to print out the first $m$ Fibonacci numbers one by one.  For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python calc_fibonacci.py
+Enter a number of terms <span style="color:#f92672">(</span>m &gt;<span style="color:#f92672">=</span> 2<span style="color:#f92672">)</span>: <span style="color:#ae81ff">6</span>
+The first m<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span> Fibonacci numbers are:
+<span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">5</span>
+</code></pre></div><p>When you&rsquo;ve got it, have a look at the next exercise!</p>
+<hr>
+<h4 id="exercise-2-a-guessing-game---or-binary-search">Exercise 2 (A guessing game. . . or, binary search)</h4>
+<p>Let&rsquo;s play a game.  I&rsquo;m going to think of a number between 1 and 100.  And your job is to guess my number in as few guesses as possible.</p>
+<p>Stary by defining a script called my_number_game.py.  To implement this game, you&rsquo;ll need to define a variable called <code>my_number</code> and set it equal to a secret number between 1 and 100.  Next, use a loop (for or while?) to prompt the user for guesses until they guess <code>my_number</code>.  You should also give the user feedback about whether their guess was larger or smaller than <code>my_number</code>.  And when they guess your number, print out a message telling them how many guesses it took them to get the right answer.  Here&rsquo;s some sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_number_game.py
+Enter your guess: <span style="color:#ae81ff">5</span>
+Nope! My number is larger than 5.
+Enter your guess: <span style="color:#ae81ff">100</span>
+Uh uh! My number is smaller than 100.
+Enter your guess: <span style="color:#ae81ff">2</span>
+Nope! My number is larger than 2.
+Enter your guess: <span style="color:#ae81ff">72</span>
+Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
+It took you <span style="color:#ae81ff">4</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
+</code></pre></div><p>Try this out with your friends, and see who can get the best score!  If you want to make this even fancier, why not discard invalid guesses, such as those smaller than 1 or larger than 100.  You could also disregard repeated guesses, like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_number_game.py
+Enter your guess: -6
+Invalid guess!  This number is smaller than 1.
+Enter your guess: <span style="color:#ae81ff">103</span>
+Invalid guess!  This number is smaller than 100.
+Enter your guess: <span style="color:#ae81ff">5</span>
+Nope! My number is larger than 5.
+Enter your guess: <span style="color:#ae81ff">5</span>
+Invalid guess!  You already guessed 5.
+Enter your guess: <span style="color:#ae81ff">72</span>
+Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
+It took you <span style="color:#ae81ff">2</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
+</code></pre></div><p>If you&rsquo;re interested in what the optimal strategy is for this game, and what the smallest number of guesses you&rsquo;d need to make to get the right answer, you may be interested to read more about the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.</p>
+<hr>
+<h4 id="exercise-3-calculating-mileage-with-while-loops">Exercise 3 (Calculating mileage with while loops)</h4>
+<p>Imagine that you&rsquo;re training for a running race, be it a 5k or a marathon.  When training for such a race, it&rsquo;s important to watch your mileage.  On the one hand, if you ramp up your mileage too quickly, it&rsquo;s easy to pick up an injury.  One the other hand, if you increase your mileage too conservatively, you may not be able to finish the race.  Let&rsquo;s use Python to come up with a training plan that will see you safely through your training.</p>
+<p>One basic rule of thumb to avoid injury is to increase your mileage by roughly 10% each week.  For example, if you run 10 miles in your first week of training, you should run a maximum of 11 miles your second week, 12.1 miles your third week, and so on.</p>
+<p>Your script &ndash; let&rsquo;s call it training_plan.py &ndash; should take your current weekly mileage as input as well as the number of weeks that you want to train.  It should then output how many miles you should run in each week, like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python training_plan.py
+Your currently weekly mileage: <span style="color:#ae81ff">10</span>
+Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
+
+Week 1: 11.0 miles
+Week 2: 12.100000000000001 miles
+Week 3: 13.310000000000002 miles
+Week 4: 14.641000000000004 miles
+Week 5: 16.105100000000004 miles
+Week 6: 17.715610000000005 miles
+</code></pre></div><p>Try implementing this using a loop (for or while?).  And if you want to make it look prettier, you can print using Python&rsquo;s f-string formatting:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Week </span><span style="color:#e6db74">{</span>week<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>num_miles<span style="color:#e6db74">:</span><span style="color:#e6db74">.3f</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> miles&#34;</span>)
+</code></pre></div><p>Adding the <code>:.3f</code> after the <code>num_miles</code> variable name will tell Python to only print out three decimal places, which should yield output that looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python training_plan.py
+Your currently weekly mileage: <span style="color:#ae81ff">10</span>
+Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
+
+Week 1: 11.000 miles
+Week 2: 12.100 miles
+Week 3: 13.310 miles
+Week 4: 14.641 miles
+Week 5: 16.105 miles
+Week 6: 17.716 miles
+</code></pre></div><hr>
+<h3 id="are-for-loops-and-while-loops---the-same">Are for loops and while loops. . . the same?</h3>
+<p>Something really interested happened in our presentation of <a href="#for-loops">for loops</a> and <a href="#while-loops">while loops</a> in the previous sections.  Did you catch it?</p>
+<p>Based on what you&rsquo;ve seen so far, it would be reasonable to conclude that for and while loops apply in different circumstances: a for loop loops through a fixed sequence whereas a while loop loops until a Boolean condition is False.  But in the example we used above where we printed out the numbers between 1 and 5, we were able to accomplish the task in two different ways; one way used a for loop, and the other used a while loop.  As a reminder, here are the two versions we saw earlier:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># print numbers using a *for* loop</span>
+numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+    print(num)
+
+<span style="color:#75715e"># print numbers using a *while* loop</span>
+number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">while</span> number <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
+    print(number)
+    number <span style="color:#f92672">=</span> number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><p>This raises the following question: When can for loops and while loops be used to accomplish the same task?</p>
+<p>To answer the question, I&rsquo;m going to tentatively say that for and while loops are <em>almost</em> always exchangeable, meaning that any task that can be accomplished with a for loop can also be done with a while loop, and vice versa.  There are people out there who I&rsquo;m sure will balk at this answer and subsequently supply a convoluted counter example.  However, my contention is that (a) such people have too much time on their hands and (b) in the vast majority of situations, for and while loops are exchangeable.</p>
+<p>That being said, in some intances, it can be much cleaner and/or more concise to use one kind of loop instead of the other.  And rather than running through some examples, why not explore this idea for yourself in the next exercise!</p>
+<hr>
+<h4 id="exercise-4-exchanging-loops">Exercise 4 (Exchanging loops)</h4>
+<p>It&rsquo;s time for another game!  I am going to write a program that uses a loop.  If my code uses a for loop, your job is to rewrite that loop using a while loop, and vice versa.</p>
+<p><strong>Part (a): Triangular numbers</strong>.  You&rsquo;ve probably heard of <a href="https://en.wikipedia.org/wiki/Square_number">square numbers</a>, which also go by the name of perfect squares.  Square numbers are integers that can be written as the square of an integer.  So for example, 4 and 9 are square numbers because 4 is 2² and 9 is 3².  From a geometric point of view, square numbers can be arranged in. . . squares, as shown below.</p>
+<p><img src="../../assets/perfect-squares.png" alt="Perfect squares"></p>
+<p>And while most people have heard of square numbers, have you every heard of <a href="https://en.wikipedia.org/wiki/Triangular_number">triangular numbers</a>?  Triangular numbers are numbers that can be arranged in an equilateral triangle, like in the following picture:</p>
+<p><img src="../../assets/triangular-numbers.jpeg" alt="Triangular numbers"></p>
+<p>To calculate a the $n^{\text{th}}$ triangular number, denoted by $T_n$, we can use the following formula:</p>
+<p>$$T_n = \sum_{k=1}^n k = 1 + 2 + 3 + \dots + n$$</p>
+<p>As shown in the picture, $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, and so on.  Now that we&rsquo;re familiar with loops, let&rsquo;s write a program to calculate the triangular numbers.  Here&rsquo;s my version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">n <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;Enter a number n (n &gt;= 1): &#39;</span>))
+
+T_n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+    T_n <span style="color:#f92672">=</span> T_n <span style="color:#f92672">+</span> number
+
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;The </span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74">^th triangular number T_</span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74"> = </span><span style="color:#e6db74">{</span>T_n<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><p>You job is to implement this using a while loop.  Good luck!</p>
+<p><strong>Part (b): DNA sequencing</strong>.  At the very end of the lesson <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>, I mentioned that <a href="https://arobey1.github.io/python/lists/#strings-what-does-this-have-to-do-with-strings" title="Strings? What does this have to do with strings?">viewing strings as lists of characters</a> can be useful in fields such as bioinformatics.  I hope you didn&rsquo;t think that I wasn&rsquo;t going to follow up on this connection!  In this lesson, we&rsquo;ll perform a classic bioinformatics task: Searching for amino acids in a DNA sequence.</p>
+<p>Here&rsquo;s everything I know about DNA.  Every strand of DNA can be viewed as a sequence of small segments called neucleotides.  Each nucleotide is categorized by what&rsquo;s known as a nucleotide base.  There are four kinds of neucleotide bases in DNA segments: adenine (A), cytosine (C), guanine (G), and thymine (T).  Thus, DNA sequences are often represented as strings containing these four letters.  Here&rsquo;s an example:</p>
+<pre><code>ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC
+</code></pre><p>One of the most common tasks in bioinformatics is to search for particular three-letter subsequences (called codons) in a DNA sequence.  There are 64 possible codons (why?); 61 of them encode amino acids, and the remaining three are used as stop signals.  For example, the subsequence ACA encodes threonine and AGA encodes arginine.</p>
+<p>Our job is to write a program that finds all the occurances of a given codon in a short snippet of DNA.  Here&rsquo;s a program that uses while loops to do just this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">seq <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC&#39;</span> \
+      <span style="color:#e6db74">&#39;CGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCC&#39;</span> \
+      <span style="color:#e6db74">&#39;ACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAA&#39;</span> \
+      <span style="color:#e6db74">&#39;GGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTG&#39;</span> \
+      <span style="color:#e6db74">&#39;GACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCT&#39;</span> \
+      <span style="color:#e6db74">&#39;CGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAAT&#39;</span> \
+      <span style="color:#e6db74">&#39;CCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAA&#39;</span> \
+      <span style="color:#e6db74">&#39;GACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCA&#39;</span> \
+      <span style="color:#e6db74">&#39;CGCAAGTTTAATTACAGACCTGAA&#39;</span>
+
+codon_to_find <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Enter a valid codon: &#39;</span>)
+
+found_codon_indices <span style="color:#f92672">=</span> []
+seq_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> seq_index <span style="color:#f92672">&lt;=</span> len(seq) <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span>:
+    current_codon <span style="color:#f92672">=</span> seq[seq_index:seq_index<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>]
+    <span style="color:#66d9ef">if</span> current_codon <span style="color:#f92672">==</span> codon_to_find:
+        found_codon_indices<span style="color:#f92672">.</span>append(seq_index)
+    seq_index <span style="color:#f92672">=</span> seq_index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found the codon </span><span style="color:#e6db74">{</span>codon_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at the following indices:&#39;</span>)
+print(found_codon_indices)
+</code></pre></div><p>Your job is to implement this using a for loop.  You&rsquo;ve got this!</p>
+<hr>
+<h3 id="the-perils-of-infinite-looping">The perils of infinite looping</h3>
+<p>Let&rsquo;s recap.  In the previous sections, we learned that a for loop will iterate through each of the items in the sequence you supply.  So if the first line of the loop looks something like <code>for item in my_sequence:</code>, the for loop will run for as many iterations as there are items in <code>my_sequence</code>.  In contrast, a while loop iterates until the Boolean condition in it&rsquo;s definition is no longer True.  So if we have while loop defined by <code>while my_condition == True:</code>, the loop will continue to run until <code>my_condition</code> is False.  This leads to the following question: What happens if <code>my_condition</code> is never False?</p>
+<p>Great question!  In that case, the while loop will iterate forever, and the program will never finish.  For instance, the following script will never terminate.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+    print(<span style="color:#e6db74">&#34;I&#39;m still in the loop!  Ahhhhhh!&#34;</span>)
+</code></pre></div><p>The output will be an never-ending number of print statements.  Clearly, this behavior is to be avoided.  So when writing while loops, it&rsquo;s essential that we ensure that at some point, the loop will eventually terminate.</p>
+<p>At some point in your programming career, you&rsquo;ll fall into the trap of executing an infinite loop.  So when this happens, don&rsquo;t panic!  There are two easy ways to get out of an infinite loop.</p>
+<ol>
+<li><strong>Command-C</strong>.  The easiest way is to hit ⌘-C (i.e., Command-C) on your keyboard.  This is known as  <code>KeyboardInterrupt</code>, and it will kill the process that is currently running in your terminal.  If you hit ⌘-C while the above program is running, you&rsquo;ll get the following output.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+<span style="color:#f92672">^</span>CTraceback (most recent call last):
+  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">2</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+<span style="color:#a6e22e">KeyboardInterrupt</span>
+</code></pre></div><ol start="2">
+<li><strong>Close your terminal</strong>.  The next best way is to close your terminal, e.g., by clicking the red button in the top left-hand corner.  This will also kill the current process, but you may want to avoid this option as it&rsquo;s generally less convenient than using ⌘-C.</li>
+</ol>
+<p>Now you know about to recognize and avoid infinite loops!  You&rsquo;re unstoppable!</p>
+<hr>
+<h3 id="loops-indexing-and-enumerate">Loops, indexing, and <code>enumerate</code></h3>
+<p>In this section, I&rsquo;ll briefly talk about another way to think about loops.  <a href="#for-loops">Several sections ago</a>, we saw our first for loop, which we used to print out the numbers between 1 and 5.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+    print(num)
+</code></pre></div><p>Above, the variable <code>num</code> took on each of the integers from 1 to 5 as the loop iterated.</p>
+<p>Here&rsquo;s another way to look at it.  Rather using a variable to take the place of each number in <code>numbers</code>, let&rsquo;s keep track of an <a href="https://arobey1.github.io/python/lists/#indexing-into-a-list" title="Indexing into a list">index</a> that points to where we are in the list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(len(numbers)):
+    print(numbers[index])
+</code></pre></div><p>Rather than looping over <code>numbers</code>, we loop over a <code>range</code> object; in particular, we loop over <code>range(len(numbers))</code>.  Recall that <code>len(numbers)</code> will tell us the <a href="https://arobey1.github.io/python/lists/#methods-on-lists" title="Methods on lists">length</a>, or number of items, in the <code>numbers</code> list.  And therefore <code>range(len(numbers))</code> is the same as <code>range(5)</code>, which in turn is the same as <code>[0, 1, 2, 3, 4]</code>.  Given this, we can think of the code written above as being equivalent to the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]:
+    print(numbers[index])
+</code></pre></div><p>As the for loop iterates, <code>index</code> takes on the values 0 through 4.  We then use the <code>index</code> variable to index into the <code>numbers</code> list, yielding the same result as we had in the original program.</p>
+<p>Is this a better way of writing the program than our original version?  I would argue that it&rsquo;s not, because it&rsquo;s arguably more intuitive to have a single variable which takes on each number, rather than an indexing variable which requires you to index into numbers via <code>numbers[index]</code> in the final line.  For this reason, I&rsquo;ll assert that we should prefer the first version of this program to the second.  But that being said, this is a perfectly acceptable way of writing this script, and in languages like C++ and MATLAB, this is more-or-less the only way to write this script.</p>
+<p>In some cases, you may need to keep track of the index in a list.  For instance, in the part (b) of <a href="#exercise-4-exchanging-loops">Exercise 4 (Exchanging loops)</a>, we needed to keep track of the indicies of the occurances of different codons in a DNA sequence.  In this case, if can be rather useful to use the <code>enumerate</code> keyword in Python.</p>
+<p>Here&rsquo;s how <code>enumerate</code> works.  Let&rsquo;s say that you have a list of items called <code>fruits</code>, and that you would like to loop through them while keeping track f the index of each item in the list.  The following script, which we&rsquo;ll call fruits.py, will keep track of both the index and the items in the <code>fruits</code> list.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+<span style="color:#66d9ef">for</span> index, fruit <span style="color:#f92672">in</span> enumerate(fruits):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>fruit<span style="color:#e6db74">}</span><span style="color:#e6db74"> is at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">)</span>
+</code></pre></div><p>Here&rsquo;s the output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python fruits.py
+banana is at index <span style="color:#ae81ff">0</span>
+orange is at index <span style="color:#ae81ff">1</span>
+strawberry is at index <span style="color:#ae81ff">2</span>
+pear is at index <span style="color:#ae81ff">3</span>
+</code></pre></div><p>From a stylistic point of view, if you need to access the index of the items of a sequence that you&rsquo;re iterating over, it&rsquo;s preferrable to use <code>enumerate</code>.</p>
+<hr>
+<h3 id="breaking-a-loop">Breaking a loop</h3>
+<p>Let&rsquo;s say you&rsquo;re writing a loop in Python, and you want to exit it prematurely.  If you&rsquo;re writing a for loop, this would mean exiting a loop before you finish iterating through all of the items in the sequence that you&rsquo;re looping over.  And if you&rsquo;re writing a while loop, this means exiting the loop while the Boolean condition is still True.</p>
+<p>Why would you want to do this?  Well, there could be a number of reasons.  Perhaps you&rsquo;re trying to find the index of the first occurrence of a particular item in a list.  The following would be a reasonable way of implementing this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">item_to_find <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c&#39;</span>
+<span style="color:#66d9ef">for</span> index, item <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>]):
+    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> item_to_find:
+        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found </span><span style="color:#e6db74">{</span>index_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+        <span style="color:#66d9ef">break</span>
+</code></pre></div><p>Let&rsquo;s look closely at what happened here.  In this snippet, we loop through a list of letters.  And if we find <code>index_to_find</code> in our list, we print out a message, and then on the next line, we write the word <code>break</code>.  <code>break</code> will immediately exit the loop.  You&rsquo;ll run into this keyword from time to time when reading Python code, so it&rsquo;s useful to be familiar with the syntax.</p>
+<hr>
+<h3 id="what-can-loops-loop-over">What can loops loop over?</h3>
+<p>Let&rsquo;s do a bit of housekeeping before ending this lesson.  This section will give you a summary of what we can loop over.  In this section, I&rsquo;ll focus on for loops.  In the additional exercises</p>
+<p><strong>Lists</strong>.  You&rsquo;ve seen this already.  Loops and lists go together <a href="https://www.urbandictionary.com/define.php?term=Peas%20%26%20Carrots">like peas and carrots</a>.  For example, given any list, we can use the following script to loop through the list via:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> street <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;Chestnut&#34;</span>, <span style="color:#e6db74">&#34;Walnut&#34;</span>, <span style="color:#e6db74">&#34;Spruce&#34;</span>, <span style="color:#e6db74">&#34;Pine&#34;</span>]:
+    print(street)
+</code></pre></div><p><strong>Strings</strong>.  Here&rsquo;s another cool thing about lists: You can loop though the characters in a string.  Have a look at the following script, which I&rsquo;ll call loop_through_a_string.py, and the output it generates.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> character <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;I ♥ you&#34;</span>:
+    print(character)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python loop_though_a_string.py
+I
+ 
+♥
+ 
+y
+o
+u
+</code></pre></div><p><strong><code>range</code> and <code>enumerate</code> objects</strong>.  Here&rsquo;s another one you&rsquo;ve already seen.  You can loop though a range object just like you can a list.  Thus, to print out the numnbers 1 through 5, you can do the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
+    print(number)
+</code></pre></div><p>Similarly, you can also loop through an enumerate data type.  See the following script &ndash; called enumerate.py &ndash; and it&rsquo;s output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> index, word <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;Not&#39;</span>, <span style="color:#e6db74">&#39;all&#39;</span>, <span style="color:#e6db74">&#39;those&#39;</span>, <span style="color:#e6db74">&#39;who&#39;</span>, <span style="color:#e6db74">&#39;wander&#39;</span>, <span style="color:#e6db74">&#39;are&#39;</span>, <span style="color:#e6db74">&#39;lost&#39;</span>]):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Index: </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74"> | Word: </span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python enumerate.py
+Index: <span style="color:#ae81ff">0</span> | Word: Not
+Index: <span style="color:#ae81ff">1</span> | Word: all
+Index: <span style="color:#ae81ff">2</span> | Word: those
+Index: <span style="color:#ae81ff">3</span> | Word: who
+Index: <span style="color:#ae81ff">4</span> | Word: wander
+Index: <span style="color:#ae81ff">5</span> | Word: are
+Index: <span style="color:#ae81ff">6</span> | Word: lost
+</code></pre></div><p><strong>Tuples</strong>.  A few lessons ago, part of the bonus content was devoted to a discussion of <a href="https://arobey1.github.io/python/lists/#bonus-content-ii-meet-the-tuple-the-lists-lesser-known-cousin" title="Bonus content II: Meet the tuple, the list’s lesser-known cousin">tuples</a>.  Tuples are similar to lists, except the elements of a tuple cannot be changed or rearranged.  You can loop through tuples in exactly the same was as you loop through lists.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#39;apples&#39;</span>, <span style="color:#e6db74">&#39;bananas&#39;</span>, <span style="color:#e6db74">&#39;oranges&#39;</span>):
+    print(fruit)
+</code></pre></div><p><strong>And so on</strong>.  There are other things that you can loop over, including dictionaries, generators, and iterators.  Dictionaries are fundamental to Python programming, and thus deserve their own future lesson.  Generators and iterators are less common, and so we&rsquo;ll be eliding over them in these notes.</p>
+<hr>
+<h3 id="review">Review</h3>
+<p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
+<ul>
+<li>
+<p><a href="#what-is-a-loop">What is a loop?</a>.  A <strong>loop</strong> is a sequence of one or multiple commands that are <em>iterately</em> executed until a particular condition is met.</p>
+</li>
+<li>
+<p><a href="#why-do-we-need-loops-a-motivating-example">Why do we need loops? A motivating example</a>.</p>
+</li>
+<li>
+<p><a href="#for-loops">For loops</a>.  A <strong>for loop</strong> iterates over a fixed sequence of items.</p>
+</li>
+<li>
+<p><a href="#while-loops">While loops</a>.  A <strong>while loop</strong> iterates until a Boolean condition is satisfied.</p>
+</li>
+<li>
+<p><a href="#exercise-1-the-first-few-fibonacci-numbers">Exercise 1 (The first few Fibonacci numbers)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-2-a-guessing-game---or-binary-search">Exercise 2 (A guessing game. . . or, binary search)</a>.</p>
+</li>
+<li>
+<p><a href="#exercise-3-calculating-mileage-with-while-loops">Exercise 3 (Calculating mileage with while loops)</a>.</p>
+</li>
+<li>
+<p><a href="#are-for-loops-and-while-loops---the-same">Are for loops and while loops. . . the same?</a>.  In most cases, for and while loops are exchangeable, in the sense that (nearly) any task that can be accomplished with a for loop can also be done with a while loop, and vice versa.</p>
+</li>
+<li>
+<p><a href="#the-perils-of-infinite-looping">The perils of infinite looping</a>.  An infinite loop occurs when the Boolean condition in the definition of a while loop is never False.  If you encounter an infinite loop, you can break it by hitting ⌘-C (i.e., Command-C) or by closing the terminal.</p>
+</li>
+<li>
+<p><a href="#exercise-4-exchanging-loops">Exercise 4 (Exchanging loops)</a>.</p>
+</li>
+<li>
+<p><a href="#loops-indexing-and-enumerate">Loops, indexing, and <code>enumerate</code></a>.  The <code>enumerate</code> keyword can be used to obtain the items and indicies of items in a list.</p>
+</li>
+<li>
+<p><a href="#breaking-a-loop">Breaking a loop</a>.  You can prematurely exit a loop by writing the <code>break</code> keyword in the body of a loop.</p>
+</li>
+<li>
+<p><a href="#what-can-loops-loop-over">What can loops loop over?</a>.  Loops can iterate over all sorts of sequences in Python, including lists, strings, <code>range</code> and <code>enumerate</code> objects, tuples, and so much more.</p>
+</li>
+</ul>
+<hr>
+<h3 id="bonus-content-i-list-comprehension">Bonus content I: List comprehension</h3>
+<p>This section is about a concept in Python called list comprehension.</p>
+<blockquote>
+<p><strong>List comprehension</strong> is a shorter syntax for a creating a list based on a different list.</p>
+</blockquote>
+<p>I use list comprehension quite a lot while programming in Python.  It offers an elegant way to concisely create lists without losing readibility.  I debated whether to include this topic in the main lesson, but on the whole, one can easily get by without knowing this topic.  Thus, I put my foot down and relegated this topic to the bonus material.</p>
+<p>As is our way, let&rsquo;s start with an example.  Let&rsquo;s say that I want to generate a list of perfect squares, i.e., 1², 2², 3², and so on.  One way to do this would be to loop through a <code>range</code> of numbers and append their squares to a list, like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">perfect_squares <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
+    perfect_squares<span style="color:#f92672">.</span>append(num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+print(perfect_squares)
+</code></pre></div><p>And if we run this script, which we&rsquo;ll call perfect_squares.py, we get the following result:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python perfect_squares.py
+<span style="color:#f92672">[</span>1, 4, 9, 16, 25<span style="color:#f92672">]</span>
+</code></pre></div><p>This is a perfectly acceptable way of getting the desired output.  However, one could argue that this program is a little bit long and inelegant for such a simple task.  Specifically, it takes three lines to create a list, initialize a loop, and then append the square numbers to the list.  And as it turns out, list comprehension will allow us to accomplish this task in a single line of Python.  Here&rsquo;s how:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> perfect_squares <span style="color:#f92672">=</span> [num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>)]
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(perfect_squares)
+[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">25</span>]
+</code></pre></div><p>Look how concise this is!  Here&rsquo;s another example that uses the <code>upper</code> method; this capitalizes a string, i.e. <code>'abc'.upper()</code> will return <code>'ABC'</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">words <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;i&#39;</span>, <span style="color:#e6db74">&#39;miss&#39;</span>, <span style="color:#e6db74">&#39;you&#39;</span>, <span style="color:#e6db74">&#39;bro&#39;</span>]
+
+<span style="color:#75715e"># *without* list comprehension</span>
+caps_words_orig <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words:
+    caps_words_orig<span style="color:#f92672">.</span>append(w<span style="color:#f92672">.</span>upper())
+
+<span style="color:#75715e"># *with* list comprehension</span>
+caps_words_comprehension <span style="color:#f92672">=</span> [w<span style="color:#f92672">.</span>upper() <span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words]
+</code></pre></div><p>Both <code>caps_words_orig</code> and <code>caps_words_comprehension</code> will contain <code>['I', 'MISS', 'YOU', 'BRO']</code>.</p>
+<p>As you might expect, list comprehension can get even more involved.  The general syntax for list comprehension looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_list <span style="color:#f92672">=</span> [expression <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> old_list <span style="color:#66d9ef">if</span> condition <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>]
+</code></pre></div><p>So far, we&rsquo;ve created lists that look like <code>[expression for item in old_list]</code>.  However, this general syntax means that we can include an additional conditional statement to filter entries in <code>new_list</code>.</p>
+<p>Here&rsquo;s an example.  Let&rsquo;s reuse our list of fruits from the section on <a href="#loops-indexing-and-enumerate">Loops, indexing, and <code>enumerate</code></a>.  However, let&rsquo;s say that we want to remove all fruits that have an &ldquo;g&rdquo; in them.  We could do this the old fashioned way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+g_less_fruits <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits:
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruit:
+        g_less_fruits<span style="color:#f92672">.</span>append(fruit)
+</code></pre></div><p>However, given the general syntax for list comprehension, we can accomplish this in a single line of Python in the following way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+g_less_fruits <span style="color:#f92672">=</span> [fruit <span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruits]
+</code></pre></div><p>It&rsquo;s certainly more concise, but you may find this harder to read.  For this reason, you have my permission to ignore list comprehension and to stick to the classic way of doing things.</p>
+<hr>
+<h3 id="additional-exercises">Additional exercises</h3>
+<h4 id="exercise-5-more-practice-with-exchanging-loops">Exercise 5 (More practice with exchanging loops)</h4>
+<p>Let&rsquo;s look back at the section on <a href="#what-can-loops-loop-over">What can loops loop over?</a>.  In this section, we illustrated how for loops can be used to loop over different data types in Python.  In this exercise, I want you to reimplement each of the loops in this section using while loops.  If you get stuck, have a look back at the section titled <a href="#are-for-loops-and-while-loops---the-same">Are for loops and while loops. . . the same?</a> and <a href="#exercise-4-exchanging-loops">Exercise 4 (Exchanging loops)</a>.</p>
+<hr>
+<h4 id="exercise-6-a-cool-approximation-of-a-famous-number-part-1">Exercise 6 (A cool approximation of a famous number: Part 1)</h4>
+<p>This exercise is all about $\pi$.  Do you remember $\pi$?  Maybe from geometry class in high school?  If not, here&rsquo;s what you need to know for the purpose of this exercise.</p>
+<p>The number</p>
+<p>$$ \pi = 3.14159265358979323846 \dots$$</p>
+<p>is the ratio between the circumference of a circle and it&rsquo;s diameter, and it has a <a href="https://en.wikipedia.org/wiki/Pi#History">long history</a> of being <a href="https://en.wikipedia.org/wiki/Pi#Role_and_characterizations_in_mathematics">very useful in math</a>.  Furthermore, $\pi$ is what&rsquo;s known as an irrational number, meaning it cannot be written as a fraction like $\frac{1}{2}$ or $\frac{527}{23}$.  For this reason, there are many (and I mean <a href="https://en.wikipedia.org/wiki/Approximations_of_%CF%80">many</a>) ways of approximating $\pi$ as a fraction.</p>
+<p><img src="../../gifs/Pi-unrolled.gif" alt="pi"></p>
+<p>In this exercise, we are going to try out one of the earliest known methods for approximating $\pi$ which <a href="https://en.wikipedia.org/wiki/Approximations_of_%CF%80#Middle_Ages">dates back to the Middle Ages</a>.  This method says that we can approximate $\pi$ by adding up a bunch of fractions (yes, this is surprising!).  Specifically, here&rsquo;s the key equation:</p>
+<p>$$\pi = 4 \left( \sum_{k=0}^\infty \frac{(-1)^k}{2k+1} \right) = 4 \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \dots\right)$$</p>
+<p>Because we can&rsquo;t add up an infinite number of terms, we&rsquo;re going to use this formula to approximate $\pi$ by using what&rsquo;s known as a partial sum.  That is, we&rsquo;re going to fix an integer number of terms $N\geq 0$, and then we&rsquo;re going to approximate $\pi$ by computing</p>
+<p>$$ \pi \approx 4 \left( \sum_{k=0}^N \frac{(-1)^k}{2k+1} \right) = 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots + \frac{(-1)^N}{2N+1} \right)$$</p>
+<p>So for example, when $N=5$, this formula will yield the following approximation of $\pi$:</p>
+<p>$$\pi \approx 4 \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \frac{1}{11} \right) = 2.9760461760461765 $$</p>
+<p>The goal of this exercise is to see how &ldquo;good&rdquo; this approximation is.  To do so, create a script called approximate_pi.py and use the partial sum approximation outlined above to compute an approximation for pi with $N$ terms, where $N$ is an input to the script.  Your output should look something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python approximate_pi.py
+This program will approximate pi.
+
+Enter a number N: <span style="color:#ae81ff">5</span>
+For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
+</code></pre></div><hr>
+<h4 id="exercise-7-a-cool-approximation-of-a-famous-number-part-2">Exercise 7 (A cool approximation of a famous number: Part 2)</h4>
+<p>Here&rsquo;s one way to take the previous exercise to the next level.  Aside from just computing the approximation, we may be interested in seeing how close the approximation is to the true value of $\pi$.  For instance, the error in the approximation for $N=5$ is</p>
+<p>$$\text{error} = | 2.9760461760461765 - \pi| = 0.16554647754361662 $$</p>
+<p>meaning that the difference between the approxiamtion and $\pi$ is about 0.166.  Not bad, but certainly this approximation should get better as we add more terms.</p>
+<p>To compute this error, we need the true value of $\pi$.  Luckily, Python can give us access to this value.  You can get access to this value by including the following line at the beginning of your script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> pi
+<span style="color:#f92672">&gt;&gt;&gt;</span> pi
+<span style="color:#ae81ff">3.141592653589793</span>
+</code></pre></div><p>Given this value, your next job is to update your script from the previous exercise to include the following output.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python approximate_pi.py
+This program will approximate pi.
+
+Enter a number N: <span style="color:#ae81ff">5</span>
+For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
+The error in your approximation is: 0.16554647754361662
+</code></pre></div><p>Good luck!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Conditionals</title>
             <link>https://arobey1.github.io/python/conditionals/</link>
-            <pubDate>Tue, 27 Dec 2022 00:00:00 +0000</pubDate>
+            <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
             
             <guid>https://arobey1.github.io/python/conditionals/</guid>
             <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!
@@ -25,7 +467,7 @@
 <blockquote>
 <p>Programs are sets of instructions which automate some aspect of decision-making.</p>
 </blockquote>
-<p>As of yet, we have talked about many of the essential parts of the Python language such as <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Print statements">printing</a>, <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="User-supplied input">user-supplied input</a>, <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables</a>, <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">mathematical operations</a>, and <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>.  But we haven&rsquo;t talked at all about how to perform basic decision-making in Python.  So let&rsquo;s get right to it!</p>
+<p>As of yet, we have talked about many of the essential parts of the Python language such as <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Print statements">printing</a>, <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="User-supplied input">user-supplied input</a>, <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>, <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">mathematical operations</a>, and <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>.  But we haven&rsquo;t talked at all about how to perform basic decision-making in Python.  So let&rsquo;s get right to it!</p>
 <hr>
 <h3 id="what-are-conditionals">What are conditionals?</h3>
 <p>When it comes to decision-making in Python, nothing is as important as the concept of <strong>conditionals</strong>.</p>
@@ -61,7 +503,7 @@ How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs
 Yes!
 </code></pre></div><p>This is an important point of divergence from what we&rsquo;ve seen this far in this Python course.  Specifically, this is the first time we&rsquo;ve seen a program that can make a decision that depends on user-supplied input.  The example shown above will be the first of many times we see decision-making implemented in code.</p>
 <hr>
-<h3 id="exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</h3>
+<h4 id="exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</h4>
 <p>You&rsquo;ve just seen your first conditional!  In this exercise, I&rsquo;m going to ask you to implement your own conditional.  Here&rsquo;s the game plan.</p>
 <p>Let&rsquo;s say that you&rsquo;re planning on going on a quiet, evening-time walk along the river with your significant other.  However, if the temperature is less than a given threshold, you&rsquo;ll stay inside and watch a movie instead.  Your job is to write a program that will tell you whether or not you should go for a walk.  Here&rsquo;s some sample output:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python go_for_a_walk.py
@@ -108,7 +550,7 @@ Answer: Nah, stay inside and watch that movie!
     <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
 </code></pre></div><p>In the script we wrote above, you get a different output depending on whether you enter 1, 2, 3, 4.  As a bonus, in the <code>else</code> clause, we print out a message that tells the user that the entered an invalid input.  This is often the way <code>else</code> is used &ndash; as a catchall for cases not specifically defined by your <code>if</code> and <code>elif</code> statements.</p>
 <hr>
-<h3 id="exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</h3>
+<h4 id="exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</h4>
 <p>Let&rsquo;s revisit the <a href="#conditionals-in-python">earlier section</a> in which we made our dog-purchasing decision based on the weight of a candidate dog.  The setup is going to be exactly the same as before, with one small catch: You also don&rsquo;t want your dog to be too large, because you have but a small apartment and you don&rsquo;t want your future dog to feel cooped up.  And so you only want to buy a dog if it&rsquo;s heavier than 40 lbs but lighter than 90 lbs.  Your job is to write a script using the <code>if-elif-else</code> paradigm to determine whether or not you should buy a given dog.  Here&rsquo;s some sample output:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
 Should you buy the dog?
@@ -155,7 +597,7 @@ weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
     print(<span style="color:#e6db74">&#39;Yes!&#39;</span>)
 </code></pre></div><p>The neat thing here is that we have used Python&rsquo;s <code>or</code> keyword to combine the two cases that lead to the same output.  This program will print &ldquo;No.&rdquo; if the weight is less than 40 lbs <em>or</em> if the weight is greater than 90 lbs.  I hope you agree that this is a much clearer way of writing the program than our first version.</p>
 <hr>
-<h3 id="exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</h3>
+<h4 id="exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</h4>
 <p>You just met the <code>or</code> keyword, which is essential for chaining together logical expressions.  Now it&rsquo;s time to meet <code>or</code>&rsquo;s best friend: the <code>and</code> keyword.  <code>and</code> can be used in exactly the same way as <code>or</code>, except that you will enter the conditional if both of the Boolean conditions are True, rather than only one or the other needing to be True when using <code>or</code>.</p>
 <p>Let&rsquo;s try it out!  Rewrite the version of buy_a_dog.py that we wrote at the end of the previous section using the <code>and</code> keyword instead of the <code>or</code> keyword.  Note that it isn&rsquo;t just a one-for-one swap; replacing <code>or</code> with <code>and</code> will result in a program that will never print &ldquo;No.&rdquo;, because it&rsquo;s impossible for a number to be both less than 40 <em>and</em> greater than 90.  Give it a shot!</p>
 <hr>
@@ -195,7 +637,7 @@ height <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
 </code></pre></div><p>Woah!  Let&rsquo;s take a look at what you came up with.  Rather than combining every set of possible outcomes, you <em>nested</em> your conditionals, meaning that you have one conditional statement within another.  Although this takes more lines, I hope you&rsquo;ll agree that it is much easier to read and that it much more closely adheres to the poster you saw earlier.</p>
 <p>Nesting is useful feature of the <code>if-elif-else</code> paradigm.  It allows us to make multi-level decisions, as illustrated in the example above.  The next exercise will give you some more practice with nesting conditionals.</p>
 <hr>
-<h3 id="exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</h3>
+<h4 id="exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</h4>
 <p>I hope you&rsquo;re not tired of the buying-a-dog example yet, because in this exercise we&rsquo;ll be returning to it one more time.  I want you to rewrite the script from <a href="#exercise-3-the-and-keyword">Exercise 3</a> using a nested conditional statement.  Try it out, and if you get stuck, look back at the previous section on <a href="#nesting-conditionals">nested conditionals</a>.</p>
 <hr>
 <h3 id="the-final-piece-of-the-puzzle-negation">The final piece of the puzzle: Negation</h3>
@@ -352,7 +794,7 @@ match my_number:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;apple&#39;</span>, <span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">33</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> miscellaneous <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">&#39;fantastisch&#39;</span>, <span style="color:#ae81ff">5.432</span>]
-</code></pre></div><p>Recalling what we learned about the <a href="https://arobey1.github.io/python/variables_data_types/#exercise-1-review-of-data-types" title="Type function">type function</a>, we can call the type function on any of the variables we created above to confirm that they have the &lsquo;list&rsquo; data type:</p>
+</code></pre></div><p>Recalling what we learned about the <a href="https://arobey1.github.io/python/variables/#exercise-1-review-of-data-types" title="Type function">type function</a>, we can call the type function on any of the variables we created above to confirm that they have the &lsquo;list&rsquo; data type:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(fruits)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">list</span><span style="color:#e6db74">&#39;&gt;</span>
 </code></pre></div><p>Before talking more about lists, here&rsquo;s an exercise to get some more practice with lists.</p>
@@ -513,15 +955,7 @@ Your slice is: <span style="color:#f92672">[</span>1, 3, 5, 7<span style="color:
 range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">4</span>)
 <span style="color:#f92672">&gt;&gt;&gt;</span> type(ls)
 <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">range</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, read on; it not, there&rsquo;s a couple of exercises waiting for you down below.</p>
-<hr>
-<h3 id="why-range-has-its-own-type">Why range has its own type</h3>
-<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
-</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
-<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
-<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL, meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
+</code></pre></div><p>You may have expected <code>range</code> to have the &lsquo;list&rsquo; data type, but notice that &lsquo;range&rsquo; is actually it&rsquo;s own type in Python.  Why is that?  If you&rsquo;re interested, there&rsquo;s a healthy section in the bonus content on <a href="#bonus-content-i-why-range-has-its-own-type">why range has its own type</a>; if not, there&rsquo;s a couple of exercises waiting for you down below.</p>
 <hr>
 <h4 id="exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</h4>
 <p>Let&rsquo;s go back to <a href="#exercise-4-slicing-forwards-and-backwards">Exercise 4</a>.  In this exercise, you created a variable called <code>my_list</code>.  Now that you&rsquo;ve learned how range works, go back and update your code so that <code>my_list</code> is created using the <code>range</code> function.</p>
@@ -536,6 +970,27 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>]
 <span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#ae81ff">8</span>]
 </code></pre></div><hr>
+<h3 id="checking-for-inclusion-with-in">Checking for inclusion with <code>in</code></h3>
+<p>We&rsquo;ve seen a litany of lists in this lesson (say that five times fast!).  But here&rsquo;s one basic thing that we haven&rsquo;t talked about: How can I check if a given item is present in a list?  For instance, returning to our book list example, one thing that I might want to do would be to check whether or not a new book is already present in my list.</p>
+<p>Python gives us a nice way to do this with the <code>in</code> keyword.  Here&rsquo;s how it works.  Let&rsquo;s say I wanted to check whether &ldquo;Zorba the Greek&rdquo; (by Nikos Kazantzakis) was in my book list.  To do this, I could write the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myBooks <span style="color:#f92672">=</span> [
+    <span style="color:#e6db74">&#34;How to Do Nothing: Resisting the Attention Economy&#34;</span>, 
+    <span style="color:#e6db74">&#34;Norwegian Wood&#34;</span>, 
+    <span style="color:#e6db74">&#34;Optimization for Data Analysis&#34;</span>, 
+    <span style="color:#e6db74">&#34;A Tale for the Time Being&#34;</span>
+]
+new_book <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Enter a book: &#39;</span>)
+result <span style="color:#f92672">=</span> new_book <span style="color:#f92672">in</span> myBooks
+print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Is </span><span style="color:#e6db74">{</span>new_book<span style="color:#e6db74">}</span><span style="color:#e6db74"> in my reading list? </span><span style="color:#e6db74">{</span>result<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#39;</span>)
+</code></pre></div><p>When I run this script &ndash; let&rsquo;s call it check_books.py &ndash; we see the following behavior:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python check_books.py
+Enter a book: Zorba the Greek
+Is Zorba the Greek in my reading list? False.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python check_books.py
+Enter a book: Norwegian Wood
+Is Norwegian Wood in my reading list? True.
+</code></pre></div><p>Thus, the variable <code>result</code> takes on a Boolean value.  If the user-supplied book (stored in <code>new_book</code>) is an element of <code>myBooks</code>, <code>result</code> is True; otherwise, <code>result</code> is False.</p>
+<hr>
 <h3 id="strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</h3>
 <p>This whole lesson has been about lists.  We&rsquo;ve learned about indexing lists, applying functions to lists, and slicing lists.  Now, what if I told you that much of what we learned today applied not only to lists, but also to strings?  Yes, it&rsquo;s true!</p>
 <p>A string can be indexed and sliced in exactly the same way as a list.  For example:</p>
@@ -549,7 +1004,7 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <span style="color:#f92672">&gt;&gt;&gt;</span> list_string <span style="color:#f92672">=</span> list(string)
 <span style="color:#f92672">&gt;&gt;&gt;</span> print(list_string)
 [<span style="color:#e6db74">&#39;H&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#e6db74">&#39;o&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;l&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;!&#39;</span>]
-</code></pre></div><p>This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.</p>
+</code></pre></div><p>This can come in really handy in fields like bioinformatics, where one of the main goals is to find matching subsequences in long chains of base pairs.  In a future lesson on <a href="">loops</a>, you&rsquo;ll see an exercise that will illuminate this connection.</p>
 <hr>
 <h3 id="review">Review</h3>
 <p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
@@ -585,18 +1040,43 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
 <p><a href="#meet-the-range-function">Meet the range function</a>.  The range function returns a sequence of numbers.  By default, these numbers start at zero and are incremented by one.  The list ends at a user-supplied input.  The <code>list</code> function can transform variables of other data types into lists.</p>
 </li>
 <li>
-<p><a href="#why-range-has-its-own-type">Why range has its own type</a>.  If range returned a list data type, it would need to store the entire list it creates in memory.  When the list is very large, this can slow down your program.  To fix this, range returns a generator object, which does not need to store every part of the list in memory.</p>
-</li>
-<li>
 <p><a href="#exercise-5-making-our-life-easier-with-range">Exercise 5 (Making our life easier with range)</a>.</p>
 </li>
 <li>
 <p><a href="#exercise-6-a-slicing-challenge">Exercise 6 (A slicing challenge)</a>.</p>
 </li>
 <li>
+<p><a href="#checking-for-inclusion-with-in">Checking for inclusion with <code>in</code></a>.  The <code>in</code> keyword is used to check for inclusion in a list.</p>
+</li>
+<li>
 <p><a href="#strings-what-does-this-have-to-do-with-strings">Strings? What does this have to do with strings?</a>  Many operations that work on lists, such as indexing and slicing, also work on strings.  The <code>list</code> function can be called on any string to turn that string into a list of characters.</p>
 </li>
 </ul>
+<hr>
+<h3 id="bonus-content-i-why-range-has-its-own-type">Bonus content I: Why range has its own type</h3>
+<p>Let&rsquo;s talk about where we are right now (circa December 2022).  The current version of Python is 3.10, which was released in October of 2021.  Rewinding all the way back to the early 2000s, Python 2 was the standard.  In Python 2, <code>range</code> returned a list, as one might expect.  However, problems started arise from <code>range</code> having this type.  To see why, consider the following code snippet:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> big_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000000000000</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> big_range <span style="color:#f92672">=</span> range(big_number)
+</code></pre></div><p>If <code>range</code> directly created a list, when we create <code>big_range</code>, we would be creating a list with 1000000000000000 entries.  This can potentially take up <em>a lot</em> of space in memory, causing our code to slow down significantly.</p>
+<p>To avoid this, in Python 3, <code>range</code> now returns a what&rsquo;s known as a generator object, which does not need to store the entire list in memory.  This is far more efficient.  We&rsquo;ll talk more about this in a future lesson.</p>
+<p>To close up this history lesson, I&rsquo;ll note that in 2020, Python 2 met what&rsquo;s known as it&rsquo;s &ldquo;end of life&rdquo; (sometimes abbreviated as EOL), meaning that it&rsquo;s not longer supported by the Python development team.  Just like codebases, programming languages are actively developed to provide more functionality, make them faster, and improve readibility.</p>
+<hr>
+<h3 id="bonus-content-ii-meet-the-tuple-the-lists-lesser-known-cousin">Bonus content II: Meet the tuple, the list&rsquo;s lesser-known cousin</h3>
+<p>In this bonus content, we&rsquo;re going to meet a new data type: the tuple.  In Python, you create a tuple like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myTuple <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;apples&#39;</span>, <span style="color:#e6db74">&#39;bananas&#39;</span>, <span style="color:#e6db74">&#39;oranges&#39;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> print(type(myTuple)
+<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">tuple</span><span style="color:#e6db74">&#39;&gt;</span>
+</code></pre></div><p>The parentheses signal that we are creating a tuple.  Lists and tuples share several similarities, but they are used for fundamentally different purposes.  Here are some of the key points:</p>
+<ul>
+<li>
+<p><strong>Similarities</strong>.  Like lists, tuples can hold as many items as you want, and the items in a tuple are separated by commas.  Tuples and lists can both also store duplicates, meaning that the same item can be contained multiple times in either of these data types.  And finally, you can use the <code>in</code> keyword to check for inclusion in a tuple, and you can check the length of a tuple using the <code>len</code> function.</p>
+</li>
+<li>
+<p><strong>Differences</strong>.  Unlike lists, tuples are unchangeable; this means that we cannot add, remove, or rearrange the items in a tuple.</p>
+</li>
+</ul>
+<p>Since tuples cannot be updated, they are generally faster to iterate through than lists.  Thus, since tuples cannot be updated, this data type is generally used for storing constants which you might need to loop through.</p>
+<p>The reason for including a note about tuples in this lesson is more so that if you see tuples in a program, you&rsquo;ll know what you&rsquo;re dealing with.  I don&rsquo;t use tuples very often, but there are certainly use-cases where tuples are better suited for the job than lists.</p>
 <hr>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
@@ -610,9 +1090,9 @@ range(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>
             <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
             
             <guid>https://arobey1.github.io/python/math_operations/</guid>
-            <description>Welcome back! I hope you learned something new in the previous lesson on Variables, data types, and comparison. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
+            <description>Welcome back! I hope you learned something new in the previous lesson on variables. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
  The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
-            <content type="html"><![CDATA[<p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
+            <content type="html"><![CDATA[<p>Welcome back!  I hope you learned something new in the previous lesson on <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>.   Today, we are going to shift our focus to math.  And if that makes you a bit nervous, don&rsquo;t worry!  We won&rsquo;t be doing anything complicated today.  You&rsquo;ll just need the basics: addition, subtraction, exponents, and the like.</p>
 <hr>
 <h3 id="the-basic-operations">The basic operations</h3>
 <p>Since we&rsquo;re talking about math in this lesson, we&rsquo;re largely going to focus on numerical data types; that is, ints and floats.  In the previous lesson, we learned all about how to create and compare these data types.  But as you&rsquo;ll see, there is so much more that we can do with Python variables.  In particular, in this lesson, we&rsquo;ll focus on answering the following question: What if we want to do <em>operations</em> on two or more values or variables?  For example, how do we add two variables in Python?</p>
@@ -654,7 +1134,7 @@ Enter units: lbs
 On the Moon, you would weigh 33.2 lbs
 On the Sun, you would weigh 5414.4 lbs
 On Jupiter, you would weigh 472.8 lbs
-</code></pre></div><p>Hint: In this exercise, you&rsquo;ll want to use Python&rsquo;s <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input">input function</a> as well as <a href="https://arobey1.github.io/python/variables_data_types/#printing-variables-with-f-strings">f-strings</a>.</p>
+</code></pre></div><p>Hint: In this exercise, you&rsquo;ll want to use Python&rsquo;s <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input">input function</a> as well as <a href="https://arobey1.github.io/python/variables/#printing-variables-with-f-strings">f-strings</a>.</p>
 <hr>
 <h3 id="interlude-a-break-from-math">Interlude: A break from math</h3>
 <p>This interlude is just for fun.  It doesn&rsquo;t use any math, but it does loosely fit within the confines of the lesson plan today.  Over the course of this lesson, you may have been wondering: What happens when I use the mathematical operations on other kinds of data types, e.g., strings and bools?</p>
@@ -826,11 +1306,11 @@ Your sphere has a volume of 4188.790133333333 units.
         </item>
         
         <item>
-            <title>Variables, data types, and comparison</title>
-            <link>https://arobey1.github.io/python/variables_data_types/</link>
+            <title>Variables</title>
+            <link>https://arobey1.github.io/python/variables/</link>
             <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
             
-            <guid>https://arobey1.github.io/python/variables_data_types/</guid>
+            <guid>https://arobey1.github.io/python/variables/</guid>
             <description>Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
  A variable is a container for saving data.
  A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</description>
@@ -1236,7 +1716,7 @@ print(my_favorite_number <span style="color:#f92672">+</span> <span style="color
 <p>Let&rsquo;s see it in action.  Try out the following script:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
 print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
+</code></pre></div><p>Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
 Enter your favorite number: <span style="color:#ae81ff">1995</span>
 <span style="color:#ae81ff">1996</span>
@@ -1300,7 +1780,7 @@ How are you doing? I am finding my own happiness.
 </li>
 </ul>
 <hr>
-<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a>.  Looking forward to seeing you there!</p>
+<p>Great work!  you made it through the first lesson.  Next up is a lesson about Python <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>.  Looking forward to seeing you there!</p>
 ]]></content>
         </item>
         
@@ -1323,8 +1803,11 @@ How are you doing? I am finding my own happiness.
 <p><strong>Getting started.</strong>  In this set of notes, we&rsquo;re going to cover the following topics.</p>
 <ol>
 <li><a href="https://arobey1.github.io/python/interacting_with_python/" title="Interacting with Python">Interacting with Python</a></li>
-<li><a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">Variables, data types, and comparison</a></li>
+<li><a href="https://arobey1.github.io/python/variables/" title="Variables">Variables</a></li>
 <li><a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a></li>
+<li><a href="https://arobey1.github.io/python/lists/" title="Lists">Lists</a></li>
+<li><a href="https://arobey1.github.io/python/conditionals/" title="Conditionals">Conditionals</a></li>
+<li><a href="https://arobey1.github.io/python/loops/" title="Loops">Loops</a></li>
 </ol>
 <p>(More lessons are on the way!)</p>
 <hr>

@@ -49,8 +49,8 @@
 
 <meta itemprop="name" content="Conditionals">
 <meta itemprop="description" content="Today is a big day! We&rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&rsquo;ve mastered conditionals, you&rsquo;ll be amazed at how much more you can do in Python. Let&rsquo;s get to work!
- What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product."><meta itemprop="datePublished" content="2022-12-27T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-12-27T00:00:00+00:00" />
+ What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product."><meta itemprop="datePublished" content="2023-01-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-01-04T22:55:57+01:00" />
 <meta itemprop="wordCount" content="3853"><meta itemprop="image" content="https://arobey1.github.io/"/>
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arobey1.github.io/"/>
@@ -62,7 +62,7 @@
 
 
 
-<meta property="article:published_time" content="2022-12-27 00:00:00 &#43;0000 UTC" />
+<meta property="article:published_time" content="2023-01-04 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -171,7 +171,7 @@ MathJax.Hub.Config({
 <blockquote>
 <p>Programs are sets of instructions which automate some aspect of decision-making.</p>
 </blockquote>
-<p>As of yet, we have talked about many of the essential parts of the Python language such as <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Print statements">printing</a>, <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="User-supplied input">user-supplied input</a>, <a href="https://arobey1.github.io/python/variables_data_types/" title="Variables">variables</a>, <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">mathematical operations</a>, and <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>.  But we haven&rsquo;t talked at all about how to perform basic decision-making in Python.  So let&rsquo;s get right to it!</p>
+<p>As of yet, we have talked about many of the essential parts of the Python language such as <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Print statements">printing</a>, <a href="https://arobey1.github.io/python/interacting_with_python/#user-supplied-input" title="User-supplied input">user-supplied input</a>, <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>, <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">mathematical operations</a>, and <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>.  But we haven&rsquo;t talked at all about how to perform basic decision-making in Python.  So let&rsquo;s get right to it!</p>
 <hr>
 <h3 id="what-are-conditionals">What are conditionals?</h3>
 <p>When it comes to decision-making in Python, nothing is as important as the concept of <strong>conditionals</strong>.</p>
@@ -207,7 +207,7 @@ How much does the candidate dog weigh <span style="color:#f92672">(</span>in lbs
 Yes!
 </code></pre></div><p>This is an important point of divergence from what we&rsquo;ve seen this far in this Python course.  Specifically, this is the first time we&rsquo;ve seen a program that can make a decision that depends on user-supplied input.  The example shown above will be the first of many times we see decision-making implemented in code.</p>
 <hr>
-<h3 id="exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</h3>
+<h4 id="exercise-1-a-first-look-at-conditionals">Exercise 1 (A first look at conditionals)</h4>
 <p>You&rsquo;ve just seen your first conditional!  In this exercise, I&rsquo;m going to ask you to implement your own conditional.  Here&rsquo;s the game plan.</p>
 <p>Let&rsquo;s say that you&rsquo;re planning on going on a quiet, evening-time walk along the river with your significant other.  However, if the temperature is less than a given threshold, you&rsquo;ll stay inside and watch a movie instead.  Your job is to write a program that will tell you whether or not you should go for a walk.  Here&rsquo;s some sample output:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python go_for_a_walk.py
@@ -254,7 +254,7 @@ Answer: Nah, stay inside and watch that movie!
     <span style="color:#f92672">&lt;</span>statement(s)<span style="color:#f92672">&gt;</span>
 </code></pre></div><p>In the script we wrote above, you get a different output depending on whether you enter 1, 2, 3, 4.  As a bonus, in the <code>else</code> clause, we print out a message that tells the user that the entered an invalid input.  This is often the way <code>else</code> is used &ndash; as a catchall for cases not specifically defined by your <code>if</code> and <code>elif</code> statements.</p>
 <hr>
-<h3 id="exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</h3>
+<h4 id="exercise-2-multiple-conditions">Exercise 2 (Multiple conditions)</h4>
 <p>Let&rsquo;s revisit the <a href="#conditionals-in-python">earlier section</a> in which we made our dog-purchasing decision based on the weight of a candidate dog.  The setup is going to be exactly the same as before, with one small catch: You also don&rsquo;t want your dog to be too large, because you have but a small apartment and you don&rsquo;t want your future dog to feel cooped up.  And so you only want to buy a dog if it&rsquo;s heavier than 40 lbs but lighter than 90 lbs.  Your job is to write a script using the <code>if-elif-else</code> paradigm to determine whether or not you should buy a given dog.  Here&rsquo;s some sample output:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python buy_a_dog.py
 Should you buy the dog?
@@ -301,7 +301,7 @@ weight <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
     print(<span style="color:#e6db74">&#39;Yes!&#39;</span>)
 </code></pre></div><p>The neat thing here is that we have used Python&rsquo;s <code>or</code> keyword to combine the two cases that lead to the same output.  This program will print &ldquo;No.&rdquo; if the weight is less than 40 lbs <em>or</em> if the weight is greater than 90 lbs.  I hope you agree that this is a much clearer way of writing the program than our first version.</p>
 <hr>
-<h3 id="exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</h3>
+<h4 id="exercise-3-the-and-keyword">Exercise 3 (The <code>and</code> keyword)</h4>
 <p>You just met the <code>or</code> keyword, which is essential for chaining together logical expressions.  Now it&rsquo;s time to meet <code>or</code>&rsquo;s best friend: the <code>and</code> keyword.  <code>and</code> can be used in exactly the same way as <code>or</code>, except that you will enter the conditional if both of the Boolean conditions are True, rather than only one or the other needing to be True when using <code>or</code>.</p>
 <p>Let&rsquo;s try it out!  Rewrite the version of buy_a_dog.py that we wrote at the end of the previous section using the <code>and</code> keyword instead of the <code>or</code> keyword.  Note that it isn&rsquo;t just a one-for-one swap; replacing <code>or</code> with <code>and</code> will result in a program that will never print &ldquo;No.&rdquo;, because it&rsquo;s impossible for a number to be both less than 40 <em>and</em> greater than 90.  Give it a shot!</p>
 <hr>
@@ -341,7 +341,7 @@ height <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74
 </code></pre></div><p>Woah!  Let&rsquo;s take a look at what you came up with.  Rather than combining every set of possible outcomes, you <em>nested</em> your conditionals, meaning that you have one conditional statement within another.  Although this takes more lines, I hope you&rsquo;ll agree that it is much easier to read and that it much more closely adheres to the poster you saw earlier.</p>
 <p>Nesting is useful feature of the <code>if-elif-else</code> paradigm.  It allows us to make multi-level decisions, as illustrated in the example above.  The next exercise will give you some more practice with nesting conditionals.</p>
 <hr>
-<h3 id="exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</h3>
+<h4 id="exercise-4-nest-your-own-conditionals">Exercise 4 (Nest your own conditionals)</h4>
 <p>I hope you&rsquo;re not tired of the buying-a-dog example yet, because in this exercise we&rsquo;ll be returning to it one more time.  I want you to rewrite the script from <a href="#exercise-3-the-and-keyword">Exercise 3</a> using a nested conditional statement.  Try it out, and if you get stuck, look back at the previous section on <a href="#nesting-conditionals">nested conditionals</a>.</p>
 <hr>
 <h3 id="the-final-piece-of-the-puzzle-negation">The final piece of the puzzle: Negation</h3>
@@ -482,13 +482,27 @@ match my_number:
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2022-12-27 01:00
+          2023-01-04 01:00
         
 
          
           
+            
+              (Last updated: 2023-01-04 22:55)
+            
+          
         
       </p>
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="1.05" y1="12" x2="7" y2="12"></line>
+            <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
+          </svg>
+
+          <a href="https://github.com/arobey18ee98608d07be42558a7b704d0437768edb2cd3d" target="_blank" rel="noopener">8ee9860</a>
+          @ 2023-01-04
+        </p>
     </div>
       <hr />
       <div class="sharing-buttons">
@@ -592,6 +606,13 @@ match my_number:
         </div>
 
         <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://arobey1.github.io/python/loops/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Loops</span>
+                </a>
+            </span>
             
 
             
