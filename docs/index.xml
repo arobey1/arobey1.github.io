@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adversarial Training Should Be Cast As a Non-Zero-Sum Game</title>
+      <link>https://arobey1.github.io/publications/adv_non_zero_sum/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/adv_non_zero_sum/</guid>
+      <description>Abstract. One prominent approach toward resolving the adversarial vulnerability of deep neural networks is the two-player zero-sum paradigm of adversarial training, in which predictors are trained against adversarially-chosen perturbations of data. Despite the promise of this approach, algorithms based on this paradigm have not engendered sufficient levels of robustness, and suffer from pathological behavior like robust overfitting. To understand this shortcoming, we first show that the commonly used surrogate-based relaxation used in adversarial training algorithms voids all guarantees on the robustness of trained classifiers.</description>
+    </item>
+    
+    <item>
+      <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
+      <link>https://arobey1.github.io/publications/model_based_verification/</link>
+      <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
+      <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
+    </item>
+    
     <item>
       <title>Loops</title>
       <link>https://arobey1.github.io/python/loops/</link>
@@ -81,30 +99,12 @@
     </item>
     
     <item>
-      <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
-      <link>https://arobey1.github.io/publications/model_based_verification/</link>
-      <pubDate>Fri, 14 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
-      <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
-    </item>
-    
-    <item>
       <title>Probable Domain Generalization via Quantile Risk Minimization</title>
       <link>https://arobey1.github.io/publications/probable_dg/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://arobey1.github.io/publications/probable_dg/</guid>
       <description>Abstract. Domain generalization (DG) seeks predictors which perform well on unseen test distributions by leveraging labeled training data from multiple related distributions or domains. To achieve this, the standard formulation optimizes for worst-case performance over the set of all possible domains. However, with worst-case shifts very unlikely in practice, this generally leads to overly-conservative solutions. In fact, a recent study found that no DG algorithm outperformed empirical risk minimization in terms of average performance.</description>
-    </item>
-    
-    <item>
-      <title>Provable tradeoffs in adversarially robust classification</title>
-      <link>https://arobey1.github.io/publications/adv_provable_tradeoffs/</link>
-      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/publications/adv_provable_tradeoffs/</guid>
-      <description>Abstract. It is well known that machine learning methods can be vulnerable to adversarially-chosen perturbations of their inputs. Despite significant progress in the area, foundational open problems remain. In this paper, we address several key questions. We derive exact and approximate Bayes-optimal robust classifiers for the important setting of two- and three-class Gaussian classification problems with arbitrary imbalance, for $\ell_2$ and $\ell_\infty$ adversaries. In contrast to classical Bayes-optimal classifiers, determining the optimal decisions here cannot be made pointwise and new theoretical approaches are needed.</description>
     </item>
     
   </channel>
