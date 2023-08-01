@@ -7,6 +7,7 @@ pdf: "https://arxiv.org/pdf/2306.11035.pdf"
 draft: false
 github: "#"
 mathjax: true
+award: Best paper award @ ICML 2023 AdvML workshop
 ---
 
 
