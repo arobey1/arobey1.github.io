@@ -6,8 +6,19 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 07 Oct 2023 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Jailbreaking Black Box Large Language Models in Twenty Queries</title>
+            <link>https://arobey1.github.io/publications/semantic_llm_attacks/</link>
+            <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/publications/semantic_llm_attacks/</guid>
+            <description>Abstract. There is growing interest in ensuring that large language models (LLMs) align with human values. However, the alignment of such models is vulnerable to adversarial jailbreaks, which coax LLMs into overriding their safety guardrails. The identification of these vulnerabilities is therefore instrumental in understanding inherent weaknesses and preventing future misuse. To this end, we propose Prompt Automatic Iterative Refinement (PAIR), an algorithm that generates semantic jailbreaks with only black-box access to an LLM.</description>
+            <content type="html"><![CDATA[<p><strong>Abstract.</strong> There is growing interest in ensuring that large language models (LLMs) align with human values. However, the alignment of such models is vulnerable to adversarial jailbreaks, which coax LLMs into overriding their safety guardrails. The identification of these vulnerabilities is therefore instrumental in understanding inherent weaknesses and preventing future misuse.  To this end, we propose <em>Prompt Automatic Iterative Refinement</em> (PAIR), an algorithm that generates semantic jailbreaks with only black-box access to an LLM. PAIR&mdash;which is inspired by social engineering attacks&mdash;uses an attacker LLM to automatically generate jailbreaks for a separate targeted LLM without human intervention. In this way, the attacker LLM iteratively queries the target LLM to update and refine a candidate jailbreak. Empirically, PAIR often requires fewer than twenty queries to produce a jailbreak, which is orders of magnitude more efficient than existing algorithms.  PAIR also achieves competitive jailbreaking success rates and transferability on open and closed-source LLMs, including GPT-3.5/4, Vicuna, and PaLM-2.</p>
+]]></content>
+        </item>
         
         <item>
             <title>SmoothLLM: Defending Large Language Models Against Jailbreaking Attacks</title>
