@@ -6,8 +6,19 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://arobey1.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Data-Driven Modeling and Verification of Perception-Based Autonomous Systems</title>
+            <link>https://arobey1.github.io/publications/mb_closed_loop_verification/</link>
+            <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
+            
+            <guid>https://arobey1.github.io/publications/mb_closed_loop_verification/</guid>
+            <description>Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively.</description>
+            <content type="html"><![CDATA[<p><strong>Abstract.</strong> This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively. We show that the trained models perform well according to a variety of evaluation metrics based on downstream tasks such as state estimation and control. Finally, we verify the safety of two systems with high-dimensional data-driven models, namely an image-based version of mountain car (a reinforcement learning benchmark) as well as the F1/10 car, which uses LiDAR measurements to navigate a racing track.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Jailbreaking Black Box Large Language Models in Twenty Queries</title>

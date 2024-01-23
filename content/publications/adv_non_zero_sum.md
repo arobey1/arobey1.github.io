@@ -1,7 +1,7 @@
 ---
 title: "Adversarial Training Should Be Cast As a Non-Zero-Sum Game"
 authors: "Alexander Robey, Fabian Latorre, Hamed Hassani, George J. Pappas, Volkan Cevher"
-venue: "Preprint"
+venue: "ICLR 2024"
 date: 2023-07-19
 pdf: "https://arxiv.org/pdf/2306.11035.pdf"
 draft: false

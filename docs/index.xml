@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 12 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data-Driven Modeling and Verification of Perception-Based Autonomous Systems</title>
+      <link>https://arobey1.github.io/publications/mb_closed_loop_verification/</link>
+      <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://arobey1.github.io/publications/mb_closed_loop_verification/</guid>
+      <description>Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively.</description>
+    </item>
+    
     <item>
       <title>Jailbreaking Black Box Large Language Models in Twenty Queries</title>
       <link>https://arobey1.github.io/publications/semantic_llm_attacks/</link>
@@ -91,17 +100,6 @@
       <guid>https://arobey1.github.io/python/math_operations/</guid>
       <description>Welcome back! I hope you learned something new in the previous lesson on variables. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
  The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
-    </item>
-    
-    <item>
-      <title>Variables</title>
-      <link>https://arobey1.github.io/python/variables/</link>
-      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/python/variables/</guid>
-      <description>Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
- A variable is a container for saving data.
- A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</description>
     </item>
     
   </channel>
