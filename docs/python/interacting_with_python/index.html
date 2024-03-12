@@ -8,8 +8,8 @@
     content="Alex Robey ">
 <meta name="description"
     content="Interacting with Python There are two main ways of interacting with Python: with a shell and with a script. Here&amp;rsquo;s a brief primer on how shells and scripts work and when you should use them.
- Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
- A shell is an interpreter that can execute Python programs and simple Python commands." />
+Python shell Perhaps the easiest way to start interacting with Python is through what&amp;rsquo;s known as a shell. Never heard of a shell before? No worries! Here&amp;rsquo;s a quick definition:
+A shell is an interpreter that can execute Python programs and simple Python commands." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://arobey1.github.io/python/interacting_with_python/" />
@@ -50,17 +50,15 @@
 
 <meta itemprop="name" content="Interacting with Python">
 <meta itemprop="description" content="Interacting with Python There are two main ways of interacting with Python: with a shell and with a script. Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.
- Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
- A shell is an interpreter that can execute Python programs and simple Python commands."><meta itemprop="datePublished" content="2022-12-19T00:00:00+00:00" />
+Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
+A shell is an interpreter that can execute Python programs and simple Python commands."><meta itemprop="datePublished" content="2022-12-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-01-16T18:49:58+01:00" />
-<meta itemprop="wordCount" content="1791"><meta itemprop="image" content="https://arobey1.github.io/"/>
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://arobey1.github.io/"/>
-
-<meta name="twitter:title" content="Interacting with Python"/>
+<meta itemprop="wordCount" content="1791"><meta itemprop="image" content="https://arobey1.github.io/" />
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="Interacting with Python"/>
 <meta name="twitter:description" content="Interacting with Python There are two main ways of interacting with Python: with a shell and with a script. Here&rsquo;s a brief primer on how shells and scripts work and when you should use them.
- Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
- A shell is an interpreter that can execute Python programs and simple Python commands."/>
+Python shell Perhaps the easiest way to start interacting with Python is through what&rsquo;s known as a shell. Never heard of a shell before? No worries! Here&rsquo;s a quick definition:
+A shell is an interpreter that can execute Python programs and simple Python commands."/>
 
 
 
@@ -160,19 +158,19 @@
 <p>A shell is an interpreter that can execute Python programs and simple Python commands.</p>
 </blockquote>
 <p>To open a shell, open a terminal (not sure what this is? see <a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-the-linux-terminal">this link</a>), type the word &ldquo;python,&rdquo; and hit enter.  You should see something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python
-Python 3.9.6 <span style="color:#f92672">(</span>default, Jun <span style="color:#ae81ff">29</span> 2021, 06:20:32<span style="color:#f92672">)</span> 
-<span style="color:#f92672">[</span>Clang 12.0.0 <span style="color:#f92672">(</span>clang-1200.0.32.29<span style="color:#f92672">)]</span> on darwin
-Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db74">&#34;copyright&#34;</span>, <span style="color:#e6db74">&#34;credits&#34;</span> or <span style="color:#e6db74">&#34;license&#34;</span> <span style="color:#66d9ef">for</span> more information.
-&gt;&gt;&gt;
-</code></pre></div><p>The three sideways carrots that you see at the bottom of the output are where you can execute Python commands.  Let&rsquo;s try it out!  It&rsquo;s <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">traditional</a> to print the words &ldquo;Hello world!&rdquo; in your console when you first start learning a programming language.  And who are we to break with tradition?  In your console, type the following statement:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
-</code></pre></div><p>Now hit enter (or return, depending on your keyboard)!  You should see the worlds &ldquo;Hello world!&rdquo; printed out in the console, i.e.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
-<span style="color:#e6db74">&#39;Hello world!&#39;</span>
-</code></pre></div><p>To exit the Python shell, you can type <code>exit()</code> and hit enter, or use Ctrl-D.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> exit()
-</code></pre></div><p>Congratulations!  You just executed your first Python expressions.  Here&rsquo;s to many more.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python
+</span></span><span style="display:flex;"><span>Python 3.9.6 <span style="color:#f92672">(</span>default, Jun <span style="color:#ae81ff">29</span> 2021, 06:20:32<span style="color:#f92672">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Clang 12.0.0 <span style="color:#f92672">(</span>clang-1200.0.32.29<span style="color:#f92672">)]</span> on darwin
+</span></span><span style="display:flex;"><span>Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db74">&#34;copyright&#34;</span>, <span style="color:#e6db74">&#34;credits&#34;</span> or <span style="color:#e6db74">&#34;license&#34;</span> <span style="color:#66d9ef">for</span> more information.
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;
+</span></span></code></pre></div><p>The three sideways carrots that you see at the bottom of the output are where you can execute Python commands.  Let&rsquo;s try it out!  It&rsquo;s <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program">traditional</a> to print the words &ldquo;Hello world!&rdquo; in your console when you first start learning a programming language.  And who are we to break with tradition?  In your console, type the following statement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</span></span></code></pre></div><p>Now hit enter (or return, depending on your keyboard)!  You should see the worlds &ldquo;Hello world!&rdquo; printed out in the console, i.e.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Hello world!&#39;</span>
+</span></span></code></pre></div><p>To exit the Python shell, you can type <code>exit()</code> and hit enter, or use Ctrl-D.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> exit()
+</span></span></code></pre></div><p>Congratulations!  You just executed your first Python expressions.  Here&rsquo;s to many more.</p>
 <hr>
 <h4 id="python-scripts">Python scripts</h4>
 <p>The second way to interact with a Python program is through what&rsquo;s known as a <strong>script</strong>.</p>
@@ -186,13 +184,13 @@ Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db
 </blockquote>
 <p>So now whenever you see a file ending in .py, you can impress your friends, colleagues, or partner by telling them that you&rsquo;re sure this is a Python script without needing to open the file!</p>
 <p>Next, add the following contents to my_first_program.py:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
-</code></pre></div><p>Now to run your program, open your terminal, and from the same directory as my_first_program.py, run the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
-</code></pre></div><p>And as before, you should see the following output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_first_program.py
-<span style="color:#e6db74">&#39;Hello world!&#39;</span>
-</code></pre></div><p>Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I&rsquo;m glad you asked!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+</span></span></code></pre></div><p>Now to run your program, open your terminal, and from the same directory as my_first_program.py, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python my_first_program.py
+</span></span></code></pre></div><p>And as before, you should see the following output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python my_first_program.py
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Hello world!&#39;</span>
+</span></span></code></pre></div><p>Now that you know what shells and scripts are, you might be wondering when you should use one over the other.  Well, I&rsquo;m glad you asked!</p>
 <hr>
 <h3 id="when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</h3>
 <p>All of the code in this set of notes can be executed in a shell or in a script.  That being said, for longer expressions or programs, it tends to be easier to use scripts.  Why?  There&rsquo;s a few reasons:</p>
@@ -211,92 +209,92 @@ Type <span style="color:#e6db74">&#34;help&#34;</span>, <span style="color:#e6db
 <p>The <code>print</code> function allows a user to print statements to the console.</p>
 </blockquote>
 <p>You&rsquo;ll be using the print statement <em>a lot</em> when writing Python code, so to get you more familiar with it, let&rsquo;s look at a few examples in the Python shell.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;I am using the print function&#34;</span>)
-<span style="color:#e6db74">&#39;I am using the print function&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#ae81ff">3.1415926</span>)
-<span style="color:#ae81ff">3.1415926</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;23 is a prime number&#34;</span>)
-<span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
-</code></pre></div><p>Let&rsquo;s take what you&rsquo;ve learned about printing and apply it in the following exercise.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;I am using the print function&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;I am using the print function&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#ae81ff">3.1415926</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3.1415926</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(<span style="color:#e6db74">&#34;23 is a prime number&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
+</span></span></code></pre></div><p>Let&rsquo;s take what you&rsquo;ve learned about printing and apply it in the following exercise.</p>
 <hr>
 <h4 id="exercise-1-from-the-shell-to-a-script">Exercise 1 (From the shell to a script)</h4>
 <p>The examples we just went through were all executed in a Python shell.  My question for you: Can you write this program as a script and produce the same output?  On your computer, create a script called print_examples.py and write a Python script that prints the same output.  That is, you should see the following in your terminal:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ print_examples.py
-<span style="color:#e6db74">&#39;I am using the print function&#39;</span>
-3.1415926
-<span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
-</code></pre></div><p>Think you&rsquo;ve got the hang of printing?  Let&rsquo;s kick things up a notch in the next exercise.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ print_examples.py
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;I am using the print function&#39;</span>
+</span></span><span style="display:flex;"><span>3.1415926
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;23 is a prime number&#39;</span>
+</span></span></code></pre></div><p>Think you&rsquo;ve got the hang of printing?  Let&rsquo;s kick things up a notch in the next exercise.</p>
 <hr>
 <h4 id="exercise-2-your-first-python-program">Exercise 2 (Your first Python program)</h4>
 <p>These are early days.  You&rsquo;re just getting started on your Python journey.  But guess what!  You&rsquo;re ready to write your first original Python program.  Yes, really!  What will you be doing?  I want you to write a program called print_my_cow.py that prints the following output to the terminal.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
-^__^
-<span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
-<span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
-</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">||</span>----w |
-    <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
-</code></pre></div><p>If that&rsquo;s too easy for you, why not spruce things up a little bit?  Maybe your cow is a thoughtful cow, and you&rsquo;d like to show her thinking up a funny (albeit heartfelt) witticism.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_my_cow.py
- _________________________
-<span style="color:#f92672">(</span>   I udderly love you!   <span style="color:#f92672">)</span>
- -------------------------
-        o   ^__^
-         o  <span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
-            <span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
-</span><span style="color:#ae81ff"></span>                <span style="color:#f92672">||</span>----w |
-                <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
-</code></pre></div><p>Feel free to go crazy with this one.  (If you&rsquo;re wondering where I got this idea, have a look at the Linux package <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a>).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python print_my_cow.py
+</span></span><span style="display:flex;"><span>^__^
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#f92672">||</span>----w |
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</span></span></code></pre></div><p>If that&rsquo;s too easy for you, why not spruce things up a little bit?  Maybe your cow is a thoughtful cow, and you&rsquo;d like to show her thinking up a funny (albeit heartfelt) witticism.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python print_my_cow.py
+</span></span><span style="display:flex;"><span> _________________________
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>   I udderly love you!   <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span> -------------------------
+</span></span><span style="display:flex;"><span>        o   ^__^
+</span></span><span style="display:flex;"><span>         o  <span style="color:#f92672">(</span>oo<span style="color:#f92672">)</span><span style="color:#ae81ff">\_</span>______
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">(</span>__<span style="color:#f92672">)</span><span style="color:#ae81ff">\ </span>      <span style="color:#f92672">)</span><span style="color:#ae81ff">\/\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>                <span style="color:#f92672">||</span>----w |
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">||</span>     <span style="color:#f92672">||</span>
+</span></span></code></pre></div><p>Feel free to go crazy with this one.  (If you&rsquo;re wondering where I got this idea, have a look at the Linux package <a href="https://en.wikipedia.org/wiki/Cowsay">cowsay</a>).</p>
 <hr>
 <h3 id="user-supplied-input">User-supplied input</h3>
 <p>Another important part of programming is accepting input from a user.  In the previous two exercises, running your scripts always produced the same output.  But what if we wanted to have the output of our program depend on an input that the user supplies?</p>
 <p>For example, let&rsquo;s say I wanted to write a program that takes a number as input and prints out that number incremented by one.  Easy enough!  I could just write the following in the shell.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-<span style="color:#ae81ff">6</span>
-</code></pre></div><p>But what happens when your favorite number changes from 5 to 941?  Well, you&rsquo;d have to write the whole thing over again.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-<span style="color:#ae81ff">942</span>
-</code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>But what happens when your favorite number changes from 5 to 941?  Well, you&rsquo;d have to write the whole thing over again.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">942</span>
+</span></span></code></pre></div><p>This is a little bit cumbersome.  What we&rsquo;d really like is to be able to run a program that accepts your favorite number as input and then prints the incremented number.</p>
 <p>How should we do this?  Well, hopefully you remember the tips in <a href="#when-to-use-the-shell-and-when-to-use-scripts">When to use the shell and when to use scripts</a>; specifically, one of the recommendations was to use scripts whenever you need to run a program multiple times.  So let&rsquo;s try writing a script called increment.py that solves our problem.  Here&rsquo;s the script:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
-print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>And here&rsquo;s the output it produces</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py
-<span style="color:#ae81ff">942</span>
-</code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And now is when the magic of the <code>input</code> function comes in handy.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_favorite_number <span style="color:#f92672">=</span> <span style="color:#ae81ff">941</span>
+</span></span><span style="display:flex;"><span>print(my_favorite_number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>And here&rsquo;s the output it produces</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python increment.py
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">942</span>
+</span></span></code></pre></div><p>This is easy to rerun, but we still haven&rsquo;t resolved this issue where we can&rsquo;t change your favorite number without rewriting the code.  And now is when the magic of the <code>input</code> function comes in handy.</p>
 <blockquote>
 <p>The <strong>input</strong> function allows a user to input data into a program.</p>
 </blockquote>
 <p>Let&rsquo;s see it in action.  Try out the following script:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
-print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
-Enter your favorite number: <span style="color:#ae81ff">1995</span>
-<span style="color:#ae81ff">1996</span>
-</code></pre></div><p>And there you have it!  We&rsquo;ve solved our problem.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>my_favorite_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter your favorite number: &#34;</span>)
+</span></span><span style="display:flex;"><span>print(int(my_favorite_number) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>Compared to the last version of increment.py, two things have changed.  In the first line, we used the input command to ask the user to input a number.  And the second line is almost the same, but to make sure the addition works correctly, we need to convert the number you input from a string to an integer, and hence the use of the <code>int</code> function (I&rsquo;ll say more about this in the next lesson on <a href="https://arobey1.github.io/python/variables/" title="Variables">variables</a>).  Now, when you run your program, you&rsquo;ll be able to enter your favorite number:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python increment.py 
+</span></span><span style="display:flex;"><span>Enter your favorite number: <span style="color:#ae81ff">1995</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1996</span>
+</span></span></code></pre></div><p>And there you have it!  We&rsquo;ve solved our problem.</p>
 <hr>
 <h4 id="exercise-3-using-the-input-function">Exercise 3 (Using the input function)</h4>
 <p>The input function is a powerful friend.  It accepts all kinds of things.  In this exercise, we&rsquo;re going to stretch the limits of what the input function can do.</p>
 <p>For starters, write a program called my_sum.py which accepts not one, but two inputs.  It should prompt the user for two different numbers, and then return their sum.  Here&rsquo;s the kind of output I&rsquo;m looking for:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_sum.py
-Enter your first number: <span style="color:#ae81ff">14</span>
-Enter your second number: <span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">21</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python my_sum.py
+</span></span><span style="display:flex;"><span>Enter your first number: <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>Enter your second number: <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">21</span>
+</span></span></code></pre></div><hr>
 <h4 id="exercise-4-more-practice-with-the-input-function">Exercise 4 (More practice with the input function)</h4>
 <p>Next, create a Python script called just_checking_in.py.  This script is all about self-care.  I want you to ask yourself a question, and then supply the answer.  Your program should start by asking you to input a question.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
-Type a question:
-</code></pre></div><p>I want to self-evaluate a little, so I&rsquo;ll ask myself how I&rsquo;m doing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python just_checking_in.py
-Type a question: How are you doing? 
-</code></pre></div><p>Your program should then ask you the question you typed in.  Here&rsquo;s what it should look like end-to-end:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python increment.py 
-Type a question: How are you doing? 
-How are you doing? I am finding my own happiness.
-</code></pre></div><p>For a bonus point, can you write this script in one line of Python?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python just_checking_in.py
+</span></span><span style="display:flex;"><span>Type a question:
+</span></span></code></pre></div><p>I want to self-evaluate a little, so I&rsquo;ll ask myself how I&rsquo;m doing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python just_checking_in.py
+</span></span><span style="display:flex;"><span>Type a question: How are you doing? 
+</span></span></code></pre></div><p>Your program should then ask you the question you typed in.  Here&rsquo;s what it should look like end-to-end:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python increment.py 
+</span></span><span style="display:flex;"><span>Type a question: How are you doing? 
+</span></span><span style="display:flex;"><span>How are you doing? I am finding my own happiness.
+</span></span></code></pre></div><p>For a bonus point, can you write this script in one line of Python?</p>
 <hr>
 <h3 id="review">Review</h3>
 <p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
@@ -504,7 +502,7 @@ How are you doing? I am finding my own happiness.
 
 
 
-<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.ada905442d53eafc5c125b84cffce974e971bcb52433fb67db20c5af5b964cea37ebd2c16ee6457894372eac0911dd0428f88da966c8e885b160fc6c0fe0fed6.js" integrity="sha512-rakFRC1T6vxcEluEz/zpdOlxvLUkM/tn2yDFr1uWTOo369LBbuZFeJQ3LqwJEd0EKPiNqWbI6IWxYPxsD&#43;D&#43;1g=="></script>
 
 
 

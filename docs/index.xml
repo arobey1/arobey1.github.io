@@ -5,102 +5,79 @@
     <link>https://arobey1.github.io/</link>
     <description>Recent content on Alex Robey</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Safe Harbor for AI Evaluation and Red Teaming</title>
+      <link>https://arobey1.github.io/publications/red_teaming_safe_harbor/</link>
+      <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://arobey1.github.io/publications/red_teaming_safe_harbor/</guid>
+      <description>Abstract. Independent evaluation and red teaming are critical for identifying the risks posed by generative AI systems. However, the terms of service and enforcement strategies used by prominent AI companies to deter model misuse have disincentives on good faith safety evaluations. This causes some researchers to fear that conducting such research or releasing their findings will result in account suspensions or legal reprisal. Although some companies offer researcher access programs, they are an inadequate substitute for independent research access, as they have limited community representation, receive inadequate funding, and lack independence from corporate incentives.</description>
+    </item>
+    <item>
+      <title>Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing</title>
+      <link>https://arobey1.github.io/publications/semantic_smoothing/</link>
+      <pubDate>Sun, 25 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://arobey1.github.io/publications/semantic_smoothing/</guid>
+      <description>Abstract. Aligned large language models (LLMs) are vulnerable to jailbreaking attacks, which bypass the safeguards of targeted LLMs and fool them into generating objectionable content. While initial defenses show promise against token-based threat models, there do not exist defenses that provide robustness against semantic attacks and avoid unfavorable trade-offs between robustness and nominal performance. To meet this need, we propose SemanticSmooth, a smoothing-based defense that aggregates the predictions of multiple semantically transformed copies of a given input prompt.</description>
+    </item>
     <item>
       <title>Data-Driven Modeling and Verification of Perception-Based Autonomous Systems</title>
       <link>https://arobey1.github.io/publications/mb_closed_loop_verification/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/publications/mb_closed_loop_verification/</guid>
       <description>Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively.</description>
     </item>
-    
     <item>
       <title>Jailbreaking Black Box Large Language Models in Twenty Queries</title>
       <link>https://arobey1.github.io/publications/semantic_llm_attacks/</link>
       <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/publications/semantic_llm_attacks/</guid>
       <description>Abstract. There is growing interest in ensuring that large language models (LLMs) align with human values. However, the alignment of such models is vulnerable to adversarial jailbreaks, which coax LLMs into overriding their safety guardrails. The identification of these vulnerabilities is therefore instrumental in understanding inherent weaknesses and preventing future misuse. To this end, we propose Prompt Automatic Iterative Refinement (PAIR), an algorithm that generates semantic jailbreaks with only black-box access to an LLM.</description>
     </item>
-    
     <item>
       <title>SmoothLLM: Defending LLMs Against Jailbreaking Attacks</title>
       <link>https://arobey1.github.io/publications/smooth_llm/</link>
       <pubDate>Sat, 07 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/publications/smooth_llm/</guid>
       <description>Abstract. Despite efforts to align large language models (LLMs) with human values, widely-used LLMs such as GPT, Llama, Claude, and PaLM are susceptible to jailbreaking attacks, wherein an adversary fools a targeted LLM into generating objectionable content. To address this vulnerability, we propose SmoothLLM, the first algorithm designed to mitigate jailbreaking attacks on LLMs. Based on our finding that adversarially-generated prompts are brittle to character-level changes, our defense first randomly perturbs multiple copies of a given input prompt, and then aggregates the corresponding predictions to detect adversarial inputs.</description>
     </item>
-    
-    <item>
-      <title>SmoothLLM: Defending LLMs Against Jailbreaking Attacks</title>
-      <link>https://arobey1.github.io/tmp/smoothllm/</link>
-      <pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/tmp/smoothllm/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Adversarial Training Should Be Cast As a Non-Zero-Sum Game</title>
       <link>https://arobey1.github.io/publications/adv_non_zero_sum/</link>
       <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/publications/adv_non_zero_sum/</guid>
       <description>Abstract. One prominent approach toward resolving the adversarial vulnerability of deep neural networks is the two-player zero-sum paradigm of adversarial training, in which predictors are trained against adversarially-chosen perturbations of data. Despite the promise of this approach, algorithms based on this paradigm have not engendered sufficient levels of robustness, and suffer from pathological behavior like robust overfitting. To understand this shortcoming, we first show that the commonly used surrogate-based relaxation used in adversarial training algorithms voids all guarantees on the robustness of trained classifiers.</description>
     </item>
-    
     <item>
       <title>Toward Certified Robustness Against Real-World Distribution Shifts</title>
       <link>https://arobey1.github.io/publications/model_based_verification/</link>
       <pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/publications/model_based_verification/</guid>
       <description>Abstract. We consider the problem of certifying the robustness of deep neural networks against real-world distribution shifts. To do so, we bridge the gap between hand-crafted specifications and realistic deployment settings by proposing a novel neural-symbolic verification framework, in which we train a generative model to learn perturbations from data and define specifications with respect to the output of the learned model. A unique challenge arising from this setting is that existing verifiers cannot tightly approximate sigmoid activations, which are fundamental to many state-of-the-art generative models.</description>
     </item>
-    
     <item>
       <title>Loops</title>
       <link>https://arobey1.github.io/python/loops/</link>
       <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/python/loops/</guid>
-      <description>We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.
- What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?</description>
+      <description>We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.&#xA;What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?</description>
     </item>
-    
     <item>
       <title>Conditionals</title>
       <link>https://arobey1.github.io/python/conditionals/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/python/conditionals/</guid>
-      <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!
- What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&amp;rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product.</description>
+      <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!&#xA;What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&amp;rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product.</description>
     </item>
-    
     <item>
       <title>Lists</title>
       <link>https://arobey1.github.io/python/lists/</link>
       <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://arobey1.github.io/python/lists/</guid>
-      <description>You&amp;rsquo;re back! We&amp;rsquo;ve got a lot to cover in this lesson, so let&amp;rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.
- A motivating example: Why we need lists in Python Let&amp;rsquo;s say that you&amp;rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!</description>
+      <description>You&amp;rsquo;re back! We&amp;rsquo;ve got a lot to cover in this lesson, so let&amp;rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.&#xA;A motivating example: Why we need lists in Python Let&amp;rsquo;s say that you&amp;rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!</description>
     </item>
-    
-    <item>
-      <title>Math operations</title>
-      <link>https://arobey1.github.io/python/math_operations/</link>
-      <pubDate>Sat, 24 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://arobey1.github.io/python/math_operations/</guid>
-      <description>Welcome back! I hope you learned something new in the previous lesson on variables. Today, we are going to shift our focus to math. And if that makes you a bit nervous, don&amp;rsquo;t worry! We won&amp;rsquo;t be doing anything complicated today. You&amp;rsquo;ll just need the basics: addition, subtraction, exponents, and the like.
- The basic operations Since we&amp;rsquo;re talking about math in this lesson, we&amp;rsquo;re largely going to focus on numerical data types; that is, ints and floats.</description>
-    </item>
-    
   </channel>
 </rss>

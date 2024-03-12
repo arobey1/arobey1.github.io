@@ -8,8 +8,8 @@
     content="Alex Robey ">
 <meta name="description"
     content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&amp;rsquo;re used for:
- A variable is a container for saving data.
- A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case." />
+A variable is a container for saving data.
+A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://arobey1.github.io/python/variables/" />
@@ -50,17 +50,15 @@
 
 <meta itemprop="name" content="Variables">
 <meta itemprop="description" content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&rsquo;re used for:
- A variable is a container for saving data.
- A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."><meta itemprop="datePublished" content="2022-12-21T00:00:00+00:00" />
+A variable is a container for saving data.
+A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."><meta itemprop="datePublished" content="2022-12-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-01-16T18:49:58+01:00" />
-<meta itemprop="wordCount" content="3119"><meta itemprop="image" content="https://arobey1.github.io/"/>
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://arobey1.github.io/"/>
-
-<meta name="twitter:title" content="Variables"/>
+<meta itemprop="wordCount" content="3119"><meta itemprop="image" content="https://arobey1.github.io/" />
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="Variables"/>
 <meta name="twitter:description" content="Variables and data types Perhaps the most fundamental of all Python fundamentals is the concept of a variable. The first thing you need to know about variables is what they&rsquo;re used for:
- A variable is a container for saving data.
- A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."/>
+A variable is a container for saving data.
+A theme in this set of notes will be illustrating different concepts by way of examples. And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case."/>
 
 
 
@@ -158,102 +156,102 @@
 </blockquote>
 <p>A theme in this set of notes will be illustrating different concepts by way of examples.  And I can think of no better way to introduce variables than with the following (not-so-randomly-chosen) use case.</p>
 <p>If you&rsquo;re like me, you have a hard time remembering important dates like birthdays.  To rectify this, we can store birthdays as variables.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> importantBirthday <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;July 31&#39;</span>
-</code></pre></div><p>Now, if I want to remember this important birthday, I can do the following</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> print(importantBirthday)
-July <span style="color:#ae81ff">31</span>
-</code></pre></div><p>and as you can see, Python remembers the birthday for me!  Note that when we define a variable, we assign its value by using the equals sign (=).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> importantBirthday <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;July 31&#39;</span>
+</span></span></code></pre></div><p>Now, if I want to remember this important birthday, I can do the following</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(importantBirthday)
+</span></span><span style="display:flex;"><span>July <span style="color:#ae81ff">31</span>
+</span></span></code></pre></div><p>and as you can see, Python remembers the birthday for me!  Note that when we define a variable, we assign its value by using the equals sign (=).</p>
 <p>Variables come in all shapes and sizes.  Each variable you assign in your future Python programs will have what&rsquo;s called a <strong>data type</strong>.</p>
 <blockquote>
 <p>A data type specifies what kind of data you&rsquo;re saving in your variable.</p>
 </blockquote>
 <p>The data type of the  <code>importantBirthday</code> variable is called a <strong>string</strong>, since it&rsquo;s a sequence of characters in quotes.  Note that strings can also be defined using double quotes, i.e., we could just as well have defined <code>importantBirthday = &quot;July 31&quot;</code>.</p>
 <p>Two other important data types are <strong>integers</strong> and <strong>floats</strong>, both of which are kinds of numbers.  Here are some examples:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># this is an integer</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> digitsOfPi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span>    <span style="color:#75715e"># this is a float</span>
-</code></pre></div><p>An integer is a number <em>without</em> decimal points; anything in the range . . ., -2, -1, 0, 1, 2, 3, . . . counts as an integer.  A float (short for &ldquo;floating-point&rdquo;) is a number <em>with</em> decimal points, e.g., 3.1415 or 2.71828.  In a future lesson on <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a>, we&rsquo;ll learn about how integer and float variables can be used to do mathematical calculations in Python.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>          <span style="color:#75715e"># this is an integer</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> digitsOfPi <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span>    <span style="color:#75715e"># this is a float</span>
+</span></span></code></pre></div><p>An integer is a number <em>without</em> decimal points; anything in the range . . ., -2, -1, 0, 1, 2, 3, . . . counts as an integer.  A float (short for &ldquo;floating-point&rdquo;) is a number <em>with</em> decimal points, e.g., 3.1415 or 2.71828.  In a future lesson on <a href="https://arobey1.github.io/python/math_operations/" title="Math Operations">Mathematical operations</a>, we&rsquo;ll learn about how integer and float variables can be used to do mathematical calculations in Python.</p>
 <p>Strings, integers, and floats are three of the most common data types in Python.  In this set of notes, we&rsquo;ll meet plenty of other data types, but for now, let&rsquo;s review these three main characters.</p>
 <hr>
 <h4 id="exercise-1-review-of-data-types">Exercise 1 (Review of data types)</h4>
 <p>What are the data types of the following variables?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.242</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Claude Debussy&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2.30&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">600</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0</span>
-</code></pre></div><p>Rather than giving you the answers to this exercise, I&rsquo;m going to give you the tool you need to check your own work.  In Python, if you want to check the data type of a variable, you can use the <strong>type</strong> keyword.  Returning to our earlier examples, the type keyword tells us the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(importantBirthday)
-<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> type(numCats)
-<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">int</span><span style="color:#e6db74">&#39;&gt;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> type(digitsOfPi)
-<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">float</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>Don&rsquo;t worry about the word &ldquo;class&rdquo; in the output; we&rsquo;ll get to that in a future lesson.  The key thing here is that the type keyword tell us that <code>importantBirthday</code> is a string (&ldquo;str&rdquo; for short), <code>numCats</code> is an integer (or an &ldquo;int&rdquo;), and <code>digitsOfPi</code> is a float.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.242</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Claude Debussy&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2.30&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">600</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> e <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0</span>
+</span></span></code></pre></div><p>Rather than giving you the answers to this exercise, I&rsquo;m going to give you the tool you need to check your own work.  In Python, if you want to check the data type of a variable, you can use the <strong>type</strong> keyword.  Returning to our earlier examples, the type keyword tells us the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(importantBirthday)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(numCats)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">int</span><span style="color:#e6db74">&#39;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(digitsOfPi)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">float</span><span style="color:#e6db74">&#39;&gt;</span>
+</span></span></code></pre></div><p>Don&rsquo;t worry about the word &ldquo;class&rdquo; in the output; we&rsquo;ll get to that in a future lesson.  The key thing here is that the type keyword tell us that <code>importantBirthday</code> is a string (&ldquo;str&rdquo; for short), <code>numCats</code> is an integer (or an &ldquo;int&rdquo;), and <code>digitsOfPi</code> is a float.</p>
 <p>Now you can check your work for Exercise 1 using the type keyword.</p>
 <hr>
 <h3 id="booleans">Booleans</h3>
 <p>One more data type worth mentioning at this early stage is the <strong>bool</strong> type.  Bool is short for Boolean, which eponymously refers to the nineteenth century mathematician <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>.  Unlike strings, integers, and floats, bool variables can take on only two values: True or False (the capitalization here is important; Python will not interpret &ldquo;true&rdquo; or &ldquo;false&rdquo; as a bool).  For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">True</span>)
-<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">False</span>)
-<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
-</code></pre></div><p>Bool variables are quite useful when defining logical expressions, as we&rsquo;ll see very soon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">bool</span><span style="color:#e6db74">&#39;&gt;</span>
+</span></span></code></pre></div><p>Bool variables are quite useful when defining logical expressions, as we&rsquo;ll see very soon.</p>
 <hr>
 <h4 id="exercise-2-variable-reassignment">Exercise 2 (Variable reassignment)</h4>
 <p>When you assign a value to a variable, the data type of that variable takes on the data type of the value.  For example, if I were to write</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
-</code></pre></div><p>then the data type of <code>mySentence</code> would be a string.  But what happens when I <em>reassign</em> the value of the <code>mySentence</code> variable?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
-</code></pre></div><p>As you&rsquo;d expect, <code>type('The knights who say ni!')</code> evaluates to &lt;class &lsquo;str&rsquo;&gt; whereas <code>type(23)</code> evaluates to &lt;class &lsquo;int&rsquo;&gt;.  Take a second to check the type of <code>mySentence</code> in your Python interpreter.  Does it align with you expectation?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+</span></span></code></pre></div><p>then the data type of <code>mySentence</code> would be a string.  But what happens when I <em>reassign</em> the value of the <code>mySentence</code> variable?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;The knights who say ni!&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> mySentence <span style="color:#f92672">=</span> <span style="color:#ae81ff">23</span>
+</span></span></code></pre></div><p>As you&rsquo;d expect, <code>type('The knights who say ni!')</code> evaluates to &lt;class &lsquo;str&rsquo;&gt; whereas <code>type(23)</code> evaluates to &lt;class &lsquo;int&rsquo;&gt;.  Take a second to check the type of <code>mySentence</code> in your Python interpreter.  Does it align with you expectation?</p>
 <p>The lesson here is that the data type of a Python variable can change when its value is reassigned.  This is one feature that makes Python especially easy to work with for beginners, because this ability to seamlessly change the data type of a variable doesn&rsquo;t exist in all programming languages (e.g., those that are <a href="https://en.wikipedia.org/wiki/Type_system#Static_type_checking">statically typed</a> like Java or C++).</p>
 <hr>
 <h3 id="printing-variables-with-f-strings">Printing variables with f-strings</h3>
 <p>In the previous lesson on <a href="https://arobey1.github.io/python/interacting_with_python/#print-statements" title="Interacting with Python">interacting with Python</a>, we learned about Python&rsquo;s print function.  Based on that lesson, you should have a strong intuition about what the output of the following script &ndash; let&rsquo;s call it dessert.py &ndash; will be.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
-print(myFavoriteDessert)
-</code></pre></div><p>This script just prints your favorite dessert to the console.  However, it&rsquo;s plausible that you would like to add more information here.  For example, you may want to print &ldquo;Your favorite desert is: &quot; before printing the value of <code>myFavoriteDessert</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+</span></span><span style="display:flex;"><span>print(myFavoriteDessert)
+</span></span></code></pre></div><p>This script just prints your favorite dessert to the console.  However, it&rsquo;s plausible that you would like to add more information here.  For example, you may want to print &ldquo;Your favorite desert is: &quot; before printing the value of <code>myFavoriteDessert</code>.</p>
 <p>How should we do this?  It turns out that there are many methods, but for now, I&rsquo;m just going to share my favorite method and leave the rest to a future lesson.  This method uses what&rsquo;s known as an <strong>f-string</strong> (or, in jargon, <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">formatted string literals</a>), for reasons that will become obvious shortly.  Here&rsquo;s what you should remember about f-strings:</p>
 <blockquote>
 <p>f-strings allow you to insert variables directly into strings.</p>
 </blockquote>
 <p>To see an f-string in action, consider the following new version dessert.py:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
-print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your favorite dessert is: </span><span style="color:#e6db74">{</span>myFavoriteDessert<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>)
-</code></pre></div><p>Let&rsquo;s compare the two versions of our script.  In the second line, we added an &ldquo;f&rdquo; before the quotation mark, we added text saying &ldquo;Your favorite dessert is: &ldquo;, and after that, we used curly braces to wrap our variable.  Here&rsquo;s the output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python dessert.py
-What is your favorite dessert? cupcakes
-Your favorite dessert is: cupcakes.
-</code></pre></div><p>Note that if you forget that leading &ldquo;f&rdquo; before the first quotation mark, the string will not print correctly.  You can use f-strings with all of the data types we&rsquo;ve met so far.  In the following exercise, you&rsquo;ll see a few more examples of how f-strings can be used.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>myFavoriteDessert <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;What is your favorite dessert? &#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Your favorite dessert is: </span><span style="color:#e6db74">{</span>myFavoriteDessert<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>)
+</span></span></code></pre></div><p>Let&rsquo;s compare the two versions of our script.  In the second line, we added an &ldquo;f&rdquo; before the quotation mark, we added text saying &ldquo;Your favorite dessert is: &ldquo;, and after that, we used curly braces to wrap our variable.  Here&rsquo;s the output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python dessert.py
+</span></span><span style="display:flex;"><span>What is your favorite dessert? cupcakes
+</span></span><span style="display:flex;"><span>Your favorite dessert is: cupcakes.
+</span></span></code></pre></div><p>Note that if you forget that leading &ldquo;f&rdquo; before the first quotation mark, the string will not print correctly.  You can use f-strings with all of the data types we&rsquo;ve met so far.  In the following exercise, you&rsquo;ll see a few more examples of how f-strings can be used.</p>
 <hr>
 <h4 id="exercise-3-f-strings-in-action">Exercise 3 (f-strings in action)</h4>
 <p>Let&rsquo;s have some more fun with f-strings.  Your job: Write a program that prompts the user for input to a <a href="https://www.madlibs.com/history/">madlib</a>.  Never heard of madlibs before?  Allow me to explain.  When doing a madlib, there are two players: a questioner and a responder.  The questioner either obtains or thinks up a story and removes several words from that story without showing the story or the removed words to the responder.  At each location where there is a missing words, the questioner asks the responder to supply a word.  Usually the questioner gives clarification about what part of speech the responder should supply.  And as the responder supplies words, the questioner fills in the blanks, resulting in an often wacky, off-color, or sweet story depending on the chosen words.</p>
 <p>In line with tradition, we&rsquo;re going to reproduce the classic 1982 madlib called &ldquo;The Magic Computers.&rdquo;  Your program should look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python madlib.py
-Enter a noun: bird
-Enter a plural noun: trees
-Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: salt
-Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: sail
-Enter a part of the body <span style="color:#f92672">(</span>plural<span style="color:#f92672">)</span>: toes
-Enter an adjective: floral
-Enter a plural noun: wine glasses
-Enter an adjective: sparkley
-
-Today, every student has a computer small enough to fit into their 
-&lt;bird&gt;.  They can easily solve math problems by simply pushing the 
-computer<span style="color:#960050;background-color:#1e0010">&#39;</span>s little &lt;trees&gt;.  Computers can add, multiply, divide, 
-and salt.  They can also &lt;sail&gt; better than a human.  Some 
-computers are &lt;toes&gt;.  Others have a/an &lt;floral&gt; screen that shows 
-all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python madlib.py
+</span></span><span style="display:flex;"><span>Enter a noun: bird
+</span></span><span style="display:flex;"><span>Enter a plural noun: trees
+</span></span><span style="display:flex;"><span>Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: salt
+</span></span><span style="display:flex;"><span>Enter a verb <span style="color:#f92672">(</span>present tense<span style="color:#f92672">)</span>: sail
+</span></span><span style="display:flex;"><span>Enter a part of the body <span style="color:#f92672">(</span>plural<span style="color:#f92672">)</span>: toes
+</span></span><span style="display:flex;"><span>Enter an adjective: floral
+</span></span><span style="display:flex;"><span>Enter a plural noun: wine glasses
+</span></span><span style="display:flex;"><span>Enter an adjective: sparkley
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Today, every student has a computer small enough to fit into their 
+</span></span><span style="display:flex;"><span>&lt;bird&gt;.  They can easily solve math problems by simply pushing the 
+</span></span><span style="display:flex;"><span>computer<span style="color:#960050;background-color:#1e0010">&#39;</span>s little &lt;trees&gt;.  Computers can add, multiply, divide, 
+</span></span><span style="display:flex;"><span>and salt.  They can also &lt;sail&gt; better than a human.  Some 
+</span></span><span style="display:flex;"><span>computers are &lt;toes&gt;.  Others have a/an &lt;floral&gt; screen that shows 
+</span></span><span style="display:flex;"><span>all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
+</span></span></code></pre></div><hr>
 <h3 id="naming-variables">Naming variables</h3>
 <p>Before moving on to more advanced topics, let&rsquo;s talk a little bit about how we&rsquo;re allowed to name variables.  In Python, variable names can be arbitrarily long, and they can contain numbers, letters, and the underscore (_) symbol.  For example, all of the following are valid variable names:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> myFavoriteNumberIs23 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no, it&#39;s actually 24. . .&#34;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> look_at_all_these_underscores <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> HELLO_WORLD <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> hello_world <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> __ahhhhhhh <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.12345</span>
-</code></pre></div><p>There are a few caveats to naming variables.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> myFavoriteNumberIs23 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;no, it&#39;s actually 24. . .&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> look_at_all_these_underscores <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> HELLO_WORLD <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> hello_world <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> __ahhhhhhh <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.12345</span>
+</span></span></code></pre></div><p>There are a few caveats to naming variables.</p>
 <ul>
 <li><strong>Leading numbers.</strong>  A variable can&rsquo;t start with a number, so <code>8IsCool</code> would not be a valid variable name.</li>
 <li><strong>Spaces.</strong>  Variable names also cannot contain spaces, so <code>X AE A-Xii</code> (the name of Grimes and Elon Musk&rsquo;s first child together) is an invalid variable name.</li>
@@ -264,12 +262,12 @@ all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
 <hr>
 <h3 id="error-messages">Error messages</h3>
 <p>When you use an invalid variable name, Python will always let you know by raising what&rsquo;s known as a <strong>SyntaxError</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
-    IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-                <span style="color:#f92672">^</span>
-<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
-</code></pre></div><p>Notice that the error message points toward the first dollar sign, meaning that this is the piece of the variable name that caused the error.  Why does it identify the first dollar sign as causing the error instead of the last?  In short, when Python interprets your code, it scans each line from left to right, so the leftmost incorrect character in your variable will always be the one identified by the error.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    IWantAllThat<span style="color:#960050;background-color:#1e0010">$$$</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">^</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</span></span></code></pre></div><p>Notice that the error message points toward the first dollar sign, meaning that this is the piece of the variable name that caused the error.  Why does it identify the first dollar sign as causing the error instead of the last?  In short, when Python interprets your code, it scans each line from left to right, so the leftmost incorrect character in your variable will always be the one identified by the error.</p>
 <p>In Python, there are many other kinds of errors.  Sometimes, when your code throws an error message, it&rsquo;s easy to get discouraged.  But getting an error message doesn&rsquo;t mean that you&rsquo;re a bad programmer!  In fact, messages can be extremely helpful when debugging your code.  So when it comes to error messages, here&rsquo;s the mantra:</p>
 <blockquote>
 <p>Error messages are designed to help you &ndash; the programmer &ndash; figure out what went wrong in your code.</p>
@@ -278,20 +276,20 @@ all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
 <hr>
 <h4 id="exercise-4-variable-names">Exercise 4 (Variable names)</h4>
 <p>Which of the following are valid variable names?  And if a variable name is invalid, what will the SyntaxError point to when the error is thrown?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> TheDigitsOfPiAre3<span style="color:#ae81ff">.14</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> M3rryChristma5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ho ho ho&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> Eight<span style="color:#f92672">-</span>five <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> Wh<span style="color:#a6e22e">@tIsMyN@me</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jane Eyre&#39;</span>
-</code></pre></div><p>Try it out in your terminal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> TheDigitsOfPiAre3<span style="color:#ae81ff">.14</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> M3rryChristma5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ho ho ho&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Eight<span style="color:#f92672">-</span>five <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> Wh<span style="color:#a6e22e">@tIsMyN@me</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jane Eyre&#39;</span>
+</span></span></code></pre></div><p>Try it out in your terminal.</p>
 <hr>
 <h3 id="protected-keywords">Protected keywords</h3>
 <p>There&rsquo;s one more caveat worth mentioning here, and I&rsquo;ll illustrate it by way of an example.  Let&rsquo;s say you&rsquo;re a busy teacher, and you want to keep track of how many classes you&rsquo;re teaching.  You might do this by defining a variable called &ldquo;class.&rdquo;  Let&rsquo;s see what happens when we try to do that.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
-  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
-          <span style="color:#f92672">^</span>
-<span style="color:#a6e22e">SyntaxError</span>: invalid syntax
-</code></pre></div><p>Why doesn&rsquo;t this work?  According to the rules we listed above, &ldquo;class&rdquo; should be a valid variable name, shouldn&rsquo;t it?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">= 5</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">^</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SyntaxError</span>: invalid syntax
+</span></span></code></pre></div><p>Why doesn&rsquo;t this work?  According to the rules we listed above, &ldquo;class&rdquo; should be a valid variable name, shouldn&rsquo;t it?</p>
 <p>It turns out that Python has a set of so-called &ldquo;protected&rdquo; keywords which cannot be used as variable names.  As of latest version of Python (Python version 3.10), there are 35 keywords in Python.  Here&rsquo;s the full list:</p>
 <p><img src="../../assets/python-keywords.png" alt="Python-keywords"></p>
 <p>After scanning this list, you may have noticed that we&rsquo;ve already met three of these keywords!  In addition to &ldquo;class&rdquo; in the above example, we&rsquo;ve also seen &ldquo;True&rdquo; and &ldquo;False&rdquo; when <a href="#booleans">Boolean data types</a> were introduced.  If you continue reading these notes, you&rsquo;ll encounter many of these keywords.</p>
@@ -302,57 +300,57 @@ all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
 <p>As a programmer, you will read ten times more code than you will write.</p>
 </blockquote>
 <p>And ten is likely an underestimate here.  It&rsquo;s crucial that your code is readible, and readibility is heavily tied to how you name your variables.  For example, if I wanted to create a variable that counted the number of cats I have, which variable do you think is more readible?  This:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</code></pre></div><p>or this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</code></pre></div><p>In other words, if someone else had to read your code, how quickly would they be able to figure out what&rsquo;s going on in your program?  As a programmer, you should always try to focus on writing code such that the next person who interacts with your code can get up to speed as fast as possible.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>or this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numCats <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>In other words, if someone else had to read your code, how quickly would they be able to figure out what&rsquo;s going on in your program?  As a programmer, you should always try to focus on writing code such that the next person who interacts with your code can get up to speed as fast as possible.</p>
 <hr>
 <h3 id="variable-comparison">Variable comparison</h3>
 <p>Now that we&rsquo;ve learned about Python variables, it&rsquo;s time to think about how we can compare two variables.  To illustrate this, let&rsquo;s start by defining a few variables that we can play around with.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numStrawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-</code></pre></div><p>(Yes, I did just finished cutting up a bowl of fruit.)  One important task in Python is to check whether two variables are equal.  To do so, we use two equals signs, e.g.,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">==</span> numGrapes
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">==</span> numStrawberries
-<span style="color:#66d9ef">False</span>
-</code></pre></div><p>As you can see, checking whether two variables are equal returns a Boolean variable: True if the variables are equal, and False otherwise.  A common mistake in Python is to confuse variable assignment, which uses a single equal sign (=), with variable comparison, which uses two equal signs (==), so it&rsquo;s important to take care when bashing your little finger on that equals sign key!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numStrawberries <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>(Yes, I did just finished cutting up a bowl of fruit.)  One important task in Python is to check whether two variables are equal.  To do so, we use two equals signs, e.g.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">==</span> numGrapes
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">==</span> numStrawberries
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>As you can see, checking whether two variables are equal returns a Boolean variable: True if the variables are equal, and False otherwise.  A common mistake in Python is to confuse variable assignment, which uses a single equal sign (=), with variable comparison, which uses two equal signs (==), so it&rsquo;s important to take care when bashing your little finger on that equals sign key!</p>
 <p>You can also check whether two variables are <em>not</em> equal to one another using an exclamation point followed by an equals sign.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numBananas
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numGrapes
-<span style="color:#66d9ef">False</span>
-</code></pre></div><p>Aside from checking whether two variables are equal or not, we can also check whether one variable is larger or small than another.  To do so, we use the &gt; key to denote &ldquo;is larger than&rdquo; and the &lt; key to denote &ldquo;is smaller than.&rdquo;  Take a look at the following examples:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">&gt;</span> numStrawberries
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">&lt;</span> numGrapes
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">&gt;</span> numStrawberries
-<span style="color:#66d9ef">False</span>
-</code></pre></div><p>Similarly, you can use &gt;= to check whether one variable is larger than equal to another variable; we can write &lt;= to check whether a variable is less than or equal to another variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numBananas
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">!=</span> numGrapes
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>Aside from checking whether two variables are equal or not, we can also check whether one variable is larger or small than another.  To do so, we use the &gt; key to denote &ldquo;is larger than&rdquo; and the &lt; key to denote &ldquo;is smaller than.&rdquo;  Take a look at the following examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numOranges <span style="color:#f92672">&gt;</span> numStrawberries
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numBananas <span style="color:#f92672">&lt;</span> numGrapes
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> numGrapes <span style="color:#f92672">&gt;</span> numStrawberries
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>Similarly, you can use &gt;= to check whether one variable is larger than equal to another variable; we can write &lt;= to check whether a variable is less than or equal to another variable.</p>
 <hr>
 <h4 id="exercise-5-comparing-variables">Exercise 5 (Comparing variables)</h4>
 <p>So far, we&rsquo;ve shown how you can compare two integer variables.  However, in Python, you can compare other kinds of data types.  What do you think the outcomes of these comparisons will be?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.15</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;Rachel&#39;</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;Ross&#39;</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4.2424</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4.2424</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.15</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;Rachel&#39;</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;Ross&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">4.2424</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">4.2424</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4.2424</span>
+</span></span></code></pre></div><hr>
 <h3 id="comparing-variables-with-different-data-types">Comparing variables with different data types</h3>
 <p>Somewhat unintuitively, it is sometimes &ndash; but not always &ndash; possible to compare two variables that have different data types.  For example, in some cases, it can be useful to think of the number 1 as denoting &ldquo;true&rdquo; and the number 0 as denoting &ldquo;false.&rdquo;  This convention arises in various fields such as <a href="https://en.wikipedia.org/wiki/Logic_level">circuit design</a>.  To meet this convention, Python allows you to compare bools to integers.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">True</span>
-</code></pre></div><p>Here are some more examples which compare variables of different data types.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1.0</span>
-<span style="color:#66d9ef">True</span>
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;b&#39;</span>
-<span style="color:#66d9ef">False</span>
-</code></pre></div><p>In these notes, we won&rsquo;t provide an exhaustive list of what you can and cannot compare.  This is your time to explore!  What happens when you compare a string to an integer?  What if you compare a Boolean to a number other than 0 or 1?  Try it out!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">True</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">False</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><p>Here are some more examples which compare variables of different data types.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;b&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>In these notes, we won&rsquo;t provide an exhaustive list of what you can and cannot compare.  This is your time to explore!  What happens when you compare a string to an integer?  What if you compare a Boolean to a number other than 0 or 1?  Try it out!</p>
 <hr>
 <h3 id="review">Review</h3>
 <p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
@@ -589,7 +587,7 @@ all kinds of &lt;wine glasses&gt; and &lt;sparkly&gt; figures.
 
 
 
-<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.ada905442d53eafc5c125b84cffce974e971bcb52433fb67db20c5af5b964cea37ebd2c16ee6457894372eac0911dd0428f88da966c8e885b160fc6c0fe0fed6.js" integrity="sha512-rakFRC1T6vxcEluEz/zpdOlxvLUkM/tn2yDFr1uWTOo369LBbuZFeJQ3LqwJEd0EKPiNqWbI6IWxYPxsD&#43;D&#43;1g=="></script>
 
 
 

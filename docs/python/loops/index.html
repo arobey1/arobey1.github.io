@@ -8,7 +8,7 @@
     content="Alex Robey ">
 <meta name="description"
     content="We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.
- What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?" />
+What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://arobey1.github.io/python/loops/" />
@@ -49,15 +49,13 @@
 
 <meta itemprop="name" content="Loops">
 <meta itemprop="description" content="We&rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&rsquo;t heard about loops before, you&rsquo;re in for a real treat; loops are an essential part of almost every programming language.
- What is a loop? Loops are ubiquitous in Python. Once you master loops, you&rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?"><meta itemprop="datePublished" content="2023-01-16T00:00:00+00:00" />
+What is a loop? Loops are ubiquitous in Python. Once you master loops, you&rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?"><meta itemprop="datePublished" content="2023-01-16T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-01-16T18:51:43+01:00" />
-<meta itemprop="wordCount" content="5572"><meta itemprop="image" content="https://arobey1.github.io/"/>
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://arobey1.github.io/"/>
-
-<meta name="twitter:title" content="Loops"/>
+<meta itemprop="wordCount" content="5578"><meta itemprop="image" content="https://arobey1.github.io/" />
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="Loops"/>
 <meta name="twitter:description" content="We&rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&rsquo;t heard about loops before, you&rsquo;re in for a real treat; loops are an essential part of almost every programming language.
- What is a loop? Loops are ubiquitous in Python. Once you master loops, you&rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?"/>
+What is a loop? Loops are ubiquitous in Python. Once you master loops, you&rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?"/>
 
 
 
@@ -174,24 +172,24 @@ MathJax.Hub.Config({
 <hr>
 <h3 id="why-do-we-need-loops-a-motivating-example">Why do we need loops? A motivating example</h3>
 <p>Before diving into the Python&rsquo;s syntax for writing for and while loops, allow me to spend a few paragraphs motivating why loops are so integral in Python.  Let&rsquo;s say you want to print out the natural numbers between 1 and 5.  Based on what we already know, we could use a list to store each of these numbers, and then print out that list, i.e.,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt;&gt;&gt; numbers <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
-&gt;&gt;&gt; print<span style="color:#f92672">(</span>numbers<span style="color:#f92672">)</span>
-<span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
-</code></pre></div><p>But what if we wanted to print them out one by one?  Recalling what we learned about <a href="https://arobey1.github.io/python/lists/#indexing-into-a-list" title="Indexing into a list">indexing into a list</a> in a previous lesson, we could write a script &ndash; let&rsquo;s call it print_numbers.py &ndash; that would print out each number one by one.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-print(numbers[<span style="color:#ae81ff">0</span>])
-print(numbers[<span style="color:#ae81ff">1</span>])
-print(numbers[<span style="color:#ae81ff">2</span>])
-print(numbers[<span style="color:#ae81ff">3</span>])
-print(numbers[<span style="color:#ae81ff">4</span>])
-</code></pre></div><p>And here&rsquo;s the ouput:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python print_numbers.py
-<span style="color:#ae81ff">1</span>
-<span style="color:#ae81ff">2</span>
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">4</span>
-<span style="color:#ae81ff">5</span>
-</code></pre></div><p>While this certainly worked, I think that we can both agree that this is a bad solution.  Here&rsquo;s why:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt;&gt;&gt; numbers <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; print<span style="color:#f92672">(</span>numbers<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>1, 2, 3, 4, 5<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>But what if we wanted to print them out one by one?  Recalling what we learned about <a href="https://arobey1.github.io/python/lists/#indexing-into-a-list" title="Indexing into a list">indexing into a list</a> in a previous lesson, we could write a script &ndash; let&rsquo;s call it print_numbers.py &ndash; that would print out each number one by one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span>print(numbers[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>print(numbers[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>print(numbers[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>print(numbers[<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>print(numbers[<span style="color:#ae81ff">4</span>])
+</span></span></code></pre></div><p>And here&rsquo;s the ouput:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python print_numbers.py
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>While this certainly worked, I think that we can both agree that this is a bad solution.  Here&rsquo;s why:</p>
 <ul>
 <li>
 <p><strong>Conciseness</strong>.  Using this idea, we would need to write as many lines of code as there are items in <code>numbers</code>.  Ideally, we would like a much more concise solution.</p>
@@ -209,15 +207,15 @@ print(numbers[<span style="color:#ae81ff">4</span>])
 </blockquote>
 <p>The word &ldquo;sequence&rdquo; mentioned in the definition is intentionally vague.  As we&rsquo;ll see in a <a href="#what-can-loops-loop-over">later section</a> in this lesson, for loops can iterate over all sorts of things, including some old favorites such as lists, strings, tuples, and a <code>range</code> of numbers.  But that&rsquo;s not all!  For loops can also iterate over objects we haven&rsquo;t yet seen, such as dictionaries, generators, and iterators.</p>
 <p>Returning to our example in the previous section, the following script will accomplish our goal of printing out the numbers in <code>numbers</code> one by one while satisfying both the <em>conciseness</em> and <em>flexibility</em> criteria listed above.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
-    print(num)
-</code></pre></div><p>In the second line, the <code>for</code> keyword signals that we are writing a for loop.  This line tells Python to iterate over the items &ndash; in this case, integers &ndash; in the <code>numbers</code> list.  Then, in the indented block, we execute the command for each item in <code>numbers</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+</span></span><span style="display:flex;"><span>    print(num)
+</span></span></code></pre></div><p>In the second line, the <code>for</code> keyword signals that we are writing a for loop.  This line tells Python to iterate over the items &ndash; in this case, integers &ndash; in the <code>numbers</code> list.  Then, in the indented block, we execute the command for each item in <code>numbers</code>.</p>
 <p>Note that this is a slightly different use-case for the <code>in</code> keyword in Python.  We previously saw the <code>in</code> keyword in our lesson on <a href="https://arobey1.github.io/python/lists/#checking-for-inclusion-with-in" title="Checking for inclusion with `in`">checking for inclusion in lists</a>.  The difference here is that rather than checking for inclusion, we are using <code>in</code> to look through each element of the list.</p>
 <p>And finally, it&rsquo;s worthing noting that there is nothing special about the variable name <code>num</code> here.  We could have used any variable name, e.g.,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> any_variable_name <span style="color:#f92672">in</span> numbers:
-    print(any_variable_name)
-</code></pre></div><p>And that&rsquo;s really all there is to for loops.  Next, let&rsquo;s take a look at the while loop.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> any_variable_name <span style="color:#f92672">in</span> numbers:
+</span></span><span style="display:flex;"><span>    print(any_variable_name)
+</span></span></code></pre></div><p>And that&rsquo;s really all there is to for loops.  Next, let&rsquo;s take a look at the while loop.</p>
 <hr>
 <h3 id="while-loops">While loops</h3>
 <p>Next in our catalog of loops is the while loop.</p>
@@ -226,11 +224,11 @@ print(numbers[<span style="color:#ae81ff">4</span>])
 </blockquote>
 <p>In a previous lesson on <a href="https://arobey1.github.io/python/conditionals/" title="Conditionals">conditionals</a>, we learned that you only enter a conditional statement when the Boolean condition that defines it is satisfied.  The same principle is at play with while loops, in the sense that you will only execute the contents of the loop if the Boolean condition is True.</p>
 <p>As we did in the <a href="#for-loops">previous section</a>, let&rsquo;s illustrate the use of while loops with an example.  In fact, let&rsquo;s use the same number-printing example that we used for for loops.  Here&rsquo;s another solution which prints the numbers 1 through 5 to the console using a while loop.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">while</span> num <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
-    print(number)
-    num <span style="color:#f92672">=</span> num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-</code></pre></div><p>In the first line, we define a variable <code>num = 1</code>.  Next, in the second line, we use the <code>while</code> keyword to signal to Python that we are writing a while loop.  In this case, the Boolean condition in this line says that we should loop until <code>num &lt;= 5</code> is no longer True.  And finally, in the body of the loop, we first print out <code>num</code> and then increment it by one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>num <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> num <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
+</span></span><span style="display:flex;"><span>    print(number)
+</span></span><span style="display:flex;"><span>    num <span style="color:#f92672">=</span> num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>In the first line, we define a variable <code>num = 1</code>.  Next, in the second line, we use the <code>while</code> keyword to signal to Python that we are writing a while loop.  In this case, the Boolean condition in this line says that we should loop until <code>num &lt;= 5</code> is no longer True.  And finally, in the body of the loop, we first print out <code>num</code> and then increment it by one.</p>
 <p>Since the variable <code>num</code> is being incremented each time we pass through the loop, by the time we finish the fifth iteration, <code>num</code> will be equal to 6, and the Boolean condition <code>num &lt;= 5</code> will no longer be True.  At this point, the loop will end.</p>
 <p>And that&rsquo;s pretty much that!  Now you&rsquo;ve seen both of the kinds of loops that you can write in Python.  The time is ripe for a couple of exercises.</p>
 <hr>
@@ -240,87 +238,87 @@ print(numbers[<span style="color:#ae81ff">4</span>])
 <p>$$F_m = F_{m-1} + F_{m-2}$$</p>
 <p>So for instance, to calculate the third Fibonacci number $F_2$, we use the recurrence relationship to write $F_2 = F_1 + F_0$.  And since $F_2 = 1 + 0 = 1$.  The sequence of Fibonacci numbers $F_0, F_1, F_2, \dots$ are famous because they appear unexpectedly in various fields, including <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Primes_and_divisibility">number theory</a>, <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Mathematics">cominatorics</a>, and <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Computer_science">algorithms</a>.</p>
 <p>Your program should take an integer $m$ as an input, and then use a loop (for or while?) to print out the first $m$ Fibonacci numbers one by one.  For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python calc_fibonacci.py
-Enter a number of terms <span style="color:#f92672">(</span>m &gt;<span style="color:#f92672">=</span> 2<span style="color:#f92672">)</span>: <span style="color:#ae81ff">6</span>
-The first m<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span> Fibonacci numbers are:
-<span style="color:#ae81ff">0</span>
-<span style="color:#ae81ff">1</span>
-<span style="color:#ae81ff">1</span>
-<span style="color:#ae81ff">2</span>
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">5</span>
-</code></pre></div><p>When you&rsquo;ve got it, have a look at the next exercise!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python calc_fibonacci.py
+</span></span><span style="display:flex;"><span>Enter a number of terms <span style="color:#f92672">(</span>m &gt;<span style="color:#f92672">=</span> 2<span style="color:#f92672">)</span>: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>The first m<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span> Fibonacci numbers are:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>When you&rsquo;ve got it, have a look at the next exercise!</p>
 <hr>
 <h4 id="exercise-2-a-guessing-game---or-binary-search">Exercise 2 (A guessing game. . . or, binary search)</h4>
 <p>Let&rsquo;s play a game.  I&rsquo;m going to think of a number between 1 and 100.  And your job is to guess my number in as few guesses as possible.</p>
 <p>Stary by defining a script called my_number_game.py.  To implement this game, you&rsquo;ll need to define a variable called <code>my_number</code> and set it equal to a secret number between 1 and 100.  Next, use a loop (for or while?) to prompt the user for guesses until they guess <code>my_number</code>.  You should also give the user feedback about whether their guess was larger or smaller than <code>my_number</code>.  And when they guess your number, print out a message telling them how many guesses it took them to get the right answer.  Here&rsquo;s some sample output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_number_game.py
-Enter your guess: <span style="color:#ae81ff">5</span>
-Nope! My number is larger than 5.
-Enter your guess: <span style="color:#ae81ff">100</span>
-Uh uh! My number is smaller than 100.
-Enter your guess: <span style="color:#ae81ff">2</span>
-Nope! My number is larger than 2.
-Enter your guess: <span style="color:#ae81ff">72</span>
-Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
-It took you <span style="color:#ae81ff">4</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
-</code></pre></div><p>Try this out with your friends, and see who can get the best score!  If you want to make this even fancier, why not discard invalid guesses, such as those smaller than 1 or larger than 100.  You could also disregard repeated guesses, like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python my_number_game.py
-Enter your guess: -6
-Invalid guess!  This number is smaller than 1.
-Enter your guess: <span style="color:#ae81ff">103</span>
-Invalid guess!  This number is smaller than 100.
-Enter your guess: <span style="color:#ae81ff">5</span>
-Nope! My number is larger than 5.
-Enter your guess: <span style="color:#ae81ff">5</span>
-Invalid guess!  You already guessed 5.
-Enter your guess: <span style="color:#ae81ff">72</span>
-Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
-It took you <span style="color:#ae81ff">2</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
-</code></pre></div><p>If you&rsquo;re interested in what the optimal strategy is for this game, and what the smallest number of guesses you&rsquo;d need to make to get the right answer, you may be interested to read more about the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python my_number_game.py
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Nope! My number is larger than 5.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>Uh uh! My number is smaller than 100.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>Nope! My number is larger than 2.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">72</span>
+</span></span><span style="display:flex;"><span>Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
+</span></span><span style="display:flex;"><span>It took you <span style="color:#ae81ff">4</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
+</span></span></code></pre></div><p>Try this out with your friends, and see who can get the best score!  If you want to make this even fancier, why not discard invalid guesses, such as those smaller than 1 or larger than 100.  You could also disregard repeated guesses, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python my_number_game.py
+</span></span><span style="display:flex;"><span>Enter your guess: -6
+</span></span><span style="display:flex;"><span>Invalid guess!  This number is smaller than 1.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">103</span>
+</span></span><span style="display:flex;"><span>Invalid guess!  This number is smaller than 100.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Nope! My number is larger than 5.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Invalid guess!  You already guessed 5.
+</span></span><span style="display:flex;"><span>Enter your guess: <span style="color:#ae81ff">72</span>
+</span></span><span style="display:flex;"><span>Yes, that<span style="color:#960050;background-color:#1e0010">&#39;</span>s right!  My number was 72.
+</span></span><span style="display:flex;"><span>It took you <span style="color:#ae81ff">2</span> guess<span style="color:#f92672">(</span>es<span style="color:#f92672">)</span> to guess my number.
+</span></span></code></pre></div><p>If you&rsquo;re interested in what the optimal strategy is for this game, and what the smallest number of guesses you&rsquo;d need to make to get the right answer, you may be interested to read more about the <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm">binary search algorithm</a>.</p>
 <hr>
 <h4 id="exercise-3-calculating-mileage-with-while-loops">Exercise 3 (Calculating mileage with while loops)</h4>
 <p>Imagine that you&rsquo;re training for a running race, be it a 5k or a marathon.  When training for such a race, it&rsquo;s important to watch your mileage.  On the one hand, if you ramp up your mileage too quickly, it&rsquo;s easy to pick up an injury.  One the other hand, if you increase your mileage too conservatively, you may not be able to finish the race.  Let&rsquo;s use Python to come up with a training plan that will see you safely through your training.</p>
 <p>One basic rule of thumb to avoid injury is to increase your mileage by roughly 10% each week.  For example, if you run 10 miles in your first week of training, you should run a maximum of 11 miles your second week, 12.1 miles your third week, and so on.</p>
 <p>Your script &ndash; let&rsquo;s call it training_plan.py &ndash; should take your current weekly mileage as input as well as the number of weeks that you want to train.  It should then output how many miles you should run in each week, like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python training_plan.py
-Your currently weekly mileage: <span style="color:#ae81ff">10</span>
-Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
-
-Week 1: 11.0 miles
-Week 2: 12.100000000000001 miles
-Week 3: 13.310000000000002 miles
-Week 4: 14.641000000000004 miles
-Week 5: 16.105100000000004 miles
-Week 6: 17.715610000000005 miles
-</code></pre></div><p>Try implementing this using a loop (for or while?).  And if you want to make it look prettier, you can print using Python&rsquo;s f-string formatting:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Week </span><span style="color:#e6db74">{</span>week<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>num_miles<span style="color:#e6db74">:</span><span style="color:#e6db74">.3f</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> miles&#34;</span>)
-</code></pre></div><p>Adding the <code>:.3f</code> after the <code>num_miles</code> variable name will tell Python to only print out three decimal places, which should yield output that looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python training_plan.py
-Your currently weekly mileage: <span style="color:#ae81ff">10</span>
-Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
-
-Week 1: 11.000 miles
-Week 2: 12.100 miles
-Week 3: 13.310 miles
-Week 4: 14.641 miles
-Week 5: 16.105 miles
-Week 6: 17.716 miles
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python training_plan.py
+</span></span><span style="display:flex;"><span>Your currently weekly mileage: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Week 1: 11.0 miles
+</span></span><span style="display:flex;"><span>Week 2: 12.100000000000001 miles
+</span></span><span style="display:flex;"><span>Week 3: 13.310000000000002 miles
+</span></span><span style="display:flex;"><span>Week 4: 14.641000000000004 miles
+</span></span><span style="display:flex;"><span>Week 5: 16.105100000000004 miles
+</span></span><span style="display:flex;"><span>Week 6: 17.715610000000005 miles
+</span></span></code></pre></div><p>Try implementing this using a loop (for or while?).  And if you want to make it look prettier, you can print using Python&rsquo;s f-string formatting:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Week </span><span style="color:#e6db74">{</span>week<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>num_miles<span style="color:#e6db74">:</span><span style="color:#e6db74">.3f</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> miles&#34;</span>)
+</span></span></code></pre></div><p>Adding the <code>:.3f</code> after the <code>num_miles</code> variable name will tell Python to only print out three decimal places, which should yield output that looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python training_plan.py
+</span></span><span style="display:flex;"><span>Your currently weekly mileage: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>Weeks <span style="color:#66d9ef">until</span> your race: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Week 1: 11.000 miles
+</span></span><span style="display:flex;"><span>Week 2: 12.100 miles
+</span></span><span style="display:flex;"><span>Week 3: 13.310 miles
+</span></span><span style="display:flex;"><span>Week 4: 14.641 miles
+</span></span><span style="display:flex;"><span>Week 5: 16.105 miles
+</span></span><span style="display:flex;"><span>Week 6: 17.716 miles
+</span></span></code></pre></div><hr>
 <h3 id="are-for-loops-and-while-loops---the-same">Are for loops and while loops. . . the same?</h3>
 <p>Something really interested happened in our presentation of <a href="#for-loops">for loops</a> and <a href="#while-loops">while loops</a> in the previous sections.  Did you catch it?</p>
 <p>Based on what you&rsquo;ve seen so far, it would be reasonable to conclude that for and while loops apply in different circumstances: a for loop loops through a fixed sequence whereas a while loop loops until a Boolean condition is False.  But in the example we used above where we printed out the numbers between 1 and 5, we were able to accomplish the task in two different ways; one way used a for loop, and the other used a while loop.  As a reminder, here are the two versions we saw earlier:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># print numbers using a *for* loop</span>
-numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
-    print(num)
-
-<span style="color:#75715e"># print numbers using a *while* loop</span>
-number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">while</span> number <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
-    print(number)
-    number <span style="color:#f92672">=</span> number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-</code></pre></div><p>This raises the following question: When can for loops and while loops be used to accomplish the same task?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># print numbers using a *for* loop</span>
+</span></span><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+</span></span><span style="display:flex;"><span>    print(num)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print numbers using a *while* loop</span>
+</span></span><span style="display:flex;"><span>number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> number <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>:
+</span></span><span style="display:flex;"><span>    print(number)
+</span></span><span style="display:flex;"><span>    number <span style="color:#f92672">=</span> number <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>This raises the following question: When can for loops and while loops be used to accomplish the same task?</p>
 <p>To answer the question, I&rsquo;m going to tentatively say that for and while loops are <em>almost</em> always exchangeable, meaning that any task that can be accomplished with a for loop can also be done with a while loop, and vice versa.  There are people out there who I&rsquo;m sure will balk at this answer and subsequently supply a convoluted counter example.  However, my contention is that (a) such people have too much time on their hands and (b) in the vast majority of situations, for and while loops are exchangeable.</p>
 <p>That being said, in some intances, it can be much cleaner and/or more concise to use one kind of loop instead of the other.  And rather than running through some examples, why not explore this idea for yourself in the next exercise!</p>
 <hr>
@@ -333,140 +331,140 @@ number <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <p>To calculate a the $n^{\text{th}}$ triangular number, denoted by $T_n$, we can use the following formula:</p>
 <p>$$T_n = \sum_{k=1}^n k = 1 + 2 + 3 + \dots + n$$</p>
 <p>As shown in the picture, $T_1 = 1$, $T_2 = 3$, $T_3 = 6$, and so on.  Now that we&rsquo;re familiar with loops, let&rsquo;s write a program to calculate the triangular numbers.  Here&rsquo;s my version:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">n <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;Enter a number n (n &gt;= 1): &#39;</span>))
-
-T_n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
-    T_n <span style="color:#f92672">=</span> T_n <span style="color:#f92672">+</span> number
-
-print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;The </span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74">^th triangular number T_</span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74"> = </span><span style="color:#e6db74">{</span>T_n<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><p>You job is to implement this using a while loop.  Good luck!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n <span style="color:#f92672">=</span> int(input(<span style="color:#e6db74">&#39;Enter a number n (n &gt;= 1): &#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>T_n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>    T_n <span style="color:#f92672">=</span> T_n <span style="color:#f92672">+</span> number
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;The </span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74">^th triangular number T_</span><span style="color:#e6db74">{</span>n<span style="color:#e6db74">}</span><span style="color:#e6db74"> = </span><span style="color:#e6db74">{</span>T_n<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span></code></pre></div><p>You job is to implement this using a while loop.  Good luck!</p>
 <p><strong>Part (b): DNA sequencing</strong>.  At the very end of the lesson <a href="https://arobey1.github.io/python/lists/" title="Lists">lists</a>, I mentioned that <a href="https://arobey1.github.io/python/lists/#strings-what-does-this-have-to-do-with-strings" title="Strings? What does this have to do with strings?">viewing strings as lists of characters</a> can be useful in fields such as bioinformatics.  I hope you didn&rsquo;t think that I wasn&rsquo;t going to follow up on this connection!  In this lesson, we&rsquo;ll perform a classic bioinformatics task: Searching for amino acids in a DNA sequence.</p>
 <p>Here&rsquo;s everything I know about DNA.  Every strand of DNA can be viewed as a sequence of small segments called neucleotides.  Each nucleotide is categorized by what&rsquo;s known as a nucleotide base.  There are four kinds of neucleotide bases in DNA segments: adenine (A), cytosine (C), guanine (G), and thymine (T).  Thus, DNA sequences are often represented as strings containing these four letters.  Here&rsquo;s an example:</p>
-<pre><code>ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC
+<pre tabindex="0"><code>ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC
 </code></pre><p>One of the most common tasks in bioinformatics is to search for particular three-letter subsequences (called codons) in a DNA sequence.  There are 64 possible codons (why?); 61 of them encode amino acids, and the remaining three are used as stop signals.  For example, the subsequence ACA encodes threonine and AGA encodes arginine.</p>
 <p>Our job is to write a program that finds all the occurances of a given codon in a short snippet of DNA.  Here&rsquo;s a program that uses while loops to do just this.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">seq <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC&#39;</span> \
-      <span style="color:#e6db74">&#39;CGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCC&#39;</span> \
-      <span style="color:#e6db74">&#39;ACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAA&#39;</span> \
-      <span style="color:#e6db74">&#39;GGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTG&#39;</span> \
-      <span style="color:#e6db74">&#39;GACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCT&#39;</span> \
-      <span style="color:#e6db74">&#39;CGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAAT&#39;</span> \
-      <span style="color:#e6db74">&#39;CCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAA&#39;</span> \
-      <span style="color:#e6db74">&#39;GACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCA&#39;</span> \
-      <span style="color:#e6db74">&#39;CGCAAGTTTAATTACAGACCTGAA&#39;</span>
-
-codon_to_find <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Enter a valid codon: &#39;</span>)
-
-found_codon_indices <span style="color:#f92672">=</span> []
-seq_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">while</span> seq_index <span style="color:#f92672">&lt;=</span> len(seq) <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span>:
-    current_codon <span style="color:#f92672">=</span> seq[seq_index:seq_index<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>]
-    <span style="color:#66d9ef">if</span> current_codon <span style="color:#f92672">==</span> codon_to_find:
-        found_codon_indices<span style="color:#f92672">.</span>append(seq_index)
-    seq_index <span style="color:#f92672">=</span> seq_index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-
-print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found the codon </span><span style="color:#e6db74">{</span>codon_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at the following indices:&#39;</span>)
-print(found_codon_indices)
-</code></pre></div><p>Your job is to implement this using a for loop.  You&rsquo;ve got this!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>seq <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTC&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;CGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCC&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;ACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAA&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;GGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTG&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;GACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCT&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;CGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAAT&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;CCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAA&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;GACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCA&#39;</span> \
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;CGCAAGTTTAATTACAGACCTGAA&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>codon_to_find <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Enter a valid codon: &#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>found_codon_indices <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>seq_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> seq_index <span style="color:#f92672">&lt;=</span> len(seq) <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span>:
+</span></span><span style="display:flex;"><span>    current_codon <span style="color:#f92672">=</span> seq[seq_index:seq_index<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> current_codon <span style="color:#f92672">==</span> codon_to_find:
+</span></span><span style="display:flex;"><span>        found_codon_indices<span style="color:#f92672">.</span>append(seq_index)
+</span></span><span style="display:flex;"><span>    seq_index <span style="color:#f92672">=</span> seq_index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found the codon </span><span style="color:#e6db74">{</span>codon_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at the following indices:&#39;</span>)
+</span></span><span style="display:flex;"><span>print(found_codon_indices)
+</span></span></code></pre></div><p>Your job is to implement this using a for loop.  You&rsquo;ve got this!</p>
 <hr>
 <h3 id="the-perils-of-infinite-looping">The perils of infinite looping</h3>
 <p>Let&rsquo;s recap.  In the previous sections, we learned that a for loop will iterate through each of the items in the sequence you supply.  So if the first line of the loop looks something like <code>for item in my_sequence:</code>, the for loop will run for as many iterations as there are items in <code>my_sequence</code>.  In contrast, a while loop iterates until the Boolean condition in it&rsquo;s definition is no longer True.  So if we have while loop defined by <code>while my_condition == True:</code>, the loop will continue to run until <code>my_condition</code> is False.  This leads to the following question: What happens if <code>my_condition</code> is never False?</p>
 <p>Great question!  In that case, the while loop will iterate forever, and the program will never finish.  For instance, the following script will never terminate.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-    print(<span style="color:#e6db74">&#34;I&#39;m still in the loop!  Ahhhhhh!&#34;</span>)
-</code></pre></div><p>The output will be an never-ending number of print statements.  Clearly, this behavior is to be avoided.  So when writing while loops, it&rsquo;s essential that we ensure that at some point, the loop will eventually terminate.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I&#39;m still in the loop!  Ahhhhhh!&#34;</span>)
+</span></span></code></pre></div><p>The output will be an never-ending number of print statements.  Clearly, this behavior is to be avoided.  So when writing while loops, it&rsquo;s essential that we ensure that at some point, the loop will eventually terminate.</p>
 <p>At some point in your programming career, you&rsquo;ll fall into the trap of executing an infinite loop.  So when this happens, don&rsquo;t panic!  There are two easy ways to get out of an infinite loop.</p>
 <ol>
 <li><strong>Command-C</strong>.  The easiest way is to hit ⌘-C (i.e., Command-C) on your keyboard.  This is known as  <code>KeyboardInterrupt</code>, and it will kill the process that is currently running in your terminal.  If you hit ⌘-C while the above program is running, you&rsquo;ll get the following output.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
-I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
-I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
-I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
-I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
-I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
-<span style="color:#f92672">^</span>CTraceback (most recent call last):
-  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">2</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
-<span style="color:#a6e22e">KeyboardInterrupt</span>
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+</span></span><span style="display:flex;"><span>I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+</span></span><span style="display:flex;"><span>I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+</span></span><span style="display:flex;"><span>I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+</span></span><span style="display:flex;"><span>I<span style="color:#e6db74">&#39;m still in the loop!  Ahhhhhh!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">^</span>CTraceback (most recent call last):
+</span></span><span style="display:flex;"><span>  File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">2</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">KeyboardInterrupt</span>
+</span></span></code></pre></div><ol start="2">
 <li><strong>Close your terminal</strong>.  The next best way is to close your terminal, e.g., by clicking the red button in the top left-hand corner.  This will also kill the current process, but you may want to avoid this option as it&rsquo;s generally less convenient than using ⌘-C.</li>
 </ol>
 <p>Now you know about to recognize and avoid infinite loops!  You&rsquo;re unstoppable!</p>
 <hr>
 <h3 id="loops-indexing-and-enumerate">Loops, indexing, and <code>enumerate</code></h3>
 <p>In this section, I&rsquo;ll briefly talk about another way to think about loops.  <a href="#for-loops">Several sections ago</a>, we saw our first for loop, which we used to print out the numbers between 1 and 5.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
-    print(num)
-</code></pre></div><p>Above, the variable <code>num</code> took on each of the integers from 1 to 5 as the loop iterated.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+</span></span><span style="display:flex;"><span>    print(num)
+</span></span></code></pre></div><p>Above, the variable <code>num</code> took on each of the integers from 1 to 5 as the loop iterated.</p>
 <p>Here&rsquo;s another way to look at it.  Rather using a variable to take the place of each number in <code>numbers</code>, let&rsquo;s keep track of an <a href="https://arobey1.github.io/python/lists/#indexing-into-a-list" title="Indexing into a list">index</a> that points to where we are in the list.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-<span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(len(numbers)):
-    print(numbers[index])
-</code></pre></div><p>Rather than looping over <code>numbers</code>, we loop over a <code>range</code> object; in particular, we loop over <code>range(len(numbers))</code>.  Recall that <code>len(numbers)</code> will tell us the <a href="https://arobey1.github.io/python/lists/#methods-on-lists" title="Methods on lists">length</a>, or number of items, in the <code>numbers</code> list.  And therefore <code>range(len(numbers))</code> is the same as <code>range(5)</code>, which in turn is the same as <code>[0, 1, 2, 3, 4]</code>.  Given this, we can think of the code written above as being equivalent to the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
-<span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]:
-    print(numbers[index])
-</code></pre></div><p>As the for loop iterates, <code>index</code> takes on the values 0 through 4.  We then use the <code>index</code> variable to index into the <code>numbers</code> list, yielding the same result as we had in the original program.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(len(numbers)):
+</span></span><span style="display:flex;"><span>    print(numbers[index])
+</span></span></code></pre></div><p>Rather than looping over <code>numbers</code>, we loop over a <code>range</code> object; in particular, we loop over <code>range(len(numbers))</code>.  Recall that <code>len(numbers)</code> will tell us the <a href="https://arobey1.github.io/python/lists/#methods-on-lists" title="Methods on lists">length</a>, or number of items, in the <code>numbers</code> list.  And therefore <code>range(len(numbers))</code> is the same as <code>range(5)</code>, which in turn is the same as <code>[0, 1, 2, 3, 4]</code>.  Given this, we can think of the code written above as being equivalent to the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]:
+</span></span><span style="display:flex;"><span>    print(numbers[index])
+</span></span></code></pre></div><p>As the for loop iterates, <code>index</code> takes on the values 0 through 4.  We then use the <code>index</code> variable to index into the <code>numbers</code> list, yielding the same result as we had in the original program.</p>
 <p>Is this a better way of writing the program than our original version?  I would argue that it&rsquo;s not, because it&rsquo;s arguably more intuitive to have a single variable which takes on each number, rather than an indexing variable which requires you to index into numbers via <code>numbers[index]</code> in the final line.  For this reason, I&rsquo;ll assert that we should prefer the first version of this program to the second.  But that being said, this is a perfectly acceptable way of writing this script, and in languages like C++ and MATLAB, this is more-or-less the only way to write this script.</p>
 <p>In some cases, you may need to keep track of the index in a list.  For instance, in the part (b) of <a href="#exercise-4-exchanging-loops">Exercise 4 (Exchanging loops)</a>, we needed to keep track of the indicies of the occurances of different codons in a DNA sequence.  In this case, if can be rather useful to use the <code>enumerate</code> keyword in Python.</p>
 <p>Here&rsquo;s how <code>enumerate</code> works.  Let&rsquo;s say that you have a list of items called <code>fruits</code>, and that you would like to loop through them while keeping track f the index of each item in the list.  The following script, which we&rsquo;ll call fruits.py, will keep track of both the index and the items in the <code>fruits</code> list.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
-<span style="color:#66d9ef">for</span> index, fruit <span style="color:#f92672">in</span> enumerate(fruits):
-    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>fruit<span style="color:#e6db74">}</span><span style="color:#e6db74"> is at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">)</span>
-</code></pre></div><p>Here&rsquo;s the output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python fruits.py
-banana is at index <span style="color:#ae81ff">0</span>
-orange is at index <span style="color:#ae81ff">1</span>
-strawberry is at index <span style="color:#ae81ff">2</span>
-pear is at index <span style="color:#ae81ff">3</span>
-</code></pre></div><p>From a stylistic point of view, if you need to access the index of the items of a sequence that you&rsquo;re iterating over, it&rsquo;s preferrable to use <code>enumerate</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, fruit <span style="color:#f92672">in</span> enumerate(fruits):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>fruit<span style="color:#e6db74">}</span><span style="color:#e6db74"> is at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">)</span>
+</span></span></code></pre></div><p>Here&rsquo;s the output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python fruits.py
+</span></span><span style="display:flex;"><span>banana is at index <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>orange is at index <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>strawberry is at index <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>pear is at index <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>From a stylistic point of view, if you need to access the index of the items of a sequence that you&rsquo;re iterating over, it&rsquo;s preferrable to use <code>enumerate</code>.</p>
 <hr>
 <h3 id="breaking-a-loop">Breaking a loop</h3>
 <p>Let&rsquo;s say you&rsquo;re writing a loop in Python, and you want to exit it prematurely.  If you&rsquo;re writing a for loop, this would mean exiting a loop before you finish iterating through all of the items in the sequence that you&rsquo;re looping over.  And if you&rsquo;re writing a while loop, this means exiting the loop while the Boolean condition is still True.</p>
 <p>Why would you want to do this?  Well, there could be a number of reasons.  Perhaps you&rsquo;re trying to find the index of the first occurrence of a particular item in a list.  The following would be a reasonable way of implementing this.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">item_to_find <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c&#39;</span>
-<span style="color:#66d9ef">for</span> index, item <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>]):
-    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> item_to_find:
-        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found </span><span style="color:#e6db74">{</span>index_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-        <span style="color:#66d9ef">break</span>
-</code></pre></div><p>Let&rsquo;s look closely at what happened here.  In this snippet, we loop through a list of letters.  And if we find <code>index_to_find</code> in our list, we print out a message, and then on the next line, we write the word <code>break</code>.  <code>break</code> will immediately exit the loop.  You&rsquo;ll run into this keyword from time to time when reading Python code, so it&rsquo;s useful to be familiar with the syntax.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>item_to_find <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;c&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, item <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>]):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> item <span style="color:#f92672">==</span> item_to_find:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;I found </span><span style="color:#e6db74">{</span>index_to_find<span style="color:#e6db74">}</span><span style="color:#e6db74"> at index </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span></code></pre></div><p>Let&rsquo;s look closely at what happened here.  In this snippet, we loop through a list of letters.  And if we find <code>index_to_find</code> in our list, we print out a message, and then on the next line, we write the word <code>break</code>.  <code>break</code> will immediately exit the loop.  You&rsquo;ll run into this keyword from time to time when reading Python code, so it&rsquo;s useful to be familiar with the syntax.</p>
 <hr>
 <h3 id="what-can-loops-loop-over">What can loops loop over?</h3>
 <p>Let&rsquo;s do a bit of housekeeping before ending this lesson.  This section will give you a summary of what we can loop over.  In this section, I&rsquo;ll focus on for loops.  In the additional exercises</p>
 <p><strong>Lists</strong>.  You&rsquo;ve seen this already.  Loops and lists go together <a href="https://www.urbandictionary.com/define.php?term=Peas%20%26%20Carrots">like peas and carrots</a>.  For example, given any list, we can use the following script to loop through the list via:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> street <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;Chestnut&#34;</span>, <span style="color:#e6db74">&#34;Walnut&#34;</span>, <span style="color:#e6db74">&#34;Spruce&#34;</span>, <span style="color:#e6db74">&#34;Pine&#34;</span>]:
-    print(street)
-</code></pre></div><p><strong>Strings</strong>.  Here&rsquo;s another cool thing about lists: You can loop though the characters in a string.  Have a look at the following script, which I&rsquo;ll call loop_through_a_string.py, and the output it generates.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> character <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;I ♥ you&#34;</span>:
-    print(character)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python loop_though_a_string.py
-I
- 
-♥
- 
-y
-o
-u
-</code></pre></div><p><strong><code>range</code> and <code>enumerate</code> objects</strong>.  Here&rsquo;s another one you&rsquo;ve already seen.  You can loop though a range object just like you can a list.  Thus, to print out the numnbers 1 through 5, you can do the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
-    print(number)
-</code></pre></div><p>Similarly, you can also loop through an enumerate data type.  See the following script &ndash; called enumerate.py &ndash; and it&rsquo;s output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> index, word <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;Not&#39;</span>, <span style="color:#e6db74">&#39;all&#39;</span>, <span style="color:#e6db74">&#39;those&#39;</span>, <span style="color:#e6db74">&#39;who&#39;</span>, <span style="color:#e6db74">&#39;wander&#39;</span>, <span style="color:#e6db74">&#39;are&#39;</span>, <span style="color:#e6db74">&#39;lost&#39;</span>]):
-    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Index: </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74"> | Word: </span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python enumerate.py
-Index: <span style="color:#ae81ff">0</span> | Word: Not
-Index: <span style="color:#ae81ff">1</span> | Word: all
-Index: <span style="color:#ae81ff">2</span> | Word: those
-Index: <span style="color:#ae81ff">3</span> | Word: who
-Index: <span style="color:#ae81ff">4</span> | Word: wander
-Index: <span style="color:#ae81ff">5</span> | Word: are
-Index: <span style="color:#ae81ff">6</span> | Word: lost
-</code></pre></div><p><strong>Tuples</strong>.  A few lessons ago, part of the bonus content was devoted to a discussion of <a href="https://arobey1.github.io/python/lists/#bonus-content-ii-meet-the-tuple-the-lists-lesser-known-cousin" title="Bonus content II: Meet the tuple, the list’s lesser-known cousin">tuples</a>.  Tuples are similar to lists, except the elements of a tuple cannot be changed or rearranged.  You can loop through tuples in exactly the same was as you loop through lists.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#39;apples&#39;</span>, <span style="color:#e6db74">&#39;bananas&#39;</span>, <span style="color:#e6db74">&#39;oranges&#39;</span>):
-    print(fruit)
-</code></pre></div><p><strong>And so on</strong>.  There are other things that you can loop over, including dictionaries, generators, and iterators.  Dictionaries are fundamental to Python programming, and thus deserve their own future lesson.  Generators and iterators are less common, and so we&rsquo;ll be eliding over them in these notes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> street <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#34;Chestnut&#34;</span>, <span style="color:#e6db74">&#34;Walnut&#34;</span>, <span style="color:#e6db74">&#34;Spruce&#34;</span>, <span style="color:#e6db74">&#34;Pine&#34;</span>]:
+</span></span><span style="display:flex;"><span>    print(street)
+</span></span></code></pre></div><p><strong>Strings</strong>.  Here&rsquo;s another cool thing about lists: You can loop though the characters in a string.  Have a look at the following script, which I&rsquo;ll call loop_through_a_string.py, and the output it generates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> character <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;I ♥ you&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(character)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python loop_though_a_string.py
+</span></span><span style="display:flex;"><span>I
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>♥
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>y
+</span></span><span style="display:flex;"><span>o
+</span></span><span style="display:flex;"><span>u
+</span></span></code></pre></div><p><strong><code>range</code> and <code>enumerate</code> objects</strong>.  Here&rsquo;s another one you&rsquo;ve already seen.  You can loop though a range object just like you can a list.  Thus, to print out the numnbers 1 through 5, you can do the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
+</span></span><span style="display:flex;"><span>    print(number)
+</span></span></code></pre></div><p>Similarly, you can also loop through an enumerate data type.  See the following script &ndash; called enumerate.py &ndash; and it&rsquo;s output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, word <span style="color:#f92672">in</span> enumerate([<span style="color:#e6db74">&#39;Not&#39;</span>, <span style="color:#e6db74">&#39;all&#39;</span>, <span style="color:#e6db74">&#39;those&#39;</span>, <span style="color:#e6db74">&#39;who&#39;</span>, <span style="color:#e6db74">&#39;wander&#39;</span>, <span style="color:#e6db74">&#39;are&#39;</span>, <span style="color:#e6db74">&#39;lost&#39;</span>]):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Index: </span><span style="color:#e6db74">{</span>index<span style="color:#e6db74">}</span><span style="color:#e6db74"> | Word: </span><span style="color:#e6db74">{</span>number<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python enumerate.py
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">0</span> | Word: Not
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">1</span> | Word: all
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">2</span> | Word: those
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">3</span> | Word: who
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">4</span> | Word: wander
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">5</span> | Word: are
+</span></span><span style="display:flex;"><span>Index: <span style="color:#ae81ff">6</span> | Word: lost
+</span></span></code></pre></div><p><strong>Tuples</strong>.  A few lessons ago, part of the bonus content was devoted to a discussion of <a href="https://arobey1.github.io/python/lists/#bonus-content-ii-meet-the-tuple-the-lists-lesser-known-cousin" title="Bonus content II: Meet the tuple, the list’s lesser-known cousin">tuples</a>.  Tuples are similar to lists, except the elements of a tuple cannot be changed or rearranged.  You can loop through tuples in exactly the same was as you loop through lists.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#39;apples&#39;</span>, <span style="color:#e6db74">&#39;bananas&#39;</span>, <span style="color:#e6db74">&#39;oranges&#39;</span>):
+</span></span><span style="display:flex;"><span>    print(fruit)
+</span></span></code></pre></div><p><strong>And so on</strong>.  There are other things that you can loop over, including dictionaries, generators, and iterators.  Dictionaries are fundamental to Python programming, and thus deserve their own future lesson.  Generators and iterators are less common, and so we&rsquo;ll be eliding over them in these notes.</p>
 <hr>
 <h3 id="review">Review</h3>
 <p>Let&rsquo;s summarize what we&rsquo;ve learned in this lesson.</p>
@@ -519,41 +517,41 @@ Index: <span style="color:#ae81ff">6</span> | Word: lost
 </blockquote>
 <p>I use list comprehension quite a lot while programming in Python.  It offers an elegant way to concisely create lists without losing readibility.  I debated whether to include this topic in the main lesson, but on the whole, one can easily get by without knowing this topic.  Thus, I put my foot down and relegated this topic to the bonus material.</p>
 <p>As is our way, let&rsquo;s start with an example.  Let&rsquo;s say that I want to generate a list of perfect squares, i.e., 1², 2², 3², and so on.  One way to do this would be to loop through a <code>range</code> of numbers and append their squares to a list, like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">perfect_squares <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
-    perfect_squares<span style="color:#f92672">.</span>append(num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
-print(perfect_squares)
-</code></pre></div><p>And if we run this script, which we&rsquo;ll call perfect_squares.py, we get the following result:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python perfect_squares.py
-<span style="color:#f92672">[</span>1, 4, 9, 16, 25<span style="color:#f92672">]</span>
-</code></pre></div><p>This is a perfectly acceptable way of getting the desired output.  However, one could argue that this program is a little bit long and inelegant for such a simple task.  Specifically, it takes three lines to create a list, initialize a loop, and then append the square numbers to the list.  And as it turns out, list comprehension will allow us to accomplish this task in a single line of Python.  Here&rsquo;s how:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> perfect_squares <span style="color:#f92672">=</span> [num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>)]
-<span style="color:#f92672">&gt;&gt;&gt;</span> print(perfect_squares)
-[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">25</span>]
-</code></pre></div><p>Look how concise this is!  Here&rsquo;s another example that uses the <code>upper</code> method; this capitalizes a string, i.e. <code>'abc'.upper()</code> will return <code>'ABC'</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">words <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;i&#39;</span>, <span style="color:#e6db74">&#39;miss&#39;</span>, <span style="color:#e6db74">&#39;you&#39;</span>, <span style="color:#e6db74">&#39;bro&#39;</span>]
-
-<span style="color:#75715e"># *without* list comprehension</span>
-caps_words_orig <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words:
-    caps_words_orig<span style="color:#f92672">.</span>append(w<span style="color:#f92672">.</span>upper())
-
-<span style="color:#75715e"># *with* list comprehension</span>
-caps_words_comprehension <span style="color:#f92672">=</span> [w<span style="color:#f92672">.</span>upper() <span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words]
-</code></pre></div><p>Both <code>caps_words_orig</code> and <code>caps_words_comprehension</code> will contain <code>['I', 'MISS', 'YOU', 'BRO']</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>perfect_squares <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>):
+</span></span><span style="display:flex;"><span>    perfect_squares<span style="color:#f92672">.</span>append(num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>print(perfect_squares)
+</span></span></code></pre></div><p>And if we run this script, which we&rsquo;ll call perfect_squares.py, we get the following result:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python perfect_squares.py
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>1, 4, 9, 16, 25<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>This is a perfectly acceptable way of getting the desired output.  However, one could argue that this program is a little bit long and inelegant for such a simple task.  Specifically, it takes three lines to create a list, initialize a loop, and then append the square numbers to the list.  And as it turns out, list comprehension will allow us to accomplish this task in a single line of Python.  Here&rsquo;s how:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> perfect_squares <span style="color:#f92672">=</span> [num <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> print(perfect_squares)
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">25</span>]
+</span></span></code></pre></div><p>Look how concise this is!  Here&rsquo;s another example that uses the <code>upper</code> method; this capitalizes a string, i.e. <code>'abc'.upper()</code> will return <code>'ABC'</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>words <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;i&#39;</span>, <span style="color:#e6db74">&#39;miss&#39;</span>, <span style="color:#e6db74">&#39;you&#39;</span>, <span style="color:#e6db74">&#39;bro&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *without* list comprehension</span>
+</span></span><span style="display:flex;"><span>caps_words_orig <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words:
+</span></span><span style="display:flex;"><span>    caps_words_orig<span style="color:#f92672">.</span>append(w<span style="color:#f92672">.</span>upper())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *with* list comprehension</span>
+</span></span><span style="display:flex;"><span>caps_words_comprehension <span style="color:#f92672">=</span> [w<span style="color:#f92672">.</span>upper() <span style="color:#66d9ef">for</span> w <span style="color:#f92672">in</span> words]
+</span></span></code></pre></div><p>Both <code>caps_words_orig</code> and <code>caps_words_comprehension</code> will contain <code>['I', 'MISS', 'YOU', 'BRO']</code>.</p>
 <p>As you might expect, list comprehension can get even more involved.  The general syntax for list comprehension looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">new_list <span style="color:#f92672">=</span> [expression <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> old_list <span style="color:#66d9ef">if</span> condition <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>]
-</code></pre></div><p>So far, we&rsquo;ve created lists that look like <code>[expression for item in old_list]</code>.  However, this general syntax means that we can include an additional conditional statement to filter entries in <code>new_list</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>new_list <span style="color:#f92672">=</span> [expression <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> old_list <span style="color:#66d9ef">if</span> condition <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>]
+</span></span></code></pre></div><p>So far, we&rsquo;ve created lists that look like <code>[expression for item in old_list]</code>.  However, this general syntax means that we can include an additional conditional statement to filter entries in <code>new_list</code>.</p>
 <p>Here&rsquo;s an example.  Let&rsquo;s reuse our list of fruits from the section on <a href="#loops-indexing-and-enumerate">Loops, indexing, and <code>enumerate</code></a>.  However, let&rsquo;s say that we want to remove all fruits that have an &ldquo;g&rdquo; in them.  We could do this the old fashioned way:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
-g_less_fruits <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits:
-    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruit:
-        g_less_fruits<span style="color:#f92672">.</span>append(fruit)
-</code></pre></div><p>However, given the general syntax for list comprehension, we can accomplish this in a single line of Python in the following way:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
-g_less_fruits <span style="color:#f92672">=</span> [fruit <span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruits]
-</code></pre></div><p>It&rsquo;s certainly more concise, but you may find this harder to read.  For this reason, you have my permission to ignore list comprehension and to stick to the classic way of doing things.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+</span></span><span style="display:flex;"><span>g_less_fruits <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruit:
+</span></span><span style="display:flex;"><span>        g_less_fruits<span style="color:#f92672">.</span>append(fruit)
+</span></span></code></pre></div><p>However, given the general syntax for list comprehension, we can accomplish this in a single line of Python in the following way:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fruits <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;banana&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;strawberry&#39;</span>, <span style="color:#e6db74">&#39;pear&#39;</span>]
+</span></span><span style="display:flex;"><span>g_less_fruits <span style="color:#f92672">=</span> [fruit <span style="color:#66d9ef">for</span> fruit <span style="color:#f92672">in</span> fruits <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;g&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> fruits]
+</span></span></code></pre></div><p>It&rsquo;s certainly more concise, but you may find this harder to read.  For this reason, you have my permission to ignore list comprehension and to stick to the classic way of doing things.</p>
 <hr>
 <h3 id="additional-exercises">Additional exercises</h3>
 <h4 id="exercise-5-more-practice-with-exchanging-loops">Exercise 5 (More practice with exchanging loops)</h4>
@@ -572,28 +570,28 @@ g_less_fruits <span style="color:#f92672">=</span> [fruit <span style="color:#66
 <p>So for example, when $N=5$, this formula will yield the following approximation of $\pi$:</p>
 <p>$$\pi \approx 4 \left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \frac{1}{11} \right) = 2.9760461760461765 $$</p>
 <p>The goal of this exercise is to see how &ldquo;good&rdquo; this approximation is.  To do so, create a script called approximate_pi.py and use the partial sum approximation outlined above to compute an approximation for pi with $N$ terms, where $N$ is an input to the script.  Your output should look something like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python approximate_pi.py
-This program will approximate pi.
-
-Enter a number N: <span style="color:#ae81ff">5</span>
-For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python approximate_pi.py
+</span></span><span style="display:flex;"><span>This program will approximate pi.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Enter a number N: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
+</span></span></code></pre></div><hr>
 <h4 id="exercise-7-a-cool-approximation-of-a-famous-number-part-2">Exercise 7 (A cool approximation of a famous number: Part 2)</h4>
 <p>Here&rsquo;s one way to take the previous exercise to the next level.  Aside from just computing the approximation, we may be interested in seeing how close the approximation is to the true value of $\pi$.  For instance, the error in the approximation for $N=5$ is</p>
 <p>$$\text{error} = | 2.9760461760461765 - \pi| = 0.16554647754361662 $$</p>
 <p>meaning that the difference between the approxiamtion and $\pi$ is about 0.166.  Not bad, but certainly this approximation should get better as we add more terms.</p>
 <p>To compute this error, we need the true value of $\pi$.  Luckily, Python can give us access to this value.  You can get access to this value by including the following line at the beginning of your script:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> pi
-<span style="color:#f92672">&gt;&gt;&gt;</span> pi
-<span style="color:#ae81ff">3.141592653589793</span>
-</code></pre></div><p>Given this value, your next job is to update your script from the previous exercise to include the following output.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ python approximate_pi.py
-This program will approximate pi.
-
-Enter a number N: <span style="color:#ae81ff">5</span>
-For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
-The error in your approximation is: 0.16554647754361662
-</code></pre></div><p>Good luck!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> math <span style="color:#f92672">import</span> pi
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> pi
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3.141592653589793</span>
+</span></span></code></pre></div><p>Given this value, your next job is to update your script from the previous exercise to include the following output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ python approximate_pi.py
+</span></span><span style="display:flex;"><span>This program will approximate pi.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Enter a number N: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>For N<span style="color:#f92672">=</span>5, the approximation of pi is: 2.9760461760461765
+</span></span><span style="display:flex;"><span>The error in your approximation is: 0.16554647754361662
+</span></span></code></pre></div><p>Good luck!</p>
 
       </div>
     </article>
@@ -612,7 +610,7 @@ The error in your approximation is: 0.16554647754361662
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        5572 Words
+        5578 Words
       </p>
 
       <p>
@@ -755,7 +753,7 @@ The error in your approximation is: 0.16554647754361662
 
 
 
-<script type="text/javascript" src="https://arobey1.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.ada905442d53eafc5c125b84cffce974e971bcb52433fb67db20c5af5b964cea37ebd2c16ee6457894372eac0911dd0428f88da966c8e885b160fc6c0fe0fed6.js" integrity="sha512-rakFRC1T6vxcEluEz/zpdOlxvLUkM/tn2yDFr1uWTOo369LBbuZFeJQ3LqwJEd0EKPiNqWbI6IWxYPxsD&#43;D&#43;1g=="></script>
 
 
 

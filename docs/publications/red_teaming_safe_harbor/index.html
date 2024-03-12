@@ -7,15 +7,15 @@
 <meta name="author"
     content="Alex Robey ">
 <meta name="description"
-    content="Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively." />
+    content="Abstract. Independent evaluation and red teaming are critical for identifying the risks posed by generative AI systems. However, the terms of service and enforcement strategies used by prominent AI companies to deter model misuse have disincentives on good faith safety evaluations. This causes some researchers to fear that conducting such research or releasing their findings will result in account suspensions or legal reprisal. Although some companies offer researcher access programs, they are an inadequate substitute for independent research access, as they have limited community representation, receive inadequate funding, and lack independence from corporate incentives." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://arobey1.github.io/publications/mb_closed_loop_verification/" />
+<link rel="canonical" href="https://arobey1.github.io/publications/red_teaming_safe_harbor/" />
 
 
 <title>
     
-    Data-Driven Modeling and Verification of Perception-Based Autonomous Systems :: Alex Robey 
+    A Safe Harbor for AI Evaluation and Red Teaming :: Alex Robey 
     
 </title>
 
@@ -46,18 +46,18 @@
     <meta name="msapplication-TileColor" content="">
     <meta name="theme-color" content="">
 
-<meta itemprop="name" content="Data-Driven Modeling and Verification of Perception-Based Autonomous Systems">
-<meta itemprop="description" content="Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively."><meta itemprop="datePublished" content="2023-12-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-22T23:05:01-05:00" />
-<meta itemprop="wordCount" content="136"><meta itemprop="image" content="https://arobey1.github.io/" />
+<meta itemprop="name" content="A Safe Harbor for AI Evaluation and Red Teaming">
+<meta itemprop="description" content="Abstract. Independent evaluation and red teaming are critical for identifying the risks posed by generative AI systems. However, the terms of service and enforcement strategies used by prominent AI companies to deter model misuse have disincentives on good faith safety evaluations. This causes some researchers to fear that conducting such research or releasing their findings will result in account suspensions or legal reprisal. Although some companies offer researcher access programs, they are an inadequate substitute for independent research access, as they have limited community representation, receive inadequate funding, and lack independence from corporate incentives."><meta itemprop="datePublished" content="2024-03-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="180"><meta itemprop="image" content="https://arobey1.github.io/" />
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="Data-Driven Modeling and Verification of Perception-Based Autonomous Systems"/>
-<meta name="twitter:description" content="Abstract. This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively."/>
+<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="A Safe Harbor for AI Evaluation and Red Teaming"/>
+<meta name="twitter:description" content="Abstract. Independent evaluation and red teaming are critical for identifying the risks posed by generative AI systems. However, the terms of service and enforcement strategies used by prominent AI companies to deter model misuse have disincentives on good faith safety evaluations. This causes some researchers to fear that conducting such research or releasing their findings will result in account suspensions or legal reprisal. Although some companies offer researcher access programs, they are an inadequate substitute for independent research access, as they have limited community representation, receive inadequate funding, and lack independence from corporate incentives."/>
 
 
 
 
-<meta property="article:published_time" content="2023-12-11 00:00:00 &#43;0000 UTC" />
+<meta property="article:published_time" content="2024-03-05 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -143,13 +143,14 @@ MathJax.Hub.Config({
         </div>
 
         <article>
-            <h1 class="post-title"><a href="https://arobey1.github.io/publications/mb_closed_loop_verification/">Data-Driven Modeling and Verification of Perception-Based Autonomous Systems</a></h1>
-            <h3 >Thomas Waite, Alexander Robey, Hamed Hassani, George J. Pappas, Radoslav Ivanov</h3>
+            <h1 class="post-title"><a href="https://arobey1.github.io/publications/red_teaming_safe_harbor/">A Safe Harbor for AI Evaluation and Red Teaming</a></h1>
+            <h3 >Shayne Longpre*, Sayash Kapoor*, Kevin Klyman*, Ashwin Ramaswami, Rishi Bommasani, Borhane Blili-Hamelin, Yangsibo Huang, Aviya Skowron, Yong Zheng Xin, Suhas Kotha, Yi Zeng, Weiyan Shi, Xianjun Yang, Reid Southen, Alexander Robey, Patrick Chao, Diyi Yang, Ruoxi Jia, Daniel Kang, Sandy Pentland, Arvind Narayanan, Percy Liang, Peter Henderson</h3>
 
             
 
             <div class="post-content">
-                <p><strong>Abstract.</strong> This paper addresses the problem of data-driven modeling and verification of perception-based autonomous systems. We assume the perception model can be decomposed into a canonical model (obtained from first principles or a simulator) and a noise model that contains the measurement noise introduced by the real environment. We focus on two types of noise, benign and adversarial noise, and develop a data-driven model for each type using generative models and classifiers, respectively. We show that the trained models perform well according to a variety of evaluation metrics based on downstream tasks such as state estimation and control. Finally, we verify the safety of two systems with high-dimensional data-driven models, namely an image-based version of mountain car (a reinforcement learning benchmark) as well as the F1/10 car, which uses LiDAR measurements to navigate a racing track.</p>
+                <p><strong>Abstract.</strong> Independent evaluation and red teaming are critical for identifying the risks posed by generative AI systems.
+However, the terms of service and enforcement strategies used by prominent AI companies to deter model misuse have disincentives on good faith safety evaluations. This causes some researchers to fear that conducting such research or releasing their findings will result in account suspensions or legal reprisal. Although some companies offer researcher access programs, they are an inadequate substitute for independent research access, as they have limited community representation, receive inadequate funding, and lack independence from corporate incentives. We propose that major AI developers commit to providing a legal and technical safe harbor, indemnifying public interest safety research and protecting it from the threat of account suspensions or legal reprisal. These proposals emerged from our collective experience conducting safety, privacy, and trustworthiness research on generative AI systems, where norms and incentives could be better aligned with public interests, without exacerbating model misuse. We believe these commitments are a necessary step towards more inclusive and unimpeded community efforts to tackle the risks of generative AI.</p>
 
                 
             </div>
@@ -159,10 +160,9 @@ MathJax.Hub.Config({
 
         <div class="post-info">
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>136 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>180 Words</p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2023-12-10 19:00</p>
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg><a href="https://github.com/arobey1fdccfb97f8311eb3713f93e9099b951a663419df" target="_blank" rel="noopener">fdccfb9</a> @ 2024-01-22</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2024-03-04 19:00</p>
         </div>
 
         
@@ -174,18 +174,11 @@ MathJax.Hub.Config({
 
                 <div class="pagination__buttons">
                     
-                        <span class="button previous">
-                            <a href="https://arobey1.github.io/publications/semantic_smoothing/">
-                                <span class="button__icon">←</span>
-                                <span class="button__text">Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing</span>
-                            </a>
-                        </span>
-                    
 
                     
                         <span class="button next">
-                            <a href="https://arobey1.github.io/publications/semantic_llm_attacks/">
-                                <span class="button__text">Jailbreaking Black Box Large Language Models in Twenty Queries</span>
+                            <a href="https://arobey1.github.io/publications/semantic_smoothing/">
+                                <span class="button__text">Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing</span>
                                 <span class="button__icon">→</span>
                             </a>
                         </span>
