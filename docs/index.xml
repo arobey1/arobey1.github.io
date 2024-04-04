@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 05 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://arobey1.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automated Black-box Prompt Engineering for Personalized Text-to-Image Generation</title>
+      <link>https://arobey1.github.io/publications/text_to_image_pair/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://arobey1.github.io/publications/text_to_image_pair/</guid>
+      <description>Abstract. Prompt engineering is effective for controlling the output of text-to-image (T2I) generative models, but it is also laborious due to the need for manually crafted prompts. This challenge has spurred the development of algorithms for automated prompt generation. However, these methods often struggle with transferability across T2I models, require white-box access to the underlying model, and produce non-intuitive prompts. In this work, we introduce PRISM, an algorithm that automatically identifies human-interpretable and transferable prompts that can effectively generate desired concepts given only black-box access to T2I models.</description>
+    </item>
+    <item>
+      <title>JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models</title>
+      <link>https://arobey1.github.io/publications/jailbreakbench/</link>
+      <pubDate>Thu, 28 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://arobey1.github.io/publications/jailbreakbench/</guid>
+      <description>Abstract. Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs.</description>
+    </item>
     <item>
       <title>A Safe Harbor for AI Evaluation and Red Teaming</title>
       <link>https://arobey1.github.io/publications/red_teaming_safe_harbor/</link>
@@ -64,20 +78,6 @@
       <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://arobey1.github.io/python/loops/</guid>
       <description>We&amp;rsquo;ve been building to this day for quite some time. Today is the day we learn about loops! If you haven&amp;rsquo;t heard about loops before, you&amp;rsquo;re in for a real treat; loops are an essential part of almost every programming language.&#xA;What is a loop? Loops are ubiquitous in Python. Once you master loops, you&amp;rsquo;ll be amazed at how much more your programs can do. But first things first: What is a loop?</description>
-    </item>
-    <item>
-      <title>Conditionals</title>
-      <link>https://arobey1.github.io/python/conditionals/</link>
-      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://arobey1.github.io/python/conditionals/</guid>
-      <description>Today is a big day! We&amp;rsquo;re going to meet one of the most essential parts of the Python language: conditionals. After you&amp;rsquo;ve mastered conditionals, you&amp;rsquo;ll be amazed at how much more you can do in Python. Let&amp;rsquo;s get to work!&#xA;What is programming and why do we do it? These are big questions. There are many reasons why we write programs. Perhaps you&amp;rsquo;re a data scientist who wants to use sales data to decide whether or not to sell a particular product.</description>
-    </item>
-    <item>
-      <title>Lists</title>
-      <link>https://arobey1.github.io/python/lists/</link>
-      <pubDate>Mon, 26 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://arobey1.github.io/python/lists/</guid>
-      <description>You&amp;rsquo;re back! We&amp;rsquo;ve got a lot to cover in this lesson, so let&amp;rsquo;s get right into it. The goal is introduce another fundamental data type: the list. Lists are crucial to almost every programming language out there, and Python is no excetpion.&#xA;A motivating example: Why we need lists in Python Let&amp;rsquo;s say that you&amp;rsquo;re an avid reader. You read all sorts of things. Technical books, novels, the occasional murder mystery, biographies, poetry, you name it!</description>
     </item>
   </channel>
 </rss>

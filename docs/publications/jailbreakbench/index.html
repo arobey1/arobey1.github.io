@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Alex Robey ">
+<meta name="description"
+    content="Abstract. Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://arobey1.github.io/publications/jailbreakbench/" />
+
+
+<title>
+    
+    JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models :: Alex Robey 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<link rel="stylesheet" href="https://arobey1.github.io/main.min.f4c2daf2832ae65007bcc18dc621f49f9f67ef0ef34d55eabd4fd45f6eed4c00.css">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://arobey1.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://arobey1.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://arobey1.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://arobey1.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://arobey1.github.io/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="https://arobey1.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+    <meta name="theme-color" content="">
+
+<meta itemprop="name" content="JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models">
+<meta itemprop="description" content="Abstract. Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs."><meta itemprop="datePublished" content="2024-03-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-03-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="203"><meta itemprop="image" content="https://arobey1.github.io/" />
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://arobey1.github.io/" /><meta name="twitter:title" content="JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models"/>
+<meta name="twitter:description" content="Abstract. Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs."/>
+
+
+
+
+<meta property="article:published_time" content="2024-03-28 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://arobey1.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Alex Robey</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://arobey1.github.io/about/">About</a></li><li><a href="https://arobey1.github.io/cv/">CV</a></li><li><a href="https://arobey1.github.io/posts/">Posts</a></li><li><a href="https://arobey1.github.io/publications/">Publications</a></li><li><a href="https://arobey1.github.io/python/">Python</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+            
+
+        </span>
+    </span>
+</header>
+
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>One minute
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="https://arobey1.github.io/publications/jailbreakbench/">JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models</a></h1>
+            <h3 >Patrick Chao*, Edoardo Debenedetti*, Alexander Robey*, Maksym Andriushchenko*, Francesco Croce, Vikash Sehwag, Edgar Dobriban, Nicolas Flammarion, George J. Pappas, Florian Tràmer, Hamed Hassani, Eric Wong</h3>
+
+            
+
+            <div class="post-content">
+                <p><strong>Abstract.</strong> Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs. To address these challenges, we introduce JailbreakBench, an open-sourced benchmark with the following components: (1) a new jailbreaking dataset containing 100 unique behaviors, which we call JBB-Behaviors; (2) an evolving repository of state-of-the-art adversarial prompts, which we refer to as jailbreak artifacts; (3) a standardized evaluation framework at  <a href="https://github.com/JailbreakBench/jailbreakbench">https://github.com/JailbreakBench/jailbreakbench</a> that includes a clearly defined threat model, system prompts, chat templates, and scoring functions; and (4) a leaderboard at <a href="https://jailbreakbench.github.io/">https://jailbreakbench.github.io/</a> that tracks the performance of attacks and defenses for various LLMs. We have carefully considered the potential ethical implications of releasing this benchmark, and believe that it will be a net positive for the community. Over time, we will expand and adapt the benchmark to reflect technical and methodological advances in the research community.</p>
+
+                
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>203 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2024-03-27 20:00</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://arobey1.github.io/publications/text_to_image_pair/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Automated Black-box Prompt Engineering for Personalized Text-to-Image Generation</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://arobey1.github.io/publications/red_teaming_safe_harbor/">
+                                <span class="button__text">A Safe Harbor for AI Evaluation and Red Teaming</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            <span><a href="https://arobey1.github.io/">Alex Robey</a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://arobey1.github.io/bundle.min.ada905442d53eafc5c125b84cffce974e971bcb52433fb67db20c5af5b964cea37ebd2c16ee6457894372eac0911dd0428f88da966c8e885b160fc6c0fe0fed6.js" integrity="sha512-rakFRC1T6vxcEluEz/zpdOlxvLUkM/tn2yDFr1uWTOo369LBbuZFeJQ3LqwJEd0EKPiNqWbI6IWxYPxsD&#43;D&#43;1g=="></script>
+
+
+
+    </body>
+</html>
