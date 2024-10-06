@@ -254,7 +254,7 @@ body {
 }
 
 .research-image-with-caption #smoothllm-image, #aisafety-image {
-    max-width: 85%;
+    max-width: 95%;
     margin-top: 30px;
     display: block;
     margin-left: auto;
