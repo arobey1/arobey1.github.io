@@ -1,0 +1,649 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+body {
+    background-color: rgba(240, 240, 240, 0.9); /* Light gray with 90% opacity */
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-image: url('img/background.png');
+}
+
+.container {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    position: relative;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.navbar .brand {
+    font-size: 1.2rem;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.navbar nav ul li {
+    flex: 1;
+}
+
+.navbar nav ul li a {
+    text-decoration: none; /* Remove underline from navbar items */
+    color: #333;
+    font-size: 1.2rem; /* Ensure all navbar links have the same size */
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    white-space: nowrap;
+}
+
+.navbar nav ul li a:hover {
+    text-decoration: underline;
+    color: #333; /* Change color back to default on hover */
+}
+
+.profile-section {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.profile-img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #333;
+}
+
+.profile-section p {
+    margin: 25px 0; /* Add 25px vertical space between paragraphs */
+    text-align: left;
+    line-height: 1.3rem;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.profile-section p a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.profile-section p a:hover {
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    margin-right: 60px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img {
+    height: 50px;
+    width: auto;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons a:last-child {
+    margin-right: 0; /* Remove margin for the last icon */
+}
+
+.news-section {
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.news-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    text-align: center;
+    position: relative;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.news-section h2::before {
+    left: 0;
+}
+
+.news-section h2::after {
+    right: 0;
+}
+
+.news-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.news-section ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.news-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background-image: url('img/icons/soccerball.png');
+    background-size: cover; /* Make sure the image fits the size */
+}
+
+
+.news-section ul li a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.news-section ul li a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .navbar nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 0;
+    }
+
+    .navbar nav ul li a {
+        display: block;
+    }
+
+    main {
+        margin-top: 130px;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar nav ul {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.section-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    position: relative;
+}
+
+.section-heading span {
+    display: inline-block;
+    position: relative;
+    z-index: 1; /* Ensure the text is above the lines */
+}
+
+.section-heading::before,
+.section-heading::after {
+    content: "";
+    flex-grow: 1; /* Allow the lines to grow dynamically */
+    height: 1px;
+    background-color: #333;
+    position: relative;
+    top: 50%;
+    z-index: 0; /* Ensure the lines are behind the text */
+    margin: 0 10px; /* Add space between the text and the lines */
+}
+
+.section-heading::before {
+    margin-right: 0px;
+}
+
+.section-heading::after {
+    margin-left: 0px;
+}
+
+.research-section, .focus-area-section {
+    margin-bottom: 30px;
+}
+
+.research-image-with-caption #smoothllm-image, #aisafety-image {
+    max-width: 85%;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.jump-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.jump-container a {
+    text-decoration: underline;
+    color: #555;
+    margin-right: 10px;
+}
+
+.jump-container a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+.jump-text {
+    padding-right: 10px;
+}
+
+.research-section, .focus-area-section, .publications-section {
+    scroll-margin-top: 20px; /* Adds margin from the top when scrolling */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.focus-area-item {
+    margin-bottom: 30px;
+}
+
+.focus-area-item + .focus-area-item {
+    border-top: 1px solid #ccc; /* Add a gray divider between each focus area */
+    padding-top: 30px;
+}
+
+.focus-subtitle {
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.focus-area-item p {
+    margin-left: 0px;
+    text-align: left;
+}
+
+.focus-list {
+    margin-left: 50px;
+    padding-left: 0;
+    list-style-type: disc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.focus-list li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    line-height: 1.0rem;
+    color: #333;
+}
+
+.publications-section {
+    margin-top: 40px;
+}
+
+.publication {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.publication-details {
+    flex: 1;
+    max-width: calc(100% - 100px);
+}
+
+.publication-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+.publication-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.publication-authors {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.publication-links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.publication-links {
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 0;
+}
+
+.publication-venue {
+    font-size: 0.9rem;
+    color: red;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+    margin-left: auto; /* Push venue to the right */
+    display: inline-block;
+}
+
+.publication-links a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.publication-links a:hover {
+    text-decoration: underline;
+}
+
+.bibtex-box {
+    background-color: #f9f9f9;
+    border: 1px solid #000;
+    padding: 2px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-x: auto;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.bibtex-box p {
+    margin: 0;
+    text-align: left;
+    padding-left: 0;
+}
+
+.blog-list {
+    padding: 0;
+}
+
+.blog-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.blog-date {
+    color: #7a7a7a;
+    font-size: 0.9rem;
+    font-family: 'Menlo', monospace;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.blog-arrow {
+    font-weight: bold;
+    color: red;
+    margin-right: 10px;
+    align-self: flex-start; /* Align arrow with the start of the title */
+    padding-top: 0px;
+    font-size: 1.0rem;
+}
+
+.blog-item a {
+    color: #007BFF;
+    text-decoration: none;
+    word-wrap: break-word; /* Allow long titles to wrap onto a second line */
+    flex-grow: 1; /* Ensure the title aligns correctly and takes up remaining space */
+    margin-top: 0; /* Ensures title starts aligned with arrow */
+}
+
+.blog-item a:hover {
+    text-decoration: underline;
+}
+
+.blog-post-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog-post-date, .blog-author {
+    font-size: 1rem;
+    color: #7a7a7a;
+    margin-bottom: 20px;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between; /* Pushes the author left and the date right */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.blog-post-content {
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.research-image-with-caption {
+    text-align: center;
+    margin: 10px 0;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+.research-image-with-caption img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.image-with-caption {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-with-caption img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.image-with-caption figcaption,
+.research-image-with-caption figcaption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.figure-label {
+    font-weight: bold;
+    color: red;
+}
+
+.teaching-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    width: 100%;
+    flex-wrap: wrap; /* Enables wrapping for responsiveness */
+    margin-bottom: 0;
+}
+
+.teaching-item + .teaching-item {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.teaching-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.teaching-details {
+    flex-grow: 1;
+    max-width: 70%;
+}
+
+.teaching-details h2 {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.teaching-role {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.teaching-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.teaching-details a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.teaching-details a:hover {
+    text-decoration: underline;
+}
+
+.teaching-term {
+    color: #666;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.bio-section p {
+    margin-bottom: 20px;
+}
+
+.bio-section a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.no-links a {
+    pointer-events: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.toggle-button {
+    display: inline-block;
+    margin-top: 0px;
+    background-color: #555;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    text-align: right;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.toggle-button:hover {
+    background-color: #333;
+}
+
+.compress-button {
+    margin-right: 10px;
+}
+
+.bio-section p a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.bio-section p a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.bio-section p a {
+    text-decoration: underline;
+    color: #555;
+}
+
+.link-container a {
+    text-decoration: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.link-container a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+.link-container {
+    text-align: right;
+    margin-top: 0px;
+    padding-top: 0px;
+}
