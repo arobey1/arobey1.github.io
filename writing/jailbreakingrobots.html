@@ -130,7 +130,7 @@
                 <div class="blog-post-content">
                     
                     <p>
-                        <span class="bold-text">Summary.</span> This blog post explores the emerging field of jailbreaking AI. Recent research has shown that modern AIs such as OpenAI's ChatGPT are susceptibile to jailbreaking attacks, wherein malicious users fool an AI into generating harmful content (e.g., bomb building instructions). However, these attacks are generally limited to producing text. Instead, we consider attacks on AI-enabled robots, which, if jailbroken, could be fooled into causing phsycial harm in the real world. Our attacks successfully jailbreak a self-driving AI, a wheeled academic robot, and, most concerningly, the Unitree Go2 robot dog, which is actively deployed in warzones and by law enforcement. This should serve as a critical security warning: Robots that use modern AI are highly susceptible to attacks, and thus there is an urgent need for new defenses.
+                        <span class="bold-text">Summary.</span> This blog post explores the emerging field of jailbreaking AI. Recent research has shown that modern AIs such as OpenAI's ChatGPT are susceptibile to jailbreaking attacks, wherein malicious users fool an AI into generating harmful content (e.g., bomb building instructions). However, these attacks are generally limited to producing text. Instead, we consider attacks on AI-enabled robots, which, if jailbroken, could be fooled into causing phsycial harm in the real world. Our attacks successfully jailbreak a self-driving AI, a wheeled academic robot, and, most concerningly, the Unitree Go2 robot dog, which is actively deployed in warzones and by law enforcement. This should serve as a critical security warning: Robots that use modern AI are highly susceptible to attacks, and thus there is an urgent need for new defenses. We expect the identification of this threat will directly inform the next generation of defenses against the misuse of AI-powered robots.
                     </p>
 
                     <div class="subheading-section">
@@ -269,12 +269,17 @@
                     </div>
 
                     <p>
-                        Let's take a step back. The juxtaposition of AI with new technology is not new; decades of research has sought to integrate new innovations at every level of the robotic control stack. So what is it about this new crop of LLMs that could endanger the well-being of humans?
+                        Let's take a step back. The juxtaposition of AI with new technology is not new; decades of research has sought to integrate the latest AI insights at every level of the robotic control stack. So what is it about this new crop of LLMs that could endanger the well-being of humans?
                     </p>
 
                     <p>
-                        To answer this question, let's rewind back to the summer of 2023. In a <a href="https://arxiv.org/pdf/2307.02483" target="_blank">stream</a> <a href="https://arxiv.org/pdf/2307.15043" target="_blank">of</a> <a href="https://arxiv.org/pdf/2310.08419" target="_blank">academic</a> <a href="https://arxiv.org/pdf/2404.01318" target="_blank">papers</a>, researchers in the field of security-minded machine learning identified a host of vulnerabilities for LLMs, many of which were concerned with so-called <em>jailbreaking attacks</em>.
+                        To answer this question, let's rewind back to the summer of 2023. In a <a href="https://arxiv.org/pdf/2307.02483" target="_blank">stream</a> <a href="https://arxiv.org/pdf/2307.15043" target="_blank">of</a> <a href="https://arxiv.org/pdf/2310.08419" target="_blank">academic</a> <a href="https://arxiv.org/pdf/2404.01318" target="_blank">papers</a>, researchers in the field of security-minded machine learning identified a host of vulnerabilities for LLMs, many of which were concerned with so-called <em>jailbreaking attacks</em>. 
                     </p>
+
+                    <div class="sub-subheading-section">
+                        <h5 class="sub-subheading">Model alignment</h5>
+                    </div>
+
                     <p>
                         To understand jailbreaking, it’s important to note that LLM chatbots are trained to comply with human intentions and values through a process widely known as <em>model alignment</em>. The goal of aligning LLMs with human values is to ensure that LLMs refuse to output harmful content, such as instructions for <a href="https://www.nytimes.com/2023/07/27/business/ai-chatgpt-safety-research.html" target="_blank">building bombs</a>, recipes outlining how to <a href="https://www.wired.com/story/ai-adversarial-attacks/" target="_blank">synthesize illegal drugs</a>, and blueprints for how to <a href="https://asset.seas.upenn.edu/developing-safer-ai/" target="_blank">defraud charities</a>.
                     </p>
@@ -287,6 +292,10 @@
                     <p>
                         The alignment process is similar to Google's <a href="https://www.google.com/safesearch" target="_blank">SafeSearch</a> feature; like search engines, LLMs are designed to manage and filter explict content, thus preventing this content from reaching end users.
                     </p>
+
+                    <div class="sub-subheading-section">
+                        <h5 class="sub-subheading">What happens when alignment fails?</h5>
+                    </div>
 
                     <p>
                         Unfortunately, the alignment of LLMs with human values is known to be fragile to a class of attacks known as jailbreaking. Jailbreaking involves making minor modifications to input prompts, which fool an LLM into generating harmful content. In the example below, adding carefully-chosen, yet random-looking characters to the end of the prompt in <span class="figure-reference" data-figure-id="refusal-video"><a href="#">Figure X</a></span> results in the targetted LLM outputting bomb-building instructions. 
@@ -306,6 +315,23 @@
                         This has prompted not only academic, but also burgeoning commerical interest, in designing <a href="https://arxiv.org/abs/2310.03684">defenses</a> that improve the robustness of LLMs  to such attacks. For instance, the Pittsburgh-based <a href="https://www.grayswan.ai/" target="_blank">Gray Swan AI</a> start-up, which was founded by the researchers who discovered the attack shown in <span class="figure-reference" data-figure-id="jailbreak-video"><a href="#">Figure X</a></span>, is working toward training LLMs to detect and refuse objectionable queries more effectively.
                     </p>
 
+                    <div class="sub-subheading-section">
+                        <h5 class="sub-subheading">The value in identifying strong attacks</h5>
+                    </div>
+
+                    <p>
+                        Before talking more about jailbreaking attacks, let's digress momentarily to talk about why security researchers focus on attacking systems like LLMs, and how these attacks makes the world safer. To this end, a guiding belief in this community is as follows.
+                    </p>
+
+                    <blockquote class="custom-blockquote">
+                        Designing robust defences requires identifying strong attacks.
+                    </blockquote>
+
+                    <p>
+                        This <a href="https://www.goodreads.com/quotes/17976-if-you-know-the-enemy-and-know-yourself-you-need" target="_blank">sentiment</a> is at the heart of security-minded AI research. In the 2010s, adversarial attacks in computer vision <a href="https://arxiv.org/pdf/1706.06083">directly</a> <a href="https://arxiv.org/pdf/1711.00851">led</a> <a href="https://arxiv.org/pdf/1901.08573" target="_blank">to</a> state-of-the-art optimization-based defenses. Now in the 2020s, the <a href="https://arxiv.org/pdf/2406.04313" target="_blank">strongest</a> <a href="https://arxiv.org/pdf/2402.16459v1">defenses</a> against chatbot jailbreaking would not exist without data collected from jailbreaking attacks. When done in controlled settings, the goal of identifying attacks is therefore to contribute to defenses that stress test and verify the performance and safety of AI systems.
+                    </p>
+                    
+
                     <div class="subheading-section">
                         <h3 class="subheading">The downstream effects of jailbreaking LLMs</h3>
                     </div>
@@ -323,7 +349,7 @@
                     </blockquote>
 
                     <p>
-                        Our preprint, which is titled <em>Jailbreaking LLM-Controlled Robots</em>, answers this question in the affirmative: Jailbreaking attacks are applicable, and, arguably, significantly more effective on AI-powered robots.
+                        Our preprint, which is titled <em>Jailbreaking LLM-Controlled Robots</em>, answers this question in the affirmative: Jailbreaking attacks are applicable, and, arguably, significantly more effective on AI-powered robots. We expect that this finding, as well as our <a href="https://github.com/arobey1/RoboPAIR" target="_blank">open-sourced code</a>, will constitute the first step toward avoiding future misuse of AI-powered robots.  
                     </p>
 
                     <div class="subheading-section">
