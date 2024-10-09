@@ -22,7 +22,6 @@ body {
     font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
 }
 
-
 .navbar {
     width: 100%;
     display: flex;
@@ -482,7 +481,6 @@ html {
     margin-bottom: 20px;
     line-height: 1.3rem;
 }
-
 
 .blog-list-of-items li {
     margin-bottom: 10px;

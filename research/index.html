@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Robey :: Research</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="navbar">
-                <a href="index.html" class="brand">Alex Robey</a>
+                <a href="../../" class="brand">Alex Robey</a>
                 <nav>
                     <ul>
-                        <li><a href="bio.html">bio</a></li>
-                        <li><a href="research.html" class="active">research</a></li>
-                        <li><a href="teaching.html">teaching</a></li>
-                        <li><a href="writing.html">writing</a></li>
-                        <li><a href="files/cv.pdf" target="_blank">cv</a></li>
+                        <li><a href="../bio/">bio</a></li>
+                        <li><a href="../research/" class="active">research</a></li>
+                        <li><a href="../teaching/">teaching</a></li>
+                        <li><a href="../writing/">writing</a></li>
+                        <li><a href="../files/cv.pdf" target="_blank">cv</a></li>
                     </ul>
                 </nav>
             </div>
@@ -64,7 +64,7 @@
                     </p>
 
                     <figure class="research-image-with-caption">
-                        <img src="img/research/aisafety.png" id="aisafety-image" alt="Nominal LLM GIF" class="wide-image">
+                        <img src="../img/research/aisafety.png" id="aisafety-image" alt="Nominal LLM GIF" class="wide-image">
                         <figcaption><span class="figure-label"></span>Large language models, like OpenAI's ChatGPT, are vulnerable to attacks that cause these models to generate harmful content.</figcaption>
                     </figure>
 
@@ -73,7 +73,7 @@
                     </p>
 
                     <figure class="research-image-with-caption">
-                        <img src="img/research/smoothllm.png" id="smoothllm-image" alt="Nominal LLM GIF" class="wide-image">
+                        <img src="../img/research/smoothllm.png" id="smoothllm-image" alt="Nominal LLM GIF" class="wide-image">
                         <figcaption><span class="figure-label"></span>SmoothLLM defends large language models against adversarial attacks.</figcaption>
                     </figure>
 
@@ -89,7 +89,7 @@
                     </p>
 
                     <figure class="research-image-with-caption">
-                        <img src="img/research/mbdg.png" alt="Nominal LLM GIF" class="wide-image">
+                        <img src="../img/research/mbdg.png" alt="Nominal LLM GIF" class="wide-image">
                         <figcaption><span class="figure-label"></span>An overview of out-of-distribution generalization in medical imaging.</figcaption>
                     </figure>
 
@@ -105,7 +105,7 @@
                     </p>
 
                     <figure class="research-image-with-caption">
-                        <img src="img/research/dists.png" alt="Nominal LLM GIF" class="wide-image">
+                        <img src="../img/research/dists.png" alt="Nominal LLM GIF" class="wide-image">
                         <figcaption><span class="figure-label"></span>View of adversarial robustness from the dual perspective.</figcaption>
                     </figure>
 
@@ -128,8 +128,48 @@
 
                 <div id="publications-container"></div>
 
+                <!-- Jailbreaking LLM-Controlled Robots -->
+
                 <div class="publication">
-                    <img src="img/paper-icons/jbb.png" alt="JailbreakBench" class="publication-img">
+                    <img src="../img/paper-icons/unitree-go2.png" alt="JailbreakBench" class="publication-img">
+                    <div class="publication-details">
+                        <p class="publication-title">
+                            Jailbreaking LLM-Controlled Robots
+                        </p>
+                        <p class="publication-authors">
+                            Alexander Robey, Zachary Ravichandran, Vijay Kumar, Hamed Hassani, George J. Pappas
+                        </p>
+                        <div class="publication-links-container">
+                            <span class="publication-links">
+                                <a href="https://arxiv.org/pdf/xxx" target="_blank">arXiv</a> |
+                                <a href="https://github.com/arobey1/RoboPAIR" target="_blank">code</a> |
+                                <a href="robopair/">website</a> |
+                                <a href="javascript:void(0);" class="bibtex-link" >bibtex</a>
+                            </span>
+                            <span class="publication-venue">
+                                Under review
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bibtex-box" style="display: none;">
+                    <p>
+                        @article{robey2024jailbreaking,
+                            title={Jailbreaking LLM-Controlled Robots},
+                            author={Robey, Alexander and Ravichandran, Zachary and Kumar, Vijay and Hassani, Hamed and Pappas, George J.},
+                            journal={arXiv preprint arXiv:xxx},
+                            year={2024}
+                        }
+                    </p>
+                </div>
+
+
+                <!-- JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models -->
+
+
+                <div class="publication">
+                    <img src="../img/paper-icons/jbb.png" alt="JailbreakBench" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models
@@ -167,7 +207,7 @@
                 <!-- Automated Black-box Prompt Engineering for Personalized Text-to-Image Generation -->
                 
                 <div class="publication">
-                    <img src="img/paper-icons/prism.png" alt="Text-to-image" class="publication-img">
+                    <img src="../img/paper-icons/prism.png" alt="Text-to-image" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Automated Black-box Prompt Engineering for Personalized Text-to-Image Generation
@@ -199,7 +239,7 @@
                 <!-- A Safe Harbor for AI Evaluation and Red Teaming -->
                 
                 <div class="publication">
-                    <img src="img/paper-icons/safeharbor.jpeg" alt="Safe Harbor" class="publication-img">
+                    <img src="../img/paper-icons/safeharbor.jpeg" alt="Safe Harbor" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             A Safe Harbor for AI Evaluation and Red Teaming
@@ -236,7 +276,7 @@
                 <!-- Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/semanticsmoothing.png" alt="Semantic smoothing" class="publication-img">
+                    <img src="../img/paper-icons/semanticsmoothing.png" alt="Semantic smoothing" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Defending Large Language Models against Jailbreak Attacks via Semantic Smoothing
@@ -268,7 +308,7 @@
                 <!-- Data-Driven Modeling and Verification of Perception-Based Autonomous Systems -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/mb-closedloop.png" alt="Model-based verification" class="publication-img">
+                    <img src="../img/paper-icons/mb-closedloop.png" alt="Model-based verification" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Data-Driven Modeling and Verification of Perception-Based Autonomous Systems
@@ -300,7 +340,7 @@
                 <!-- Jailbreaking Black Box Large Language Models in Twenty Queries -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/pair.png" alt="PAIR" class="publication-img">
+                    <img src="../img/paper-icons/pair.png" alt="PAIR" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Jailbreaking Black Box Large Language Models in Twenty Queries
@@ -333,7 +373,7 @@
                 <!-- SmoothLLM: Defending Large Language Models against Jailbreaking Attacks -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/smoothllm.jpg" alt="SmoothLLM" class="publication-img">
+                    <img src="../img/paper-icons/smoothllm.jpg" alt="SmoothLLM" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             SmoothLLM: Defending Large Language Models against Jailbreaking Attacks
@@ -367,7 +407,7 @@
                 <!-- Adversarial Training Should Be Cast as a Non-Zero-Sum Game -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/nonzerosum.png" alt="Non-zero-sum AT" class="publication-img">
+                    <img src="../img/paper-icons/nonzerosum.png" alt="Non-zero-sum AT" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Adversarial Training Should Be Cast as a Non-Zero-Sum Game
@@ -399,7 +439,7 @@
                 <!-- Learning robust output control barrier functions from safe expert demonstrations -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/rocbf.png" alt="ROCBF" class="publication-img">
+                    <img src="../img/paper-icons/rocbf.png" alt="ROCBF" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Learning Robust Output Control Barrier Functions from Safe Expert Demonstrations
@@ -432,7 +472,7 @@
                 <!-- Toward Certified Robustness Against Real-World Distribution Shifts -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/certified-distshift.png" alt="Distribution shift verification" class="publication-img">
+                    <img src="../img/paper-icons/certified-distshift.png" alt="Distribution shift verification" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Toward Certified Robustness Against Real-World Distribution Shifts
@@ -465,7 +505,7 @@
                 <!-- Probable Domain Generalization via Quantile Risk Minimization -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/qrm.png" alt="QRM" class="publication-img">
+                    <img src="../img/paper-icons/qrm.png" alt="QRM" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Probable Domain Generalization via Quantile Risk Minimization
@@ -499,7 +539,7 @@
                 <!-- On the sample complexity of stability constrained imitation learning -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/imitationlearning.png" alt="Stable imitation learning" class="publication-img">
+                    <img src="../img/paper-icons/imitationlearning.png" alt="Stable imitation learning" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             On the Sample Complexity of Stability Constrained Imitation Learning
@@ -532,7 +572,7 @@
                 <!-- Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/chordal.png" alt="Chordally sparse LipSDP" class="publication-img">
+                    <img src="../img/paper-icons/chordal.png" alt="Chordally sparse LipSDP" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Chordal Sparsity for Lipschitz Constant Estimation of Deep Neural Networks
@@ -566,7 +606,7 @@
                 <!-- Do Deep Networks Transfer Invariances Across Classes? -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/longtail.png" alt="Long-tailed robustness" class="publication-img">
+                    <img src="../img/paper-icons/longtail.png" alt="Long-tailed robustness" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Do Deep Networks Transfer Invariances Across Classes?
@@ -598,7 +638,7 @@
                 <!-- Probabilistically Robust Learning: Balancing Average- and Worst-case Performance -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/probrob.png" alt="Probabilistic robustness" class="publication-img">
+                    <img src="../img/paper-icons/probrob.png" alt="Probabilistic robustness" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Probabilistically Robust Learning: Balancing Average- and Worst-case Performance
@@ -632,7 +672,7 @@
                 <!-- Adversarial Robustness with Semi-Infinite Constrained Learning -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/semi-inf.png" alt="Semi-infinite robustness" class="publication-img">
+                    <img src="../img/paper-icons/semi-inf.png" alt="Semi-infinite robustness" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Adversarial Robustness with Semi-Infinite Constrained Learning
@@ -666,7 +706,7 @@
                 <!-- Model-based domain generalization -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/mbdg.png" alt="MBDG" class="publication-img">
+                    <img src="../img/paper-icons/mbdg.png" alt="MBDG" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Model-Based Domain Generalization
@@ -700,7 +740,7 @@
                 <!-- Model-based domain generalization -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/cdcg.png" alt="CDCG" class="publication-img">
+                    <img src="../img/paper-icons/cdcg.png" alt="CDCG" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Optimal Algorithms for Submodular Maximization With Distributed Constraints
@@ -733,7 +773,7 @@
                 <!-- Learning Robust Hybrid Control Barrier Functions for Uncertain Systems -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/compassgait.png" alt="RHCBF" class="publication-img">
+                    <img src="../img/paper-icons/compassgait.png" alt="RHCBF" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Learning Robust Hybrid Control Barrier Functions for Uncertain Systems
@@ -769,7 +809,7 @@
                 <!-- Learning Hybrid Control Barrier Functions from Data -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/hybrid.png" alt="HCBF" class="publication-img">
+                    <img src="../img/paper-icons/hybrid.png" alt="HCBF" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Learning Hybrid Control Barrier Functions from Data
@@ -803,7 +843,7 @@
                 <!-- Learning Control Barrier Functions from Expert Demonstrations -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/cbf.png" alt="CBF" class="publication-img">
+                    <img src="../img/paper-icons/cbf.png" alt="CBF" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Learning Control Barrier Functions from Expert Demonstrations
@@ -837,7 +877,7 @@
                 <!-- Provable Tradeoffs in Adversarially Robust Classification -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/adv-tradeoff.png" alt="Adversarial trade-off" class="publication-img">
+                    <img src="../img/paper-icons/adv-tradeoff.png" alt="Adversarial trade-off" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Provable Tradeoffs in Adversarially Robust Classification
@@ -869,7 +909,7 @@
                 <!-- Model-based robust deep learning: Generalizing to natural, out-of-distribution data -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/mbrdl.png" alt="MBRDL" class="publication-img">
+                    <img src="../img/paper-icons/mbrdl.png" alt="MBRDL" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Model-Based Robust Deep Learning: Generalizing to Natural, Out-of-Distribution Data
@@ -901,7 +941,7 @@
                 <!-- Efficient and accurate estimation of lipschitz constants for deep neural networks -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/lipsdp.png" alt="LipSDP" class="publication-img">
+                    <img src="../img/paper-icons/lipsdp.png" alt="LipSDP" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Efficient and Accurate Estimation of Lipschitz Constants for Deep Neural Networks
@@ -934,7 +974,7 @@
                 <!-- Optimal Physical Preprocessing for Example-Based Super-Resolution -->
 
                 <div class="publication">
-                    <img src="img/paper-icons/fourier-ptychography.jpeg" alt="Fourier Ptychography" class="publication-img">
+                    <img src="../img/paper-icons/fourier-ptychography.jpeg" alt="Fourier Ptychography" class="publication-img">
                     <div class="publication-details">
                         <p class="publication-title">
                             Optimal Physical Preprocessing for Example-Based Super-Resolution
