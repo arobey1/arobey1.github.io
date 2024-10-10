@@ -51,3 +51,20 @@
     transition: transform 0.3s ease;
 }
 
+.bibtex-container {
+    max-width: 100%; /* Ensures it fits within the page container */
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    background-color: #b5b5b5; /* Light near-white background */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevent text wrapping */
+    border-radius: 5px; /* Optional: for rounded corners */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.bibtex-container pre {
+    font-family: "Menlo", "Courier", monospace;
+    font-size: 0.85em;
+}
