@@ -222,7 +222,19 @@ body {
     position: relative;
 }
 
-.section-heading span {
+.year-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.25rem;
+    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    position: relative;
+    color: #888; /* Gray text color */
+}
+
+.section-heading span,
+.year-heading span {
     display: inline-block;
     position: relative;
     z-index: 1; /* Ensure the text is above the lines */
@@ -240,11 +252,25 @@ body {
     margin: 0 10px; /* Add space between the text and the lines */
 }
 
-.section-heading::before {
+.year-heading::before,
+.year-heading::after {
+    content: "";
+    flex-grow: 1; /* Allow the lines to grow dynamically */
+    height: 1px;
+    background-color: #888;
+    position: relative;
+    top: 50%;
+    z-index: 0; /* Ensure the lines are behind the text */
+    margin: 0 10px; /* Add space between the text and the lines */
+}
+
+.section-heading::before,
+.year-heading::before {
     margin-right: 0px;
 }
 
-.section-heading::after {
+.section-heading::after,
+.year-heading::after {
     margin-left: 0px;
 }
 
