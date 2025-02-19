@@ -51,12 +51,16 @@
             const bioSection = document.getElementById("bioSection");
             const originalParagraphs = []; // Store original paragraph texts
             let isCompressed = false;
-            let linksVisible = true;
+            let linksVisible = false;
             let isShortened = false;
 
             // Store original paragraph texts
             const paragraphs = bioSection.querySelectorAll("p");
             paragraphs.forEach(p => originalParagraphs.push(p.innerHTML));
+
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = removeLinksFromText(paragraph.innerHTML);
+            });
 
             // Helper function to remove links from content
             function removeLinksFromText(text) {
@@ -159,6 +163,7 @@
             document.getElementById("toggle-links").addEventListener("click", toggleLinks);
             document.getElementById("compress-toggle").addEventListener("click", toggleCompress);
             document.getElementById("shorten-toggle").addEventListener("click", toggleShorten);
+            document.getElementById("toggle-links").textContent = "[include links]";
         </script>
     </div>
 </body>
