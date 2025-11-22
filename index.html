@@ -99,11 +99,22 @@
 
         @media (max-width: 768px) {
             .tab-link {
-                font-size: 0.85rem;
+                font-size: 0.75rem;
                 padding: 5px 0;
+                white-space: nowrap;
+            }
+            .tab-link.active {
+                color: #ff8c00;
             }
             .tabs {
-                gap: 10px;
+                gap: 8px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .tabs::-webkit-scrollbar {
+                display: none;
             }
         }
     </style>
