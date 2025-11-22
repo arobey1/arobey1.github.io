@@ -96,6 +96,16 @@
             padding-left: 15px;
             font-style: italic;
         }
+
+        @media (max-width: 768px) {
+            .tab-link {
+                font-size: 0.85rem;
+                padding: 5px 0;
+            }
+            .tabs {
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -172,7 +182,7 @@
                                 <a href="https://arxiv.org/pdf/2310.08419" target="_blank">[pdf]</a> <a href="https://jailbreaking-llms.github.io/" target="_blank">[website]</a> <a href="https://github.com/patrickrchao/JailbreakingLLMs" target="_blank">[code]</a>
                             </li>
                         </ul>
-                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="papers/">View all papers &rarr;</a></p>
+                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="papers/" class="view-all-link">View all papers &rarr;</a></p>
                     </div>
                     <div class="scroll-hint">Scroll for more ↓</div>
             </div>
@@ -296,7 +306,7 @@
                                 <a href="https://debugml.github.io/smooth-llm/" target="_blank">SmoothLLM: Defending LLMs Against Jailbreaking Attacks</a>
                             </li>
                         </ul>
-                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="writing/">View all posts &rarr;</a></p>
+                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="writing/" class="view-all-link">View all posts &rarr;</a></p>
                     </div>
                     <div class="scroll-hint">Scroll for more ↓</div>
                 </div>

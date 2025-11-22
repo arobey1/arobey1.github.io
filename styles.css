@@ -211,7 +211,7 @@ body {
 
 .tight-list li::before {
     content: '•';
-    color: var(--accent-color);
+    color: #000;
     position: absolute;
     left: 0;
     font-weight: bold;
@@ -262,7 +262,7 @@ body {
 
 .news-section ul li::before {
     content: '•';
-    color: var(--accent-color);
+    color: #000;
     position: absolute;
     left: 5px;
     font-weight: bold;
@@ -549,14 +549,14 @@ body {
 @media (max-width: 768px) {
     .home-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 25px;
         display: flex;
         flex-direction: column-reverse; /* Puts sidebar (last in html) on top visually */
     }
     
     .sidebar {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         /* Ensure items are centered on mobile too */
         display: flex;
         flex-direction: column;
@@ -625,6 +625,19 @@ body {
     .publication-venue {
         margin-left: 0;
     }
+
+    .blog-item {
+        flex-direction: column;
+    }
+
+    .blog-date {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .blog-arrow {
+        display: none;
+    }
 }
 
 /* Utility */
@@ -660,4 +673,13 @@ body {
 /* Quotes visible when active */
 .press-quote.active {
     display: block;
+}
+
+/* View All Link Style */
+.view-all-link {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.view-all-link:hover {
+    text-decoration: underline;
 }
