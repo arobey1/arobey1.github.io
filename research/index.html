@@ -8,6 +8,41 @@
     <title>Alex Robey :: Research</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../navbar/navbar-loader.js"></script>
+    <style>
+        .research-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+        }
+        /* Consistent styling with papers page */
+        .focus-area-item {
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+        }
+        .focus-area-item:last-child {
+            border-bottom: none;
+        }
+        .focus-subtitle {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #ff8c00; /* Add orange underline similar to papers year */
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+        .research-image-with-caption img {
+            width: 80%;
+        }
+        .research-container a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+        .research-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -15,11 +50,7 @@
         <header></header>
         
         <main>
-
-
-            <div class="focus-area-section" id="focus-area-section">
-
-                <h2 class="section-heading"><span>Focus Areas</span></h2>
+            <div class="research-container">
 
                 <div class="focus-area-item">
                     <h4 class="focus-subtitle">1. AI safety</h3>
@@ -103,7 +134,7 @@
                 </div>
 
             </div>
-
-        
+        </main>
+    </div>
 </body>
 </html>

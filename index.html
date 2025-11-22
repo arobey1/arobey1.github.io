@@ -8,80 +8,501 @@
     <title>Alex Robey</title>
     <link rel="stylesheet" href="styles.css">
     <script src="navbar/navbar-loader.js"></script>
+    <style>
+        /* Inline styles for tabs to ensure they work immediately without caching issues */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        .tab-link {
+            background: none;
+            border: none;
+            padding: 10px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            position: relative;
+            font-family: inherit;
+        }
+        .tab-link.active {
+            color: #333;
+        }
+        .tab-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff8c00;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+            position: relative;          /* For scroll hint positioning */
+            border-bottom: 2px solid #eee; /* Bottom spanning bar for structure */
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* New class for the scrolling wrapper */
+        .tab-scroll-window {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 4px; /* Space for scrollbar */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* SVG Icon Style */
+        .social-icon-svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+            transition: fill 0.2s;
+        }
+        a:hover .social-icon-svg {
+            fill: #ff8c00;
+        }
+
+        /* Scroll hint inside tab content */
+        .scroll-hint {
+            position: absolute;
+            bottom: 4px;
+            right: 8px;
+            font-size: 0.75rem;
+            color: #999;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 8px;
+            border-radius: 999px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        /* Quote Styles */
+        .press-quote {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 5px 0 15px 25px;
+            line-height: 1.5;
+            border-left: 3px solid #eee;
+            padding-left: 15px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <!-- The navbar will be loaded here by JavaScript -->
         <header></header>
         
-        <main>
-            <div class="profile-section">
-                <img src="img/profile.png" alt="Profile Image" class="profile-img">
-                <p>
-                    I am a postdoc at <a href="https://www.ml.cmu.edu/" target="_blank">CMU</a> with <a href="https://zicokolter.com/" target="_blank">J. Zico Kolter</a>. I received my Ph.D. from Penn in 2024, where I worked with <a href="https://www.seas.upenn.edu/~hassani/" target="_blank">Hamed Hassani</a> & <a href="http://www.georgejpappas.org" target="_blank">George J. Pappas</a>.
-                </p>
-                <p>
-                    My goal is to make AI safe for people to use. Because modern AIs are so complex and capable, finding ways to make AI safe involves tools from different areas of math and engineering. <a href="research/">My research</a>, in particular, draws on tools from statistics, optimization, and control theory.
-                </p>
-                <p>Reach me at <a href="mailto:arobey@andrew.cmu.edu">arobey(at)andrew(dot)cmu(dot)edu</a>.</p>
-            </div>
+        <main class="home-grid">
+            <!-- Left Column: Intro and Tabs -->
+            <div class="content-left">
+                <div class="intro-text">
+                    <p>
+                        I am a postdoc in the Machine Learning Department at CMU, where I am advised by <a href="https://zicokolter.com/" target="_blank">J. Zico Kolter</a>. I am also affiliated with <a href="https://www.grayswan.ai/" target="_blank">Gray Swan</a>. I received my Ph.D. from Penn in 2024, advised by <a href="https://www.seas.upenn.edu/~hassani/" target="_blank">Hamed Hassani</a> and <a href="http://www.georgejpappas.org" target="_blank">George J. Pappas</a>.  My <a href="research/">research</a> uses tools from statistics, optimization, and control theory to build safe and trustworthy AI.
+                    </p>
+                </div>
 
-            <div class="social-icons">
-                <a href="https://twitter.com/AlexRobey23" target="_blank"><img src="img/icons/twitter-black.png" alt="Twitter"></a>
-                <a href="https://scholar.google.com/citations?user=V5NWZc8AAAAJ&hl=en&oi=ao" target="_blank"><img src="img/icons/scholar-black.png" alt="Cap"></a>
-                <a href="https://github.com/arobey1" target="_blank"><img src="img/icons/github-black.png" alt="GitHub"></a>
+                <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'Highlights')">Highlights</button>
+                    <button class="tab-link" onclick="openTab(event, 'Papers')">Papers</button>
+                    <button class="tab-link" onclick="openTab(event, 'Press')">Press</button>
+                    <button class="tab-link" onclick="openTab(event, 'Talks')">Talks</button>
+                    <button class="tab-link" onclick="openTab(event, 'Posts')">Posts</button>
+                    <button class="tab-link" onclick="openTab(event, 'Teaching')">Teaching</button>
+                </div>
+
+                <!-- Highlights Tab -->
+                <div id="Highlights" class="tab-content active">
+                    <div class="tab-scroll-window">
+                        <ul class="tight-list">
+                            <li>Three new papers on AI safety will appear at NeurIPS '25: <a href="https://locuslab.github.io/safety-pretraining/" target="_blank">safety pretraining</a>, <a href="https://antidistillation.com/" target="_blank">antidistillation sampling</a>, and <a href="https://arxiv.org/abs/2509.00117" target="_blank">governance for embodied AI</a>.</li>
+                            <li>Our work on <a href="https://arxiv.org/abs/2503.07885" target="_blank">robotic jailbreaking safeguards</a> was covered by <a href="https://www.wired.com/story/anthropic-claude-takes-control-robot-dog/" target="_blank"><em>WIRED</em></a>.</li>
+                            <li>My collaborators and I presented a <a href="https://jailbreak-tutorial.github.io/" target="_blank">tutorial on jailbreaking LLMs and agents</a> at ICML '25.</li>
+                            <li>I was named a <a href="https://cps-vo.org/group/CPSRisingStarsWorkshop25" target="_blank">Rising Star in Cyber-Physical Systems</a> by the National Science Foundation.</li> 
+                            <li>Our work on <a href="https://robopair.org" target="_blank">jailbreaking robots</a> appeared at ICRA '25, won the Best Paper Award at a <a href="https://ai.princeton.edu/princeton-symposium-safe-deployment-foundation-models-robotics" target="_blank">Princeton workshop on robot safety</a>, and was covered by <a href="https://www.wired.com/story/researchers-llm-ai-robot-violence/" target="_blank"><em>WIRED</em></a>, <a href="https://www.forbes.com/sites/johnwerner/2025/06/13/boston-dynamics-and-unitree-are-innovating-four-legged-robots-rapidly/" target="_blank"><em>Forbes</em></a>, <a href="https://www.the-independent.com/tech/ai-artificial-intelligence-safe-vulnerability-robot-b2631080.html" target="_blank"><em>The Independent</em></a>, and <a href="https://spectrum.ieee.org/jailbreak-llm" target="_blank"><em>IEEE Spectrum</em></a>.</li>
+                            <li>I was named a <a href="https://sites.google.com/view/advml/advml-rising-star-award#h.z12dvr66ck34" target="_blank">Rising Star in Adversarial ML</a> at the <a href="https://sites.google.com/view/advml/Home?authuser=0" target="_blank">NeurIPS '24 AdvML workshop</a>.</li>
+                            <li>My thesis <a href="https://arxiv.org/abs/2509.19100" target="_blank"><em>Algorithms for Adversarially Robust Deep Learning</em></a> won Penn Engineering's <a href="https://www.grasp.upenn.edu/news/2025-grasp-phd-award-round-up/">Charles Hallac and Sarah Keil Wolf Award</a>.</li>
+                            <li>Our work on <a href="https://arxiv.org/abs/2310.03684" target="_blank">jailbreaking safeguards</a> appeared at TMLR and was covered by <a href="https://www.technologyreview.com/2025/02/03/1110849/anthropic-has-a-new-way-to-protect-large-language-models-against-jailbreaks/" target="_blank"><em>MIT Technology Review</em></a>.</li>
+                            <li>Our <a href="https://arxiv.org/pdf/2403.04893" target="_blank">red teaming policy proposal</a> received an oral at ICML '24 and was covered by <a href="https://www.washingtonpost.com/technology/2024/03/05/ai-research-letter-openai-meta-midjourney/" target="_blank"><em>The Washington Post</em></a> and the <a href="https://knightcolumbia.org/blog/a-safe-harbor-for-ai-evaluation-and-red-teaming" target="_blank"><em>Knight First Amendment Institute</em></a>.</li>
+                            <li><a href="https://arxiv.org/pdf/2404.01318" target="_blank">JailbreakBench</a> was accepted to the benchmarks track at NeurIPS '24.</li>
+                            <li>Our <a href="https://arxiv.org/abs/2310.08419" target="_blank">PAIR jailbreak</a> appeared at IEEE SaTML '25 and was covered by <a href="https://www.wired.com/story/automated-ai-attack-gpt-4/" target="_blank"><em>WIRED</em></a>.</li>
+                            <li>Our work on <a href="https://arxiv.org/pdf/2306.11035" target="_blank">adversarial training</a> appeared at ICLR '24, won the Best Paper Award at the ICML '23 AdvML workshop, and was covered by <a href="https://cacm.acm.org/news/when-images-fool-ai-models/" target="_blank"><em>Communications of the ACM</em></a>.</li>
+                        </ul>
+                    </div>
+                    <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+                <!-- Papers Tab -->
+                <div id="Papers" class="tab-content">
+                    <div class="tab-scroll-window">
+                        <ul class="tight-list">
+                            <li>
+                                <strong>Safety Pretraining: Toward the Next Generation of Safe AI</strong><br>
+                                P. Maini*, S. Goyal*, D. Sam*, A. Robey, Y. Savani, Y. Jiang, A. Zou, M. Fredrikson, Z. C. Lipton, J. Z. Kolter. <em>NeurIPS 2025</em>.
+                                <a href="https://arxiv.org/abs/2504.16980" target="_blank">[pdf]</a> <a href="https://locuslab.github.io/safety-pretraining/" target="_blank">[website]</a> <a href="https://huggingface.co/locuslab" target="_blank">[datasets]</a>
+                            </li>
+                            <li>
+                                <strong>Jailbreaking LLM-Controlled Robots</strong><br>
+                                A. Robey, Z. Ravichandran, V. Kumar, H. Hassani, G. J. Pappas. <em>ICRA 2025</em>.
+                                <a href="https://arxiv.org/pdf/2410.13691" target="_blank">[pdf]</a> <a href="https://robopair.org" target="_blank">[website]</a>
+                            </li>
+                            <li>
+                                <strong>JailbreakBench: An Open Robustness Benchmark for Jailbreaking LLMs</strong><br>
+                                P. Chao*, E. Debenedetti*, A. Robey*, M. Andriushchenko*, F. Croce, V. Sehwag, E. Dobriban, N. Flammarion, G. J. Pappas, F. Tramer, H. Hassani, E. Wong. <em>NeurIPS 2024</em>.
+                                <a href="https://arxiv.org/pdf/2404.01318" target="_blank">[pdf]</a> <a href="https://jailbreakbench.github.io/" target="_blank">[website]</a> <a href="https://github.com/JailbreakBench/jailbreakbench" target="_blank">[code]</a>
+                            </li>
+                            <li>
+                                <strong>SmoothLLM: Defending LLMs Against Jailbreaking Attacks</strong><br>
+                                A. Robey, E. Wong, H. Hassani, G. J. Pappas. <em>TMLR 2025</em>.
+                                <a href="https://arxiv.org/abs/2310.03684" target="_blank">[pdf]</a> <a href="https://debugml.github.io/smooth-llm/" target="_blank">[blog]</a> <a href="https://github.com/arobey1/smooth-llm" target="_blank">[code]</a>
+                            </li>
+                            <li>
+                                <strong>Jailbreaking Black Box Large Language Models in Twenty Queries</strong><br>
+                                P. Chao, A. Robey, E. Dobriban, H. Hassani, G. J. Pappas, E. Wong. <em>IEEE SaTML 2025</em>.
+                                <a href="https://arxiv.org/pdf/2310.08419" target="_blank">[pdf]</a> <a href="https://jailbreaking-llms.github.io/" target="_blank">[website]</a> <a href="https://github.com/patrickrchao/JailbreakingLLMs" target="_blank">[code]</a>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="papers/">View all papers &rarr;</a></p>
+                    </div>
+                    <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+                <!-- Press Tab -->
+                <div id="Press" class="tab-content">
+                    <div class="tab-scroll-window">
+                         <ul class="tight-list">
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2503.07885" target="">robotic jailbreaking safeguards</a> was covered by <a href="https://www.wired.com/story/anthropic-claude-takes-control-robot-dog/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Pappas notes, however, that today’s AI models need to access other programs for tasks like sensing and navigation in order to take physical action. His group developed a system called <a href="https://arxiv.org/abs/2503.07885" target="_blank">RoboGuard</a> that limits the ways AI models can get a robot to misbehave by imposing specific rules on the robot’s behavior.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2306.11035" target="_blank">adversarial training</a> was covered by <a href="https://cacm.acm.org/news/when-images-fool-ai-models/" target="_blank"><em>Communications of the ACM</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Robey said regulations, and incentives for model providers and companies using them in their products, also would help. "The hope would be to put legislative pressure on all of these entities toward making it a race to the top for competing over safety standards, just as we have this marketplace right now that competes over better and better capabilities of models."
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2310.03684">jailbreaking safeguards</a> was covered by <a href="https://www.technologyreview.com/2025/02/03/1110849/anthropic-has-a-new-way-to-protect-large-language-models-against-jailbreaks/" target="_blank"><em>MIT Technology Review</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Robey has developed his own jailbreak defense system, called <a href="https://arxiv.org/abs/2310.03684" target="_blank">SmoothLLM</a>, that injects statistical noise into a model to disrupt the mechanisms that make it vulnerable to jailbreaks. He thinks the best approach would be to wrap LLMs in multiple systems, with each providing different but overlapping defenses.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.forbes.com/sites/johnwerner/2025/06/13/boston-dynamics-and-unitree-are-innovating-four-legged-robots-rapidly/" target="_blank"><em>Forbes</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    If you haven’t heard of jailbreaking robots, it refers to the process of an end-user getting around key security implementations, and getting the robot to do harmful and/or dangerous things. People attribute research on the jailbreaking technology <a href="https://arxiv.org/abs/2410.13691" target="_blank">RoboPAIR</a> to students at the University of Pennsylvania's School of Engineering and Applied Science.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.wired.com/story/researchers-llm-ai-robot-violence/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    The researchers used a technique developed at the University of Pennsylvania, called PAIR, to automate the process of generated jailbreak prompts. Their new program,  <a href="https://arxiv.org/abs/2410.13691" target="_blank">RoboPAIR</a>, will systematically generate prompts specifically designed to get LLM-powered robots to break their own rules, trying different inputs and then refining them to nudge the system towards misbehavior. The researchers say the technique they devised could be used to automate the process of identifying potentially dangerous commands.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.the-independent.com/tech/ai-artificial-intelligence-safe-vulnerability-robot-b2631080.html" target="_blank"><em>The Independent</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    But that technology has security vulnerabilities and weaknesses that could be exploited by hackers to use the systems in unintended ways, according to the new research from the University of Pennsylvania. “Our work shows that, at this moment, large language models are just not safe enough when integrated with the physical world,” said George Pappas, a professor at the university.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://ai.princeton.edu/news/2024/symposium-fosters-collaboration-between-robotics-and-ai" target="_blank"><em>Princeton</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Among the presenters was Alex Robey, a post-doctoral researcher from Carnegie Mellon University. Robey’s research revolves around anticipating potential malicious attacks on robotics systems with the eventual goal of figuring out how to defend against them.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://spectrum.ieee.org/jailbreak-llm" target="_blank"><em>IEEE Spectrum</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    “Jailbreaking AI-controlled robots isn’t just possible—it’s alarmingly easy,” says Alexander Robey, currently a postdoctoral researcher at Carnegie Mellon University in Pittsburgh.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/pdf/2403.04893">legislation for red teaming</a> was covered by <a href="https://www.washingtonpost.com/technology/2024/03/05/ai-research-letter-openai-meta-midjourney/" target="_blank"><em>The Washington Post</em></a> <a href="https://knightcolumbia.org/blog/a-safe-harbor-for-ai-evaluation-and-red-teaming" target="_blank">K</a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    The researchers say strict protocols designed to keep bad actors from abusing AI systems are instead having a chilling effect on independent research. . . An accompanying <a href="https://arxiv.org/pdf/2403.04893">policy proposal</a>, co-authored by some signatories, says that OpenAI updated its terms to protect academic safety research after reading an early draft of the proposal.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2310.08419" target="_blank">jailbreaking LLMs</a> was covered by <a href="https://www.wired.com/story/automated-ai-attack-gpt-4/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                 <div class="press-quote">
+                                    Not all of them worked on ChatGPT, the chatbot built on top of GPT-4, but several did, including one for generating phishing messages, and another for producing ideas to help a malicious actor remain hidden on a government computer network. . . A <a href="https://arxiv.org/abs/2310.08419" target="_blank">similar method</a> was developed by a research group led by Eric Wong, an assistant professor at the University of Pennsylvania.
+                                </div>
+                            </li>
+                         </ul>
+                    </div>
+                     <div class="scroll-hint">Scroll for more ↓</div>
             </div>
             
-            <div class="news-section">
-                <h2 class="section-heading"><span>News</span></h2>
-                <ul>
-                    <li>Our work on <a href="https://arxiv.org/abs/2503.07885" target="">robotic jailbreaking safeguards</a> was covered by <a href="https://www.wired.com/story/anthropic-claude-takes-control-robot-dog/" target="_blank">WIRED</a>.</li>
-                    <li><a href="files/talks/2025/Jailbreaking-Amherst.pdf" target="_blank">Slides</a> from my talk in <a href="https://www.amherst.edu/academiclife/departments/courses/2526F/COSC/COSC-227-2526F" target="_blank">Neural Net Safety</a> (COSC 227) at Amherst.</li>
-                    <li><a href="https://arxiv.org/abs/2504.13146" target="_blank">Three</a> <a href="https://arxiv.org/abs/2504.16980" target="_blank">new</a> <a href="https://arxiv.org/abs/2509.00117" target="_blank">papers</a> on AI safety will appear at NeurIPS '25.</li>
-                    <li>My <a href="https://arxiv.org/abs/2306.11035" target="_blank">work</a> was covered by <a href="https://cacm.acm.org/news/when-images-fool-ai-models/" target="_blank">Communications of the ACM</a>.</li>
-                    <li><a href="files/talks/2025/OpenAI.pdf">Slides</a> from my talk on model misuse at OpenAI.</li>
-                    <li><a href="files/talks/2025/Berkeley.pdf">Slides</a> from my talk on robotic misuse at UC Berkeley</li>
-                    <li>Our work on jailbreaking robots was covered by <a href="https://www.forbes.com/sites/johnwerner/2025/06/13/boston-dynamics-and-unitree-are-innovating-four-legged-robots-rapidly/" target="_blank">Forbes</a>.</li>
-                    <li><a href="files/talks/2025/Jailbreaking-ICRA.pdf" target="_blank">Slides</a> from my talk on jailbreaking robots at ICRA '25.</li>
-                    <li>Our <a href="https://www.arxiv.org/pdf/2504.16980" target="_blank">paper</a> on safety pretraining is <a href="https://locuslab.github.io/safety-pretraining/" target="_blank">online</a>.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2504.13146" target="_blank">paper</a> on  antidistillation sampling is <a href="https://antidistillation.com" target="_blank">online</a>.</li>
-                    <li><a href="https://arxiv.org/abs/2310.03684">SmoothLLM</a> was accepted at TMLR.</li>
-                    <li>My thesis won the 2024 <a href="https://www.grasp.upenn.edu/news/2025-grasp-phd-award-round-up/">Charles Hallac and Sarah Keil Wolf Award</a>.</li>
-                    <li><a href="files/talks/2025/PAIR-SaTML.pdf" target="_blank">Slides</a> from my talk on jailbreaking LLMs at <a href="https://satml.org/#" target="_blank">IEEE SaTML '25</a>.</li>
-                    <li>Our <a href="https://jailbreak-tutorial.github.io/" target="_blank">tutorial on jailbreaking LLMs</a> was accepted at ICML '25.</li>
-                    <li>I was named a <a href="https://cps-vo.org/group/CPSRisingStarsWorkshop25" target="_blank">Rising Star in Cyber-Physical Systems</a> by the NSF.</li>
-                    <li><a href="files/talks/2025/AI-Security-Forum.pdf" target="_blank">Slides</a> & <a href="https://www.youtube.com/watch?v=mwSu3A_-26Y&list=PLpvkFqYJXcrfwneYMYPMdqfHNXrPdUXpc" target="_blank">recording</a> from my talk at the <a href="https://aisecurity.forum/paris-ai-security-forum-25" target="_blank">Paris AI Security Forum '25</a>.</li>
-                    <li><a href="/files/talks/2025/IASEAI.pdf" target="_blank">Slides</a> & <a href="https://www.youtube.com/watch?v=RXqZyByB1Rc" target="_blank" rel="noopener noreferrer">recording</a> from my talk at <a href="https://www.iaseai.org/conference" target="_blank">IASEAI '25</a>.</li>
-                    <li><a href="https://arxiv.org/abs/2310.03684">SmoothLLM</a> was covered by <a href="https://www.technologyreview.com/2025/02/03/1110849/anthropic-has-a-new-way-to-protect-large-language-models-against-jailbreaks/" target="_blank">MIT Technology Review</a>.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2410.13691">paper</a> on jailbreaking robots was accepted at ICRA '25.</li>
-                    <li><a href="files/talks/2025/Jailbreaking-MSR.pdf" target="_blank">Slides</a> from my talk at Microsoft Research.</li>
-                    <li><a href="files/talks/2025/Jailbreaking-UBC.pdf" target="_blank">Slides</a> from my lecture in AI & Criminal Justice at UBC.</li>
-                </ul>
-                <h2 class="year-heading"><span>2025</span></h2>
-                <ul>
-                    <li><a href="files/talks/2024/neurips-24-advml-award.pdf" target="_blank">Slides</a> from my talk at the NeurIPS '24 <a href="https://advml-frontier.github.io/" target="_blank">AdvML workshop</a>.</li>
-                    <li>Our paper introducing the <a href="https://arxiv.org/abs/2310.08419" target="_blank">PAIR jailbreak</a> was accepted at SaTML '25.</li>
-                    <li>Our work on jailbreaking robots was covered by <a href="https://www.wired.com/story/researchers-llm-ai-robot-violence/" target="_blank">WIRED</a>.</li>
-                    <li><a href="files/talks/2024/northeastern-jailbreaking.pdf" target="_blank">Slides</a> from my lecture in Verifiable ML (CS 7180) at Northeastern.</li>
-                    <li>Our work on jailbreaking robots was covered by <a href="https://spectrum.ieee.org/jailbreak-llm" target="_blank">IEEE Spectrum</a>.</li>
-                    <li>We won the Best Poster Award at a <a href="https://ai.princeton.edu/princeton-symposium-safe-deployment-foundation-models-robotics" target="_blank">workshop</a> on robotic safety.</li>
-                    <li><a href="files/talks/2024/usc-robopair.pdf" target="_blank">Slides</a> from my talk on jailbreaking at USC.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2410.13691">paper</a> on jailbreaking LLM-controlled robots is <a href="https://robopair.org" target="_blank">online</a>.
-                    <li>I was named a <a href="https://sites.google.com/view/advml/advml-rising-star-award#h.nofdoxbbu9ir" target="_blank">Rising Star in Adversarial ML</a> at NeurIPS '24.</li>
-                    <li><a href="https://arxiv.org/pdf/2404.01318" target="_blank">JailbreakBench</a> was accepted to the benchmarks track at NeurIPS '24.</li>
-                    <li>I joined <a href="https://www.grayswan.ai/" target="_blank">Gray Swan</a> as a research contractor.</li>
-                    <li>I started a postdoc at CMU with <a href="https://zicokolter.com/" target="_blank">J. Zico Kolter</a>.</li>
-                    <li><a href="files/talks/2024/thesis-defense.pdf" target="_blank">Slides</a> from my <a href="https://www.proquest.com/docview/3100358092/fulltextPDF/67D4D0ABA8DC4AC5PQ/1?accountid=9902&sourcetype=Dissertations%20&%20Theses" target="_blank">Ph.D. thesis</a> defense.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2403.04893" target="_blank">red teaming public policy proposal</a> received an oral at ICML '24.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2403.04893">work on red teaming</a> was covered in <a href="https://www.washingtonpost.com/technology/2024/03/05/ai-research-letter-openai-meta-midjourney/" target="_blank">The Washington Post</a>.</li>
-                    <li>Our <a href="https://arxiv.org/pdf/2306.11035" target="_blank">non-zero-sum adv. training</a> paper was accepted at ICLR '24.</li>
-                    <li><a href="files/talks/2024/cis7000-jailbreaking.pdf" target="_blank">Slides</a> from my lecture in Trustworthy ML (CIS 7000) at Penn.</li>
-                    <li>I will be an instructor at Swarthmore College for the spring term.</li>
-                    <li>Our work on jailbreaking LLMs was covered by <a href="https://www.wired.com/story/automated-ai-attack-gpt-4/" target="_blank">WIRED</a>.</li>
-                </ul>
-                <h2 class="year-heading"><span>2024</span></h2>
+                <!-- Talks Tab -->
+                <div id="Talks" class="tab-content">
+                    <div class="tab-scroll-window">
+                        <ul class="tight-list">
+                            <li><a href="files/talks/2025/Jailbreaking-Amherst.pdf" target="_blank">Slides</a> from my talk in <a href="https://www.amherst.edu/academiclife/departments/courses/2526F/COSC/COSC-227-2526F" target="_blank">Neural Net Safety</a> (COSC 227) at Amherst College.</li>
+                            <li><a href="files/talks/2025/OpenAI.pdf">Slides</a> from my talk on model misuse at OpenAI.</li>
+                            <li><a href="files/talks/2025/Berkeley.pdf">Slides</a> from my talk on robotic misuse at UC Berkeley.</li>
+                            <li><a href="files/talks/2025/Jailbreaking-ICRA.pdf" target="_blank">Slides</a> from my talk on jailbreaking robots at ICRA '25.</li>
+                            <li><a href="files/talks/2025/PAIR-SaTML.pdf" target="_blank">Slides</a> from my talk on jailbreaking LLMs at IEEE SaTML '25.</li>
+                            <li><a href="files/talks/2025/AI-Security-Forum.pdf" target="_blank">Slides</a> & <a href="https://www.youtube.com/watch?v=mwSu3A_-26Y&list=PLpvkFqYJXcrfwneYMYPMdqfHNXrPdUXpc" target="_blank">recording</a> from my talk at the <a href="https://aisecurity.forum/paris-ai-security-forum-25" target="_blank">Paris AI Security Forum '25</a>.</li>
+                            <li><a href="/files/talks/2025/IASEAI.pdf" target="_blank">Slides</a> & <a href="https://www.youtube.com/watch?v=RXqZyByB1Rc" target="_blank" rel="noopener noreferrer">recording</a> from my talk at <a href="https://www.iaseai.org/conference" target="_blank">IASEAI '25</a>.</li>
+                            <li><a href="files/talks/2025/Jailbreaking-MSR.pdf" target="_blank">Slides</a> from my talk at Microsoft Research.</li>
+                            <li><a href="files/talks/2025/Jailbreaking-UBC.pdf" target="_blank">Slides</a> from my lecture in AI & Criminal Justice at UBC.</li>
+                            <li><a href="files/talks/2024/neurips-24-advml-award.pdf" target="_blank">Slides</a> from my talk at the NeurIPS '24 <a href="https://advml-frontier.github.io/" target="_blank">AdvML workshop</a>.</li>
+                            <li><a href="files/talks/2024/northeastern-jailbreaking.pdf" target="_blank">Slides</a> from my lecture in Verifiable ML (CS 7180) at Northeastern University.</li>
+                            <li><a href="files/talks/2024/usc-robopair.pdf" target="_blank">Slides</a> from my talk on jailbreaking at USC.</li>
+                            <li><a href="files/talks/2024/thesis-defense.pdf" target="_blank">Slides</a> from my <a href="https://www.proquest.com/docview/3100358092/fulltextPDF/67D4D0ABA8DC4AC5PQ/1?accountid=9902&sourcetype=Dissertations%20&%20Theses" target="_blank">Ph.D. thesis</a> defense.</li>
+                            <li><a href="files/talks/2024/cis7000-jailbreaking.pdf" target="_blank">Slides</a> from my lecture in Trustworthy ML (CIS 7000) at Penn.</li>
+                        </ul>
+                    </div>
+                    <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+                <!-- Posts Tab -->
+                <div id="Posts" class="tab-content">
+                    <div class="tab-scroll-window">
+                        <ul class="tight-list">
+                            <li>
+                                <span style="color:#666; font-size:0.85rem;">Oct 29, 2024</span> &mdash; 
+                                <a href="https://blog.ml.cmu.edu/2024/10/29/jailbreaking-llm-controlled-robots/" target="_blank">Jailbreaking LLM-Controlled Robots</a>
+                            </li>
+                            <li>
+                                <span style="color:#666; font-size:0.85rem;">Oct 17, 2024</span> &mdash; 
+                                <a href="writing/jailbreakingrobots.html">Jailbreaking Your Friendly, Garden-Variety, Bomb-Carrying Robot Dog</a>
+                            </li>
+                            <li>
+                                <span style="color:#666; font-size:0.85rem;">Oct 17, 2023</span> &mdash; 
+                                <a href="https://debugml.github.io/smooth-llm/" target="_blank">SmoothLLM: Defending LLMs Against Jailbreaking Attacks</a>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 15px; font-size: 0.9rem;"><a href="writing/">View all posts &rarr;</a></p>
+                    </div>
+                    <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+                <!-- Press Tab -->
+                <div id="Press" class="tab-content">
+                    <div class="tab-scroll-window">
+                         <ul class="tight-list">
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2503.07885" target="">robotic jailbreaking safeguards</a> was covered by <a href="https://www.wired.com/story/anthropic-claude-takes-control-robot-dog/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Pappas notes, however, that today’s AI models need to access other programs for tasks like sensing and navigation in order to take physical action. His group developed a system called <a href="https://arxiv.org/abs/2503.07885" target="_blank">RoboGuard</a> that limits the ways AI models can get a robot to misbehave by imposing specific rules on the robot’s behavior.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2306.11035" target="_blank">adversarial training</a> was covered by <a href="https://cacm.acm.org/news/when-images-fool-ai-models/" target="_blank"><em>Communications of the ACM</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Robey said regulations, and incentives for model providers and companies using them in their products, also would help. "The hope would be to put legislative pressure on all of these entities toward making it a race to the top for competing over safety standards, just as we have this marketplace right now that competes over better and better capabilities of models."
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2310.03684">jailbreaking safeguards</a> was covered by <a href="https://www.technologyreview.com/2025/02/03/1110849/anthropic-has-a-new-way-to-protect-large-language-models-against-jailbreaks/" target="_blank"><em>MIT Technology Review</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Robey has developed his own jailbreak defense system, called <a href="https://arxiv.org/abs/2310.03684" target="_blank">SmoothLLM</a>, that injects statistical noise into a model to disrupt the mechanisms that make it vulnerable to jailbreaks. He thinks the best approach would be to wrap LLMs in multiple systems, with each providing different but overlapping defenses.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.forbes.com/sites/johnwerner/2025/06/13/boston-dynamics-and-unitree-are-innovating-four-legged-robots-rapidly/" target="_blank"><em>Forbes</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    If you haven’t heard of jailbreaking robots, it refers to the process of an end-user getting around key security implementations, and getting the robot to do harmful and/or dangerous things. People attribute research on the jailbreaking technology <a href="https://arxiv.org/abs/2410.13691" target="_blank">RoboPAIR</a> to students at the University of Pennsylvania's School of Engineering and Applied Science.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.wired.com/story/researchers-llm-ai-robot-violence/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    The researchers used a technique developed at the University of Pennsylvania, called PAIR, to automate the process of generated jailbreak prompts. Their new program,  <a href="https://arxiv.org/abs/2410.13691" target="_blank">RoboPAIR</a>, will systematically generate prompts specifically designed to get LLM-powered robots to break their own rules, trying different inputs and then refining them to nudge the system towards misbehavior. The researchers say the technique they devised could be used to automate the process of identifying potentially dangerous commands.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://www.the-independent.com/tech/ai-artificial-intelligence-safe-vulnerability-robot-b2631080.html" target="_blank"><em>The Independent</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    But that technology has security vulnerabilities and weaknesses that could be exploited by hackers to use the systems in unintended ways, according to the new research from the University of Pennsylvania. “Our work shows that, at this moment, large language models are just not safe enough when integrated with the physical world,” said George Pappas, a professor at the university.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://ai.princeton.edu/news/2024/symposium-fosters-collaboration-between-robotics-and-ai" target="_blank"><em>Princeton</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    Among the presenters was Alex Robey, a post-doctoral researcher from Carnegie Mellon University. Robey’s research revolves around anticipating potential malicious attacks on robotics systems with the eventual goal of figuring out how to defend against them.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2410.13691" target="_blank">jailbreaking LLM-controlled robots</a> was covered by <a href="https://spectrum.ieee.org/jailbreak-llm" target="_blank"><em>IEEE Spectrum</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    “Jailbreaking AI-controlled robots isn’t just possible—it’s alarmingly easy,” says Alexander Robey, currently a postdoctoral researcher at Carnegie Mellon University in Pittsburgh.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/pdf/2403.04893">legislation for red teaming</a> was covered by <a href="https://www.washingtonpost.com/technology/2024/03/05/ai-research-letter-openai-meta-midjourney/" target="_blank"><em>The Washington Post</em></a> <a href="https://knightcolumbia.org/blog/a-safe-harbor-for-ai-evaluation-and-red-teaming" target="_blank">K</a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                <div class="press-quote">
+                                    The researchers say strict protocols designed to keep bad actors from abusing AI systems are instead having a chilling effect on independent research. . . An accompanying <a href="https://arxiv.org/pdf/2403.04893">policy proposal</a>, co-authored by some signatories, says that OpenAI updated its terms to protect academic safety research after reading an early draft of the proposal.
+                                </div>
+                            </li>
+                            <li>
+                                Our work on <a href="https://arxiv.org/abs/2310.08419" target="_blank">jailbreaking LLMs</a> was covered by <a href="https://www.wired.com/story/automated-ai-attack-gpt-4/" target="_blank"><em>WIRED</em></a>.
+                                <span class="quote-toggle" onclick="toggleQuote(this)">[+]</span>
+                                 <div class="press-quote">
+                                    Not all of them worked on ChatGPT, the chatbot built on top of GPT-4, but several did, including one for generating phishing messages, and another for producing ideas to help a malicious actor remain hidden on a government computer network. . . A <a href="https://arxiv.org/abs/2310.08419" target="_blank">similar method</a> was developed by a research group led by Eric Wong, an assistant professor at the University of Pennsylvania.
+                                </div>
+                            </li>
+                         </ul>
+                    </div>
+                     <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+                <!-- Teaching Tab -->
+                <div id="Teaching" class="tab-content">
+                    <div class="tab-scroll-window">
+                         <ul class="tight-list">
+                            <li>
+                                <strong>Physical Linear Systems Analysis</strong> (ENGR 012)
+                                <a href="https://catalog.swarthmore.edu/preview_course_nopop.php?catoid=30&coid=97703" target="_blank">[website]</a><br>
+                                Visiting Instructor, Swarthmore College, Spring 2024.
+                            </li>
+                            <li>
+                                <strong>Modern Convex Optimization</strong> (ESE 605)
+                                <a href="https://nikolaimatni.github.io/courses/ese605-spring2021/index.html" target="_blank">[website]</a><br>
+                                Teaching Assistant, University of Pennsylvania, Spring 2021.
+                            </li>
+                            <li>
+                                <strong>Elements of Probability Theory</strong> (ESE 530)
+                                <a href="https://www.santoshvenkatesh.com/courses/799b6924-f342-4796-a8e4-9390e97ed2ca" target="_blank">[website]</a><br>
+                                Teaching Assistant, University of Pennsylvania, Fall 2019, 2020.
+                            </li>
+                            <li>
+                                <strong>Introduction to Research Methods</strong> (ESE 290)
+                                <a href="https://catalog.upenn.edu/courses/ese/" target="_blank">[website]</a><br>
+                                Teaching Assistant, University of Pennsylvania, Spring 2020.
+                            </li>
+                            <li>
+                                <strong>Numerical Methods</strong> (ENGR 019)
+                                <a href="https://catalog.swarthmore.edu/preview_course_nopop.php?catoid=30&coid=97706" target="_blank">[website]</a><br>
+                                Teaching Assistant, Swarthmore College, Spring 2018.
+                            </li>
+                            <li>
+                                <strong>Linear Physical Systems Analysis</strong> (ENGR 012)
+                                <a href="https://catalog.swarthmore.edu/preview_course.php?catoid=29&coid=85278" target="_blank">[website]</a><br>
+                                Teaching Assistant, Swarthmore College, Spring 2017, 2018.
+                            </li>
+                            <li>
+                                <strong>Electrical Circuit Analysis</strong> (ENGR 011)
+                                <a href="https://catalog.swarthmore.edu/preview_course.php?catoid=29&coid=87046" target="_blank">[website]</a><br>
+                                Teaching Assistant, Swarthmore College, Fall 2016, 2017.
+                            </li>
+                            <li>
+                                <strong>Mechanics</strong> (ENGR 006)
+                                <a href="https://catalog.swarthmore.edu/preview_course.php?catoid=29&coid=85272" target="_blank">[website]</a><br>
+                                Teaching Assistant, Swarthmore College, Spring 2016.
+                            </li>
+                         </ul>
+                    </div>
+                     <div class="scroll-hint">Scroll for more ↓</div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar (Profile) - Now on Right -->
+            <div class="sidebar">
+                <img src="img/profile.png" alt="Alex Robey" class="profile-img">
+                <h1>Alex Robey</h1>
+                <div class="sidebar-role">
+                    Postdoc at CMU<br>
+                    <!-- Technical Staff at Gray Swan -->
+                </div>
+                <div class="sidebar-contact">
+                    <a href="mailto:arobey@andrew.cmu.edu">arobey[at]andrew[dot]cmu[dot]edu</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://twitter.com/AlexRobey23" target="_blank"><img src="img/icons/twitter-black.png" alt="Twitter" title="Twitter"></a>
+                    <a href="https://scholar.google.com/citations?user=V5NWZc8AAAAJ&hl=en&oi=ao" target="_blank"><img src="img/icons/scholar-black.png" alt="Google Scholar" title="Google Scholar"></a>
+                    <a href="https://github.com/arobey1" target="_blank"><img src="img/icons/github-black.png" alt="GitHub" title="GitHub"></a>
+                    <a href="https://www.linkedin.com/in/alexrobey/" target="_blank" style="display: flex; align-items: center;">
+                        <svg class="social-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="files/cv.pdf" download="Alex_Robey_CV.pdf" title="Save CV" style="display: flex; align-items: center;">
+                        <svg class="social-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="CV icon">
+                            <rect x="0" y="0" width="24" height="24" rx="4" ry="4" />
+                            <text x="12" y="16" text-anchor="middle" font-weight="bold" font-size="14" font-family="Palatino, 'Palatino Linotype', 'Book Antiqua', serif" fill="#ffffff">CV</text>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </main>
     </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabContent, tabLinks;
+            
+            // Hide all tab content
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all links
+            tabLinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab and add active class
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+        // Toggle Quote Function
+        function toggleQuote(element) {
+            // Find the next sibling which should be the quote div
+            var quote = element.nextElementSibling;
+            // In case there are text nodes (whitespace) in between
+            while(quote && quote.nodeType !== 1) {
+                quote = quote.nextSibling;
+            }
+            
+            if (quote && quote.classList.contains('press-quote')) {
+                if (quote.classList.contains('active')) {
+                    quote.classList.remove('active');
+                    element.textContent = '[+]';
+                } else {
+                    quote.classList.add('active');
+                    element.textContent = '[-]';
+                }
+            }
+        }
+    </script>
 </body>
 </html>

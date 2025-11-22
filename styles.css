@@ -3,444 +3,376 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+:root {
+    --primary-color: #333;
+    --accent-color: #ff8c00; /* Orange */
+    --accent-hover: #e65100;
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --light-gray: #f9f9f9;
+    --border-color: #eee;
+    --secondary-text: #666;
+    /* Updated to Palatino stack per request */
+    --font-family-main: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
 }
 
 body {
-    background-color: rgba(240, 240, 240, 0.9); /* Light gray with 90% opacity */
-    color: #333;
-    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family-main);
+    line-height: 1.6;
     display: flex;
-    justify-content: center;
-    background-image: url('img/background.png');
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
-    max-width: 520px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    padding: 0 20px;
 }
 
+/* Navbar */
 .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 20px;
-    margin-bottom: 70px;
-    position: relative;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .navbar .brand {
-    font-size: 1.2rem;
-    color: red;
+    font-size: 1.5rem;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    letter-spacing: -0.5px;
 }
 
 .navbar nav ul {
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-.navbar nav ul li {
-    flex: 1;
-}
-
 .navbar nav ul li a {
-    text-decoration: none; /* Remove underline from navbar items */
-    color: #333;
-    font-size: 1.2rem; /* Ensure all navbar links have the same size */
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-    white-space: nowrap;
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-size: 1.1rem; /* Bumped up slightly for Palatino readability */
+    transition: color 0.2s;
 }
 
 .navbar nav ul li a:hover {
-    text-decoration: underline;
-    color: #333; /* Change color back to default on hover */
+    color: var(--accent-color);
 }
 
-.profile-section {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 30px;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+/* Layout for Main Page */
+.home-grid {
+    display: grid;
+    /* Changed column order: 1fr content left, 280px sidebar right */
+    grid-template-columns: 1fr 280px; 
+    gap: 60px;
+    align-items: start;
+}
+
+/* Left content wrapper */
+.content-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar (Profile) */
+.sidebar {
+    text-align: center; /* Centered per request */
+    /* Add some top margin to align visually with the bio text if needed, 
+       or just let it align top */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures items are centered in flex container */
+    width: 100%; /* Ensure width allows centering */
 }
 
 .profile-img {
-    width: 200px;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 50px;
+    width: 200px; /* Slightly larger */
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px; /* Centered image */
+    border: none;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid #333;
 }
 
-.profile-section p {
-    margin: 25px 0; /* Add 25px vertical space between paragraphs */
-    text-align: left;
-    line-height: 1.3rem;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+.sidebar h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
-.profile-section p a {
-    text-decoration: underline;
-    color: #555;
+.sidebar-role {
+    color: var(--secondary-text);
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
-.profile-section p a:hover {
-    color: #333;
+.sidebar-contact {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    /* margin-bottom: 10px; */
+}
+
+.sidebar-contact a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--secondary-text);
+}
+
+.sidebar-contact a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
 }
 
 .social-icons {
     display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center; /* Centered icons */
 }
 
 .social-icons a {
-    margin-right: 60px;
-    transition: transform 0.3s ease;
-}
-
-.social-icons img {
-    height: 50px;
-    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
 }
 
 .social-icons a:hover {
-    transform: scale(1.2);
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
-.social-icons a:last-child {
-    margin-right: 0; /* Remove margin for the last icon */
+.social-icons img {
+    height: 24px;
+    width: auto;
+    transition: filter 0.2s, transform 0.2s;
 }
 
-.news-section {
-    margin-top: 20px;
-    width: 100%;
+/* Tint raster icons (Twitter/Scholar/GitHub/CV) orange on hover */
+.social-icons a:hover img {
+    filter: invert(55%) sepia(94%) saturate(1500%) hue-rotate(2deg) brightness(95%) contrast(105%);
+}
+
+/* Main Content Area */
+.main-content {
     text-align: left;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
 }
 
-.news-section h2 {
-    margin-bottom: 20px;
-    font-size: 1.25rem;
-    text-align: center;
+.intro-text {
+    font-size: 1.15rem; /* Slightly larger for Palatino */
+    margin-bottom: 30px; /* Reduced from 40px to pull up tabs */
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.intro-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.intro-text a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+/* Tight List for Tabs */
+.tight-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tight-list li {
     position: relative;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
+    padding-left: 20px;
+    margin-bottom: 10px; /* Slightly increased for readability with serif */
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-.news-section h2::before {
+.tight-list li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
     left: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    top: 4px; /* Adjusted for font */
 }
 
-.news-section h2::after {
-    right: 0;
+.tight-list li a {
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
+.tight-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Slightly smaller font inside tab windows only */
+.tab-content .tight-list li {
+    font-size: 0.9rem;
+}
+
+/* Section Headings (kept for other pages) */
+.section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* News Section (legacy style kept for safety) */
 .news-section ul {
     list-style: none;
-    padding-left: 0;
 }
 
 .news-section ul li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 10px;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .news-section ul li::before {
-    content: '';
+    content: '•';
+    color: var(--accent-color);
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 14px;
-    height: 14px;
-    background-image: url('img/icons/soccerball.png');
-    background-size: cover; /* Make sure the image fits the size */
+    left: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1rem;
+    top: 2px;
 }
 
-
 .news-section ul li a {
-    text-decoration: underline;
-    color: #555;
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
 .news-section ul li a:hover {
     text-decoration: underline;
-    color: #333;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: row;
-    }
-
-    .navbar nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-top: 0;
-    }
-
-    .navbar nav ul li a {
-        display: block;
-    }
-
-    main {
-        margin-top: 130px;
-    }
-}
-
-@media (min-width: 769px) {
-    .navbar nav ul {
-        display: flex;
-        justify-content: flex-start;
-    }
-}
-
-.section-heading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 1.25rem;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-    position: relative;
 }
 
 .year-heading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 1.25rem;
-    font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-    position: relative;
-    color: #888; /* Gray text color */
-}
-
-.section-heading span,
-.year-heading span {
-    display: inline-block;
-    position: relative;
-    z-index: 1; /* Ensure the text is above the lines */
-}
-
-.section-heading::before,
-.section-heading::after {
-    content: "";
-    flex-grow: 1; /* Allow the lines to grow dynamically */
-    height: 1px;
-    background-color: #333;
-    position: relative;
-    top: 50%;
-    z-index: 0; /* Ensure the lines are behind the text */
-    margin: 0 10px; /* Add space between the text and the lines */
-}
-
-.year-heading::before,
-.year-heading::after {
-    content: "";
-    flex-grow: 1; /* Allow the lines to grow dynamically */
-    height: 1px;
-    background-color: #888;
-    position: relative;
-    top: 50%;
-    z-index: 0; /* Ensure the lines are behind the text */
-    margin: 0 10px; /* Add space between the text and the lines */
-}
-
-.section-heading::before,
-.year-heading::before {
-    margin-right: 0px;
-}
-
-.section-heading::after,
-.year-heading::after {
-    margin-left: 0px;
-}
-
-.research-section, .focus-area-section {
-    margin-bottom: 30px;
-}
-
-.research-image-with-caption #smoothllm-image, 
-.research-image-with-caption #aisafety-image,
-.research-image-with-caption #robot-jailbreaking,
-.research-image-with-caption #prob-rob {
-    max-width: 95%;
-    margin-top: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-}
-
-.jump-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.jump-container a {
-    text-decoration: underline;
-    color: #555;
-    margin-right: 10px;
-}
-
-.jump-container a:hover {
-    text-decoration: underline;
-    color: #333;
-}
-
-.jump-text {
-    padding-right: 10px;
-}
-
-.research-section, .focus-area-section, .publications-section {
-    scroll-margin-top: 20px; /* Adds margin from the top when scrolling */
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-.focus-area-item {
-    margin-bottom: 30px;
-}
-
-.focus-area-item + .focus-area-item {
-    border-top: 1px solid #ccc; /* Add a gray divider between each focus area */
-    padding-top: 30px;
-}
-
-.focus-subtitle {
-    font-weight: bold;
-    text-align: left;
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    color: var(--secondary-text);
+    margin: 30px 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.focus-area-item p {
-    margin-left: 0px;
-    text-align: left;
-}
-
-.focus-list {
-    margin-left: 50px;
-    padding-left: 0;
-    list-style-type: disc;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.focus-list li {
-    margin-bottom: 5px;
-    font-size: 1rem;
-    line-height: 1.0rem;
-    color: #333;
-}
-
+/* Publications / Bibtex */
 .publications-section {
-    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .publication {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.publication-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 .publication-details {
     flex: 1;
-    max-width: calc(100% - 100px);
-}
-
-.publication-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin-right: 20px;
-    border: 1px solid #ccc;
+    min-width: 300px;
 }
 
 .publication-title {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: 5px;
 }
 
 .publication-authors {
-    font-size: 0.9rem;
+    color: var(--secondary-text);
     margin-bottom: 5px;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .publication-links-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-}
-
-.publication-links {
-    font-size: 0.9rem;
-    display: inline-block;
-    margin: 0;
-    margin-right: 20px; /* Add margin to create space between links and venue */
-}
-
-.publication-venue {
-    font-size: 0.9rem;
-    color: red;
-    font-weight: bold;
-    text-align: right;
-    white-space: nowrap;
-    margin-left: auto; /* Push venue to the right */
-    display: inline-block;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .publication-links a {
+    margin-right: 15px;
+    color: var(--accent-color);
     text-decoration: none;
-    color: #007BFF;
+    font-size: 0.95rem;
 }
 
 .publication-links a:hover {
     text-decoration: underline;
 }
 
-.bibtex-box {
-    background-color: #f9f9f9;
-    border: 1px solid #000;
-    padding: 2px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    font-family: monospace;
-    font-size: 0.8rem;
-    width: 100%;
-    box-sizing: border-box;
-    white-space: normal;
-    overflow-x: auto;
-    border-radius: 8px;
-    text-align: center;
+.publication-venue {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-left: auto;
 }
 
-.bibtex-box p {
-    margin: 0;
+.bibtex-box {
+    background-color: var(--light-gray);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: monospace; /* Keep monospace for code */
+    font-size: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    border-radius: 8px;
     text-align: left;
-    padding-left: 0;
+}
+
+/* Writing / Blog */
+.writing-section {
+    margin-bottom: 40px;
 }
 
 .blog-list {
@@ -454,325 +386,158 @@ html {
 }
 
 .blog-date {
-    color: #7a7a7a;
-    font-size: 0.9rem;
-    font-family: 'Menlo', monospace;
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+    font-family: 'Menlo', monospace; /* Optional: keep monospace for dates or use serif */
     white-space: nowrap;
-    margin-right: 10px;
+    margin-right: 15px;
+    min-width: 100px;
 }
 
 .blog-arrow {
     font-weight: bold;
-    color: red;
+    color: var(--accent-color);
     margin-right: 10px;
-    align-self: flex-start; /* Align arrow with the start of the title */
-    padding-top: 0px;
     font-size: 1.0rem;
 }
 
 .blog-item a {
-    color: #007BFF;
+    color: var(--accent-color);
     text-decoration: none;
-    word-wrap: break-word; /* Allow long titles to wrap onto a second line */
-    flex-grow: 1; /* Ensure the title aligns correctly and takes up remaining space */
-    margin-top: 0; /* Ensures title starts aligned with arrow */
+    word-wrap: break-word;
+    flex-grow: 1;
+    font-weight: 500;
 }
 
 .blog-item a:hover {
     text-decoration: underline;
 }
 
-.blog-post-title {
-    font-size: 1.6rem;
+/* Research / Focus Areas */
+.focus-area-section {
+    margin-bottom: 40px;
+}
+
+.focus-area-item {
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+.focus-area-item:last-child {
+    border-bottom: none;
+}
+
+.focus-subtitle {
     font-weight: bold;
-    margin-bottom: 20px;
+    text-align: left;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
-.blog-post-date, .blog-author {
-    font-size: 1rem;
-    color: #7a7a7a;
-    margin-bottom: 20px;
-}
-
-.blog-meta {
-    display: flex;
-    justify-content: space-between; /* Pushes the author left and the date right */
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.blog-post-content {
-    font-size: 1rem;
-    line-height: 1.3rem;
-    margin-bottom: 150px;
-}
-
-.blog-post-content p {
-    margin-bottom: 20px;
-    line-height: 1.3rem;
-}
-
-.blog-list-of-items li {
-    margin-bottom: 10px;
-    margin-left: 50px;
-}
-
-.blog-list-of-items {
-    margin-bottom: 20px;
-}
-
-.bold-text {
-    font-weight: bold;
-}
-
-.custom-blockquote {
-    font-size: 1.2rem; /* Larger font size for the quote */
-    font-style: italic;
-    color: #333; /* Optional: set text color */
-    border-left: 4px solid #ccc; /* Gray vertical bar */
-    padding-left: 15px; /* Space between the bar and the text */
-    margin: 20px 0; /* Space around the blockquote */
-    line-height: 1.3; /* Adjust line height for readability */
-}
-
-.scrollable-with-caption {
+.focus-list {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style-type: disc;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.scrollable-textbox {
-    max-height: 280px; /* Set max height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 15px; /* Add some padding inside the box */
-    background-color: #f9f9f9; /* Light background */
-    border: 1px solid #ccc; /* Border for the box */
-    border-radius: 5px; /* Slightly rounded corners */
-    margin: 20px 0; /* Margin to add space around the box */
-    font-size: 0.8rem; /* Match the font size of the rest of your page */
-    line-height: 1.0; /* Match line height */
-}
-
-/* Select only the direct child list items in the top-level ordered list */
-.scrollable-textbox > ol > li {
-    font-weight: bold; /* Apply bold to top-level list items */
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
-
-.scrollable-textbox .sub-list {
-    padding-left: 20px; /* Indentation for the sub-list */
-    margin-top: 10px; /* Adds space above sub-list */
-}
-
-.scrollable-textbox .sub-list-with-numbers {
-    padding-left: 40px;
-    margin-top: 10px;
-    font-weight: normal; /* Ensure sub-list items are not bold */
-    margin-bottom: 15px; /* Adjust margin for sub-list items */
-    line-height: 1.3;
-}
-
-.scrollable-textbox .sub-list-with-numbers li {
-    font-weight: normal; /* Ensure sub-list items are not bold */
-    margin-bottom: 5px; /* Adjust margin for sub-list items */
-    line-height: 1.3;
-}
-
-
-.scrollable-textbox .indented-text {
-    padding-left: 40px; /* Further indentation for the text under sub-headings */
-    margin-bottom: 15px; /* Adds space after each paragraph */
-    line-height: 1.3; /* Match line height for readability */
-}
-
-.scrollable-textbox .sub-list li {
-    font-weight: normal; /* Ensure sub-list items are not bold */
-    margin-bottom: 5px; /* Adjust margin for sub-list items */
-    line-height: 1.3;
-}
-
-.scrollable-textbox p {
-    font-weight: normal; /* Ensure paragraphs are not bold */
-    margin-bottom: 10px;
-}
-
-.scrollable-textbox .sub-list {
-    list-style-type: none; /* Remove numbering from inner list */
-}
-
-.double-indented-list {
-    padding-left: 40px; /* Further indent for the bulleted list */
-    margin-bottom: 15px; /* Adds space below the list */
-    list-style-type: disc; /* Makes it a bulleted list */
-}
-
-.triple-indented-list {
-    padding-left: 70px; /* Further indent for the bulleted list */
-    margin-bottom: 15px; /* Adds space below the list */
-    list-style-type: disc; /* Makes it a bulleted list */
-}
-
-.double-indented-list code {
-    display: block; /* Ensure code blocks break lines properly */
-    background-color: #c9c9c9; /* Cream background */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners */
-    margin: 10px;
-    line-height: 0.7;
-    font-family: Consolas, "Courier New", monospace;
-    padding-left: 20px;
-    font-size: 0.7rem;
-    white-space: pre-wrap; /* Ensures the text wraps when it reaches the end of the container */
-}
-
-.language-typescript code {
-    display: block; /* Ensure code blocks break lines properly */
-    background-color: #c9c9c9; /* Cream background */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners */
-    margin: 10px;
-    margin-left: 20px;
-    line-height: 1.2;
-    font-family: Consolas, "Courier New", monospace;
-    padding-left: 20px;
-    font-size: 0.7rem;
-    white-space: pre-wrap; /* Ensures the text wraps when it reaches the end of the container */
-}
-
-.subheading-section {
-    margin-bottom: 20px; /* Space between subheading sections */
-}
-
-.subheading {
-    font-size: 1.3rem; /* Slightly larger font size than normal */
-    font-weight: bold; /* Make the text bold */
-    text-align: left; /* Align text to the left */
-    margin-bottom: 10px; /* Space between the subheading and the following content */
-    position: relative;
-}
-
-.subheading::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #ccc; /* Gray divider */
-    margin-bottom: 20px; /* Space between the divider and the subheading */
-    margin-top: 20px;
-}
-
-.sub-subheading-section {
-    margin-bottom: 15px; /* Space between sub-subheading sections */
-}
-
-.sub-subheading {
-    font-size: 1.1rem; /* Slightly larger than normal font */
-    font-weight: bold; /* Make the text bold */
-    text-align: left; /* Align text to the left */
-    margin-bottom: 8px; /* Space between the sub-subheading and the following content */
-    position: relative;
+.focus-list li {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text-color);
 }
 
 .research-image-with-caption {
     text-align: center;
-    margin: 10px 0;
-    margin-bottom: 30px;
-    margin-top: 0px;
+    margin: 30px auto;
+    max-width: 100%;
 }
 
-.research-image-with-caption img {
+.research-image-with-caption img, 
+.wide-image {
     display: block;
     max-width: 100%;
     height: auto;
+    margin: 0 auto;
+    border-radius: 4px;
 }
 
-.image-with-caption,
-.tweet-with-caption {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.image-with-caption img,
-.tweet-with-caption blockquote {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    /* border: 2px solid #ddd; */
-    /* border-radius: 5px; */
-}
-
-.image-with-caption figcaption,
-.research-image-with-caption figcaption,
-.tweet-with-caption figcaption,
-.scrollable-with-caption figcaption {
+.research-image-with-caption figcaption {
     margin-top: 10px;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: var(--secondary-text);
     text-align: center;
+    font-style: italic;
 }
 
 .figure-label {
+    color: var(--accent-color);
     font-weight: bold;
-    color: red;
+    font-style: normal;
+    margin-right: 5px;
 }
 
-.figure-reference a {
-    text-decoration: underline;
-    color: #555;
-}
-
-.figure-reference a:hover {
-    color: #333; /* Optional: Darker color on hover */
-}
-
+/* Teaching */
 .teaching-item {
     display: flex;
     align-items: flex-start;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     width: 100%;
-    flex-wrap: wrap; /* Enables wrapping for responsiveness */
-    margin-bottom: 0;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.teaching-item + .teaching-item {
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
+.teaching-item:last-child {
+    border-bottom: none;
 }
 
 .teaching-logo {
     width: 80px;
     height: auto;
-    margin-right: 20px;
+    margin-right: 25px;
     border-radius: 50%;
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
 }
 
 .teaching-details {
     flex-grow: 1;
-    max-width: 70%;
+    max-width: calc(100% - 105px);
 }
 
 .teaching-details h2 {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-bottom: 5px;
 }
 
 .teaching-role {
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--text-color);
 }
 
 .teaching-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     width: 100%;
 }
 
+.teaching-term {
+    color: var(--secondary-text);
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
 .teaching-details a {
-    color: #007BFF;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -780,210 +545,119 @@ html {
     text-decoration: underline;
 }
 
-.teaching-term {
-    color: #666;
-    white-space: nowrap;
-    margin-left: 20px;
-}
-
-.bio-section p {
-    margin-bottom: 20px;
-}
-
-.bio-section a {
-    text-decoration: underline;
-    color: #555;
-}
-
-.no-links a {
-    pointer-events: none;
-    text-decoration: none;
-    color: inherit;
-}
-
-.toggle-button {
-    display: inline-block;
-    margin-top: 0px;
-    background-color: #555;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    text-align: right;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.toggle-button:hover {
-    background-color: #333;
-}
-
-.compress-button {
-    margin-right: 10px;
-}
-
-.bio-section p a {
-    text-decoration: underline;
-    color: #555;
-}
-
-.bio-section p a {
-    text-decoration: underline;
-    color: #555;
-}
-
-.bio-section p a {
-    text-decoration: underline;
-    color: #555;
-}
-
-.link-container a {
-    text-decoration: none;
-    color: #555;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-right: 10px;
-}
-
-.link-container a:hover {
-    text-decoration: underline;
-    color: #333;
-}
-
-.link-container {
-    text-align: right;
-    margin-top: 0px;
-    padding-top: 0px;
-}
-
-/* Add hover effect for zoomable images */
-img[data-zoomable],
-table[data-zoomable] {
-    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Smooth hover transition */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-img[data-zoomable]:hover,
-table[data-zoomable]:hover {
-    transform: translateY(-5px); /* Move the image up slightly on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add a soft shadow to the image on hover */
-}
-
-/* Fullscreen background overlay */
-#image-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Darken the background */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-#image-overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-}
-
-#image-overlay.active {
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Fullscreen background overlay for tables */
-#table-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Darken the background */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-#table-overlay table {
-    max-width: 40%;
-    max-height: 50%;
-    background-color: white;
-    padding: 20px;
-    overflow: auto; /* Ensure the table is scrollable if it's large */
-    transform: scale(1.2); /* Scale the table to make it larger */
-    border-radius: 10px;
-}
-
-#table-overlay.active {
-    display: flex;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-#table-overlay .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        display: flex;
+        flex-direction: column-reverse; /* Puts sidebar (last in html) on top visually */
     }
-    to {
-        opacity: 1;
+    
+    .sidebar {
+        text-align: center;
+        margin-bottom: 40px;
+        /* Ensure items are centered on mobile too */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .profile-img {
+        margin: 0 auto 20px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        justify-content: center; /* Added to center items */
+    }
+    
+    .navbar nav ul {
+        justify-content: center; /* Center nav links */
+    }
+
+    .teaching-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .teaching-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .teaching-details {
+        max-width: 100%;
+    }
+
+    .teaching-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .teaching-term {
+        margin-left: 0;
+    }
+
+    .publication {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .publication-img {
+        margin-bottom: 15px;
+    }
+
+    .publication-links-container {
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .publication-venue {
+        margin-left: 0;
     }
 }
 
-.custom-table {
-    width: 100%;
-    text-align: center;
-    font-size: 0.8rem; /* Smaller font */
-    border-collapse: collapse; /* Ensure proper collapsing of borders */
-}
+/* Utility */
+.text-center { text-align: center; }
+.bold-text { font-weight: bold; }
 
-.custom-table th, 
-.custom-table td {
-    padding: 0px;
+/* Specific overrides/preservations */
+#image-overlay, #table-overlay { /* Preserve overlays if used in JS */
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center; align-items: center;
+    z-index: 9999;
 }
+#image-overlay.active, #table-overlay.active { display: flex; }
 
-.custom-table td:first-child {
-    width: 25%; /* Make the first column wider */
+/* Quote Toggle Styles */
+.quote-toggle {
+    color: #999;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 0.8rem;
+    user-select: none;
 }
-
-.custom-table td {
-    width: 15%; /* The remaining columns will adjust proportionally */
+.quote-toggle:hover {
+    color: var(--accent-color);
 }
-
-.custom-table thead {
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333; /* Horizontal line below the header */
+/* Quotes hidden by default */
+.press-quote {
+    display: none;
 }
-
-.custom-table tfoot {
-    border-top: 2px solid #333; /* Horizontal line above the footer */
-}
-
-.custom-table tbody tr + tr {
-    border-top: none; /* Remove horizontal lines between rows */
-}
-
-.custom-table tbody td {
-    border-top: none; /* No vertical or additional horizontal lines */
-}
-
-.custom-table th {
-    font-weight: bold;
-}
-
-.custom-table tfoot tr td {
-    font-weight: bold;
-    border-bottom: 2px solid #333; /* Horizontal line at the bottom */
+/* Quotes visible when active */
+.press-quote.active {
+    display: block;
 }

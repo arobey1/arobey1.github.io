@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../navbar.js"></script>
+    <style>
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <a href="./" class="brand">Alex Robey</a>
+                <nav>
+                    <ul>
+                        <li><a href="bio/">bio</a></li>
+                        <li><a href="papers/">papers</a></li>
+                        <li><a href="research/">research</a></li>
+                        <li><a href="teaching/">teaching</a></li>
+                        <li><a href="writing/">writing</a></li>
+                        <li><a href="files/cv.pdf" target="_blank">cv</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <h1>Navbar Test</h1>
+            <p>This page tests the navigation functionality.</p>
+            
+            <div class="path-info">
+                <p><strong>Current URL:</strong> <span id="current-url"></span></p>
+                <p><strong>Current Path:</strong> <span id="current-path"></span></p>
+                <p><strong>Path Segments:</strong> <span id="path-segments"></span></p>
+                <p><strong>Calculated Root Path:</strong> <span id="root-path"></span></p>
+            </div>
+            
+            <h2>Generated Navigation Links:</h2>
+            <table id="link-table">
+                <thead>
+                    <tr>
+                        <th>Text</th>
+                        <th>Original href</th>
+                        <th>Processed href</th>
+                        <th>Full URL</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+        // Debug script to show the calculated paths
+        document.addEventListener('DOMContentLoaded', function() {
+            // Display current URL information
+            const currentUrl = window.location.href;
+            const currentPath = window.location.pathname;
+            document.getElementById('current-url').textContent = currentUrl;
+            document.getElementById('current-path').textContent = currentPath;
+            
+            const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+            document.getElementById('path-segments').textContent = JSON.stringify(pathSegments);
+            
+            let rootPath = './';
+            if (pathSegments.length > 0) {
+                rootPath = '../'.repeat(pathSegments.length);
+            }
+            document.getElementById('root-path').textContent = rootPath;
+            
+            // Show all nav links in a table
+            const navLinks = document.querySelectorAll('.navbar nav ul li a');
+            const tableBody = document.querySelector('#link-table tbody');
+            
+            navLinks.forEach(link => {
+                const row = document.createElement('tr');
+                
+                // Text content
+                const textCell = document.createElement('td');
+                textCell.textContent = link.textContent;
+                row.appendChild(textCell);
+                
+                // Original href
+                const origHrefCell = document.createElement('td');
+                origHrefCell.textContent = link.getAttribute('href');
+                row.appendChild(origHrefCell);
+                
+                // Processed href
+                const procHrefCell = document.createElement('td');
+                procHrefCell.textContent = link.href;
+                row.appendChild(procHrefCell);
+                
+                // Full URL
+                const urlCell = document.createElement('td');
+                urlCell.textContent = link.href;
+                row.appendChild(urlCell);
+                
+                tableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html> 

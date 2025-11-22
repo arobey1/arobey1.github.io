@@ -24,10 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="./" class="brand">Alex Robey</a>
                 <nav>
                     <ul>
-                        <li><a href="bio/">bio</a></li>
                         <li><a href="papers/">papers</a></li>
                         <li><a href="research/">research</a></li>
-                        <li><a href="teaching/">teaching</a></li>
                         <li><a href="writing/">writing</a></li>
                         <li><a href="files/cv.pdf" target="_blank">cv</a></li>
                     </ul>

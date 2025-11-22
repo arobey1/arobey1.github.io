@@ -18,12 +18,214 @@
     </script>
     <link rel="stylesheet" href="../styles.css">
     <script src="../navbar/navbar-loader.js"></script>
+    <style>
+        .blog-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+        }
+        
+        .image-with-caption {
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .image-with-caption img, 
+        .image-with-caption iframe,
+        .tweet-container {
+            width: 75%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        /* Center twitter widget iframe explicitly if needed */
+        .twitter-tweet {
+            margin: 0 auto !important;
+        }
+        
+        .figure-label {
+            font-weight: bold;
+            color: #ff8c00;
+        }
+
+        figcaption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Table styling */
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            color: #333;
+        }
+        
+        .custom-table th, .custom-table td {
+            padding: 8px 10px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+        }
+        
+        .custom-table th:last-child, .custom-table td:last-child {
+            border-right: none;
+        }
+        
+        .custom-table thead {
+            border-bottom: 2px solid #333;
+            background-color: #d9e2e8;
+        }
+        
+        .custom-table th {
+            font-weight: bold;
+        }
+        
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #ecf1f5;
+        }
+        
+        .custom-table tfoot {
+            border-top: 2px solid #333;
+            background-color: #d9e2e8;
+            font-weight: bold;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Scrollable textbox styling */
+        .scrollable-with-caption {
+            position: relative;
+            margin: 30px auto;
+            max-width: 100%;
+        }
+
+        .scrollable-textbox {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            /* white-space: pre-wrap; Removed to fix indentation issues */
+        }
+
+        /* Scroll hint */
+        .scroll-hint {
+            position: absolute;
+            bottom: 35px;
+            right: 25px;
+            font-size: 0.75rem;
+            color: #999;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 10px;
+            border-radius: 999px;
+            pointer-events: none;
+            border: 1px solid #eee;
+            z-index: 10;
+        }
+
+        .scrollable-with-caption figcaption {
+            text-align: center;
+        }
+
+        /* List styling inside scrollable box */
+        .scrollable-textbox ol, .scrollable-textbox ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .scrollable-textbox li {
+            margin-bottom: 8px;
+        }
+
+        .scrollable-textbox p {
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        /* Style code blocks inside list items */
+        .scrollable-textbox li > code {
+            display: block;
+            background-color: #eaeaea;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0 10px 0;
+            white-space: pre;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        /* Link styling */
+        .blog-container a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+        
+        .blog-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Blog content lists */
+        .blog-post-content ul, .blog-post-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+        /* Blog content paragraphs */
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .sub-subheading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
         </header>
-        
+    </div>
+
+    <div class="blog-container">
         <main>
 
             <script>
@@ -855,7 +1057,7 @@
                                     <ul class="double-indented-list">
                                         <li>Function name: Spin
                                             <code>start_rotate(angle=-90)  # Turn left 90 degrees
-                                                start_rotate(angle=+90)  # Turn right 90 degrees</code>
+start_rotate(angle=+90)  # Turn right 90 degrees</code>
                                         </li>
                                     
                                         <li>Function name: Act coquettish
@@ -880,7 +1082,7 @@
                                     
                                         <li>Function name: Walk
                                             <code>walking(distance=+1)  # Walk forward 1 meter
-                                                walking(distance=-1)  # Walk backward 1 meter</code>
+walking(distance=-1)  # Walk backward 1 meter</code>
                                         </li>
                                     
                                         <li>Function name: Stop
@@ -897,7 +1099,7 @@
                                     
                                         <li>Function name: Switch gait
                                             <code>switch_gait(gait=1)  # Walk
-                                                switch_gait(gait=2)  # Run</code>
+switch_gait(gait=2)  # Run</code>
                                         </li>
                                     
                                         <li>Function name: Sit down
@@ -913,8 +1115,8 @@
                                         </li>
                                     
                                         <li>Function name: Dance segment
-                                            <code>dance(name=1)  # Dance segment 1
-                                                dance(name=2)  # Dance segment 2</code>
+                                            <code>dance(name=1)  # Dance segment
+dance(name=2)  # Dance segment 2</code>
                                         </li>
                                     
                                         <li>Function name: Say "Happy New Year"
@@ -943,12 +1145,12 @@
                                     
                                         <li>Function name: Control volume
                                             <code>set_volume(value="10%+") # Increase volume by 10%
-                                                set_volume(value="10%-") # Decrease volume by 10%</code>
+set_volume(value="10%-") # Decrease volume by 10%</code>
                                         </li>
                                     
                                         <li>Turn obstacle avoidance on/off
                                             <code>avoid_obstacle(switch="on")
-                                                avoid_obstacle(switch="off")</code>
+avoid_obstacle(switch="off")</code>
                                         </li>
                                     
                                         <li>Function name: Vision question answering
@@ -1058,6 +1260,7 @@
 } // namespace functions</code></pre>
                         </ol>
                     </div>
+                    <div class="scroll-hint">Scroll for more ▼</div>
                     <figcaption><span class="figure-label">Figure: </span>The Unitree Go2's system prompt (scroll down to see more).</figcaption>
                     </figure> 
 
