@@ -234,6 +234,15 @@ body {
     font-size: 0.9rem;
 }
 
+/* Date Label for aligning dates in lists */
+.date-label {
+    color: #666;
+    font-size: 0.85rem;
+    display: inline-block;
+    min-width: 110px;
+    /* margin-right: 5px; */
+}
+
 /* Section Headings (kept for other pages) */
 .section-heading {
     display: flex;
