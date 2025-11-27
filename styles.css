@@ -692,3 +692,9 @@ body {
 .view-all-link:hover {
     text-decoration: underline;
 }
+
+/* Bold and Orange Text for 'Me' */
+.me {
+    font-weight: bold;
+    color: var(--accent-color);
+}
