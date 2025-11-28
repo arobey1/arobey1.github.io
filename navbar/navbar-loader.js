@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><a href="papers/">papers</a></li>
                         <li><a href="research/">research</a></li>
                         <li><a href="writing/">writing</a></li>
+                        <li><a href="crosswords/">crosswords</a></li>
                         <li><a href="files/cv.pdf" target="_blank">cv</a></li>
                     </ul>
                 </nav>
