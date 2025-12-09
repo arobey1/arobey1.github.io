@@ -4,466 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../img/icons/soccerball.png">
-    <title>Crosswords - Alex Robey</title>
+    <title>Alex Robey :: Crosswords</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../navbar/navbar-loader.js"></script>
     <style>
-        /* Scope game font to wrapper so navbar retains site font */
-        .crossword-wrapper {
-            font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 0 20px 0; /* Reduced top padding to move closer to navbar */
-            width: 100%;
+        .crosswords-container {
+            max-width: 1200px; /* Wider for the mosaic */
             margin: 0 auto;
+            padding: 40px 20px;
         }
         
-        /* Hidden title/author */
-        #puzzle-title, #puzzle-author {
-            display: none;
+        .crosswords-header {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            text-align: center;
         }
-
-        .game-container {
-            display: flex;
-            gap: 10px; /* Reduced gap to bring clues closer */
-            align-items: flex-start;
-            justify-content: space-between;
-            width: 100%;
-            /* max-width removed to rely on parent container */
-        }
-
-        .puzzle-area {
+        
+        .search-container {
+            margin: 20px auto;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-        }
-
-        .clue-banner {
-            width: 100%;
-            background-color: #a7d8ff; /* Same as highlighted clue */
-            padding: 12px 20px;
-            margin-bottom: 15px; /* Added gap between clue box and grid */
-            text-align: left; /* Left align */
-            font-size: 1.1rem;
-            font-weight: 500;
-            min-height: 3.5em;
-            display: flex;
-            align-items: center; /* Vertically centered per request */
-            justify-content: flex-start; /* Left align flex content */
-            /* Removed border-radius */
-            /* Removed border */
-            border: none;
-            color: #000;
-        }
-        
-        .toolbar {
-            width: 100%;
-            background-color: #f1f1f1; /* Light gray background for toolbar */
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: center; /* Centered buttons */
-            padding: 5px 20px;
-            margin-bottom: 0; /* Flush with clue box */
             gap: 15px;
-        }
-
-        .toolbar-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.9rem;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-        
-        .toolbar-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        /* Dropdown styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 4px;
-            padding: 5px 0;
-            left: 0;
-            top: 100%;
-        }
-
-        .dropdown-content div {
-            color: black;
-            padding: 8px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .dropdown-content div:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown:hover .toolbar-btn {
-            background-color: #ddd;
-        }
-
-        .grid {
-            display: grid;
-            gap: 1px; /* Create 1px grid lines via background color */
-            background-color: #000;
-            /* Uniform 4px border */
-            border: 4px solid #000;
-            box-sizing: content-box;
-            user-select: none;
-            box-shadow: none;
-        }
-
-        .cell {
-            background-color: #fff;
-            position: relative;
-            /* Let grid control size */
-            width: 100%; 
-            height: 100%;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 500;
-            text-transform: uppercase;
-            cursor: pointer;
-            /* Removed inset box-shadow to fix double-border look and too-thick lines */
-        }
-
-        .cell.black {
-            background-color: #000;
-            cursor: default;
-        }
-
-        .cell.active {
-            background-color: #ffda00 !important; /* NYT Yellow */
         }
         
-        .cell.highlight {
-            background-color: #a7d8ff; /* NYT Blue */
-        }
-        
-        .cell.wrong {
-            color: red;
-        }
-        .cell.wrong .cell-content {
-            color: red;
-        }
-        .cell.revealed .cell-content {
-            color: #0d47a1; /* Dark blue for revealed text */
-        }
-        /* Pencil mark / triangle for revealed cells */
-        .cell.revealed::after {
-            content: '';
-            position: absolute;
-            top: 1px; /* Reduced offset */
-            right: 1px; /* Reduced offset */
-            width: 0; 
-            height: 0; 
-            border-left: 8px solid transparent; 
-            border-top: 8px solid red; 
-            border-bottom: none;
-        }
-        
-        /* Blue marker for checked correct cells */
-        .cell.checked-correct::after {
-            content: '';
-            position: absolute;
-            top: 1px; /* Reduced offset */
-            right: 1px; /* Reduced offset */
-            width: 0; 
-            height: 0; 
-            border-left: 8px solid transparent;
-            border-top: 8px solid #0d47a1;
-            border-bottom: none;
-        }
-        
-        .cell.checked-correct .cell-content {
-             color: #000; /* Keep text black for checked cells, or maybe blue? User said "same color as revealed color" before. 
-                           But now distinguishes markers. Let's assume text stays black for checked unless specified. 
-                           Actually, "for those cells that are correct, they should turn the same color as the revealed color" was previous request.
-                           If reveal marker is red, check marker is blue... maybe text color follows?
-                           Revealed text is blue. 
-                           Let's keep checked text black for now to distinguish, or blue?
-                           Let's stick to marker color request: "marker is blue for check, and red for reveal". */
-        }
-
-        .cell-number {
-            position: absolute;
-            top: 1px;
-            left: 2px;
-            font-size: 10px;
-            line-height: 1;
-            font-weight: normal;
-            pointer-events: none;
-            color: #333;
-        }
-        
-        .cell-content {
-            padding-top: 8px; 
-            pointer-events: none;
-            color: #000; /* Ensure filled letters are black */
-        }
-
-        /* Rebus Overlay Styles */
-        .rebus-overlay {
-            position: absolute;
-            background: white;
-            border: 2px solid #0d47a1;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5px;
-        }
-        
-        .rebus-input {
-            border: none;
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #eee;
+            border-radius: 30px;
             outline: none;
-            text-transform: uppercase;
-            font-family: 'Palatino', 'Palatino Linotype', 'Book Antiqua', serif;
-            font-weight: 500;
-            text-align: center;
-            width: 100px;
-            font-size: 20px;
-            background: transparent;
+            font-family: 'Palatino', serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .search-input:focus {
+            border-color: #a7d8ff;
+            box-shadow: 0 0 10px rgba(167, 216, 255, 0.3);
         }
 
-        .clues-panel {
-            display: flex;
-            flex-direction: row; /* Side by side */
-            gap: 10px;
-            flex: 1; /* Take up remaining space */
-            height: 600px; /* Fixed height to match grid + banner approx */
-            border: none;
-            background: transparent;
-        }
-
-        .clue-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: none;
-            background: transparent; /* Removed background color */
-            /* border-radius removed (was 8px) */
-        }
-
-        .clue-column h3 {
-            margin: 0;
-            padding: 12px 15px 5px 15px; /* Adjusted padding for alignment and closer underline */
-            /* Transparent header background */
-            background: transparent;
-            border-bottom: 2px solid #eee; /* Subtle separator */
-            font-size: 0.9rem; /* Reduced from 1.0rem */
-            font-weight: 900; /* Bolder */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #333; /* Darker text for better contrast/boldness */
+        /* Size Filter Slider */
+        .filter-container {
+            width: 100%;
             display: flex;
             align-items: center;
-        }
-        
-        /* Remove the triangle arrow */
-        .clue-column h3::before {
-            display: none;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
         }
 
-        .clue-list {
-            list-style: none;
-            padding: 5px 0;
-            margin: 0;
-            overflow-y: auto;
+        .slider-wrapper {
             flex: 1;
-            scrollbar-width: thin;
-        }
-        
-        .clue-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        .clue-list::-webkit-scrollbar-thumb {
-            background-color: #ccc;
-            border-radius: 3px;
-        }
-
-        .clue-item {
-            cursor: pointer;
-            padding: 6px 15px;
-            font-size: 0.85rem; /* Reduced from 0.9rem */
-            border-bottom: none; /* Remove lines between clues */
-            display: flex;
-            line-height: 1.4;
-            transition: background-color 0.1s;
             position: relative;
-            margin-bottom: 2px;
-            /* border-radius removed */
-            margin: 0 5px; /* Spacing for hover effect */
-        }
-        
-        .clue-item:hover {
-            background-color: #f5f5f5;
+            max-width: 400px; /* Restrict width for better region control */
+            padding: 0; /* Remove padding to simplify % calculations */
+            height: 40px; /* Height for slider + labels */
         }
 
-        /* Active Clue (the one we are typing in) */
-        .clue-item.selected {
-             background-color: #a7d8ff; 
-             font-weight: 500;
-        }
-        
-        /* Related Clue (the other direction for current cell) */
-        .clue-item.related {
-             background-color: #e1f5fe; /* Very light blue background */
-        }
-        
-        /* Vertical bar indicator for related clue */
-        .clue-item.related::after {
-            content: '';
+        .size-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            outline: none;
+            opacity: 0.8;
+            transition: opacity .2s;
+            margin: 0;
+            display: block;
             position: absolute;
-            left: 0; /* Moved to left */
-            top: 0;
-            bottom: 0;
-            width: 8px; /* Increased from 6px to 8px */
-            background-color: #ffda00; /* NYT Yellow */
-            /* border-radius removed */
+            top: 10px;
+            z-index: 2;
         }
 
-        .clue-num {
-            font-weight: 700;
-            margin-right: 8px;
-            min-width: 20px;
-            text-align: right;
-            color: #333;
-        }
-        
-        .clue-text {
-            flex: 1;
-            color: #222;
+        .size-slider:hover {
+            opacity: 1;
         }
 
-        /* Responsive adjustment */
-        @media (max-width: 900px) {
-            .game-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .clues-panel {
-                width: 100%;
-                max-width: 500px;
-                height: 350px;
-                flex-direction: row;
-            }
-            .clue-column {
-                height: 100%;
-            }
-        }
-        @media (max-width: 600px) {
-            .clues-panel {
-                flex-direction: column;
-                height: auto;
-                max-height: 500px;
-            }
-            .clue-column {
-                height: 250px;
-            }
-             .cell {
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
-            .cell-number {
-                font-size: 8px;
-            }
+        .size-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #a7d8ff;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 3;
         }
 
-        /* Success Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .size-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: #a7d8ff;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Tick marks for the slider */
+        .slider-ticks {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease;
         }
 
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
+        /* Separator Line */
+        .tick-separator {
+            position: absolute;
+            top: 8px; /* Align with slider track */
+            width: 2px;
+            height: 10px;
+            background: #ccc;
+            z-index: 1;
+            transform: translateX(-50%);
         }
 
-        .modal-content {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            border-top: 6px solid #ff8c00; /* Orange accent */
+        /* Label Centered in Region */
+        .tick-label {
+            position: absolute;
+            top: 25px;
+            font-size: 0.75rem;
+            color: #666;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-weight: 500;
         }
 
-        .modal-overlay.active .modal-content {
+        
+        /* The Mosaic Grid */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .mosaic-item {
+            aspect-ratio: 1;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .mosaic-item:hover {
+            transform: scale(1.15);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-color: #aaa;
+        }
+        
+        .mosaic-item.hidden {
+            display: none;
+        }
+        
+        .mini-grid {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            /* Grid template cols/rows set inline */
+            gap: 0;
+            background: #333; /* Grid lines color */
+            padding: 1px; /* Border */
+            box-sizing: border-box;
+        }
+        
+        .mini-cell {
+            background: #fff;
+        }
+        
+        .mini-cell.black {
+            background: #000;
+        }
+        
+        /* Tooltip / Overlay for Details */
+        .mosaic-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            padding: 8px;
+            font-size: 0.7rem;
+            transform: translateY(100%);
+            transition: transform 0.2s;
+            border-top: 1px solid #eee;
+            pointer-events: none; /* Let click pass through to item */
+        }
+        
+        .mosaic-item:hover .mosaic-info {
             transform: translateY(0);
         }
-
-        .modal-title {
-            font-size: 2rem;
+        
+        .info-title {
             font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 2px;
+            transition: color 0.2s;
         }
-
-        .modal-message {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #555;
+        
+        .mosaic-item:hover .info-title {
+            color: #ff8c00; /* Orange to match site theme */
         }
-
-        .modal-btn {
-            background-color: #ff8c00; /* Orange button */
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            font-family: inherit;
+        
+        .info-meta {
+            color: #666;
+            font-size: 0.65rem;
         }
-
-        .modal-btn:hover {
-            background-color: #e65100;
+        
+        /* Loading State */
+        #loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
         }
     </style>
 </head>
@@ -471,108 +244,174 @@
     <div class="container">
         <header></header>
         <main>
-            <div class="crossword-wrapper">
-                <div id="puzzle-title">Loading...</div>
-                <div id="puzzle-author"></div>
-                
-                <div class="game-container">
-                    <div class="puzzle-area">
-                        <!-- Toolbar above the grid (or below banner, user said "sleek buttons") -->
-                        <div class="toolbar">
-                            <div class="dropdown">
-                                <button class="toolbar-btn">Clear</button>
-                                <div class="dropdown-content">
-                                    <div id="btn-clear-word">Word</div>
-                                    <div id="btn-clear-puzzle">Puzzle</div>
-                                </div>
+            <div class="crosswords-container">
+                <div class="crosswords-header">
+                    <h1>Crossword Archive</h1>
+                    <div class="search-container">
+                        <input type="text" id="search-input" class="search-input" placeholder="Search puzzles by title, author, or date...">
+                        <div class="filter-container">
+                            <div class="slider-wrapper">
+                                <input type="range" id="size-slider" class="size-slider" min="0" max="100" value="0" step="0.1">
+                                <div id="slider-ticks" class="slider-ticks"></div>
                             </div>
-                            <div class="dropdown">
-                                <button class="toolbar-btn">Reveal</button>
-                                <div class="dropdown-content">
-                                    <div id="btn-reveal-cell">Cell</div>
-                                    <div id="btn-reveal-word">Word</div>
-                                    <div id="btn-reveal-puzzle">Puzzle</div>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <button class="toolbar-btn">Check</button>
-                                <div class="dropdown-content">
-                                    <div id="btn-check-cell">Cell</div>
-                                    <div id="btn-check-word">Word</div>
-                                    <div id="btn-check-puzzle">Puzzle</div>
-                                </div>
-                            </div>
-                            <button class="toolbar-btn" id="btn-rebus">Rebus</button>
-                        </div>
-
-                        <div class="clue-banner" id="clue-banner">
-                            Click a square to start playing
-                        </div>
-
-                        <div id="grid-container" class="grid"></div>
-                        
-                        <!-- Rebus Input Overlay -->
-                        <div id="rebus-overlay" class="rebus-overlay" style="display: none;">
-                            <input type="text" id="rebus-input" class="rebus-input" autocomplete="off">
-                        </div>
-                    </div>
-                    
-                    <div class="clues-panel">
-                        <div class="clue-column">
-                            <h3>Across</h3>
-                            <ul id="across-clues" class="clue-list"></ul>
-                        </div>
-                        <div class="clue-column">
-                            <h3>Down</h3>
-                            <ul id="down-clues" class="clue-list"></ul>
                         </div>
                     </div>
                 </div>
+                
+                <div id="loading">Loading archive...</div>
+                <div id="mosaic-grid" class="mosaic-grid"></div>
             </div>
-            
-            <!-- Success Modal -->
-    <div id="success-modal" class="modal-overlay">
-        <div class="modal-content">
-            <!-- Fun Cartoon SVG -->
-            <svg width="120" height="120" viewBox="0 0 100 100" class="success-cartoon">
-                <!-- Bounce Animation -->
-                <style>
-                    .success-cartoon {
-                        margin-bottom: 15px;
-                        animation: bounce-cartoon 2s infinite ease-in-out;
-                    }
-                    @keyframes bounce-cartoon {
-                        0%, 100% { transform: translateY(0) rotate(0deg); }
-                        25% { transform: translateY(-10px) rotate(-5deg); }
-                        75% { transform: translateY(-10px) rotate(5deg); }
-                    }
-                </style>
-                <!-- Head -->
-                <rect x="20" y="25" width="60" height="55" rx="12" ry="12" fill="#a7d8ff" stroke="#333" stroke-width="3" />
-                <!-- Eyes -->
-                <circle cx="38" cy="48" r="6" fill="#333" />
-                <circle cx="62" cy="48" r="6" fill="#333" />
-                <!-- Cheeks -->
-                <circle cx="32" cy="58" r="4" fill="#ff8c00" opacity="0.5" />
-                <circle cx="68" cy="58" r="4" fill="#ff8c00" opacity="0.5" />
-                <!-- Smile -->
-                <path d="M 38 65 Q 50 75 62 65" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" />
-                <!-- Antenna -->
-                <line x1="50" y1="25" x2="50" y2="10" stroke="#333" stroke-width="3" />
-                <circle cx="50" cy="8" r="5" fill="#ffda00" stroke="#333" stroke-width="2" />
-                <!-- Confetti bits -->
-                <circle cx="15" cy="20" r="3" fill="#ff8c00" />
-                <circle cx="85" cy="25" r="3" fill="#0d47a1" />
-                <rect x="10" y="80" width="6" height="6" fill="#ffda00" transform="rotate(20 13 83)" />
-                <rect x="85" y="70" width="6" height="6" fill="#ff8c00" transform="rotate(-15 88 73)" />
-            </svg>
-            <div class="modal-title">Congratulations!</div>
-            <div class="modal-message">You solved the puzzle!</div>
-            <button id="btn-view-solved" class="modal-btn">View Solved Puzzle</button>
-        </div>
-    </div>
         </main>
     </div>
-    <script src="crossword.js"></script>
+    
+    <script>
+        let puzzles = [];
+        
+        // Elements
+        const searchInput = document.getElementById('search-input');
+        const sizeSlider = document.getElementById('size-slider');
+        // const sizeValueDisplay removed
+        const sliderTicksContainer = document.getElementById('slider-ticks');
+        const loadingEl = document.getElementById('loading');
+        const gridContainer = document.getElementById('mosaic-grid');
+        
+        let uniqueSizes = [0]; // 0 represents "All"
+
+        async function loadPuzzles() {
+            try {
+                const response = await fetch('puzzles.json');
+                if (!response.ok) throw new Error('Failed to load index');
+                puzzles = await response.json();
+                
+                renderMosaic(puzzles);
+                setupFilters(puzzles);
+                loadingEl.style.display = 'none';
+            } catch (e) {
+                console.error(e);
+                loadingEl.textContent = "Error loading archive.";
+            }
+        }
+        
+        function renderMosaic(items) {
+            gridContainer.innerHTML = '';
+            
+            items.forEach(puz => {
+                const item = document.createElement('a');
+                item.className = 'mosaic-item';
+                item.href = `puzzle.html?file=${puz.filename}`;
+                // Note: filename in JSON doesn't include puzzles/ prefix, it's added in crossword.js
+                item.dataset.search = `${puz.title} ${puz.author} ${puz.date}`.toLowerCase();
+                item.dataset.size = puz.width; 
+                
+                // Create Mini Grid Visualization
+                const gridDiv = document.createElement('div');
+                gridDiv.className = 'mini-grid';
+                gridDiv.style.gridTemplateColumns = `repeat(${puz.width}, 1fr)`;
+                gridDiv.style.gridTemplateRows = `repeat(${puz.height}, 1fr)`;
+                
+                // We rely on the flattened grid array from JSON
+                // 0 = black, 1 = white
+                puz.grid.forEach(cellVal => {
+                    const cell = document.createElement('div');
+                    cell.className = cellVal === 0 ? 'mini-cell black' : 'mini-cell';
+                    gridDiv.appendChild(cell);
+                });
+                
+                item.appendChild(gridDiv);
+                
+                // Info Overlay
+                const info = document.createElement('div');
+                info.className = 'mosaic-info';
+                info.innerHTML = `
+                    <span class="info-title">${puz.title}</span>
+                    <div class="info-meta">${puz.author}</div>
+                    <div class="info-meta">${puz.date}</div>
+                `;
+                item.appendChild(info);
+                
+                gridContainer.appendChild(item);
+            });
+        }
+
+        function setupFilters(items) {
+            // Extract unique sizes
+            const sizes = new Set(items.map(p => p.width));
+            uniqueSizes = [0, ...Array.from(sizes).sort((a, b) => a - b)];
+            
+            // Setup Slider for Continuous Scroll
+            sizeSlider.max = 100;
+            sizeSlider.step = 0.5; 
+            sizeSlider.value = 0;
+            // No value display update
+            
+            // Generate Regions
+            sliderTicksContainer.innerHTML = '';
+            
+            const numRegions = uniqueSizes.length;
+            const regionWidth = 100 / numRegions;
+            
+            // Add Separators
+            for (let i = 1; i < numRegions; i++) {
+                const separator = document.createElement('div');
+                separator.className = 'tick-separator';
+                separator.style.left = `${i * regionWidth}%`;
+                sliderTicksContainer.appendChild(separator);
+            }
+            
+            // Add Labels (Centered in regions)
+            uniqueSizes.forEach((size, index) => {
+                const labelEl = document.createElement('div');
+                labelEl.className = 'tick-label';
+                const labelText = size === 0 ? 'All' : `${size}x${size}`;
+                
+                // Center: start of region + half width
+                const centerPos = (index * regionWidth) + (regionWidth / 2);
+                
+                labelEl.style.left = `${centerPos}%`;
+                labelEl.textContent = labelText;
+                sliderTicksContainer.appendChild(labelEl);
+            });
+            
+            sizeSlider.addEventListener('input', updateFilters);
+            searchInput.addEventListener('input', updateFilters);
+        }
+
+        function updateFilters() {
+            const term = searchInput.value.toLowerCase();
+            
+            // Continuous Slider Logic: Map 0-100 to REGION index
+            const sliderVal = parseFloat(sizeSlider.value);
+            const numRegions = uniqueSizes.length;
+            const regionWidth = 100 / numRegions;
+            
+            // Calculate which region we are in
+            // floor(val / width) gives index
+            let sizeIndex = Math.floor(sliderVal / regionWidth);
+            // Clamp to max index
+            sizeIndex = Math.min(sizeIndex, numRegions - 1);
+            
+            const selectedSize = uniqueSizes[sizeIndex];
+            
+            // No value display update
+            
+            const items = document.querySelectorAll('.mosaic-item');
+            
+            items.forEach(item => {
+                const itemSize = parseInt(item.dataset.size);
+                const itemSearch = item.dataset.search;
+                
+                const matchesSearch = itemSearch.includes(term);
+                const matchesSize = selectedSize === 0 || itemSize === selectedSize;
+                
+                if (matchesSearch && matchesSize) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadPuzzles);
+    </script>
 </body>
 </html>

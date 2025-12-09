@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadPuzzle('uc251127.puz');
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file') || 'uc251127.puz';
+    // Load from puzzles/ subfolder
+    loadPuzzle(`puzzles/${file}`);
 });
 
 let puzzle = null;
@@ -44,26 +47,79 @@ function parsePuz(buffer) {
     offset += width * height;
 
     // Strings
-    // Read until end of buffer, then split by null bytes
-    const stringBytes = new Uint8Array(buffer.slice(offset));
-    let stringData = decoder.decode(stringBytes);
-    let strings = stringData.split('\0');
-
-    const title = strings[0];
-    const author = strings[1];
-    const copyright = strings[2];
+    // Read strings section - need to track byte position for extensions
+    const stringsStart = offset;
+    let stringsEnd = offset;
+    const strings = [];
+    const bufferArray = new Uint8Array(buffer);
     
-    // Clues
-    // Filter out empty strings if any (sometimes there are extra nulls at end)
+    // Read title, author, copyright, and clues (3 + numClues strings total)
+    // Use decoder for proper encoding handling, but track byte positions
+    for (let i = 0; i < 3 + numClues; i++) {
+        let str = '';
+        const strStart = stringsEnd;
+        // Read until null terminator
+        while (stringsEnd < buffer.byteLength && bufferArray[stringsEnd] !== 0) {
+            stringsEnd++;
+        }
+        // Decode the string properly
+        if (stringsEnd > strStart) {
+            str = decoder.decode(buffer.slice(strStart, stringsEnd));
+        }
+        strings.push(str);
+        stringsEnd++; // Skip null terminator
+    }
+    
+    const title = strings[0] || '';
+    const author = strings[1] || '';
+    const copyright = strings[2] || '';
     const cluesList = strings.slice(3, 3 + numClues);
     
+    // Debug: log parsed strings
+    console.log('Parsed strings:', {
+        title,
+        author,
+        copyright,
+        totalStrings: strings.length,
+        numClues,
+        cluesListLength: cluesList.length,
+        firstFewClues: cluesList.slice(0, 5),
+        allStrings: strings.slice(0, 10)
+    });
+    
+    // Parse extensions to find Markup (GEXT) extension
+    // Extension format: 4-byte code, 2-byte length, 2-byte checksum, data, 1 trailing byte
+    let markupData = null;
+    let extOffset = stringsEnd;
+    const MARKUP_CODE = 0x47455854; // 'GEXT' as little-endian uint32
+    
+    while (extOffset < buffer.byteLength - 8) {
+        const extCode = view.getUint32(extOffset, true); // Little endian
+        const extLength = view.getUint16(extOffset + 4, true);
+        
+        if (extCode === MARKUP_CODE && extLength > 0) {
+            // Found markup extension
+            markupData = new Uint8Array(buffer.slice(extOffset + 8, extOffset + 8 + extLength));
+            break;
+        }
+        
+        // Move to next extension (8 byte header + length + 1 trailing byte)
+        extOffset += 8 + extLength + 1;
+        
+        // Safety check
+        if (extLength === 0 || extOffset >= buffer.byteLength) break;
+    }
+    
     // Parse grid to assign numbers and map clues
+    // The .puz format stores clues in the order they appear during grid traversal
+    // (row by row, left to right), with across clues before down clues for each number
     const grid = [];
-    let clueIndex = 0;
+    const numberingSequence = []; // {number, dir, row, col} in traversal order
     const acrossClues = {};
     const downClues = {};
     
     let cellNumber = 1;
+    let clueIndex = 0;
     
     for (let r = 0; r < height; r++) {
         const row = [];
@@ -81,41 +137,77 @@ function parsePuz(buffer) {
                 const leftBlack = c === 0 || solution[r * width + (c - 1)] === '.';
                 const topBlack = r === 0 || solution[(r - 1) * width + c] === '.';
                 
+                // Check if word continues (length > 1)
+                let acrossLen = 0;
                 if (leftBlack) {
-                    isAcrossStart = true; 
+                    for (let cc = c; cc < width && solution[r * width + cc] !== '.'; cc++) {
+                        acrossLen++;
+                    }
+                    isAcrossStart = acrossLen > 1;
                 }
                 
+                let downLen = 0;
                 if (topBlack) {
-                     isDownStart = true;
+                    for (let rr = r; rr < height && solution[rr * width + c] !== '.'; rr++) {
+                        downLen++;
+                    }
+                    isDownStart = downLen > 1;
                 }
                 
                 if (isAcrossStart || isDownStart) {
                     number = cellNumber++;
-                }
-                
-                if (isAcrossStart) {
-                     if (clueIndex < cluesList.length) {
-                         acrossClues[number] = cluesList[clueIndex++];
-                     }
-                }
-                
-                if (isDownStart) {
-                    if (clueIndex < cluesList.length) {
-                         downClues[number] = cluesList[clueIndex++];
+                    
+                    // Add to numbering sequence in order (across first, then down)
+                    if (isAcrossStart) {
+                        numberingSequence.push({number, dir: 'across', row: r, col: c});
+                    }
+                    if (isDownStart) {
+                        numberingSequence.push({number, dir: 'down', row: r, col: c});
                     }
                 }
+            }
+            
+            // Check if cell is circled (markup bit 0x80)
+            let isCircled = false;
+            if (markupData && !isBlack) {
+                const markupByte = markupData[idx];
+                isCircled = (markupByte & 0x80) !== 0; // Circled flag is bit 7 (0x80)
             }
             
             row.push({
                 solution: char,
                 isBlack: isBlack,
                 number: number,
-                userVal: '' // Start empty
+                userVal: '', // Start empty
+                isCircled: isCircled
             });
         }
         grid.push(row);
     }
-
+    
+    // Assign clues in the exact order they appear in numberingSequence
+    for (const entry of numberingSequence) {
+        if (clueIndex < cluesList.length) {
+            if (entry.dir === 'across') {
+                acrossClues[entry.number] = cluesList[clueIndex++];
+            } else {
+                downClues[entry.number] = cluesList[clueIndex++];
+            }
+        }
+    }
+    
+    // Debug: log clue counts and details
+    console.log('Parsed clues:', {
+        totalClues: cluesList.length,
+        numberingSequenceLength: numberingSequence.length,
+        acrossCount: Object.keys(acrossClues).length,
+        downCount: Object.keys(downClues).length,
+        acrossNumbers: Object.keys(acrossClues).sort((a,b) => parseInt(a) - parseInt(b)),
+        downNumbers: Object.keys(downClues).sort((a,b) => parseInt(a) - parseInt(b)),
+        firstFewClues: cluesList.slice(0, 10),
+        numberingSequence: numberingSequence.slice(0, 10).map(e => `${e.number}${e.dir[0].toUpperCase()}`)
+    });
+    
     return {
         width,
         height,
@@ -146,6 +238,12 @@ function initGame() {
             }
         }
         if (found) break;
+    }
+    
+    // Fallback: if no cursor found, set to (0,0) - should never happen but safety check
+    if (!found) {
+        console.warn('No non-black cell found, setting cursor to (0,0)');
+        gameState.cursor = { row: 0, col: 0 };
     }
 
     renderStaticElements();
@@ -477,25 +575,52 @@ function renderStaticElements() {
     document.getElementById('puzzle-author').textContent = puzzle.author || '';
     
     const gridContainer = document.getElementById('grid-container');
-    gridContainer.style.gridTemplateColumns = `repeat(${puzzle.width}, 32px)`;
-    gridContainer.style.gridTemplateRows = `repeat(${puzzle.height}, 32px)`;
     
+    // Calculate dynamic cell size
+    const baseCellSize = 32;
+    const baseWidth = 15;
+    let cellSize = baseCellSize;
+    
+    // Target total width for 15x15 puzzle: (15 * 32) + (15 - 1) + 8 = 502px
+    const targetGridWidth = (baseWidth * baseCellSize) + (baseWidth - 1) + 8;
+    
+    // If puzzle is 10x10 or smaller (both dimensions <= 10), scale up to match 15x15 size
+    if (puzzle.width <= 10 && puzzle.height <= 10) {
+        // Calculate cell size to match target width: (w * cellSize) + (w - 1) + 8 = targetGridWidth
+        // Solving for cellSize: cellSize = (targetGridWidth - (w - 1) - 8) / w
+        cellSize = (targetGridWidth - (puzzle.width - 1) - 8) / puzzle.width;
+    }
+    // If puzzle is wider than 15 columns, scale down to fit roughly the same width
+    else if (puzzle.width > 15) {
+        cellSize = (baseWidth * baseCellSize) / puzzle.width;
+        // Ensure it doesn't get too small
+        cellSize = Math.max(cellSize, 16); 
+    }
+    
+    gridContainer.style.gridTemplateColumns = `repeat(${puzzle.width}, ${cellSize}px)`;
+    gridContainer.style.gridTemplateRows = `repeat(${puzzle.height}, ${cellSize}px)`;
+    
+    // Update CSS variables for font scaling
+    // 20px font for 32px cell => ratio ~0.625
+    const fontSize = Math.max(10, Math.floor(cellSize * 0.625));
+    // 10px number for 32px cell => ratio ~0.3125
+    const numFontSize = Math.max(8, Math.floor(cellSize * 0.3125));
+    
+    gridContainer.style.setProperty('--cell-font-size', `${fontSize}px`);
+    gridContainer.style.setProperty('--number-font-size', `${numFontSize}px`);
+    
+    // Calculate exact grid width
+    // Width = (cols * cellSize) + (cols - 1 * gap) + borders (8)
+    const exactGridWidth = (puzzle.width * cellSize) + (puzzle.width - 1) + 8;
+    
+    // Constrain banner and toolbar to grid width
+    document.getElementById('clue-banner').style.width = `${exactGridWidth}px`;
+    document.querySelector('.toolbar').style.width = `${exactGridWidth}px`;
+
     // Adjust clues panel height dynamically based on grid + banner height roughly
-    // Grid height = height * 32 + 8 (borders). Banner ~ 60. + Gap 30.
-    // To match grid height exactly (last row), we should calculate just the grid's pixel height.
-    // (puzzle.height * 34) + 8 + 60 + 15 = ~600.
-    // If user wants it to match "the last row of the crossword", they likely mean align bottom with grid.
-    // Grid container height is roughly: puzzle.height * 34 + 10 (borders).
-    // We have a banner above grid (~65px with padding/margin).
-    // So clues panel should be roughly Grid Height + Banner Height? 
-    // Or does "match the height of the crossword grid" mean align bottoms?
-    // If clues start at same top as banner (side-by-side?), no, they are side by side with grid area.
-    // The structure is: Game Container -> [Puzzle Area (Banner + Grid)]  [Clues Panel]
-    // So Clues Panel should equal Banner Height + Grid Height + Spacing.
-    
-    const bannerHeight = document.getElementById('clue-banner').offsetHeight + 13; // + margin
+    const bannerHeight = document.getElementById('clue-banner').offsetHeight + 15; // + margin
     // Grid height = (rows * cell_size) + (gaps * 1px) + borders (8px)
-    const gridHeight = (puzzle.height * 32) + (puzzle.height - 1) + 8; 
+    const gridHeight = (puzzle.height * cellSize) + (puzzle.height - 1) + 8; 
     const totalH = bannerHeight + gridHeight;
     
     document.querySelector('.clues-panel').style.height = `${totalH}px`;
@@ -518,6 +643,11 @@ function renderGrid() {
                 el.classList.add('black');
             } else {
                 el.addEventListener('mousedown', (e) => handleCellClick(r, c, e));
+                
+                // Check if cell is circled
+                if (cellData.isCircled) {
+                    el.classList.add('circled');
+                }
                 
                 // Check for revealed state
                 if (cellData.isRevealed) {
@@ -550,15 +680,43 @@ function renderCluesList() {
     const acrossList = document.getElementById('across-clues');
     const downList = document.getElementById('down-clues');
     
+    // Debug: check if puzzle and clues exist
+    if (!puzzle) {
+        console.error('Puzzle not loaded');
+        return;
+    }
+    console.log('Rendering clues:', {
+        hasAcrossClues: !!puzzle.acrossClues,
+        hasDownClues: !!puzzle.downClues,
+        acrossCount: puzzle.acrossClues ? Object.keys(puzzle.acrossClues).length : 0,
+        downCount: puzzle.downClues ? Object.keys(puzzle.downClues).length : 0,
+        acrossClues: puzzle.acrossClues,
+        downClues: puzzle.downClues
+    });
+    
     const renderList = (cluesObj, listEl, dir) => {
+        if (!cluesObj || !listEl) {
+            console.error(`Missing ${dir} clues or list element:`, {cluesObj, listEl});
+            return;
+        }
         listEl.innerHTML = '';
-        Object.keys(cluesObj).sort((a,b) => parseInt(a) - parseInt(b)).forEach(num => {
+        const clueKeys = Object.keys(cluesObj).sort((a,b) => parseInt(a) - parseInt(b));
+        console.log(`${dir} clues to render:`, clueKeys.length, clueKeys, 'Sample:', clueKeys.slice(0, 3).map(k => `${k}: ${cluesObj[k]?.substring(0, 30)}`));
+        if (clueKeys.length === 0) {
+            console.warn(`No ${dir} clues found!`);
+        }
+        clueKeys.forEach(num => {
+            const clueText = cluesObj[num];
+            if (!clueText) {
+                console.warn(`Empty clue for ${dir} ${num}`);
+                return;
+            }
             const li = document.createElement('li');
             li.className = 'clue-item';
             li.dataset.number = num;
             li.dataset.dir = dir;
             li.id = `clue-${dir}-${num}`;
-            li.innerHTML = `<span class="clue-num">${num}</span><span class="clue-text">${cluesObj[num]}</span>`;
+            li.innerHTML = `<span class="clue-num">${num}</span><span class="clue-text">${clueText}</span>`;
             li.addEventListener('click', () => selectClue(parseInt(num), dir));
             listEl.appendChild(li);
         });
@@ -654,7 +812,12 @@ function updateUI() {
     if (currentClue) {
         const dirText = gameState.direction === 'across' ? 'A' : 'D';
         // Bold number/direction, then space, then text
-        document.getElementById('clue-banner').innerHTML = `<strong>${currentClue.number}${dirText}</strong>&nbsp;&nbsp;&nbsp;&nbsp;${currentClue.text}`;
+        const banner = document.getElementById('clue-banner');
+        banner.innerHTML = `<div style="display: flex; flex-direction: row; align-items: center; height: 100%;">
+            <strong style="min-width: 35px; text-align: right; margin-right: 15px; flex-shrink: 0;">${currentClue.number}${dirText}</strong>
+            <span>${currentClue.text}</span>
+        </div>`;
+        adjustClueFontSize(banner);
         
         // Highlight primary clue
         const clueItem = document.getElementById(`clue-${gameState.direction}-${currentClue.number}`);
@@ -676,6 +839,20 @@ function updateUI() {
                      relatedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                  }
             }
+        }
+    } else {
+        // Fallback: if no current clue found, try to show first available clue
+        const banner = document.getElementById('clue-banner');
+        const firstAcrossNum = Object.keys(puzzle.acrossClues || {}).sort((a,b) => parseInt(a) - parseInt(b))[0];
+        if (firstAcrossNum && puzzle.acrossClues[firstAcrossNum]) {
+            banner.innerHTML = `<div style="display: flex; flex-direction: row; align-items: center; height: 100%;">
+                <strong style="min-width: 35px; text-align: right; margin-right: 15px; flex-shrink: 0;">${firstAcrossNum}A</strong>
+                <span>${puzzle.acrossClues[firstAcrossNum]}</span>
+            </div>`;
+            adjustClueFontSize(banner);
+        } else {
+            // Last resort: keep default message
+            banner.textContent = "Click a square to start playing";
         }
     }
 }
@@ -1067,3 +1244,21 @@ function moveCursorBack() {
         moveCursor(-1, 0);
     }
 }
+function adjustClueFontSize(el) {
+    const defaultSize = 1.1; // rem
+    const minSize = 0.8; // rem
+    let currentSize = defaultSize;
+    
+    el.style.fontSize = `${currentSize}rem`;
+    
+    // Check for overflow on the inner content div
+    const content = el.firstElementChild;
+    if (!content) return;
+    
+    // While the content height is greater than the container height
+    while (content.scrollHeight > el.clientHeight && currentSize > minSize) {
+        currentSize -= 0.05;
+        el.style.fontSize = `${currentSize}rem`;
+    }
+}
+

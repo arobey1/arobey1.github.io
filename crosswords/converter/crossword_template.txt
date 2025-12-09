@@ -1,0 +1,35 @@
+TITLE: Crossword 9
+AUTHOR: Unknown
+DATE: 2016-04-26
+COPYRIGHT: 
+
+GRID:
+A..EF.EBSQT..F.
+.A.RL.TLPA.A.ADA
+.NARMRLDALEL.PLP
+PSB...AE....A.ES
+ESL..MLREE.AVL..
+.HO.D...SE.PELSS
+....S..ATEUP.SAR
+C.LE.K.DGND..LDA
+AOU.MELAP..AY...
+.ADPLN.S...SER.P
+..PSD.BHE.RM..OW
+SBCT....SES..E.A
+R.R.CRBCFTHBWLEK
+.N..RAHLSA..ARRE
+ETS.EALELS.FRLSS
+
+ACROSS:
+1. First across clue
+2. Second across clue
+3. Third across clue
+...
+
+DOWN:
+1. First down clue
+2. Second down clue
+3. Third down clue
+...
+
+
