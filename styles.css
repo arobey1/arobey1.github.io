@@ -125,6 +125,17 @@ body {
     line-height: 1.4;
 }
 
+.sidebar-role a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.sidebar-role a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
 .sidebar-contact {
     font-size: 0.95rem;
     color: var(--secondary-text);
@@ -227,6 +238,32 @@ body {
 
 .tight-list li a:hover {
     text-decoration: underline;
+}
+
+/* Container for venue and links in papers tab */
+.paper-venue-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3px;
+}
+
+.paper-venue-links em {
+    margin-right: 0;
+}
+
+.paper-venue-links .paper-links {
+    margin-left: auto;
+}
+
+.paper-venue-links .paper-links a {
+    margin-left: 5px;
+}
+
+.paper-venue-links .paper-links a:first-child {
+    margin-left: 0;
 }
 
 /* Slightly smaller font inside tab windows only */
